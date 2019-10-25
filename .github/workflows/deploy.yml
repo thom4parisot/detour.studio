@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: oncletom/rsync-deployments@patch-1
         with:
-          RSYNC_OPTIONS: -avzr --delete --exclude node_modules
+          RSYNC_OPTIONS: -avzr --delete --exclude node_modules --exclude '.git*'
           RSYNC_TARGET: oncletom@ssh-oncletom.alwaysdata.net:/home/oncletom/www_detour_studio
         env:
           DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
