@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: contention/rsync-deployments@v1.0.0
         env:
-          DEPLOY_KEY: {{secrets.SSH_PRIVATE_KEY}}
+          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           HOME: /home/oncletom
           1: -avzr --delete
           2: --exclude node_modules
