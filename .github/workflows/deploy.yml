@@ -1,0 +1,17 @@
+name: Deploy to production
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    - uses: actions/checkout@master
+    - uses: contention/rsync-deployments@v1.0.0
+      with:
+        args: "-avzr --delete" "--exclude node_modules" "oncletom@ssh-oncletom.alwaysdata.net:${HOME}/www_detour_studio"
+      env:
+        DEPLOY_KEY: {{secrets.SSH_PRIVATE_KEY}}
+        HOME: /home/oncletom
