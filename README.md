@@ -1,2 +1,3 @@
 # detour.studio
-Un outil de travail multi-disciplinaire et généreux.
+
+Un outil de travail partagé, convivial et pragmatique.
