@@ -1,4 +1,5 @@
 baseURL = "https://détour.studio/"
+defaultContentLanguage = "fr"
 languageCode = "fr-FR"
 title = "détour.studio"
 
