@@ -1,0 +1,10 @@
+baseURL = "https://détour.studio/"
+languageCode = "fr-FR"
+title = "détour.studio"
+
+theme = "detour"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

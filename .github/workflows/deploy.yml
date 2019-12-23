@@ -10,7 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: oncletom/rsync-deployments@patch-1
+      - name: Setup
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.61.0'
+          extended: true
+      - name: Build
+        run: hugo --minify
+      - name: Deploy
+        uses: oncletom/rsync-deployments@patch-1
         with:
           RSYNC_OPTIONS: -avzr --delete --exclude node_modules --exclude '.git*'
           RSYNC_TARGET: oncletom@ssh-oncletom.alwaysdata.net:/home/oncletom/www_detour_studio
