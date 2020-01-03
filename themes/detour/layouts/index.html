@@ -2,4 +2,28 @@
 
   {{ .Content }}
 
+  {{ range (where (.Site.RegularPages) "Section" "works").GroupBy "Type" }}
+  <section aria-label="{{ .Key }}">
+    <h2>{{ .Key | title }}</h2>
+
+    <ul>
+      {{ range .Pages }}
+      <li>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  <h2>Weeknotes</h2>
+
+  <ul class="list--by-date">
+  {{ range where (.Site.RegularPages) "Section" "weeknotes" }}
+    <li>
+        <a href="{{.Permalink}}">{{.Title}} (<time datetime="{{ .Date.Format "2006-01-02T15:04:05-0700"}}">{{ .Date.Format "2/01/2006" }}</time>)</a>
+    </li>
+  {{ end }}
+  </ul>
+
 {{ end }}

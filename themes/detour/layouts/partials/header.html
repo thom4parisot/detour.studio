@@ -1,3 +1,11 @@
-<h1><span class="url-part">https://</span><wbr>détour<span class="url-part">.</span><wbr>studio</h1>
+<h1>
+  {{ if .IsHome }}
+  <span class="url-part">https://</span><wbr>détour<span class="url-part">.</span><wbr>studio
+  {{ else }}
+  <a href="{{ .Site.BaseURL }}" rel="home">
+    <span class="url-part">https://</span><wbr>détour<span class="url-part">.</span><wbr>studio
+  </a>
+  {{ end }}
+</h1>
 
 <p>Un <strong>outil</strong> de travail partagé, convivial et&nbsp;pragmatique.</p>

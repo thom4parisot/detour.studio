@@ -19,9 +19,16 @@ a:active {
   text-decoration: none;
 }
 
+ul {
+  list-style-position: inside;
+  margin: .5em 0;
+  padding: 0;
+}
+
 .url-part {
   color: #f4a460;
 }
+
 
 footer {
   font-size: .8em;
@@ -32,3 +39,7 @@ footer {
 <link rel="me" href="https://twitter.com/oncletom" type="text/html">
 <link rel="me" href="https://github.com/oncletom" type="text/html">
 <link rel="me" href="https://oncletom.io" type="text/html">
+{{ $Weeknotes := .Site.GetPage "weeknotes" }}
+{{ with $Weeknotes.AlternativeOutputFormats.Get "rss" -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s • %s" />` .Rel .MediaType.Type .Permalink $.Site.Title $Weeknotes.Title | safeHTML }}
+{{ end -}}
