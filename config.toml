@@ -5,6 +5,10 @@ title = "détour.studio"
 
 theme = "detour"
 
+[params]
+  description = "Studio de design et de développement de services numériques libres, conviviaux et qui ont du sens."
+
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

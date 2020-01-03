@@ -3,7 +3,7 @@
   {{ .Content }}
 
   {{ range (where (.Site.RegularPages) "Section" "works").GroupBy "Type" }}
-  <section aria-label="{{ .Key }}">
+  <section aria-label="{{ .Key | safeHTMLAttr }}">
     <h2>{{ .Key | title }}</h2>
 
     <ul>

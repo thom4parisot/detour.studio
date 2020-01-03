@@ -1,4 +1,4 @@
-<h1>
+<h1 aria-label="{{ .Site.Title | safeHTMLAttr }}">
   {{ if .IsHome }}
   <span class="url-part">https://</span><wbr>détour<span class="url-part">.</span><wbr>studio
   {{ else }}
@@ -8,4 +8,4 @@
   {{ end }}
 </h1>
 
-<p>Un <strong>outil</strong> de travail partagé, convivial et&nbsp;pragmatique.</p>
+<p class="site-description">{{ .Site.Params.Description }}</p>

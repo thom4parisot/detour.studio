@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-<article>
+<article aria-label="{{ .Title | safeHTMLAttr }}">
   <h2>{{ .Title }}</h2>
 
   {{ .Content }}

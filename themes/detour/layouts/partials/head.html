@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="initial-scale=1.0">
-<title>{{ .Site.Title }}</title>
+<title>{{ if .IsHome }}{{ .Title }} • {{ .Site.Params.Description }}{{ else }}{{ .Page.Title }} • {{ .Site.Title }}{{ end }}</title>
 <style type="text/css">
 body {
   background-color: #ffdfbf;
