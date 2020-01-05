@@ -3,7 +3,24 @@
 <article aria-label="{{ .Title | safeHTMLAttr }}">
   <h2>{{ .Title }}</h2>
 
+  <p class="subtitle">
+    Le {{ .Date.Format "02/01/2006" }}
+    {{- with .Params.written_in }}, à {{ . }}{{ end }}
+  </p>
+
   {{ .Content }}
+
+  {{ with .Params.network }}
+  <aside>
+    <h2>Ailleurs, au même moment</h2>
+
+    <ul class="words-list">
+    {{ range $url, $name := . }}
+    <li><a href="{{ $url }}" target="_blank">Chez {{ $name }}</a></li>
+    {{ end }}
+    </ul>
+  </aside>
+  {{ end }}
 </article>
 
 {{ end }}
