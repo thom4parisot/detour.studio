@@ -4,10 +4,39 @@ languageCode = "fr-FR"
 title = "détour.studio"
 
 theme = "detour"
+sectionPagesMenu = "works"
+buildFuture = true
 
 [params]
   description = "Studio de design et de développement de services numériques libres, conviviaux et qui ont du sens."
 
+[params.works]
+  order = [
+    "développement web",
+    "accompagnement",
+    "édition numérique",
+    "apprentissage",
+    "contribution"
+  ]
+
+  [params.works."développement web"]
+    icon = "👨‍💻"
+    # description = "Blah"
+  [params.works."accompagnement"]
+    icon = "🗺"
+  [params.works."édition numérique"]
+    icon = "📚"
+  [params.works."apprentissage"]
+    icon = "👥"
+  [params.works."contribution"]
+    icon = "👍"
+
+[params.people]
+  "Benjamin Grémillon" = "https://benjmng.eu"
+  "Julie Blanc" = "https://julie-blanc.fr"
+  "Julien Taquet" = "https://www.lesvoisinsdustudio.ch"
+  "Paul Girard" = "https://medialab.sciencespo.fr/equipe/paul-girard/"
+  "Samuel Huron" = "https://twitter.com/cybunk"
 
 [markup]
   [markup.goldmark]

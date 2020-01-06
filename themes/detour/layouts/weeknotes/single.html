@@ -8,11 +8,11 @@
     {{- with .Params.written_in }}, à {{ . }}{{ end }}
   </p>
 
-  {{ .Content }}
+  <div class="content measure-wide">{{ .Content }}</div>
 
   {{ with .Params.network }}
   <aside>
-    <h2>Ailleurs, au même moment</h2>
+    <h2>Ailleurs, au même moment…</h2>
 
     <ul class="words-list">
     {{ range $url, $name := . }}
