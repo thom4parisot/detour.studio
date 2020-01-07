@@ -1,11 +1,15 @@
-<h1 aria-label="{{ .Site.Title | safeHTMLAttr }}">
-  {{ if .IsHome }}
-  <span class="url-part">https://</span><wbr>détour<span class="url-part">.</span><wbr>studio
-  {{ else }}
-  <a href="{{ .Site.BaseURL }}" rel="home">
-    <span class="url-part">https://</span><wbr>détour<span class="url-part">.</span><wbr>studio
-  </a>
-  {{ end }}
-</h1>
+<header>
+  <h1 aria-label="{{ .Site.Title | safeHTMLAttr }}">
+    {{ if .IsHome }}
+    détour<span class="url-part">.</span><wbr>studio
+    {{ else }}
+    <a href="{{ .Site.BaseURL }}" rel="home">
+      détour<span class="url-part">.</span><wbr>studio
+    </a>
+    {{ end }}
+  </h1>
 
-<p class="site-description preamble measure-wide">{{ .Site.Params.Description }}</p>
+  <p class="site-description preamble measure-wide">{{ .Site.Params.Description }}</p>
+  <p>Par <a href="https://oncletom.io" rel="me">Thomas Parisot</a>.</p>
+
+</header>

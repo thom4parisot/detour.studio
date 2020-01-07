@@ -5,9 +5,30 @@
 <style type="text/css">
 body {
   background-color: #ffdfbf;
-  font: 21px/1.3 monospace;
+  font: 18px/1.3 monospace;
   margin: 0;
   padding: 1em;
+}
+@media screen and (min-width: 480px) {
+  body {
+    font-size: 21px;
+  }
+}
+
+body > header {
+  margin-bottom: 3em;
+}
+body > footer {
+  font-size: .8em;
+  margin-top: 3rem;
+}
+body > header:after,
+body > footer:before {
+  content: "";
+  border-bottom: 4px solid #ccc;
+  display: block;
+  width: 460px;
+  max-width: 66vw;
 }
 
 section {
@@ -58,6 +79,11 @@ ul {
     margin-right: .5em;
   }
 
+.list--by-date {
+  list-style-type: none;
+  padding-left: 0;
+}
+
 .work {
   display: flex;
   flex-direction: column;
@@ -73,11 +99,11 @@ ul {
     margin-top: -1.1em;
   }
 
+  .work .summary {
+    color: #555;
+    margin-top: -.2em;
+  }
 
-footer {
-  font-size: .8em;
-  margin-top: 10rem;
-}
 </style>
 <link rel="me" href="https://masto.oncletom.io/@thomas" type="text/html">
 <link rel="me" href="https://twitter.com/oncletom" type="text/html">
