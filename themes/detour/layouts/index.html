@@ -2,20 +2,30 @@
 
   {{ .Content }}
 
+  {{ $WeeknotesPage := .Site.GetPage "weeknotes" }}
   {{ $Weeknotes := where (.Site.RegularPages) "Section" "weeknotes" }}
   {{ $WorksByType := (where (.Site.RegularPages) "Section" "works").GroupBy "Type" }}
 
+  {{ with $WeeknotesPage }}
   <section id="weeknotes" aria-label="Weeknotes">
-    <h2>Weeknotes</h2>
+    <h2>
+      <span class="icon icon--emoji" aria-hidden="true">📰</span>
+      {{- .Title -}}
+    </h2>
 
-    <ul class="list--by-date">
+    {{ with .Summary }}
+    <p class="subtitle">{{ . }}</p>
+    {{ end }}
+
+    <ol class="list--by-date">
     {{ range $Weeknotes.ByDate.Reverse }}
       <li>
           <a href="{{.Permalink}}">{{.Title}} (<time datetime="{{ .Date.Format "2006-01-02T15:04:05-0700"}}">{{ .Date.Format "2/01/2006" }}</time>)</a>
       </li>
     {{ end }}
-    </ul>
+    </ol>
   </section>
+  {{ end }}
 
 
   {{ range $.Site.Params.works.order }}
@@ -24,12 +34,12 @@
     {{ $Works := (index (where $WorksByType ".Key" $Type) 0).Pages.ByDate.Reverse }}
     <section aria-label="{{ $Type | safeHTMLAttr }}">
       <h2>
-        {{- with $Config.icon }}<span class="icon icon--emoji" aria-hidden="true">{{ . }}</span>{{ end -}}
-        {{ $Type | title -}}
+        {{ with $Config.icon }}<span class="icon icon--emoji" aria-hidden="true">{{ . }}</span>{{ end }}
+        {{- $Type | title -}}
       </h2>
 
         {{ with $Config.description }}
-        <p class="preamble">{{ . }}</p>
+        <p class="subtitle measure-wide">{{ . }}</p>
         {{ end }}
 
         {{ range $Works }}
@@ -37,6 +47,7 @@
             <h3>{{ .Title }}</h3>
             {{ with .Params.for }}<p class="customer-name">{{ . }}</p>{{ end }}
             {{ with .Params.with }}<p class="with">Avec {{ delimit . ", " ", et " }}.</p>{{ end }}
+            {{ with .Summary }}<p class="summary description measure">{{ . }}</p>{{ end }}
         </article>
         {{ end }}
     </section>
