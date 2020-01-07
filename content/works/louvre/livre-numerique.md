@@ -6,4 +6,10 @@ status: done
 date: 2019-09-01
 via:
 - Antoine Fauchié
+stack:
+- Quire
+- Markdown
+- HTML
+- CSS
+- Node.js
 ---

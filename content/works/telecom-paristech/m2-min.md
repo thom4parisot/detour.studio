@@ -1,5 +1,5 @@
 ---
-title: Programmation de visualisations de données sur le Web
+title: Programmer des visualisations de données pour le Web
 type: apprentissage
 for: Télécom ParisTech
 status: ongoing

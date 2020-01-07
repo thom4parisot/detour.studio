@@ -9,4 +9,6 @@ stack:
 - CSS
 - Python
 - Vue.js
+- Docker
+- Circle CI
 ---

@@ -9,4 +9,8 @@ via:
 with:
 - Julien Taquet
 - Saul Pandelakis
+stack:
+- JavaScript
+- CSS
+- Glitch.com
 ---

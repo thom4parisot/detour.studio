@@ -1,5 +1,5 @@
 ---
-title: Refonte du site medialab.sciences-po.fr
+title: Refonte du site web en mode agile
 type: accompagnement
 for: Médialab Sciences-Po
 via: Paul Girard

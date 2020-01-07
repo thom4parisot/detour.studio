@@ -6,4 +6,10 @@ status: done
 date: 2019-12-01
 with:
 - Sofia Boulaarab
+stack:
+- React
+- JavaScript
+- CSS
+- Figma
+- Travis CI
 ---

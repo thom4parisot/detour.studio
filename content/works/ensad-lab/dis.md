@@ -9,4 +9,7 @@ with:
 - Lucile Haute
 via:
 - Julie Blanc
+stack:
+- Vue.js
+- GitLab CI
 ---
