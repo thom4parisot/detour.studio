@@ -5,7 +5,7 @@
 
   <p class="subtitle">
     Le {{ .Date.Format "02/01/2006" }}
-    {{- with .Params.written_in }}, à {{ . }}{{ end }}
+    {{- with .Params.written_in }}, à {{ . }}{{ end -}}.
   </p>
 
   <div class="content measure-wide">{{ .Content }}</div>
