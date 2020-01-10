@@ -103,6 +103,29 @@ ul {
     color: #555;
     margin-top: -.2em;
   }
+.key-value {
+  display: flex;
+  flex-flow: row wrap;
+}
+.key-value dt {
+}
+  .key-value dt:not(.key--only)::after {
+    content: ":";
+    padding: 0 .2em;
+  }
+.key-value dd {
+  margin: 0;
+}
+  .key-value dd:not(.key--only):not(:last-child)::after {
+    content: ",";
+    padding-right: .4em;
+  }
+  .key-value dd:last-child:after {
+    content: ".";
+  }
+.key-value .key--only {
+  flex: 1 0 100%;
+}
 </style>
 <link rel="apple-touch-icon" sizes="180x180" href="https://oncletom.io/assets/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://oncletom.io/assets/favicon-32x32.png">
