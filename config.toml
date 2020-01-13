@@ -6,6 +6,7 @@ title = "détour.studio"
 theme = "detour"
 sectionPagesMenu = "works"
 buildFuture = true
+rssLimit = 10
 
 [params]
   description = "Studio de design et de développement de services numériques libres, conviviaux et qui ont du sens."
@@ -40,6 +41,11 @@ buildFuture = true
   "Julien Taquet" = "https://www.lesvoisinsdustudio.ch"
   "Paul Girard" = "https://medialab.sciencespo.fr/equipe/paul-girard/"
   "Samuel Huron" = "https://twitter.com/cybunk"
+
+[outputFormats]
+  [outputFormats.opml]
+    basename = "collection"
+    mediaType = "application/xml"
 
 [markup]
   [markup.goldmark]

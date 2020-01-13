@@ -1,0 +1,15 @@
+{{- with .Params.collection -}}
+<opml version="2.0">
+	<head>
+		<title>{{ $.Page.Title }} • Collection</title>
+		<link>{{ ($.Page.OutputFormats.Get "opml").Permalink }}</link>
+	</head>
+	<body>
+		<outline>
+			{{- range . }}
+			<outline xmlUrl="{{ . | safeURL }}" />
+			{{- end }}
+		</outline>
+	</body>
+</opml>
+{{- end -}}

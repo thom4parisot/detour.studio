@@ -147,3 +147,6 @@ ul {
 {{ with $Weeknotes.AlternativeOutputFormats.Get "rss" -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s • %s" />` .Rel .MediaType.Type .Permalink $.Site.Title $Weeknotes.Title | safeHTML }}
 {{ end -}}
+{{ with $Weeknotes.AlternativeOutputFormats.Get "opml" -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s • %s" />` .Rel .MediaType.Type .Permalink $.Site.Title $Weeknotes.Title | safeHTML }}
+{{ end -}}
