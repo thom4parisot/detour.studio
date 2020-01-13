@@ -7,7 +7,7 @@
 	<body>
 		<outline>
 			{{- range . }}
-			<outline xmlUrl="{{ . | safeURL }}" />
+			<outline xmlUrl="{{ . }}" />
 			{{- end }}
 		</outline>
 	</body>
