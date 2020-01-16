@@ -5,6 +5,7 @@
 <style type="text/css">
 body {
   background-color: #ffdfbf;
+  color: #333;
   font: 18px/1.3 monospace;
   margin: 0;
   padding: 1em;
@@ -76,6 +77,21 @@ ul {
 
 .preamble {
   font-size: 24px;
+}
+
+.suffix:before {
+  content: "—";
+  opacity: .6;
+  padding-left: .5em;
+}
+.suffix, .suffix a {
+  color: inherit;
+}
+.smaller {
+  font-size: .75em;
+}
+.smaller.suffix {
+  color: #777;
 }
 
 .measure-wide {   max-width: 38em; }
