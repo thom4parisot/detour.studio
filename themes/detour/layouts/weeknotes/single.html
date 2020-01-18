@@ -6,6 +6,7 @@
   <p class="subtitle">
     Le {{ .Date.Format "02/01/2006" }}
     {{- with .Params.written_in }}, à {{ . }}{{ end -}}.
+    {{ with .CurrentSection.AlternativeOutputFormats.Get "rss" }}<a href="{{ .Permalink }}" rel="alternate" type="text/xml">S'abonner via RSS</a>.{{ end }}
   </p>
 
   <div class="content measure-wide">{{ .Content }}</div>

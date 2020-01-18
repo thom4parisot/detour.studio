@@ -1,5 +1,6 @@
 <footer aria-label="Contact et détails administratifs">
   <p>
+    {{ if not .IsHome }}<span aria-hidden="true" class="icon icon--emoji">🏡</span><a href="{{ .Site.BaseURL }}" rel="home">Vers la page d'accueil</a><br>{{ end }}
     <span aria-hidden="true" class="icon icon--emoji">✉️</span><a href="mailto:&#099;&#111;&#110;&#116;&#097;&#099;&#116;&#064;&#100;&#101;&#116;&#111;&#117;&#114;&#046;&#115;&#116;&#117;&#100;&#105;&#111;?subject=Une%20question%20en%20passant">Une question en passant ?</a>
   </p>
 
