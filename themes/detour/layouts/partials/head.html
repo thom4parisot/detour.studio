@@ -195,3 +195,6 @@ figure {
 {{ with $Weeknotes.AlternativeOutputFormats.Get "opml" -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s • %s" />` .Rel .MediaType.Type .Permalink $.Site.Title $Weeknotes.Title | safeHTML }}
 {{ end -}}
+{{ template "_internal/opengraph.html" . }}
+{{ template "_internal/twitter_cards.html" . }}
+{{ template "_internal/schema.html" . }}
