@@ -20,9 +20,9 @@ jobs:
       - name: Deploy
         uses: oncletom/rsync-deployments@patch-1
         with:
-          RSYNC_BASEDIR: /public/
+          SRC: public/
+          DEST: /home/oncletom/www_detour_studio
           RSYNC_OPTIONS: -avzr --delete --exclude node_modules --exclude '.git*'
-          RSYNC_TARGET: oncletom@ssh-oncletom.alwaysdata.net:/home/oncletom/www_detour_studio
+          USER_AND_HOST: oncletom@ssh-oncletom.alwaysdata.net
         env:
           DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          HOME: /home/oncletom
