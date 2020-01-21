@@ -50,7 +50,9 @@
             <h3>{{ .Title }}</h3>
             {{ with .Params.for }}<p class="customer-name">{{ . }}</p>{{ end }}
             {{ with .Params.with }}<p class="with">Avec {{ delimit . ", " ", et " }}.</p>{{ end }}
-            {{ with .Summary }}<p class="summary description measure">{{ . }}</p>{{ end }}
+            {{ with .Summary }}
+            <div class="summary description measure">{{ . }}</div>
+            {{ end }}
         </article>
         {{ end }}
     </section>
