@@ -22,7 +22,7 @@ rssLimit = 10
 
   [params.works."développement web"]
     icon = "👨‍💻"
-    description = "Je construits pas à pas des logiciels pragmatiques, conviviaux et sobres, au service de vos enjeux, et de ceux d'un futur désirable sur Terre."
+    description = "Je construis pas à pas des logiciels pragmatiques, conviviaux et sobres, au service de vos enjeux, et de ceux d'un futur désirable sur Terre."
   [params.works."accompagnement"]
     icon = "🗺"
     description = "J'emmène et protège des équipes dans une direction où elles y trouvent du sens, du plaisir et de l'autonomie."
