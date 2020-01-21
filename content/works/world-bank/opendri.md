@@ -1,5 +1,5 @@
 ---
-title: Amélioration des performances d'un portail Open Data de données climatiques
+title: Fluidifier la navigation d'un portail de données environnementales
 type: développement web
 for: World Bank
 status: done
@@ -17,3 +17,7 @@ resources:
   https://github.com/GFDRR/open-risk-data-dashboard: Code source du portail
   https://github.com/GFDRR/open-risk-data-dashboard/tree/master/docs: Documentation et entretiens utilisateurs
 ---
+
+Jeter le code qui freine la navigation, et mieux baliser le parcours utilisateur.
+
+<!--more-->

@@ -13,3 +13,8 @@ stack:
 - Figma
 - Travis CI
 ---
+
+Donner des clés de compréhension pour rendre les recettes et
+dépenses lisibles et intelligibles.
+
+<!--more-->

@@ -1,9 +1,11 @@
 ---
-title: Plate-forme d'indexation et de recommandation de contenus éditoriaux
+title: Plate-forme de recommandation de contenus éditoriaux
 type: développement web
 for: BBC R&D
 status: done
 date: 2016-12-31
+with:
+- Olivier Thereaux
 stack:
 - Docker
 - Node.js
@@ -13,3 +15,7 @@ stack:
 - Jenkins CI
 - Amazon Web Services
 ---
+
+Concevoir une architecture modulaire d'indexation, d'enrichissement et de
+classification de contenus hétérogènes — du système informatique jusqu'aux
+composants visuels.

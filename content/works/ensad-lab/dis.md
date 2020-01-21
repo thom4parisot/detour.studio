@@ -13,3 +13,7 @@ stack:
 - Vue.js
 - GitLab CI
 ---
+
+Prototyper une interface visuelle annotable, classable et navigable à l'infini.
+
+<!--more-->

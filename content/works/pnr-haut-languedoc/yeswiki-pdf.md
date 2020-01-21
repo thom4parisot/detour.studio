@@ -15,3 +15,7 @@ stack:
 - PHP
 - Docker
 ---
+
+Imprimer des guides personnalisés, à jour, et à tout moment.
+
+<!--more-->

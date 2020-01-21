@@ -1,5 +1,5 @@
 ---
-title: Site web d'un projet de recherche-action qui résiste au temps
+title: Site web d'un projet de sciences humaines et sociales
 type: développement web
 for: Médialab Sciences-Po
 status: done
@@ -11,3 +11,7 @@ stack:
 - CSS
 - Travis CI
 ---
+
+Garantir un accès pérenne aux productions du projet, sans maintenance informatique.
+
+<!--more-->

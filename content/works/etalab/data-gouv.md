@@ -12,3 +12,7 @@ stack:
 - Docker
 - Circle CI
 ---
+
+Réduire le chemin entre les utilisateur·ices et les données recherchées.
+
+<!--more-->
