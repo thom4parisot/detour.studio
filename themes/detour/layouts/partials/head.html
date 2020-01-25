@@ -64,12 +64,18 @@ p {
   margin: 1em 0;
 }
 
-dd {
-  margin-bottom: 1em;
-}
-
 dt {
   font-weight: bold;
+}
+
+dd {
+  margin: 0 0 1em 0;
+}
+
+@media screen and (min-width: 480px) {
+  dd {
+    margin-left: 1.25em;
+  }
 }
 
 a {
@@ -96,6 +102,10 @@ ul {
   ul li,
   ol li {
     margin-bottom: .3em;
+  }
+  [data-type="weeknote"] ul li,
+  [data-type="weeknote"] ol li {
+    margin-bottom: 1em;  /* same as dd */
   }
 
 .url-part {
