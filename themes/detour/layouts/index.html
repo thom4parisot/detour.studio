@@ -47,12 +47,12 @@
 
         {{ range $Works }}
         <article class="work">
-            <h3>{{ .Title }}</h3>
-            {{ with .Params.for }}<p class="customer-name">{{ . }}</p>{{ end }}
-            {{ with .Params.with }}<p class="with">Avec {{ delimit . ", " ", et " }}.</p>{{ end }}
-            {{ with .Summary }}
-            <div class="summary description measure">{{ . }}</div>
-            {{ end }}
+          {{ with .Params.for }}<p class="customer-name">{{ . }}</p>{{ end }}
+          <h3>{{ .Title }}</h3>
+          {{ with .Params.with }}<p class="with">Avec {{ delimit . ", " ", et " }}.</p>{{ end }}
+          {{ with .Summary }}
+          <div class="summary description measure">{{ . }}</div>
+          {{ end }}
         </article>
         {{ end }}
     </section>

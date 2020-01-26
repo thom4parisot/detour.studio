@@ -4,14 +4,13 @@
 <title>{{ if .IsHome }}{{ .Title }} • {{ .Site.Params.Description }}{{ else }}{{ .Page.Title }} • {{ .Site.Title }}{{ end }}</title>
 <style type="text/css">
 :root {
-  --background-color: #ffe1d9;
-  --complementary-background-color: #d3969f;
-  --text-color: #1c2833;
+  --background-color: #E0D8AF;
+  --text-color: #4B4022;
   --link-color: #0000e0;
   --visited-link-color: #0000B5;
-  --brand-color: #67221b;
-  --complementary-brand-color: #39767f;
-  --mid-gray: #555;
+  --brand-color: #4B4022;
+  --complementary-brand-color: #E0D8AF;
+  --mid-gray: #5F7084;
 }
 
 body {
@@ -57,7 +56,15 @@ img {
 }
 
 h1 {
-  margin-top: 0;
+  margin: .8em 0 .5em;
+}
+
+h2 {
+  margin: .9em 0 .5em;
+}
+
+h3 {
+  margin: 1em 0 .3em;
 }
 
 p {
@@ -109,7 +116,7 @@ ul {
   }
 
 .url-part {
-  color: var(--brand-color);
+  color: var(--mid-gray);
 }
 
 .preamble {
@@ -160,20 +167,19 @@ figure {
 .work {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5em;
+  margin: 2em 0;
 }
   .work .customer-name {
     margin: 0 0 -1em;
-    order: -1;
   }
   .work .with,
-  .subtitle {
+  h2 + .subtitle {
     font-size: .8em;
-    margin-top: -1.1em;
+    margin-top: 0;
   }
 
   .work .summary {
-    color: var(--mid-gray);
+    font-size: .8em;
     margin-top: -.2em;
   }
   .work .summary p {
