@@ -9,7 +9,7 @@ buildFuture = true
 rssLimit = 10
 
 [params]
-  description = "Studio de design et de développement de services numériques libres, conviviaux et qui ont du sens."
+  description = "Donner du sens au développement de services numériques libres et conviviaux ; travailler autrement en milieu rural."
 
 [params.works]
   order = [
@@ -34,6 +34,7 @@ rssLimit = 10
     description = "Je crée des formats doux et créatifs qui stimulent l'apprentissage et le partage de connaissances entre les personnes."
   [params.works."contribution"]
     icon = "👍"
+    description = "Je donne leur donne de mon temps sans contrepartie financière, par plaisir et par conviction."
 
 [params.people]
   "Benjamin Grémillon" = "https://benjmng.eu"

@@ -2,6 +2,7 @@
 title: Manuel d'auto-partage associatif
 type: contribution
 with:
+- Crest Auto Partage
 - Saint-Antoine-l'Abbaye
 - Saint-Péray
 resources:
