@@ -178,6 +178,24 @@ figure {
     margin-top: 0;
   }
 
+  .work.ongoing .summary:before,
+  .work.upcoming .summary:before {
+    float: left;
+    font-weight: bold;
+    padding-right: .5em;
+  }
+  .work.ongoing .summary:before {
+    content: "En cours.";
+    color: green;
+  }
+  .work.upcoming {
+    color: rgb(75, 64, 34, .5);  // var(--text-color) to RGB
+  }
+  .work.upcoming .summary:before {
+    content: "À venir.";
+    color: var(--mid-gray);
+  }
+
   .work-name {
     margin-top: .1em;
   }

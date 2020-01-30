@@ -46,7 +46,7 @@
         {{ end }}
 
         {{ range $Works }}
-        <article class="work">
+        <article class="work {{ .Params.status | default "done" }}">
           {{ with .Params.for }}<p class="customer-name">{{ . }}</p>{{ end }}
           <h3 class="work-name">{{ .Title }}</h3>
           {{ with .Params.with }}<p class="with">Avec {{ delimit . ", " ", et " }}.</p>{{ end }}
