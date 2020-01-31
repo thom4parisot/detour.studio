@@ -4,12 +4,12 @@
 <title>{{ if .IsHome }}{{ .Title }} • {{ .Site.Params.Description }}{{ else }}{{ .Page.Title }} • {{ .Site.Title }}{{ end }}</title>
 <style type="text/css">
 :root {
-  --background-color: #E0D8AF;
-  --text-color: #4B4022;
+  --background-color: #f6f1e7;
+  --text-color: #4f5200;
   --link-color: #0000e0;
   --visited-link-color: #0000B5;
-  --brand-color: #4B4022;
-  --complementary-brand-color: #E0D8AF;
+  --brand-color: #4f5200;
+  --brand-alternative-color: #ccc08a;
   --mid-gray: #5F7084;
 }
 
@@ -116,7 +116,7 @@ ul {
   }
 
 .url-part {
-  color: var(--mid-gray);
+  color: var(--brand-alternative-color);
 }
 
 .preamble {
@@ -125,11 +125,11 @@ ul {
 
 .suffix:before {
   content: "—";
-  opacity: .6;
+  color: var(--brand-alternative-color);
   padding-left: .5em;
 }
 .suffix, .suffix a {
-  color: inherit;
+  color: var(--brand-alternative-color);
 }
 .smaller {
   font-size: .75em;
@@ -180,18 +180,22 @@ figure {
 
   .work.ongoing .summary:before,
   .work.upcoming .summary:before {
+    border-radius: .2em;
     float: left;
     font-weight: bold;
-    padding-right: .5em;
+    margin-right: .5em;
+    padding: 0 .5em;
   }
   .work.ongoing .summary:before {
+    background: #caffca;
     content: "En cours.";
-    color: green;
+    color: #080;
   }
   .work.upcoming {
     color: rgb(75, 64, 34, .5);  // var(--text-color) to RGB
   }
   .work.upcoming .summary:before {
+    background: #e0e4e9;
     content: "À venir.";
     color: var(--mid-gray);
   }
