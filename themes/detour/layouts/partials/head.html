@@ -6,6 +6,7 @@
 :root {
   --background-color: #f6f1e7;
   --text-color: #4f5200;
+  --text-muted-color: rgb(75, 64, 34, .5);
   --link-color: #0000e0;
   --visited-link-color: #0000B5;
   --brand-color: #4f5200;
@@ -23,6 +24,7 @@ body {
 @media screen and (min-width: 480px) {
   body {
     font-size: 21px;
+    padding: 2em 5em;
   }
 }
 
@@ -141,13 +143,13 @@ ul {
 figure {
   margin: 1.5em 0;
 }
+  figure > img {
+    border: 1em solid var(--brand-alternative-color);
+  }
   figure > figcaption {
     color: var(--brand-color);
     font-weight: bold;
     margin-left: 1em;
-  }
-  figure > img {
-    border: 1em solid var(--brand-color);
   }
 
 .measure-wide {   max-width: 38em; }
@@ -163,15 +165,35 @@ figure {
   list-style-type: none;
   padding-left: 0;
 }
-
+  .list--by-date time {
+    color: var(--text-muted-color);
+  }
+  @media screen and (min-width: 480px) {
+    .list--by-date > li {
+      display: flex;
+      align-content: space-between;
+      flex-flow: row nowrap;
+      width: 400px;
+    }
+    .list--by-date a {
+      flex: 0;
+      white-space: nowrap;
+    }
+    .list--by-date time {
+      flex: 1;
+      text-align: right;
+    }
+}
 .work {
   display: flex;
   flex-direction: column;
   margin: 2em 0;
 }
   .work .customer-name {
+    color: var(--mid-gray);
     margin: 0;
   }
+  .work .customer-name,
   .work .with,
   h2 + .subtitle {
     font-size: .8em;
@@ -188,21 +210,30 @@ figure {
   }
   .work.ongoing .summary:before {
     background: #caffca;
-    content: "En cours.";
+    content: "En cours";
     color: #080;
   }
   .work.upcoming {
-    color: rgb(75, 64, 34, .5);  // var(--text-color) to RGB
+    color: var(--text-muted-color);
   }
   .work.upcoming .summary:before {
     background: #e0e4e9;
-    content: "À venir.";
+    content: "Bientôt";
     color: var(--mid-gray);
   }
 
   .work-name {
     margin-top: .1em;
+    position: relative;
   }
+    .work-name:before {
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      left: -1em;
+      border-left: 3px solid var(--brand-alternative-color);
+    }
 
   .work .summary {
     font-size: .8em;
