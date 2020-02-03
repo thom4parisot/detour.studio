@@ -1,5 +1,5 @@
 ---
-title: paged.js
+title: [paged.js](https://www.pagedmedia.org/paged-js/)
 type: contribution
 with:
 - Julie Blanc
