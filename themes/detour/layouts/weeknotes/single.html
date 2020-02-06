@@ -9,17 +9,31 @@
     {{ with .CurrentSection.AlternativeOutputFormats.Get "rss" }}<a href="{{ .Permalink }}" rel="alternate" type="text/xml">S'abonner via RSS</a>.{{ end }}
   </p>
 
+  {{/* partial "toc.html" . */}}
+
   <div class="content measure-wide">{{ .Content }}</div>
 
   {{ with .Params.network }}
   <aside>
-    <h2>Ailleurs, au même moment…</h2>
+    <h2>
+      <span class="icon icon--emoji" aria-hidden="true">🕸</span>
+      {{- "Ailleurs, au même moment…" -}}
+    </h2>
 
     <ul class="words-list">
     {{ range $url, $name := . }}
     <li><a href="{{ $url }}" target="_blank">Chez {{ $name }}</a></li>
     {{ end }}
     </ul>
+
+    {{ with $.Page.PrevInSection }}
+    <h2>
+      <span class="icon icon--emoji" aria-hidden="true">⏮</span>Précédemment&nbsp:
+        <a href="{{ .Permalink }}" rel="permalink">
+          {{- .Title -}}
+        </a>
+    </h2>
+    {{ end }}
   </aside>
   {{ end }}
 </article>
