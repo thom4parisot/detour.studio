@@ -12,6 +12,7 @@ via:
 stack:
 - Vue.js
 - GitLab CI
+external_url: https://gitlab.com/dis-project/journee-etude
 ---
 
 Prototyper une interface visuelle annotable, classable et navigable à l'infini.

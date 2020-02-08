@@ -12,6 +12,7 @@ stack:
 - CSS
 - Figma
 - Travis CI
+external_url: https://www.montreuil.fr/vie-citoyenne/finances-et-marches-publics/explorer-les-comptes-de-la-ville
 ---
 
 Donner des clés de compréhension pour rendre les recettes et

@@ -1,6 +1,7 @@
 ---
 title: Manuel d'auto-partage associatif
 type: contribution
+external_url: https://github.com/oncletom/auto-partage/
 with:
 - Crest Auto Partage
 - Saint-Antoine-l'Abbaye

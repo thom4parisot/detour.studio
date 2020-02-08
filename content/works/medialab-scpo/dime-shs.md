@@ -10,6 +10,7 @@ stack:
 - HTML
 - CSS
 - Travis CI
+external_url: https://github.com/CDSP-SCPO/site-DIME-SHS
 ---
 
 Garantir un accès pérenne aux productions du projet, sans maintenance informatique.

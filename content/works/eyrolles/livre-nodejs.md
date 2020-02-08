@@ -10,6 +10,7 @@ stack:
   - Travis CI
 with:
   - Alexandre Habian
+external_url: https://www.editions-eyrolles.com/Livre/9782212139938/node-js
 ---
 
 Publication d'un livre de programmation sur l'environnement Node.js

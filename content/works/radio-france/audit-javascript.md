@@ -12,4 +12,5 @@ stack:
 - Asciidoc
 - Node.js
 - JavaScript
+external_url: https://dtc-innovation.github.io/research/
 ---

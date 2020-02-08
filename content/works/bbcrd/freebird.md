@@ -14,6 +14,7 @@ stack:
 - JavaScript
 - Jenkins CI
 - Amazon Web Services
+external_url: https://www.bbc.co.uk/rd/projects/editorial-algorithms
 ---
 
 Concevoir une architecture modulaire d'indexation, d'enrichissement et de

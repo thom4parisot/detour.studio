@@ -13,6 +13,7 @@ stack:
 - JavaScript
 - CSS
 - Glitch.com
+external_url: https://glitch.com/~gh003-piratx
 ---
 
 Conception d'une page web imprimable sous forme paginée.
