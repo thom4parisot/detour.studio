@@ -13,29 +13,30 @@
 
   <div class="content measure-wide">{{ .Content }}</div>
 
-  {{ with .Params.network }}
   <aside>
-    <h2>
-      <span class="icon icon--emoji" aria-hidden="true">🕸</span>
-      {{- "Ailleurs, au même moment…" -}}
-    </h2>
+    {{ with .Params.network }}
+    <article aria-label="Les weeknotes de la semaine chez les ami·es">
+      <h2>
+        <span class="icon icon--emoji" aria-hidden="true">🕸</span>
+        {{- "Ailleurs, au même moment…" -}}
+      </h2>
 
-    <ul class="words-list">
-    {{ range $url, $name := . }}
-    <li><a href="{{ $url }}" target="_blank">Chez {{ $name }}</a></li>
+      <ul class="words-list">
+      {{ range $url, $name := . }}
+      <li><a href="{{ $url }}" target="_blank">Chez {{ $name }}</a></li>
+      {{ end }}
+      </ul>
+    </article>
     {{ end }}
-    </ul>
 
     {{ with $.Page.PrevInSection }}
-    <h2>
-      <span class="icon icon--emoji" aria-hidden="true">⏮</span>Précédemment&nbsp:
-        <a href="{{ .Permalink }}" rel="permalink">
-          {{- .Title -}}
+    <h2 aria-label="Naviguer vers les notes précédentes">
+      <span class="icon icon--emoji" aria-hidden="true">⏮</span><a href="{{ .Permalink }}" rel="permalink" title="{{ .Title }}">
+          {{- "Lire la précédente weeknote" -}}
         </a>
     </h2>
     {{ end }}
   </aside>
-  {{ end }}
 </article>
 
 {{ end }}
