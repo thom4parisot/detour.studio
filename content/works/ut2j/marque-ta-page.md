@@ -14,3 +14,10 @@ stack:
 - CSS
 - Glitch.com
 ---
+
+Conception d'une page web imprimable sous forme paginée.
+La déambulation se fait avec un simple navigateur web, et explore les
+concepts utiles de HTML et de CSS qui serviront à leur semaine de travail.
+Le résultat du _live coding_ constitue un environnement réutilisable par les étudiant·es.
+
+<!--more-->

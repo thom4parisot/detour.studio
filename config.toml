@@ -28,7 +28,7 @@ rssLimit = 10
     description = "J'emmène et protège des équipes dans une direction où elles y trouvent du sens, du plaisir et de l'autonomie."
   [params.works."édition numérique"]
     icon = "📚"
-    description = "Je crée des livres et documents à imprimer d'une nouvelle manière, avec un simple navigateur web."
+    description = "Je crée des ouvrages imprimés avec des technologies web."
   [params.works."apprentissage"]
     icon = "👥"
     description = "Je crée des formats doux et créatifs qui stimulent l'apprentissage et le partage de connaissances entre les personnes."
