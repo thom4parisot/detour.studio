@@ -1,9 +1,9 @@
 ---
 title: Apprendre Node.js
 type: apprentissage
-status: ongoing
+status: done
 with: [Alexandre Ronsaut]
-date: 2020-02-20
+date: 2019-07-25
 ---
 
 L'objectif d'Alexandre, développeur : devenir aussi efficace avec Node.js

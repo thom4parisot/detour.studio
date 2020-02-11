@@ -10,6 +10,7 @@ collection:
 - https://www.yuzutech.fr/weeknotes.xml
 - https://github.com/sofiaboulaarab/weeknote/commits/master.atom
 - https://github.com/ApolloNet/weeknotes/commits/master.atom
+- https://marienfressinaud.fr/feeds/journal.atom.xml
 ---
 
 Actions, réflexions et événéments marquants de la semaine.
