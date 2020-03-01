@@ -4,6 +4,7 @@ type: développement web
 for: Direction Interministérielle du Numérique (DINUM)
 status: ongoing
 date: 2020-02-01
+external_url: https://beta.gouv.fr/startups/cartobio.html
 stack:
 - Docker
 - Node.js
@@ -11,4 +12,4 @@ stack:
 - PostgreSQL
 ---
 
-Développer un logiciel open source de référencement des données parcellaires ; partager les données en open data.
+Cartographier les surfaces agricoles cultivées en bio, et libérer ces données en open data.
