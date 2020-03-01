@@ -1,7 +1,6 @@
 ---
 title: Weeknotes
 outputs:
-- html
 - rss
 - opml
 collection:
