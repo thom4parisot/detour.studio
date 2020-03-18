@@ -3,7 +3,7 @@ title: Apprendre à cartographier des données
 type: apprentissage
 with: [Sofia Boulaarab]
 status: ongoing
-date: 2020-01-24
+date: 2020-03-20
 ---
 
 L'objectif de Sofia, designer : combiner des jeux de données pour les visualiser

@@ -2,7 +2,7 @@
 title: Programmer des visualisations de données pour le Web
 type: apprentissage
 for: Télécom ParisTech
-status: ongoing
+status: done
 date: 2020-03-05
 with:
 - Samuel Huron
