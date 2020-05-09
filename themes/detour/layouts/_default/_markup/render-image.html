@@ -1,5 +1,5 @@
 <figure class="markdown-image">
-  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" >
+  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy">
   {{ with .Title}}
   <figcaption>{{ . }}.</figcaption>
   {{ end }}
