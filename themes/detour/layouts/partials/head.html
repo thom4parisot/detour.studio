@@ -178,6 +178,13 @@ figure {
   list-style-type: none;
   padding-left: 0;
 }
+  @media screen and (min-width: 480px) {
+    /* Display as two columns on non-smartphone-portrait */
+    .list--by-date {
+      columns: auto 2;
+    }
+  }
+
   .list--by-date time {
     color: var(--text-muted-color);
   }
