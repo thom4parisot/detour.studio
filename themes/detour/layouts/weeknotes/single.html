@@ -30,11 +30,15 @@
     {{ end }}
 
     {{ with $.Page.PrevInSection }}
-    <h2 aria-label="Naviguer vers les notes précédentes">
-      <span class="icon icon--emoji" aria-hidden="true">⏮</span><a href="{{ .Permalink }}" rel="permalink" title="{{ .Title }}">
-          {{- "Lire la précédente weeknote" -}}
-        </a>
-    </h2>
+    <hr>
+
+    <p aria-label="Naviguer vers les notes précédentes">
+      <span class="icon icon--emoji" aria-hidden="true">🙂</span>
+      Tu es arrivé·e à la fin de <mark>{{ $.Page.Title }}</mark>, merci de les avoir lu jusque là !<br>
+      Si ça te dit, voici de quoi lire <a href="{{ .Permalink }}" rel="permalink" title="{{ .Title }}">
+          {{- "les précédentes weeknotes" -}}
+        </a> (<i>{{ .Title }}</i>).
+    </p>
     {{ end }}
   </aside>
 </article>
