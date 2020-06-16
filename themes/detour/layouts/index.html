@@ -9,10 +9,12 @@
   {{ with $WeeknotesPage }}
   <section id="weeknotes" aria-label="Weeknotes">
     <h2 aria-label="Weeknotes">
-      <span class="icon icon--emoji" aria-hidden="true">📰</span>
-      {{- .Title -}}
+      {{- partial "icon.html" "journal" -}}{{- .Title -}}
+
       <span class="smaller suffix">
-        <a href="{{ ($WeeknotesPage.AlternativeOutputFormats.Get "rss").Permalink }}" rel="alternate" type="text/xml">fil RSS</a>
+        <a href="{{ ($WeeknotesPage.AlternativeOutputFormats.Get "rss").Permalink }}" rel="alternate" type="text/xml">
+          {{- partial "icon.html" "rss" -}}fil RSS
+        </a>
       </span>
     </h2>
 
@@ -38,7 +40,7 @@
     {{ $Works := (index (where $WorksByType ".Key" $Type) 0).Pages.ByDate.Reverse }}
     <section aria-label="{{ $Type | title | safeHTMLAttr }}">
       <h2>
-        {{ with $Config.icon }}<span class="icon icon--emoji" aria-hidden="true">{{ . }}</span>{{ end }}
+        {{ with $Config.icon }}{{- partial "icon.html" . -}}{{ end }}
         {{- $Type | title -}}
       </h2>
 

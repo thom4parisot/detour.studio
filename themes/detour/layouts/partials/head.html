@@ -2,6 +2,7 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="initial-scale=1.0">
 <title>{{ if .IsHome }}{{ .Title }} • {{ .Site.Params.Description }}{{ else }}{{ .Page.Title }} • {{ .Site.Title }}{{ end }}</title>
+<link rel="preload" as="image" href="{{ "/icons.svg" | absURL }}">
 <style type="text/css">
 :root {
   --background-color: #f6f1e7;
@@ -35,6 +36,18 @@ body > footer {
   font-size: .8em;
   margin-top: 3rem;
 }
+
+  body > footer a {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    line-height: 2;
+    padding: .3em .5em;
+  }
+  body > footer a:hover,
+  body > footer a:focus {
+    border-color: var(--brand-alternative-color);
+    /* background: white; */
+  }
 
 hr {
   border: none;
@@ -106,6 +119,10 @@ a:active {
   text-decoration: none;
 }
 
+.strong {
+  font-weight: bold;
+}
+
 ul {
   list-style-position: inside;
   margin: .5em 0;
@@ -149,6 +166,7 @@ ul {
   content: "—";
   color: var(--brand-alternative-color);
   padding-left: .5em;
+  padding-right: .5em;
 }
 .suffix, .suffix a {
   color: var(--brand-alternative-color);
@@ -177,8 +195,12 @@ figure {
 .measure-narrow { max-width: 20em; }
 
 .icon {}
-  .icon--emoji {
-    margin-right: .5em;
+  .icon--vector {
+    fill: currentColor;
+    margin-right: .35em;
+    height: 1em;
+    width: 1em;
+    vertical-align: text-top;
   }
 
 .list--by-date {
@@ -287,6 +309,7 @@ figure {
 .key-value {
   display: flex;
   flex-flow: row wrap;
+  align-items: center;
 }
 .key-value dt {
 }
@@ -298,7 +321,7 @@ figure {
   margin: 0;
 }
   .key-value dd:not(.key--only):not(:last-child)::after {
-    content: ",";
+    content: "•";
     padding-right: .4em;
   }
   .key-value dd:last-child:after {

@@ -21,19 +21,19 @@ rssLimit = 10
   ]
 
   [params.works."développement web"]
-    icon = "👨‍💻"
+    icon = "code"
     description = "Je construis pas à pas des logiciels pragmatiques, conviviaux et sobres, au service de vos enjeux, et de ceux d'un futur désirable sur Terre."
   [params.works."accompagnement"]
-    icon = "🗺"
+    icon = "mountain"
     description = "J'emmène et protège des équipes dans une direction où elles y trouvent du sens, du plaisir et de l'autonomie."
   [params.works."édition numérique"]
-    icon = "📚"
+    icon = "book"
     description = "Je crée des ouvrages imprimés avec des technologies web."
   [params.works."apprentissage"]
-    icon = "👥"
+    icon = "peer-to-peer"
     description = "Je crée des formats doux et créatifs qui stimulent l'apprentissage et le partage de connaissances entre les personnes."
   [params.works."contribution"]
-    icon = "👍"
+    icon = "grow"
     description = "Je leur donne de mon temps sans contrepartie financière, par plaisir et par conviction."
 
 [params.people]

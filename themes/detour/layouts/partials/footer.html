@@ -1,8 +1,8 @@
 <footer aria-label="Contact et détails administratifs">
   <p>
-    {{ if not .IsHome }}<span aria-hidden="true" class="icon icon--emoji">🏡</span><a href="{{ .Site.BaseURL }}" rel="home">Vers la page d'accueil</a><br>{{ end }}
-    <span aria-hidden="true" class="icon icon--emoji">✉️</span><a href="mailto:&#099;&#111;&#110;&#116;&#097;&#099;&#116;&#064;&#100;&#101;&#116;&#111;&#117;&#114;&#046;&#115;&#116;&#117;&#100;&#105;&#111;?subject=Une%20question%20en%20passant" aria-label="Me contacter par email pour me poser une question ou engager une discussion">Une question en passant ?</a><br>
-    <span aria-hidden="true" class="icon icon--emoji">🗃</span><a href="https://github.com/oncletom/detour.studio" target="_blank" rel="me noopener" aria-label="Parcourir le code source de ce site web">Code source de ce site</a>
+    {{ if not .IsHome }}{{- partial "icon.html" "home" -}}<a href="{{ .Site.BaseURL }}" rel="home">Vers la page d'accueil</a><br>{{ end }}
+    {{- partial "icon.html" "email" -}}<a href="mailto:&#099;&#111;&#110;&#116;&#097;&#099;&#116;&#064;&#100;&#101;&#116;&#111;&#117;&#114;&#046;&#115;&#116;&#117;&#100;&#105;&#111;?subject=Une%20question%20en%20passant" aria-label="Me contacter par email pour me poser une question ou engager une discussion">Une question en passant ?</a><br>
+    {{- partial "icon.html" "more" -}}<a href="https://github.com/oncletom/detour.studio" target="_blank" rel="me noopener" aria-label="Parcourir le code source de ce site web">Code source de ce site</a>
     / <a href="https://github.com/oncletom/detour.studio/issues/new" target="_blank" rel="me noopener" aria-label="Signaler un problème technique">oups, y'a une coquille</a>&nbsp;?
   </p>
 
@@ -13,9 +13,9 @@
     </dd>
 
     <dt>SIRET</dt>
-    <dd>43827938200040</dd>
+    <dd><a href="https://entreprise.data.gouv.fr/sirene/43827938200040" target="_blank" rel="noopener">43827938200040</a></dd>
 
     <dt>TVA</dt>
-    <dd>FR54438279382</dd>
+    <dd><a href="https://entreprise.data.gouv.fr/sirene/43827938200040#:~:text=N%C2%B0,Intracommunautaire" target="_blank" rel="noopener">FR54438279382</a></dd>
   </dl>
 </footer>

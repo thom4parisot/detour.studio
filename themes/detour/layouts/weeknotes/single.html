@@ -1,12 +1,15 @@
 {{ define "main" }}
 
 <article data-type="weeknote" aria-label="{{ .Title | safeHTMLAttr }}">
-  <h2>{{ .Title }}</h2>
+  <h2>{{- partial "icon.html" "journal" -}}{{ .Title }}</h2>
 
   <p class="subtitle">
     Le {{ .Date.Format "02/01/2006" }}
     {{- with .Params.written_in }}, à {{ . }}{{ end -}}.
-    {{ with .CurrentSection.AlternativeOutputFormats.Get "rss" }}<a href="{{ .Permalink }}" rel="alternate" type="text/xml">S'abonner via RSS</a>.{{ end }}
+    {{ with .CurrentSection.AlternativeOutputFormats.Get "rss" -}}
+      <a href="{{ .Permalink }}" rel="alternate" type="text/xml">
+        {{- partial "icon.html" "rss" -}}S'abonner via RSS</a>.
+    {{- end -}}
   </p>
 
   {{/* partial "toc.html" . */}}
@@ -17,7 +20,7 @@
     {{ with .Params.network }}
     <article aria-label="Les weeknotes de la semaine chez les ami·es">
       <h2>
-        <span class="icon icon--emoji" aria-hidden="true">🕸</span>
+        {{- partial "icon.html" "network" -}}
         {{- "Ailleurs, au même moment…" -}}
       </h2>
 
@@ -33,11 +36,10 @@
     <hr>
 
     <p aria-label="Naviguer vers les notes précédentes">
-      <span class="icon icon--emoji" aria-hidden="true">🙂</span>
+      {{- partial "icon.html" "success" -}}
       Tu es arrivé·e à la fin de <mark>{{ $.Page.Title }}</mark>, merci de les avoir lu jusque là !<br>
-      Si ça te dit, voici de quoi lire <a href="{{ .Permalink }}" rel="permalink" title="{{ .Title }}">
-          {{- "les précédentes weeknotes" -}}
-        </a> (<i>{{ .Title }}</i>).
+      Si ça te dit, voici de quoi lire les précédentes weeknotes :
+      <a href="{{ .Permalink }}" class="strong" rel="permalink" title="{{ .Title }}">{{ .Title }}</a>.
     </p>
     {{ end }}
   </aside>
