@@ -10,7 +10,7 @@ collection:
 - https://github.com/sofiaboulaarab/weeknote/commits/master.atom
 - https://github.com/ApolloNet/weeknotes/commits/master.atom
 - https://marienfressinaud.fr/feeds/journal.atom.xml
-- https://hello-bokeh.fr/weeknotes.html
+- https://hello-bokeh.fr/weeknotes-rss.xml
 - https://juliebrillet.fr/notes/index.xml
 ---
 
