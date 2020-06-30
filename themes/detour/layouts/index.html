@@ -25,7 +25,7 @@
     <ol class="list--by-date">
     {{ range $Weeknotes.ByDate.Reverse }}
       <li>
-          <a href="{{.Permalink}}">{{.Title}}</a>
+          <a href="{{.Permalink}}#readout">{{.Title}}</a>
           <time datetime="{{ .Date.Format "2006-01-02T15:04:05-0700"}}">{{ .Date.Format "Jan _2, 2006" }}</time>
       </li>
     {{ end }}
