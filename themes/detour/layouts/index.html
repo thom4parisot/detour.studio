@@ -5,6 +5,48 @@
   {{ $WeeknotesPage := .Site.GetPage "weeknotes" }}
   {{ $Weeknotes := where (.Site.RegularPages) "Section" "weeknotes" }}
   {{ $WorksByType := (where (.Site.RegularPages) "Section" "works").GroupBy "Type" }}
+  {{ $CurrentWorks := (where (.Site.RegularPages) "Section" "works") | intersect (where (.Site.RegularPages) "Params.status" "ongoing") }}
+
+  {{ with $CurrentWorks }}
+  <section id="" aria-label="Projets en cours">
+    <h2>{{- partial "icon.html" "detour" -}}Mes projets du moment</h2>
+
+    <p class="subtitle">
+      Je prends plaisir à y mettre mon énergie et à naviguer dans leur complexité.
+    </p>
+
+    <div class="carousel">
+    {{ range (sort $CurrentWorks ".Params.type" "desc") }}
+    {{ $Icon := (index $.Site.Params.works .Params.type).icon }}
+      <article class="work card">
+        {{ if .Params.external_url }}
+        <h3 class="work-name">
+          <a href="{{ .Params.external_url }}" target="_blank" rel="external">{{ .Title }}</a>
+        </h3>
+        {{ else }}
+        <h3 class="work-name">{{ .Title }}</h3>
+        {{ end }}
+        {{ with .Params.with }}<p class="with">Avec {{ delimit . ", " ", et " }}.</p>{{ end }}
+        {{ with .Summary }}
+        <details>
+          <summary>{{ with $Icon }}{{- partial "icon.html" . -}}{{ end }} Impact recherché</summary>
+          <div class="summary description measure">{{ . }}</div>
+        </details>
+        {{ end }}
+      </article>
+    {{ end }}
+    </div>
+
+    <p class="subtitle measure-wide protip">
+      {{- partial "icon.html" "bulb" -}}
+      Découvrir mes autres prestations en
+      <a href="#développement-web">développement web</a>,
+      <a href="#accompagnement">accompagnement</a>,
+      <a href="#édition-numérique">édition numérique</a>,
+      et en <a href="#apprentissage">apprentissage</a>.
+    </p>
+  </section>
+  {{ end }}
 
   {{ with $WeeknotesPage }}
   <section id="weeknotes" aria-label="Weeknotes">

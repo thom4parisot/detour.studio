@@ -15,6 +15,10 @@
   --mid-gray: #5F7084;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -101,7 +105,7 @@ dd {
   margin: 0 0 1em 0;
 }
 
-@media screen and (min-width: 480px) {
+@media (min-width: 480px) {
   dd {
     margin-left: 1.25em;
   }
@@ -158,6 +162,31 @@ ul {
   color: var(--brand-alternative-color);
 }
 
+.protip {
+  border-top: 2px solid var(--brand-alternative-color);
+  border-bottom: 2px solid var(--brand-alternative-color);
+  color: var(--brand-alternative-color);
+  line-height: 1.5;
+  padding: 0.5em;
+}
+  @media (min-width: 376px) {
+    .protip {
+      border: 2px solid var(--brand-alternative-color);
+      border-radius: 50px;
+      padding: 0.5em 2em;
+    }
+  }
+  @media (min-width: 769px) {
+    .protip {
+      margin-left: -2em;
+    }
+  }
+
+  .protip a {
+    color: var(--brand-alternative-color);
+    font-weight: bold;
+  }
+
 .preamble {
   font-size: 24px;
 }
@@ -176,6 +205,24 @@ ul {
 }
 .smaller.suffix {
   color: var(--brand-color);
+}
+
+@media (min-width: 769px) {
+  .carousel {
+    display: flex;
+    overflow: scroll;
+    padding-bottom: 1em;  /* to give some space to the horizontak scrollbar */
+    scroll-snap-type: x proximity;
+    width: 100%;
+  }
+
+  .carousel > *,
+  .carousel > .work {
+    flex-shrink: 0;
+    margin: 0 2em 0 0;
+    scroll-snap-align: start;
+    width: 30%;
+  }
 }
 
 figure {
@@ -207,7 +254,7 @@ figure {
   list-style-type: none;
   padding-left: 0;
 }
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 769px) {
     /* Display as two columns on non-smartphone-portrait */
     .list--by-date {
       columns: auto 2;
@@ -253,6 +300,13 @@ figure {
     height: 12px;
     width: 10px;
   }
+  .work summary {
+    cursor: pointer;
+    font-size: 0.8em;
+    text-decoration: underline;
+    text-decoration-color: var(--brand-alternative-color);
+    vertical-align: middle;
+  }
   .work .customer-name {
     color: var(--mid-gray);
     margin: 0;
@@ -265,6 +319,7 @@ figure {
   }
 
   .work.ongoing .summary:before,
+  .work.paused .summary:before,
   .work.upcoming .summary:before {
     border-radius: .2em;
     float: left;
@@ -285,12 +340,20 @@ figure {
     content: "Bientôt";
     color: var(--mid-gray);
   }
+  .work.paused {
+    color: var(--text-muted-color);
+  }
+  .work.paused .summary:before {
+    background: #e0e4e9;
+    content: "En pause";
+    color: var(--mid-gray);
+  }
 
   .work-name {
     margin-top: .1em;
     position: relative;
   }
-    .work-name:before {
+    .work:not(.card) .work-name:before {
       content: "";
       display: block;
       height: 100%;
