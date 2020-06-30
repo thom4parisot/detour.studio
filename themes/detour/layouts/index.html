@@ -38,7 +38,7 @@
     {{ $Type := . }}
     {{ $Config := index $.Site.Params.works $Type }}
     {{ $Works := (index (where $WorksByType ".Key" $Type) 0).Pages.ByDate.Reverse }}
-    <section aria-label="{{ $Type | title | safeHTMLAttr }}">
+    <section aria-label="{{ $Type | title | safeHTMLAttr }}" id="{{ $Type | anchorize }}">
       <h2>
         {{ with $Config.icon }}{{- partial "icon.html" . -}}{{ end }}
         {{- $Type | title -}}
