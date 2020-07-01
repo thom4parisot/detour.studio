@@ -17,12 +17,12 @@ jobs:
           extended: true
       - name: Build
         run: hugo --minify
-      - name: Deploy
-        uses: oncletom/rsync-deployments@patch-1
+      - name: Deploy w/ rsync
+        uses: burnett01/rsync-deployments@4.1
         with:
-          SRC: public/
-          DEST: /home/oncletom/www_detour_studio
-          RSYNC_OPTIONS: -avzr --delete --exclude node_modules --exclude '.git*'
-          USER_AND_HOST: oncletom@ssh-oncletom.alwaysdata.net
-        env:
-          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          path: public/
+          remote_path: /home/oncletom/www_detour_studio
+          switches: -avzr --delete --exclude node_modules --exclude '.git*'
+          remote_host: ssh-oncletom.alwaysdata.net
+          remote_user: oncletom
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
