@@ -163,27 +163,37 @@ ul {
 }
 
 .protip {
-  border-top: 2px solid var(--brand-alternative-color);
   border-bottom: 2px solid var(--brand-alternative-color);
-  color: var(--brand-alternative-color);
+  border-top: 2px solid var(--brand-alternative-color);
   line-height: 1.5;
-  padding: 0.5em;
+  padding: 0.5em 0;
 }
   @media (min-width: 376px) {
     .protip {
-      border: 2px solid var(--brand-alternative-color);
-      border-radius: 50px;
-      padding: 0.5em 2em;
+      display: flex;
+      border: none;
+    }
+
+    .protip .icon {
+      color: var(--text-color);
+      flex: 1 0 auto;
+      align-self: center;
+      height: 2em;
+      margin-right: .5em;
+      padding: .25em .5em;
+      width: 2em;
     }
   }
   @media (min-width: 769px) {
     .protip {
+      padding: 0.5em 2em;
       margin-left: -2em;
     }
   }
 
   .protip a {
-    color: var(--brand-alternative-color);
+    color: inherit;
+    text-decoration-color: var(--brand-alternative-color);
     font-weight: bold;
   }
 
