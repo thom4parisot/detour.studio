@@ -3,13 +3,13 @@ name: Deploy to production
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Setup
         uses: peaceiris/actions-hugo@v2
         with:
