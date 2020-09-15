@@ -1,6 +1,6 @@
 <figure class="markdown-image">
   <img src="{{ .Destination | safeURL }}" alt="{{ .Text | safeHTML }}" loading="lazy">
   {{ with .Title}}
-  <figcaption>{{ . | safeHTML }}.</figcaption>
+  <figcaption>{{ . | markdownify }}.</figcaption>
   {{ end }}
 </figure>
