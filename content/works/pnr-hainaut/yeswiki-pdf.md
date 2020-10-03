@@ -3,7 +3,8 @@ title: Impression de livrets d'initiatives citoyennes
 type: édition numérique
 for: Parc Naturel Transfrontalier du Hainaut
 date: 2020-06-01
-status: ongoing
+status: done
+external_url: https://github.com/YesWiki/yeswiki-extension-publication
 with:
 - Gatien Bataille
 - Florian Schmitt
