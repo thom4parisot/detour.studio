@@ -3,7 +3,7 @@
   {{ .Content }}
 
   {{ $WeeknotesPage := .Site.GetPage "weeknotes" }}
-  {{ $Weeknotes := where (.Site.RegularPages) "Section" "weeknotes" }}
+  {{ $Weeknotes := where (.Site.RegularPages) "Section" "weeknotes" | union (where (.Site.RegularPages) "Section" "yearnotes") }}
   {{ $WorksByType := (where (.Site.RegularPages) "Section" "works").GroupBy "Type" }}
   {{ $CurrentWorks := (where (.Site.RegularPages) "Section" "works") | intersect (where (.Site.RegularPages) "Params.status" "ongoing") }}
 
