@@ -3,7 +3,7 @@
   {{ .Content }}
 
   {{ $WeeknotesPage := .Site.GetPage "weeknotes" }}
-  {{ $Weeknotes := where (.Site.RegularPages) "Section" "weeknotes" }}
+  {{ $Weeknotes := where (.Site.RegularPages) "Section" "weeknotes" | union (where (.Site.RegularPages) "Section" "yearnotes") }}
   {{ $WorksByType := (where (.Site.RegularPages) "Section" "works").GroupBy "Type" }}
   {{ $CurrentWorks := (where (.Site.RegularPages) "Section" "works") | intersect (where (.Site.RegularPages) "Params.status" "ongoing") }}
 
@@ -28,10 +28,11 @@
         {{ end }}
         {{ with .Params.with }}<p class="with">Avec {{ delimit . ", " ", et " }}.</p>{{ end }}
         {{ with .Summary }}
-        <details>
-          <summary>{{ with $Icon }}{{- partial "icon.html" . -}}{{ end }} Impact recherché</summary>
-          <div class="summary description measure">{{ . }}</div>
-        </details>
+
+          <div class="summary description measure">
+            <strong style="float:left">Impact recherché</strong><br>
+            {{ . }}
+          </div>
         {{ end }}
       </article>
     {{ end }}

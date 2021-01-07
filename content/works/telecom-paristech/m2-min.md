@@ -2,13 +2,14 @@
 title: Programmer des visualisations de données pour le Web
 type: apprentissage
 for: Télécom ParisTech
-status: done
-date: 2020-03-05
+status: ongoing
+date: 2021-02-05
 with:
 - Samuel Huron
 resources:
-  https://github.com/oncletom/m2-min-2019/: Dépôt GitHub
-  https://github.com/oncletom/m2-min-2019/blob/master/JOURNAL.md: Journal de bord
+  https://github.com/oncletom/m2-min-2018/: Dépôt GitHub (promotion 2018/2019)
+  https://github.com/oncletom/m2-min-2019/: Dépôt GitHub (promotion 2019/2020)
+  https://github.com/oncletom/m2-min-2020/: Dépôt GitHub (promotion 2020/2021)
 ---
 
 Les étudiant·es développent une visualisation de données en mode agile ;

@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+<article data-type="{{ .Section }}" aria-label="{{ .Title | safeHTMLAttr }}" id="readout">
+  <h2>{{- partial "icon.html" "journal" -}}{{ .Title }}</h2>
+
+  <p class="subtitle">
+    Le {{ .Date.Format "02/01/2006" }}
+    {{- with .Params.written_in }}, écrit à {{ . }}{{ end -}}.
+  </p>
+
+  {{/* partial "toc.html" . */}}
+
+  <div class="content measure-wide">{{ .Content }}</div>
+</article>
+
+{{ end }}
