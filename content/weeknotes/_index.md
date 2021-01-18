@@ -12,6 +12,8 @@ collection:
 - https://marienfressinaud.fr/feeds/journal.atom.xml
 - https://www.hello-bokeh.fr/weeknotes-rss
 - https://juliebrillet.fr/notes/index.xml
+- https://blog.basilesimon.fr/atom.xml
+- https://janmonschke.com/weeknotes.xml
 ---
 
 Actions, réflexions et événéments marquants de la semaine.
