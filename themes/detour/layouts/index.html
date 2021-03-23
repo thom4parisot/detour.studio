@@ -65,14 +65,22 @@
     <p class="subtitle">{{ . }}</p>
     {{ end }}
 
-    <ol class="list--by-date">
-    {{ range $Weeknotes.ByDate.Reverse }}
-      <li>
-          <a href="{{.Permalink}}#readout">{{.Title}}</a>
-          <time datetime="{{ .Date.Format "2006-01-02T15:04:05-0700"}}">{{ .Date.Format "Jan _2, 2006" }}</time>
-      </li>
-    {{ end }}
-    </ol>
+    <div class="overflow-y" id="weeknotes-list">
+      <ol class="list--by-date">
+      {{ range $Weeknotes.ByDate.Reverse }}
+        <li>
+            <a href="{{.Permalink}}#readout">{{.Title}}</a>
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05-0700"}}">{{ .Date.Format "Jan _2, 2006" }}</time>
+        </li>
+      {{ end }}
+      </ol>
+    </div>
+
+    <p class="overflow-y__button">
+      <a href="#weeknotes-list">
+        {{- partial "icon.html" "more" -}}Voir toute la liste
+      </a>
+    </p>
   </section>
   {{ end }}
 

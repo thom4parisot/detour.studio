@@ -159,6 +159,19 @@ ul {
   color: var(--brand-alternative-color);
 }
 
+.overflow-y {
+  height: 12em;
+  overflow-y: hidden;
+  transition: height 1s;
+}
+
+.overflow-y:target {
+  height: auto;
+}
+.overflow-y:target + .overflow-y__button {
+  display: none;
+}
+
 .protip {
   border-bottom: 2px solid var(--brand-alternative-color);
   border-top: 2px solid var(--brand-alternative-color);
