@@ -2,7 +2,7 @@
 title: Développement d'un logiciel de gestion des activités de l'association
 type: accompagnement
 for: Les Jardins Nourriciers
-status: paused
+status: cancelled
 date: 2020-03-19
 stack:
 - Excel

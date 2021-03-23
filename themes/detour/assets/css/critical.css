@@ -344,6 +344,7 @@ figure {
 
   .work.ongoing .summary:before,
   .work.paused .summary:before,
+  .work.cancelled .summary:before,
   .work.upcoming .summary:before {
     border-radius: .2em;
     float: left;
@@ -364,13 +365,18 @@ figure {
     content: "Bientôt";
     color: var(--mid-gray);
   }
-  .work.paused {
+  .work.paused,
+  .work.cancelled {
     color: var(--text-muted-color);
   }
-  .work.paused .summary:before {
+  .work.paused .summary:before,
+  .work.cancelled .summary:before {
     background: #e0e4e9;
     content: "En pause";
     color: var(--mid-gray);
+  }
+  .work.cancelled .summary:before {
+    content: "Annulé";
   }
 
   .work-name {
