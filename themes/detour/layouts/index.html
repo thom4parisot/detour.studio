@@ -8,17 +8,17 @@
   {{ $CurrentWorks := (where (.Site.RegularPages) "Section" "works") | intersect (where (.Site.RegularPages) "Params.status" "ongoing") }}
 
   {{ with $CurrentWorks }}
-  <section id="" aria-label="Projets en cours">
+  <section id="ongoing-works" aria-label="Projets en cours">
     <h2>{{- partial "icon.html" "detour" -}}Mes projets du moment</h2>
 
     <p class="subtitle">
       Je prends plaisir à y mettre mon énergie et à naviguer dans leur complexité.
     </p>
 
-    <div class="carousel">
+    <div class="grid">
     {{ range (sort $CurrentWorks ".Params.type" "desc") }}
     {{ $Icon := (index $.Site.Params.works .Params.type).icon }}
-      <article class="work card">
+      <article class="work work--highlighted card">
         {{ if .Params.external_url }}
         <h3 class="work-name">
           <a href="{{ .Params.external_url }}" target="_blank" rel="external">{{ .Title }}</a>
@@ -37,16 +37,6 @@
       </article>
     {{ end }}
     </div>
-
-    <p class="subtitle measure-wide protip">
-      {{- partial "icon.html" "bulb" -}}
-      <span>Découvrir mes précédents projets de
-      <a href="#développement-web">développement&nbsp;web</a>,
-      <a href="#accompagnement">accompagnement&nbsp;d'équipe</a>,
-      <a href="#édition-numérique">édition&nbsp;numérique</a>,
-      et <a href="#apprentissage">apprentissage&nbsp;créatif</a>.</span>
-    </p>
-  </section>
   {{ end }}
 
   {{ with $WeeknotesPage }}
@@ -78,7 +68,7 @@
 
     <p class="overflow-y__button">
       <a href="#weeknotes-list">
-        {{- partial "icon.html" "more" -}}Voir toute la liste
+        {{- partial "icon.html" "more" -}}Voir la liste des {{ $Weeknotes | len }} notes
       </a>
     </p>
   </section>

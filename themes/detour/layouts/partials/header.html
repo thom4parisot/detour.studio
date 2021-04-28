@@ -1,5 +1,5 @@
 <header>
-  <h1 aria-label="{{ .Site.Title | safeHTMLAttr }}">
+  <h1 class="site-title" aria-label="{{ .Site.Title | safeHTMLAttr }}">
     {{ if .IsHome }}
     détour<span class="url-part">.</span><wbr>studio
     {{ else }}
@@ -9,7 +9,24 @@
     {{ end }}
   </h1>
 
-  <p class="site-description preamble measure-wide">{{ .Site.Params.Description }}</p>
-  <p>Par <a href="https://oncletom.io" rel="me">Thomas Parisot</a>.</p>
+  <p class="subheading">
+    <img src="https://oncletom.io/assets/apple-touch-icon.png" class="avatar" alt="">
+    par <a href="https://oncletom.io" target="_blank" rel="me">Thomas Parisot</a></p>
 
+  <p class="site-description preamble measure-wide">{{ .Site.Params.Description }}</p>
+
+  <nav class="menu menu--main">
+    <ul class="inline-list">
+      {{ $currentPage := . }}
+      {{ range .Site.Menus.main }}
+      <li>
+        <a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent "main" . }}aria-current="page"{{end}} aria-label="{{ .Name | safeHTMLAttr }}"{{ with .Page }} title="{{ .Title | safeHTMLAttr }}"{{ end }}>
+          {{ .Pre }}
+
+          {{ with .Params.icon }}{{- partial "icon.html" . -}}{{ end }}<span>{{ .Name }}</span>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
 </header>
