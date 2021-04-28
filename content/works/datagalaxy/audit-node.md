@@ -2,7 +2,7 @@
 title: Améliorer les performances d'une API REST
 type: accompagnement
 for: DataGalaxy
-status: ongoing
+status: done
 date: 2021-03-11
 with:
 - Guillaume Grossetie

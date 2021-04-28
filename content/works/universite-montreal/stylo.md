@@ -10,16 +10,17 @@ with:
   - Guillaume Grossetie
 external_url: https://ecrituresnumeriques.ca/fr/Activites/Projets/2016/1/14/Stylo
 stack:
-- Gatsby
 - React
+- JSON Schema Form
+- Ansible
 - GraphQL
 - OpenId Connect
 - Docker
 - Nginx
+- Markdown
 ---
 
-Simplifier au maximum l'installation de l'outil et l'intégrer à la chaîne
-numérique d'[Huma-Num].
+Intégrer des fonctionnalités d'écriture collaborative en Markdown, ainsi qu'une gestion documentaire scientifique.
 
 <!--more-->
 
