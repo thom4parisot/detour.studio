@@ -5,7 +5,7 @@
   --link-color: #0000e0;
   --visited-link-color: #0000B5;
   --brand-color: #4f5200;
-  --brand-alternative-color: #ccc08a;
+  --brand-alternative-color: #e8dbc2;
   --mid-gray: #5F7084;
 }
 
@@ -15,9 +15,6 @@ html {
 
 body {
   background-color: var(--background-color);
-  background-image: url("data:image/svg+xml;charset=utf-8;base64,{{ (resources.Get "background.svg").Content | base64Encode }}");
-  background-attachment: fixed;
-  background-size: cover;
   color: var(--text-color);
   font: 18px/1.3 monospace;
   margin: 0;
@@ -56,7 +53,6 @@ hr {
 }
 
 hr,
-body > header:after,
 body > footer:before {
   content: "";
   border-bottom: 4px solid var(--brand-alternative-color);
@@ -160,52 +156,29 @@ ul {
 }
 
 .overflow-y {
-  height: 12em;
+  height: 14em;
   overflow-y: hidden;
+  position: relative;
   transition: height 1s;
 }
+  .overflow-y::after {
+    bottom: 0;
+    content: "";
+    background: linear-gradient(transparent, var(--background-color));
+    display: block;
+    position: absolute;
+    height: 5em;
+    width: 100%;
+    z-index: 10;
+  }
 
 .overflow-y:target {
   height: auto;
+  background: transparent;
 }
 .overflow-y:target + .overflow-y__button {
   display: none;
 }
-
-.protip {
-  border-bottom: 2px solid var(--brand-alternative-color);
-  border-top: 2px solid var(--brand-alternative-color);
-  line-height: 1.5;
-  padding: 0.5em 0;
-}
-  @media (min-width: 376px) {
-    .protip {
-      display: flex;
-      border: none;
-    }
-
-    .protip .icon {
-      color: var(--text-color);
-      flex: 1 0 auto;
-      align-self: center;
-      height: 2em;
-      margin-right: .5em;
-      padding: .25em .5em;
-      width: 2em;
-    }
-  }
-  @media (min-width: 769px) {
-    .protip {
-      padding: 0.5em 2em;
-      margin-left: -2em;
-    }
-  }
-
-  .protip a {
-    color: inherit;
-    text-decoration-color: var(--brand-alternative-color);
-    font-weight: bold;
-  }
 
 .preamble {
   font-size: 24px;
@@ -227,35 +200,31 @@ ul {
   color: var(--brand-color);
 }
 
-@media (min-width: 769px) {
-  .carousel {
-    display: flex;
-    overflow: scroll;
-    padding-bottom: 1em;  /* to give some space to the horizontak scrollbar */
-    scroll-snap-type: x proximity;
-    width: 100%;
-  }
+.grid {
+  display: grid;
+  gap: 1em;
+}
 
-  .carousel > *,
-  .carousel > .work {
-    background: rgba(250, 250, 250, .6);
-    background-image: url("data:image/svg+xml;charset=utf-8;base64,{{ (resources.Get "projects.svg").Content | base64Encode }}");
-    border: 3px solid var(--brand-alternative-color);
-    flex-shrink: 0;
-    margin: 0 2em 0 0;
-    padding: 2em;
-    scroll-snap-align: start;
-    width: 30%;
+@media (min-width: 769px) {
+  .grid {
+    grid-template-columns: 50% 50%;
   }
 }
 
-figure {
+@media (min-width: 1241px) {
+  .grid {
+    grid-template-columns: 30% 30% 30%;
+    max-width: 2280px;
+  }
+}
+
+.markdown-image {
   margin: 1.5em 0;
 }
-  figure > img {
+  .markdown-image > img {
     border: 1em solid var(--brand-alternative-color);
   }
-  figure > figcaption {
+  .markdown-image > figcaption {
     color: var(--brand-color);
     font-weight: bold;
     margin-left: 1em;
@@ -304,12 +273,60 @@ figure {
       text-align: right;
     }
 }
+.inline-list {
+  display: flex;
+  list-style: none;
+  align-items: baseline;
+}
+  .inline-list > li {
+    margin: 0 1em 0 0;
+    white-space: nowrap;
+  }
+
+.menu--main [aria-current="page"] {
+  font-weight: bold;
+}
+.menu--main a {
+  background-color: var(--brand-alternative-color);
+  border-radius: 5px;
+  padding: .5em;
+  text-decoration: none !important;
+}
+  .menu--main a:hover,
+  .menu--main a:focus {
+    background-color: #e1d1af;
+    color: #3f4100;
+  }
+
+.site-title + .subheading {
+  font-size: .8em;
+  font-weight: bold;
+  margin-right: 2em;
+  margin-top: -1em;
+}
+
+.avatar {
+  border: none;
+  border-radius: 50%;
+  max-width: 24px;
+  vertical-align: bottom;
+}
 .work {
   display: flex;
   flex-direction: column;
   margin: 2em 0;
 }
-  .work .work-name a {
+  .work.work--highlighted {
+    background: rgba(250, 250, 250, .6);
+    background-image: url("data:image/svg+xml;charset=utf-8;base64,{{ (resources.Get "projects.svg").Content | base64Encode }}");
+    border: 3px solid var(--brand-alternative-color);
+    border-radius: 2px;
+    padding: 2em;
+    margin: 0;
+  }
+  .work .work-name a,
+  body > header a:link,
+  body > header a:visited {
     color: var(--text-color);
     text-decoration-color: var(--brand-alternative-color);
   }

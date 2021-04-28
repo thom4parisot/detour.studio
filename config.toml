@@ -9,7 +9,7 @@ buildFuture = true
 rssLimit = 10
 
 [params]
-  description = "Donner du sens au développement de services numériques libres et conviviaux ; travailler autrement en milieu rural."
+  description = "Je donne du sens à des services numériques libres et conviviaux. Je privilégie des projets qui font progresser la biodiversité, ou les connaissances."
 
 [params.works]
   order = [
@@ -52,3 +52,10 @@ rssLimit = 10
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+[menu]
+  [[menu.main]]
+    name = "Projets"
+    url = "/#développement-web"
+    weight = 90
+    params = { icon = "love" }
