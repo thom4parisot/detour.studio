@@ -290,7 +290,8 @@ ul {
 .menu--main [aria-current="page"] {
   font-weight: bold;
 }
-.menu--main a {
+.menu--main a,
+#TableOfContents {
   background-color: var(--brand-alternative-color);
   border-radius: 5px;
   padding: .5em;
@@ -308,6 +309,26 @@ ul {
   margin-right: 2em;
   margin-top: -1em;
 }
+
+#TableOfContents {
+  padding: .5em 1em;
+}
+  #TableOfContents ul li {
+    margin-bottom: .5em;
+  }
+  @media screen and (min-width: 1025px) {
+    #TableOfContents {
+      float: right;
+      font-size: .9em;
+      margin-left: 1em;
+      position: sticky;
+      top: 1em;
+    }
+  }
+
+  #TableOfContents a {
+    color: var(--text-color);
+  }
 
 .avatar {
   border: none;
