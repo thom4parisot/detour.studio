@@ -2,7 +2,7 @@
 title: Apprendre à cartographier des données
 type: apprentissage
 with: [Sofia Boulaarab]
-status: paused
+status: done
 date: 2020-03-20
 ---
 
