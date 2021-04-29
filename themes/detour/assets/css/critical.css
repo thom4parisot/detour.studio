@@ -171,6 +171,9 @@ ul {
     width: 100%;
     z-index: 10;
   }
+  .overflow-y:target::after {
+    display: none;
+  }
 
 .overflow-y:target {
   height: auto;
