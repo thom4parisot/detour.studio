@@ -354,6 +354,7 @@ ul {
   body > header a:visited {
     color: var(--text-color);
     text-decoration-color: var(--brand-alternative-color);
+    text-decoration-thickness: 5px;
   }
   .work .work-name a:after {
     content: "";
