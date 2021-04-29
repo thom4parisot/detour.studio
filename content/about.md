@@ -3,14 +3,14 @@ title: À propos de détour.studio
 menus:
   main:
     name: À propos
-    weight: 100
-    params:
-      icon: journal
+    weight: 1000
 ---
 
 👋 Salut, moi c'est Thomas !
 
 Mon **pronom** : il / lui.
+
+---
 
 J'habite à [Crest], dans la **vallée de la Drôme** — une biorégion rurale qui me plaît beaucoup.
 
@@ -21,11 +21,14 @@ et parce qu'elle contribue à mon ancrage local.
 
 Auparavant, j'ai vécu à Toulouse, Bordeaux, et Londres, puis en [sac à dos][itinérance].
 
-Pour en savoir plus sur ce que je fais :
+---
+
+**Pour en savoir plus** :
 
 - [les projets qui me font vivre](/#développement-web) ;
 - [comment je gère mon argent](/money/) ;
-- [mon blog](https://oncletom.io) ;
+- [mes écrits numériques](https://oncletom.io) ;
+- [des présentations et animations données par-ci par-là](https://oncletom.io/talks/) ;
 - [mon livre sur Node.js](https://oncletom.io/node.js/).
 
 [Crest]: https://www.openstreetmap.org/node/26694320#map=13/44.7283/5.0237
