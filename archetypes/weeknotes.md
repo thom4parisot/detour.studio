@@ -1,0 +1,68 @@
+---
+title: "Weeknotes #{{ .Name | title }}"
+date: {{ now.Format "2006-01-02" }}
+author: oncletom
+written_in: Crest
+images: [/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.jpg]
+network:
+---
+
+
+<!--more-->
+
+## Ce qui s'est passé
+
+[détour.studio]
+: x
+
+[La Zone]
+: x
+
+[CartoBio]
+: XX semaine sur le projet.
+
+![](/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.jpg " ({{ now.Format "January 2006" }})")
+
+
+[Stylo]
+: x
+: [Lire le journal de développement](https://github.com/EcrituresNumeriques/stylo/blob/master/JOURNAL.md#mercredi-28-avril-2021).
+
+## Des joies
+
+- x
+
+
+## Des peines
+
+- x
+
+## Vu, lu, regardé, joué
+
+- Lu []().
+- 📚 Continué à lire [](), de X.
+- 🎮 Continué à jouer à X, sur X.
+- 🎧 Écouté []().
+- 🎵 Écouté [](), de X.
+
+[détour.studio]: /
+[Solstice]: https://solstice.coop/
+[Stylo]: https://github.com/EcrituresNumeriques/stylo
+[CartoBio]: https://cartobio.org/
+[EditAdapt]: http://editadapt.fr/
+[Usine Vivante]: https://www.usinevivante.org
+[La Zone]: http://la.zone
+[YesWiki]: https://yeswiki.net
+[DataGalaxy]: https://www.datagalaxy.com/
+[Classes à 12]: https://beta.gouv.fr/startups/classes12.html
+
+[Noémie]: https://noemiegirard.co
+[Sandra]: https://sandrakpodar.net/
+[Juliette]: https://twitter.com/ju_net01
+[Sofia]: https://twitter.com/sofiaboulaarab
+[Guillaume]: https://www.yuzutech.fr/
+[Antoine]: https://www.quaternum.net/
+[Yannick]: https://elsif.fr/
+[Basile]: https://basilesimon.fr/
+[Maïtané]: https://maiwann.net/
+[Laurent]: https://cocotier.xyz/
