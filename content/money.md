@@ -23,7 +23,7 @@ Mes interventions à TélécomParisTech ajoutent 1300€ à ma tirelire.
 
 Je travaille depuis 2004 —
 1900€, c'est 100€ de plus qu'à la sortie de mon premier job.
-1900€, c'est deux fois moins que ce que [mon revenu à la BBC][bbc].
+1900€, c'est deux fois moins que [mon revenu à la BBC][bbc].
 
 Mon salaire actuel est ce qu'on qualifierait de [salaire au besoin](https://www.bastamag.net/salaire-au-besoin-egalite-salariale-alternative-cooperative-Scop-boulangerie-Le-Pain-des-Cairns-reconnaissance-du-travail).
 
