@@ -27,6 +27,7 @@ Auparavant, j'ai vécu à Toulouse, Bordeaux, et Londres, puis en [sac à dos
 
 - [les projets qui me font vivre](/#développement-web) ;
 - [comment je gère mon argent](/money/) ;
+- [comment je fonctionne en tant que personne](/user-manual/) ;
 - [mes écrits numériques](https://oncletom.io) ;
 - [des présentations et animations données par-ci par-là](https://oncletom.io/talks/) ;
 - [mon livre sur Node.js](https://oncletom.io/node.js/).

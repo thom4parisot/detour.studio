@@ -11,7 +11,9 @@
 
   <p class="subheading">
     <img src="https://oncletom.io/assets/apple-touch-icon.png" class="avatar" alt="">
-    par <a href="https://oncletom.io" target="_blank" rel="me">Thomas Parisot</a></p>
+    par <a href="https://oncletom.io" target="_blank" rel="me">Thomas Parisot</a>
+    <small aria-label="Pronoms : {{ .Site.Params.pronouns | safeHTMLAttr }}">({{ .Site.Params.pronouns }})</small>
+  </p>
 
   <p class="site-description preamble measure-wide">{{ .Site.Params.Description }}</p>
 

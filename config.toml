@@ -10,6 +10,7 @@ rssLimit = 10
 
 [params]
   description = "Je donne du sens à des services numériques libres et conviviaux. Je privilégie des projets qui font progresser la biodiversité, ou les connaissances."
+  pronouns = "il / lui"
 
 [params.works]
   order = [
