@@ -1,6 +1,8 @@
 ---
 title: Parlons argent
 toc: true
+aliases:
+- argent
 menus:
   main:
     name: Argent

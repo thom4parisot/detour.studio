@@ -5,7 +5,7 @@
 
   {{ if .Params.toc }}{{.TableOfContents}}{{ end }}
 
-  <div class="content measure-wide">{{ .Content }}</div>
+  <div class="content measure-wide{{ with .Params.extraClass }} {{ . }}{{ end }}">{{ .Content }}</div>
 </article>
 
 {{ end }}

@@ -336,6 +336,17 @@ ul {
   max-width: 24px;
   vertical-align: bottom;
 }
+
+.dotted-dl dt:after {
+  content: "…";
+}
+.dotted-dl dd:before {
+  content: "… ";
+}
+.dotted-dl dd:after {
+  content: " ;";
+}
+
 .work {
   display: flex;
   flex-direction: column;
