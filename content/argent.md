@@ -2,7 +2,7 @@
 title: Parlons argent
 toc: true
 aliases:
-- argent
+- money
 menus:
   main:
     name: Argent

@@ -2,7 +2,7 @@
 title: Manuel d'utilisateur
 extraClass: dotted-dl
 aliases:
-- manuel-utilisateur
+- user-manual
 menus:
   main:
     name: Manuel d'utilisateur
