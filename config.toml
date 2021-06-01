@@ -53,6 +53,7 @@ rssLimit = 10
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+      attribute = true
 
 [menu]
   [[menu.main]]
