@@ -66,3 +66,4 @@ network:
 [Basile]: https://basilesimon.fr/
 [Maïtané]: https://maiwann.net/
 [Laurent]: https://cocotier.xyz/
+[Audrey]: https://fr.linkedin.com/in/audreybramy
