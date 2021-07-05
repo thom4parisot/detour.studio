@@ -42,6 +42,7 @@ network:
 - Lu []().
 - 📚 Continué à lire [](), de X.
 - 🎮 Continué à jouer à X, sur X.
+- 📺 Regardé X.
 - 🎧 Écouté []().
 - 🎵 Écouté [](), de X.
 
