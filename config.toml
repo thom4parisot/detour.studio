@@ -51,6 +51,8 @@ rssLimit = 10
 
 [markup]
   [markup.goldmark]
+    [markup.goldmark.parser.attribute]
+      block = true
     [markup.goldmark.renderer]
       unsafe = true
       attribute = true
