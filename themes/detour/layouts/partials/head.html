@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="initial-scale=1.0">
-<title>{{ if .IsHome }}{{ .Title }} • {{ .Site.Params.Description }}{{ else }}{{ .Page.Title }} • {{ .Site.Title }}{{ end }}</title>
+<title>{{ if .IsHome }}{{ .Title }} • {{ .Site.Params.Description }}{{ else }}{{ index .Params "html-title" | default .Page.Title }} • {{ .Site.Title }}{{ end }}</title>
 <link rel="preload" as="image" href="{{ "/icons.svg" | absURL }}">
 <style type="text/css">{{ (resources.Get "css/critical.css" | resources.ExecuteAsTemplate "critical.css" . | resources.Minify).Content | safeCSS }}</style>
 <link rel="apple-touch-icon" sizes="180x180" href="https://oncletom.io/assets/apple-touch-icon.png">

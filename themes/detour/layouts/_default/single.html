@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <article data-type="{{ .Section }}" aria-label="{{ .Title | safeHTMLAttr }}" id="readout">
-  <h2>{{- partial "icon.html" (index .Params "menus" "main" "params" "icon" | default "journal") -}}{{ .Title }}</h2>
+  <h2>{{- partial "icon.html" (index .Params "menus" "main" "params" "icon" | default .Params.icon |  default "journal") -}}{{ .Title }}</h2>
 
   {{ if .Params.toc }}{{.TableOfContents}}{{ end }}
 

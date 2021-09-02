@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+    {{- partial "head.html" . -}}
+    <body>
+        <div id="content" role="presentation">
+        {{- block "main" . }}{{- end }}
+        </div>
+    </body>
+</html>
