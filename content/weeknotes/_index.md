@@ -14,6 +14,7 @@ collection:
 - https://juliebrillet.fr/notes/index.xml
 - https://basilesimon.fr/weeknotes/index.xml
 - https://janmonschke.com/weeknotes.xml
+- https://www.ripplet.org/weeknotes?format=rss
 ---
 
-Actions, réflexions et événéments marquants de la semaine.
+Actions, réflexions et événements marquants de la semaine.
