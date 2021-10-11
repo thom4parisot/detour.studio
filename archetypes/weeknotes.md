@@ -54,8 +54,7 @@ network:
 [Usine Vivante]: https://www.usinevivante.org
 [La Zone]: http://la.zone
 [YesWiki]: https://yeswiki.net
-[DataGalaxy]: https://www.datagalaxy.com/
-[Classes à 12]: https://beta.gouv.fr/startups/classes12.html
+[NatureProgres]: http://np26.fr/
 
 [Noémie]: https://noemiegirard.co
 [Sandra]: https://sandrakpodar.net/
