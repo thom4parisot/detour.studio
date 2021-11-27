@@ -50,11 +50,11 @@ network:
 [Solstice]: https://solstice.coop/
 [Stylo]: https://github.com/EcrituresNumeriques/stylo
 [CartoBio]: https://cartobio.org/
-[EditAdapt]: http://editadapt.fr/
 [Usine Vivante]: https://www.usinevivante.org
 [La Zone]: http://la.zone
 [YesWiki]: https://yeswiki.net
 [NatureProgres]: http://np26.fr/
+[Réseau REPAS]: http://www.reseaurepas.free.fr/
 
 [Noémie]: https://noemiegirard.co
 [Sandra]: https://sandrakpodar.net/
