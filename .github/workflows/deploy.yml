@@ -18,7 +18,7 @@ jobs:
       - name: Build
         run: hugo --minify
       - name: Deploy w/ rsync
-        uses: burnett01/rsync-deployments@4.1
+        uses: burnett01/rsync-deployments@5.1
         with:
           path: public/
           remote_path: /home/oncletom/www_detour_studio
