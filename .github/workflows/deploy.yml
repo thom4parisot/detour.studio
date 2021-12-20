@@ -17,12 +17,10 @@ jobs:
           extended: true
       - name: Build
         run: hugo --minify
-      - name: Deploy w/ rsync
-        uses: burnett01/rsync-deployments@5.1
+      - name: Setup SSH
+        uses: shimataro/ssh-key-action@v2.3.1
         with:
-          path: public/
-          remote_path: /home/oncletom/www_detour_studio
-          switches: -avzr --delete --exclude node_modules --exclude '.git*'
-          remote_host: ssh-oncletom.alwaysdata.net
-          remote_user: oncletom
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+      - run: |
+          rsync -avzr --delete --exclude 'node_modules' --exclude '.git*' ./public/ oncletom@ssh-oncletom.alwaysdata.net:/home/oncletom/www_detour_studio
