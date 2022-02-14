@@ -31,7 +31,7 @@ Sciences Po + TélécomParisTech
 #### Apprendre la programmation web (<small>2018-2020</small>)
 
 - 24h de cours répartis sur 2 mois
-- journaux d'apprentissage : [2018](https://github.com/oncletom/m2-min-2018/blob/master/JOURNAL.md), [2019](https://github.com/oncletom/m2-min-2019/blob/master/JOURNAL.md) et [2020](https://github.com/oncletom/m2-min-2020/blob/main/JOURNAL.md)
+- journaux d'apprentissage : [2018](https://github.com/thom4parisot/m2-min-2018/blob/master/JOURNAL.md), [2019](https://github.com/thom4parisot/m2-min-2019/blob/master/JOURNAL.md) et [2020](https://github.com/thom4parisot/m2-min-2020/blob/main/JOURNAL.md)
 - en visio et en présence
 {.metadata}
 

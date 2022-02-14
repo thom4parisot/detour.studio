@@ -61,7 +61,7 @@ Quelques pointeurs culturels pour mieux me connaître
 : j'ai vécu 5 ans à Londres — à Mile End, à King's Cross, et à Walthamstow
 : j'ai vécu [1 an en sac à dos](https://estcequecestdutravail.xyz)
 : j'aime poser ma tente/hamac dans des endroits sympa pour bivouaquer
-: je pratique la [photographie argentique](https://oncletom.io/photography/), et la boulangerie au levain
+: je pratique la [photographie argentique](https://thom4.net/photography/), et la boulangerie au levain
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Weeknotes #{{ .Name | title }}"
 date: {{ now.Format "2006-01-02" }}
-author: oncletom
+author: thomas
 written_in: Crest
 images: [/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.jpg]
 network:
