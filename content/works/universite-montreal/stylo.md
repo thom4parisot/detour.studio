@@ -8,6 +8,7 @@ via:
   - Antoine Fauchié
 with:
   - Guillaume Grossetie
+  - Maïtané Lenoir
 external_url: https://ecrituresnumeriques.ca/fr/Activites/Projets/2016/1/14/Stylo
 stack:
 - React
