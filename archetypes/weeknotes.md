@@ -19,7 +19,7 @@ network:
 : x
 
 [CartoBio]
-: XX semaine sur le projet.
+: XX<sup>ème</sup> semaine sur le projet.
 
 ![](/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.jpg " ({{ now.Format "January 2006" }})")
 
@@ -54,7 +54,7 @@ network:
 [La Zone]: http://la.zone
 [YesWiki]: https://yeswiki.net
 [NatureProgres]: http://np26.fr/
-[Réseau REPAS]: http://www.reseaurepas.free.fr/
+[Éditions REPAS]: http://editionsrepas.free.fr/
 
 [Noémie]: https://noemiegirard.co
 [Sandra]: https://sandrakpodar.net/
