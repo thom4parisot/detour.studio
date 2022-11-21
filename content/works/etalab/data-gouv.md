@@ -11,6 +11,7 @@ stack:
 - Vue.js
 - Docker
 - Circle CI
+external_url: https://github.com/etalab/user-research
 ---
 
 Réduire le chemin entre les utilisateur·ices et les données recherchées.

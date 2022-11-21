@@ -3,7 +3,7 @@ title: Un éditeur de texte pour les sciences humaines
 for: Chaire de recherche du Canada sur les écritures numériques
 type: développement web
 status: ongoing
-date: 2020-03-20
+date: 2022-11-21
 via:
   - Antoine Fauchié
 with:

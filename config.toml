@@ -37,13 +37,6 @@ rssLimit = 10
     icon = "grow"
     description = "Je leur donne de mon temps sans contrepartie financière, par plaisir et par conviction."
 
-[params.people]
-  "Benjamin Grémillon" = "https://benjmng.eu"
-  "Julie Blanc" = "https://julie-blanc.fr"
-  "Julien Taquet" = "https://www.lesvoisinsdustudio.ch"
-  "Paul Girard" = "https://medialab.sciencespo.fr/equipe/paul-girard/"
-  "Samuel Huron" = "https://twitter.com/cybunk"
-
 [outputFormats]
   [outputFormats.opml]
     basename = "collection"
