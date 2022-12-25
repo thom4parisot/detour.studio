@@ -1,0 +1,10 @@
+{{ define "main" }}
+
+<section aria-label="{{ .Title | safeHTMLAttr }}" id="{{ .Section | anchorize }}">
+  {{ partial "categories/header.html" . }}
+
+  {{ range .Pages }}
+    {{ partial "works/article.html" . }}
+  {{ end }}
+</section>
+{{ end }}

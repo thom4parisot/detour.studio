@@ -1,0 +1,8 @@
+<h2>
+  {{ with .Params.icon }}{{- partial "icon.html" . -}}{{ end }}
+  {{- .Title -}}
+</h2>
+
+{{ with .Params.description }}
+<p class="subtitle measure-wide">{{ . }}</p>
+{{ end }}

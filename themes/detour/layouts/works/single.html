@@ -1,0 +1,77 @@
+{{ define "main" }}
+{{ $Category := $.Site.GetPage (printf "/%s/%s" "categories" (index .Params.categories 0 | anchorize)) }}
+<article class="work" data-type="{{ .Section }}" aria-label="{{ .Title | safeHTMLAttr }}" id="readout">
+  <header>
+    {{ with .Params.for }}<p class="customer-name">{{ . }}</p>{{ end }}
+    <h2>{{- partial "icon.html" ($Category.Params.icon |  default "journal") -}}{{ .Title }}</h2>
+
+    <div class="measure-wide{{ with .Params.extraClass }} {{ . }}{{ end }}">
+      <h3>Impact recherché</h3>
+      <p>{{ .Description | markdownify }}</p>
+    </div>
+
+    {{ with .Resources.GetMatch "screenshot.{jpg,jpeg,png}" }}
+      <picture class="screenshot markdown-image">
+        <img src="{{ ((.Resize "1440x").Crop "1440x900 TopLeft").RelPermalink }}" width="896" alt="" type="{{ .MediaType }}">
+      </picture>
+    {{ end }}
+  </header>
+
+
+  {{ with .Params.resources }}
+  <div class="measure-wide">
+    <h3>Ressources complémentaires</h3>
+    <ul class="inline-list">
+      {{ range $URL,$Label := . }}
+        <li>
+          <a href="{{ $URL }}" target="_blank" rel="external noopener noreferrer">
+            {{ $Label }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+
+  {{ with (union .Params.with .Params.via | uniq)}}
+  <div class="measure-wide">
+    <h3>On fait équipe avec</h3>
+    <ul class="inline-list with-brackets">
+      {{ range . }}<li>{{ . }}</li>{{ end }}
+    </ul>
+  </div>
+  {{ end }}
+
+  {{ with .Content }}
+  <section class="measure-wide">
+    <h3>Présentation</h3>
+    <div class="markdown-content">{{ . }}</div>
+  </section>
+  {{ end }}
+
+  {{ with .Params.stack }}
+  <section class="measure-wide">
+    <h3><span lang="en">Stack</span> technique</h3>
+
+    <ul class="inline-list with-brackets">
+      {{ range . }}<li>{{ . }}</li>{{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  {{ with (sort ((where .Site.Pages "Type" "weeknotes").Related .)  "Date" "desc") }}
+  <section>
+    <h3>Projet évoqué dans {{ . | len }} notes</h3>
+    <ul class="grid mini-cards">
+    {{ range . }}
+      <li class="mini-cards__item">
+        <a class="mini-cards__title" href="{{ .RelPermalink }}#readout">{{ .Title }}</a>
+        <time datetime="{{ .Date.Format "2006-01-02T15:04:05-0700"}}">{{ .Date.Format "Jan _2, 2006" }}</time>
+      </li>
+    {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+</article>
+
+{{ end }}

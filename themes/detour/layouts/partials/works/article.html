@@ -1,0 +1,18 @@
+{{ $RelatedWeeknotes := ((where $.Site.Pages "Type" "weeknotes").Related .) | len }}
+
+<article class="work {{ with .Params.status }}with-status {{.}}{{ end }}">
+  {{ with .Params.for }}<p class="customer-name">{{ . }}</p>{{ end }}
+  <h3 class="work-name">
+    {{ if or .Params.external $RelatedWeeknotes }}
+    <a {{ with .Params.external }} href="{{ .link }}" {{ with .lang }}lang="{{.}}"{{ end }} rel="external noopener noreferrer" target="_blank"{{ end }}{{ if not .Params.external }}href="{{ .Permalink }}" rel="permalink"{{ end }}>
+      {{ .Title }}
+    </a>
+    {{ else }}
+      {{ .Title }}
+    {{ end }}
+  </h3>
+  {{ with .Params.with }}<p class="with">Avec {{ delimit . ", " ", et " }}.</p>{{ end }}
+  {{ with .Description }}
+  <div class="summary description measure-wide">{{ . | markdownify }}</div>
+  {{ end }}
+</article>
