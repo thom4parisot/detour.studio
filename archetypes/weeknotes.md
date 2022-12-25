@@ -5,6 +5,7 @@ author: thomas
 written_in: Crest
 images: [/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.jpg]
 network:
+keywords:
 ---
 
 
@@ -12,19 +13,18 @@ network:
 
 ## Ce qui s'est passé
 
-[détour.studio]
+détour.studio
 : x
 
-[La Zone]
+La Zone
 : x
 
-[CartoBio]
+CartoBio
 : XX<sup>ème</sup> semaine sur le projet.
 
 ![](/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.jpg " ({{ now.Format "January 2006" }})")
 
-
-[Stylo]
+Stylo
 : x
 : [Lire le journal de développement](https://github.com/EcrituresNumeriques/stylo/blob/master/JOURNAL.md#mercredi-28-avril-2021).
 
@@ -45,25 +45,3 @@ network:
 - 📺 Regardé X.
 - 🎧 Écouté []().
 - 🎵 Écouté [](), de X.
-
-[détour.studio]: /
-[Solstice]: https://solstice.coop/
-[Stylo]: https://github.com/EcrituresNumeriques/stylo
-[CartoBio]: https://cartobio.org/
-[Usine Vivante]: https://www.usinevivante.org
-[La Zone]: http://la.zone
-[YesWiki]: https://yeswiki.net
-[NatureProgres]: http://np26.fr/
-[Éditions REPAS]: http://editionsrepas.free.fr/
-
-[Noémie]: https://noemiegirard.co
-[Sandra]: https://sandrakpodar.net/
-[Juliette]: https://twitter.com/ju_net01
-[Sofia]: https://twitter.com/sofiaboulaarab
-[Guillaume]: https://www.yuzutech.fr/
-[Antoine]: https://www.quaternum.net/
-[Yannick]: https://elsif.fr/
-[Basile]: https://basilesimon.fr/
-[Maïtané]: https://maiwann.net/
-[Laurent]: https://cocotier.xyz/
-[Audrey]: https://fr.linkedin.com/in/audreybramy
