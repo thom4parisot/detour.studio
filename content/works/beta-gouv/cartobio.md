@@ -1,21 +1,32 @@
 ---
 title: Une cartographie de l'agriculture biologique
+description: |
+  Réduire la charge de travail administratif pour les certifié·es, les auditeur·ices bio et les instructeur·ices PAC. En publier une cartographie d'intérêt environnemental.
 categories:
 - développement web
 for: Direction Interministérielle du Numérique (DINUM)
 status: ongoing
 date: 2022-10-14
-external_url: https://cartobio.org
+keywords:
+- CartoBio
 stack:
 - Docker
 - Node.js
 - Vue.js
+- MaplibreGL
 - PostgreSQL
+- PostGIS
+- GeoJSON
+- OpenID Connect
 with:
 - Aymeric Maillard
 - Juliette Palumbo
 - Mathilde Petit
 - Roxann Khelif
+resources:
+  https://github.com/agenceBio/cartobio-front: Code source (front)
+  https://github.com/agenceBio/cartobio-api: Code source (API)
+  https://www.data.gouv.fr/fr/datasets/616d6531c2951bbe8bd97771: Jeu de données des parcelles cultivées en bio
+  https://cartobio.org: Site web officiel
 ---
 
-Réduire la charge de travail administratif pour les certifié·es, les auditeur·ices bio et les instructeur·ices PAC. En publier une cartographie d'intérêt environnemental.

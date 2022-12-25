@@ -1,5 +1,9 @@
 ---
 title: Plate-forme de recommandation de contenus éditoriaux
+description: |
+  Concevoir une architecture modulaire d'indexation, d'enrichissement et de
+  classification de contenus hétérogènes — du système informatique jusqu'aux
+  composants visuels.
 categories:
 - développement web
 for: BBC R&D
@@ -15,9 +19,7 @@ stack:
 - JavaScript
 - Jenkins CI
 - Amazon Web Services
-external_url: https://www.bbc.co.uk/rd/projects/editorial-algorithms
+external:
+  link: https://www.bbc.co.uk/rd/projects/editorial-algorithms
+  lang: en
 ---
-
-Concevoir une architecture modulaire d'indexation, d'enrichissement et de
-classification de contenus hétérogènes — du système informatique jusqu'aux
-composants visuels.

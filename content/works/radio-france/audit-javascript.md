@@ -5,13 +5,13 @@ categories:
 for: Radio France
 status: done
 date: 2017-10-01
+archived: true
 with:
 - David Bruant
-via:
-- JoliCode
 stack:
 - Asciidoc
 - Node.js
 - JavaScript
-external_url: https://dtc-innovation.github.io/research/
+external:
+  link: https://dtc-innovation.github.io/research/
 ---

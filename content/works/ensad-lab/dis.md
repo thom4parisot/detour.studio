@@ -1,9 +1,12 @@
 ---
 title: Interface d'exploration de données dans l'espace
+description: |
+  Prototyper une interface visuelle annotable, classable et navigable à l'infini.
 categories:
 - développement web
 for: Ensad Lab
 status: done
+archived: true
 date: 2019-05-01
 with:
 - Julie Blanc
@@ -13,9 +16,6 @@ via:
 stack:
 - Vue.js
 - GitLab CI
-external_url: https://gitlab.com/dis-project/journee-etude
+external:
+  link: https://gitlab.com/dis-project/journee-etude
 ---
-
-Prototyper une interface visuelle annotable, classable et navigable à l'infini.
-
-<!--more-->

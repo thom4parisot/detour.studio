@@ -1,5 +1,10 @@
 ---
 title: Repenser les chaînes de publication par l'intégration des pratiques du développement logiciel
+description: |
+  Rédaction et publication d'un article scientifique à 4 mains,
+  sur l'application des techniques de développement logiciel
+  — outils, markup et méthodes agiles — à l'édition d'ouvrages de fiction
+  publiés en ligne et sur papier.
 categories:
 - édition numérique
 for: Sciences du Design
@@ -15,12 +20,6 @@ resources:
   https://www.cairn.info/revue-sciences-du-design-2018-2-page-45.htm: L'article sur cairn.info
   https://antoinentl.gitlab.io/readme.book/: Lire l'article en ligne
   https://gitlab.com/antoinentl/readme.book: Code source de l'article
-external_url: https://www.cairn.info/revue-sciences-du-design-2018-2-page-45.htm
+external:
+  link: https://www.cairn.info/revue-sciences-du-design-2018-2-page-45.htm
 ---
-
-Publication d'un article scientifique à 4 mains,
-sur l'application des techniques de développement logiciel
-— outils, markup et méthodes agiles — à l'édition d'ouvrages de fiction
-publiés en ligne et sur papier.
-
-<!--more-->

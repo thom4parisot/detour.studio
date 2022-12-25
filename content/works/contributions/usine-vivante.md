@@ -1,10 +1,14 @@
 ---
 title: Usine Vivante
+description: |
+  Fluidité numérique, accordage associatif.
 categories:
 - contribution
-external_url: https://www.usinevivante.org
+keywords:
+- Usine Vivante
+- UV
+external:
+  link: https://www.usinevivante.org
 ---
-
-Fluidité numérique, accordage associatif.
 
 <!-- -->

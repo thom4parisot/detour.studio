@@ -1,5 +1,8 @@
 ---
 title: Visualisation et annotation d'archives sonores
+description: |
+  Simplifier le travail d'édition en intégrant des outils visuels
+  aux archives sonores.
 categories:
 - développement web
 for: BBC R&D
@@ -12,10 +15,7 @@ stack:
 - JavaScript
 - Canvas
 - Jenkins CI
-external_url: https://waveform.prototyping.bbc.co.uk/
+external:
+  link: https://waveform.prototyping.bbc.co.uk/
+  lang: en
 ---
-
-Simplifier le travail d'édition en intégrant des outils visuels
-aux archives sonores.
-
-<!--more-->
