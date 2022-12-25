@@ -25,6 +25,9 @@ ignoreErrors = ["error-disable-taxonomy"]
   name = "for"
   weight = 50
 
+[permalinks]
+  works = "/works/:filename"
+
 [outputFormats]
   [outputFormats.opml]
     basename = "collection"

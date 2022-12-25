@@ -86,7 +86,8 @@
         <p class="subtitle measure-wide">{{ . }}</p>
         {{ end }}
 
-        {{ range .Pages.ByDate.Reverse }}
+        {{ $limit := $Page.Params.limit | default 5}}
+        {{ range .Pages.ByDate.Reverse | first $limit }}
         <article class="work {{ .Params.status | default "done" }}">
           {{ with .Params.for }}<p class="customer-name">{{ . }}</p>{{ end }}
           {{ if .Params.external_url }}
