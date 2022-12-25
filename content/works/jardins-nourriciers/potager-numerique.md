@@ -1,6 +1,7 @@
 ---
 title: Développement d'un logiciel de gestion des activités de l'association
-type: accompagnement
+categories:
+- accompagnement
 for: Les Jardins Nourriciers
 status: cancelled
 date: 2020-03-19

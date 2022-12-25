@@ -1,6 +1,7 @@
 ---
 title: Refonte des tarifs du tiers-lieu
-type: accompagnement
+categories:
+- accompagnement
 for: Usine Vivante
 status: done
 date: 2019-11-01

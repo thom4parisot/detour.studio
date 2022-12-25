@@ -1,7 +1,8 @@
 ---
 title: Un éditeur de texte pour les sciences humaines
 for: Chaire de recherche du Canada sur les écritures numériques
-type: développement web
+categories:
+- édition numérique
 status: ongoing
 date: 2022-11-21
 via:

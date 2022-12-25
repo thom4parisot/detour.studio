@@ -1,6 +1,7 @@
 ---
 title: Une cartographie de l'agriculture biologique
-type: développement web
+categories:
+- développement web
 for: Direction Interministérielle du Numérique (DINUM)
 status: ongoing
 date: 2022-10-14

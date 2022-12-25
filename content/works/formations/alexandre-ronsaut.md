@@ -1,6 +1,7 @@
 ---
 title: Apprendre Node.js
-type: apprentissage
+categories:
+- apprentissage
 status: done
 with: [Alexandre Ronsaut]
 date: 2019-07-25

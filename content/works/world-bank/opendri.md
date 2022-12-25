@@ -1,6 +1,7 @@
 ---
 title: Fluidifier la navigation d'un portail de données environnementales
-type: développement web
+categories:
+- développement web
 for: World Bank
 status: done
 date: 2018-09-01

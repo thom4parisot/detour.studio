@@ -1,6 +1,7 @@
 ---
 title: Programmer des visualisations de données pour le Web
-type: apprentissage
+categories:
+- apprentissage
 for: Télécom ParisTech
 status: done
 date: 2021-03-15

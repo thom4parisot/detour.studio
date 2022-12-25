@@ -1,6 +1,7 @@
 ---
 title: Usine Vivante
-type: contribution
+categories:
+- contribution
 external_url: https://www.usinevivante.org
 ---
 

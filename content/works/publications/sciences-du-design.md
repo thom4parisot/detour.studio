@@ -1,6 +1,7 @@
 ---
 title: Repenser les chaînes de publication par l'intégration des pratiques du développement logiciel
-type: édition numérique
+categories:
+- édition numérique
 for: Sciences du Design
 status: done
 date: 2018-11-01

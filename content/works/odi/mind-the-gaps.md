@@ -1,6 +1,7 @@
 ---
 title: Méthodologie d'analyse de la qualité de vie dans les villes et agglomérations urbaines
-type: accompagnement
+categories:
+- accompagnement
 for: Open Data Institute
 status: done
 date: 2018-01-01

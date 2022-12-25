@@ -7,35 +7,13 @@ theme = "detour"
 sectionPagesMenu = "works"
 buildFuture = true
 rssLimit = 10
+cleanDestinationDir = true
+disableKinds = ["taxonomy", "term"]
 
 [params]
   description = "Je donne du sens à des services numériques libres et conviviaux. Je privilégie des projets qui font progresser la biodiversité, ou les connaissances."
   pronouns = "il / lui"
 
-[params.works]
-  order = [
-    "développement web",
-    "accompagnement",
-    "édition numérique",
-    "apprentissage",
-    "contribution"
-  ]
-
-  [params.works."développement web"]
-    icon = "code"
-    description = "Je construis pas à pas des logiciels pragmatiques, conviviaux et sobres, au service de vos enjeux, et de ceux d'un futur désirable sur Terre."
-  [params.works."accompagnement"]
-    icon = "mountain"
-    description = "J'emmène et protège des équipes dans une direction où elles y trouvent du sens, du plaisir et de l'autonomie."
-  [params.works."édition numérique"]
-    icon = "book"
-    description = "Je crée des ouvrages imprimés avec des technologies web."
-  [params.works."apprentissage"]
-    icon = "peer-to-peer"
-    description = "Je crée des formats doux et créatifs qui stimulent l'apprentissage et le partage de connaissances entre les personnes."
-  [params.works."contribution"]
-    icon = "grow"
-    description = "Je leur donne de mon temps sans contrepartie financière, par plaisir et par conviction."
 
 [outputFormats]
   [outputFormats.opml]
@@ -56,3 +34,7 @@ rssLimit = 10
     url = "/#développement-web"
     weight = 90
     params = { icon = "love" }
+
+[taxonomies]
+  category = "categories"
+  stack = "stack"

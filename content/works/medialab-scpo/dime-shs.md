@@ -1,6 +1,7 @@
 ---
 title: Site web d'un projet de sciences humaines et sociales
-type: développement web
+categories:
+- développement web
 for: Médialab Sciences-Po
 status: done
 date: 2018-09-01

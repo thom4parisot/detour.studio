@@ -1,6 +1,7 @@
 ---
 title: Refonte d'un site web en mode agile
-type: accompagnement
+categories:
+- accompagnement
 for: Solstice CAE
 status: done
 date: 2022-10-14

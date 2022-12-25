@@ -1,6 +1,7 @@
 ---
 title: Impression de livrets d'initiatives citoyennes
-type: édition numérique
+categories:
+- édition numérique
 for: Parc Naturel Transfrontalier du Hainaut
 date: 2020-06-01
 status: done

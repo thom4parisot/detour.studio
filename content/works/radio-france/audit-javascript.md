@@ -1,6 +1,7 @@
 ---
 title: Améliorer les pratiques de programmation et d'interactions inter-équipes
-type: accompagnement
+categories:
+- accompagnement
 for: Radio France
 status: done
 date: 2017-10-01

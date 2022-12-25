@@ -1,6 +1,7 @@
 ---
 title: Interface d'exploration de données dans l'espace
-type: développement web
+categories:
+- développement web
 for: Ensad Lab
 status: done
 date: 2019-05-01

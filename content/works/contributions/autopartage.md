@@ -1,6 +1,7 @@
 ---
 title: Crest Auto Partage
-type: contribution
+categories:
+- contribution
 resources:
   https://thom4parisot.github.io/auto-partage/: Manuel associatif
   https://github.com/thom4parisot/auto-partage: Source des écrits

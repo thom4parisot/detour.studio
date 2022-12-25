@@ -1,6 +1,7 @@
 ---
 title: Refonte d'un site web en mode agile et à prix libre
-type: accompagnement
+categories:
+- accompagnement
 for: Compagnonnage REPAS
 status: done
 date: 2022-02-10

@@ -1,6 +1,7 @@
 ---
 title: Refonte d'un site web en mode agile et à prix libre
-type: accompagnement
+categories:
+- accompagnement
 for: Éditions REPAS
 status: ongoing
 date: 2022-03-03

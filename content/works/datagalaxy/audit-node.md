@@ -1,6 +1,7 @@
 ---
 title: Améliorer les performances d'une API REST
-type: accompagnement
+categories:
+- accompagnement
 for: DataGalaxy
 status: done
 date: 2021-03-11

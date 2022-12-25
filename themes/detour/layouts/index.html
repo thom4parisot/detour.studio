@@ -68,28 +68,25 @@
 
     <p class="overflow-y__button">
       <a href="#weeknotes-list">
-        {{- partial "icon.html" "more" -}}Voir la liste des {{ $Weeknotes | len }} notes
+        {{- partial "icon.html" "more" -}}Déplier la liste des {{ $Weeknotes | len }} notes
       </a>
     </p>
   </section>
   {{ end }}
 
-
-  {{ range $.Site.Params.works.order }}
-    {{ $Type := . }}
-    {{ $Config := index $.Site.Params.works $Type }}
-    {{ $Works := (index (where $WorksByType ".Key" $Type) 0).Pages.ByDate.Reverse }}
-    <section aria-label="{{ $Type | title | safeHTMLAttr }}" id="{{ $Type | anchorize }}">
+  {{ $Categories := $.Site.GetPage (printf "/%s" "categories") }}
+  {{ range $Page := $Categories.Pages.ByWeight }}
+    <section aria-label="{{ $Page.Title | safeHTMLAttr }}" id="{{ $Page.Section | anchorize }}">
       <h2>
-        {{ with $Config.icon }}{{- partial "icon.html" . -}}{{ end }}
-        {{- $Type | title -}}
+        {{ with $Page.Params.icon }}{{- partial "icon.html" . -}}{{ end }}
+        {{- $Page.Title -}}
       </h2>
 
-        {{ with $Config.description }}
+        {{ with $Page.Params.description }}
         <p class="subtitle measure-wide">{{ . }}</p>
         {{ end }}
 
-        {{ range $Works }}
+        {{ range .Pages.ByDate.Reverse }}
         <article class="work {{ .Params.status | default "done" }}">
           {{ with .Params.for }}<p class="customer-name">{{ . }}</p>{{ end }}
           {{ if .Params.external_url }}

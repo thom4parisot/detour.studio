@@ -1,6 +1,7 @@
 ---
 title: Plate-forme de recommandation de contenus éditoriaux
-type: développement web
+categories:
+- développement web
 for: BBC R&D
 status: done
 date: 2016-12-31

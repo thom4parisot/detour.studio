@@ -1,6 +1,7 @@
 ---
 title: Apprendre JavaScript
-type: apprentissage
+categories:
+- apprentissage
 with: [Julien Taquet]
 for: Book Sprints
 date: 2019-12-01

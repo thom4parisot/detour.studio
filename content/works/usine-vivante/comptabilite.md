@@ -1,6 +1,7 @@
 ---
 title: Basculer la comptabilité dans Dolibarr
-type: accompagnement
+categories:
+- accompagnement
 for: Usine Vivante
 status: done
 date: 2019-09-01

@@ -1,6 +1,7 @@
 ---
 title: Ouvrir un logiciel de gestion de formations
-type: accompagnement
+categories:
+- accompagnement
 for: Solstice CAE
 status: ongoing
 date: 2022-10-14

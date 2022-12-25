@@ -1,6 +1,7 @@
 ---
 title: Devenir une développeuse web
-type: apprentissage
+categories:
+- apprentissage
 with: [Sandra K]
 status: done
 date: 2022-05-31

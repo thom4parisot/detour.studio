@@ -1,6 +1,7 @@
 ---
 title: Chaîne de publication accessible
-type: développement web
+categories:
+- développement web
 for: EditAdapt
 status: done
 date: 2021-04-01

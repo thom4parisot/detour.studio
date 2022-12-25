@@ -1,6 +1,7 @@
 ---
 title: Visualisation et annotation d'archives sonores
-type: développement web
+categories:
+- développement web
 for: BBC R&D
 status: done
 date: 2016-08-25

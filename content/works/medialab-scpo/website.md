@@ -1,6 +1,7 @@
 ---
 title: Refonte du site web en mode agile
-type: accompagnement
+categories:
+- accompagnement
 for: Médialab Sciences-Po
 via: Paul Girard
 status: done
