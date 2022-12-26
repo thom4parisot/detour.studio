@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-<section aria-label="{{ .Title | safeHTMLAttr }}" id="{{ .Section | anchorize }}">
+<section aria-labelledby="{{ .Title | anchorize }}" id="readout">
   {{ partial "categories/header.html" . }}
 
   {{ range .Pages }}

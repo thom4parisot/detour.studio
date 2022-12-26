@@ -17,26 +17,7 @@
 
     <div class="grid">
     {{ range (sort $CurrentWorks ".Params.type" "desc") }}
-    {{ $Icon := (index $.Site.Params.works .Params.type).icon }}
-    {{ $RelatedWeeknotes := ((where $.Site.Pages "Type" "weeknotes").Related .) | len }}
-      <article class="work work--highlighted card">
-        <h3 class="work-name">
-          {{ if or .Params.external $RelatedWeeknotes }}
-          <a {{ with .Params.external }} href="{{ .link }}" {{ with .lang }}lang="{{.}}"{{ end }} rel="external noopener noreferrer" target="_blank"{{ end }}{{ if not .Params.external }}href="{{ .Permalink }}" rel="permalink"{{ end }}>
-            {{ .Title }}
-          </a>
-          {{ else }}
-            {{ .Title }}
-          {{ end }}
-        </h3>
-        {{ with .Params.with }}<p class="with">Avec {{ delimit . ", " ", et " }}.</p>{{ end }}
-        {{ with .Description }}
-          <div class="summary description measure">
-            <strong style="float:left">Impact recherché</strong><br>
-            {{ . | markdownify }}
-          </div>
-        {{ end }}
-      </article>
+      {{- partial "works/highlighted.html" . -}}
     {{ end }}
     </div>
   {{ end }}
@@ -76,23 +57,25 @@
   </section>
   {{ end }}
 
-  {{ $Categories := $.Site.GetPage (printf "/%s" "categories") }}
+  {{ $Categories := $.Site.GetPage "/categories" }}
   {{ range $Page := $Categories.Pages.ByWeight }}
-    <section aria-labelledby="{{ .Section | anchorize }}">
+    <section aria-labelledby="{{ $Page.Name | anchorize }}">
       {{ partial "categories/header.html" $Page }}
 
-        {{ $NotArchidedPages := where .Pages.ByDate.Reverse "Params.archived" "ne" true }}
-        {{ range $NotArchidedPages }}
-          {{ partial "works/article.html" . }}
-        {{ end }}
+      {{ $NotArchidedPages := where .Pages.ByDate.Reverse "Params.archived" "ne" true }}
+      {{ range $NotArchidedPages }}
+        {{ partial "works/article.html" . }}
+      {{ end }}
 
-        {{ if gt (.Pages | len) ($NotArchidedPages | len) }}
-        <p>
-          <a href="{{ $Page.Permalink }}" rel="permalink">
-            Découvrir les {{ sub (.Pages | len) ($NotArchidedPages | len) }} projets archivés.
-          </a>
-        </p>
-        {{ end }}
+      {{ if gt (.Pages | len) ($NotArchidedPages | len) }}
+      <p>
+        <a href="{{ $Page.Permalink }}#readout" rel="permalink">
+          {{- partial "icon.html" "more" -}}
+          Parcourir les {{ sub (.Pages | len) ($NotArchidedPages | len) }}
+          projets archivés.
+        </a>
+      </p>
+      {{ end }}
     </section>
   {{ end }}
 

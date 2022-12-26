@@ -19,8 +19,9 @@ body {
   font: 18px/1.3 monospace;
   margin: 0;
   padding: 1em;
+  box-sizing: border-box;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 992px) {
   body {
     font-size: 21px;
     padding: 2em 5em;
@@ -92,6 +93,9 @@ h3 {
 p {
   margin: 1em 0;
 }
+  p:last-child{
+    margin-bottom: 0;
+  }
 
 dt {
   font-weight: bold;
@@ -101,7 +105,7 @@ dd {
   margin: 0 0 1em 0;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 768px) {
   dd {
     margin-left: 1.25em;
   }
@@ -186,10 +190,6 @@ ul {
   display: none;
 }
 
-.preamble {
-  font-size: 24px;
-}
-
 .suffix:before {
   content: "—";
   color: var(--brand-alternative-color);
@@ -211,13 +211,13 @@ ul {
   gap: 1em;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .grid {
     grid-template-columns: 50% 50%;
   }
 }
 
-@media (min-width: 1241px) {
+@media (min-width: 1200px) {
   .grid {
     grid-template-columns: 30% 30% 30%;
     max-width: 2280px;
@@ -257,7 +257,7 @@ ul {
   list-style-type: none;
   padding-left: 0;
 }
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 768px) {
     /* Display as two columns on non-smartphone-portrait */
     .list--by-date {
       columns: auto 2;
@@ -267,7 +267,7 @@ ul {
   .list--by-date time {
     color: var(--text-muted-color);
   }
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 768px) {
     .list--by-date > li {
       display: flex;
       align-content: space-between;
@@ -307,6 +307,12 @@ ul {
 .menu--main [aria-current="page"] {
   font-weight: bold;
 }
+.menu--main .inline-list  {
+  gap: .5em;
+}
+.menu--main .inline-list li {
+  padding: .5em 0;
+}
 .menu--main a,
 #TableOfContents {
   background-color: var(--brand-alternative-color);
@@ -333,7 +339,7 @@ ul {
   #TableOfContents ul li {
     margin-bottom: .5em;
   }
-  @media screen and (min-width: 1025px) {
+  @media screen and (min-width: 992px) {
     #TableOfContents {
       float: right;
       font-size: .9em;
@@ -408,6 +414,15 @@ ul {
     padding: 2em;
     margin: 0;
   }
+    .work.work--highlighted summary {
+      font-size: unset;
+      margin-bottom: calc(1.17em * 0.3); /* as above headline */
+      color: var(--link-color);
+    }
+    .work.work--highlighted summary::marker {
+      content: "👀 ";
+      transform: rotateY(0.5turn);
+    }
   .work .work-name a,
   body > header a:link,
   body > header a:visited {
@@ -454,10 +469,17 @@ ul {
   }
 
   .work .customer-name,
-  .work .with,
-  h2 + .subtitle {
+  .work:not(.work--highlighted) .with,
+  h2 + .subtitle,
+  .preamble {
     font-size: .8em;
     margin-top: 0;
+  }
+
+  @media screen and (min-width: 992px) {
+    .preamble {
+      font-size: 1.145em;
+    }
   }
 
   p.customer-name {
@@ -524,9 +546,6 @@ ul {
   .work .summary {
     font-size: .8em;
     margin-top: -.2em;
-  }
-  .work .summary p {
-    margin: 0;
   }
 .key-value {
   display: flex;

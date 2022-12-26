@@ -1,0 +1,32 @@
+{{ $Icon := (index $.Site.Params.works .Params.type).icon }}
+{{ $RelatedWeeknotes := ((where $.Site.Pages "Type" "weeknotes").Related .) | len }}
+<article class="work work--highlighted card">
+  <h3 class="work-name">
+    {{ if or .Params.external $RelatedWeeknotes }}
+    <a {{ with .Params.external }} href="{{ .link }}" {{ with .lang }}lang="{{.}}"{{ end }} rel="external noopener noreferrer" target="_blank"{{ end }}{{ if not .Params.external }}href="{{ .Permalink }}" rel="permalink"{{ end }}>
+      {{ .Title }}
+    </a>
+    {{ else }}
+      {{ .Title }}
+    {{ end }}
+  </h3>
+
+  {{ if or .Params.with .Description }}
+  <details class="summary description">
+    <summary>avec qui ? pourquoi ?</summary>
+    {{ with .Params.with }}<p class="with">Avec {{ delimit . ", " ", et " }}.</p>{{ end }}
+    {{ with .Description }}
+      <div>
+        <strong style="float:left">Objectifs et enjeux</strong><br>
+        {{ . | markdownify }}
+      </div>
+    {{ end }}
+    <p>
+      <a href="{{ .Permalink }}" rel="permalink" aria-label="Documentation, liens et éléments techniques de ce projet">
+        {{- partial "icon.html" "more" -}}
+        En savoir plus
+      </a>
+    </p>
+  </details>
+  {{ end }}
+</article>
