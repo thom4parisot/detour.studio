@@ -66,7 +66,9 @@ h2 {
 }
 
 section:not(:last-child),
-article > header:first-child {
+article > header:first-child,
+article.weeknote,
+article.weeknote ~ :is(nav, aside) {
   margin-bottom: 3em;
 }
 

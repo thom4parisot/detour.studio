@@ -1,4 +1,4 @@
-<h2>
+<h2 id="{{ .Section | anchorize }}">
   {{ with .Params.icon }}{{- partial "icon.html" . -}}{{ end }}
   {{- .Title -}}
 </h2>

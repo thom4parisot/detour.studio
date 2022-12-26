@@ -1,5 +1,5 @@
 ---
-title: Usine Vivante
+title: Association Usine Vivante
 description: |
   Fluidité numérique, accordage associatif.
 categories:

@@ -1,11 +1,12 @@
 {{ define "main" }}
 
-<article data-type="weeknote" aria-label="{{ .Title | safeHTMLAttr }}" id="readout">
-  <h2>{{- partial "icon.html" "journal" -}}{{ .Title }}</h2>
+<article data-type="{{ .Type }}" class="{{ .Type | singularize }}" aria-labelledby="readout">
+  <h2 id="readout">{{- partial "icon.html" "journal" -}}{{ .Title }}</h2>
 
   <p class="subtitle">
-    Le {{ .Date.Format "02/01/2006" }}
-    {{- with .Params.written_in }}, écrit à {{ . }}{{ end -}}.
+    Notes
+    {{- with .Params.written_in }} écrites à {{ . }},{{ end }}
+    publiées le {{ .Date.Format "02/01/2006" -}}.
     {{ with .CurrentSection.AlternativeOutputFormats.Get "rss" -}}
       <a href="{{ .Permalink }}" rel="alternate" type="text/xml">
         {{- partial "icon.html" "rss" -}}S'abonner via RSS</a>.
@@ -14,35 +15,52 @@
 
   {{ .TableOfContents }}
 
-  <div class="content measure-wide">{{ .Content }}</div>
-
-  <aside>
-    {{ with .Params.network }}
-    <article aria-label="Les weeknotes de la semaine chez les ami·es">
-      <h2>
-        {{- partial "icon.html" "network" -}}
-        {{- "Ailleurs, au même moment…" -}}
-      </h2>
-
-      <ul class="words-list">
-      {{ range $url, $name := . }}
-      <li><a href="{{ $url }}" target="_blank">Chez {{ $name }}</a></li>
-      {{ end }}
-      </ul>
-    </article>
-    {{ end }}
-
-    {{ with $.Page.PrevInSection }}
-    <hr>
-
-    <p aria-label="Naviguer vers les notes précédentes">
-      {{- partial "icon.html" "success" -}}
-      Tu es arrivé·e à la fin de <mark>{{ $.Page.Title }}</mark>, merci de les avoir lu jusque là !<br>
-      Si ça te dit, voici de quoi lire les précédentes weeknotes :
-      <a href="{{ .Permalink }}" class="strong" rel="permalink" title="{{ .Title }}">{{ .Title }}</a>.
-    </p>
-    {{ end }}
-  </aside>
+  <div class="content measure-wide">
+    {{ .Content }}
+  </div>
 </article>
 
+{{ with .Params.network }}
+<aside aria-labelledby="friends-notes">
+  <h2 id="friends-notes">
+    {{- partial "icon.html" "network" -}}
+    {{- "Ailleurs, au même moment…" -}}
+  </h2>
+
+  <ul class="words-list">
+  {{ range $url, $name := . }}
+  <li><a href="{{ $url }}" target="_blank">Chez {{ $name }}</a></li>
+  {{ end }}
+  </ul>
+</aside>
+{{ end }}
+
+{{ with (where $.Site.Pages "Type" "works").Related . }}
+<aside aria-labelledby="related-projects">
+  <h2 id="related-projects">
+    {{- partial "icon.html" "mountain" -}}
+    {{- "Projets mentionnés" -}}
+  </h2>
+
+  <ul class="grid mini-cards">
+    {{ range . }}
+    <li class="mini-cards__item">
+      <a href="{{ .Permalink }}#readout" class="mini-cards__title" rel="permalink">{{ .Title }}</a>
+      {{ with .Params.for }}<p class="customer-name">{{ . }}</p>{{ end }}
+    </li>
+    {{ end }}
+    </ul>
+</aside>
+{{ end }}
+
+{{ with $.Page.PrevInSection }}
+<nav id="colophon" aria-label="Naviguer vers les notes précédentes">
+  <p>
+    {{- partial "icon.html" "success" -}}
+    Tu es arrivé·e à la fin de <mark>{{ $.Page.Title }}</mark>, merci de les avoir lu jusque là !<br>
+    Si ça te dit, voici de quoi lire les précédentes weeknotes :
+    <a href="{{ .Permalink }}" class="strong" rel="permalink" title="{{ .Title }}">{{ .Title }}</a>.
+  </p>
+  {{ end }}
+</nav>
 {{ end }}

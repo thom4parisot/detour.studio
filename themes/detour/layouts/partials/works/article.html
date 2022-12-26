@@ -1,6 +1,6 @@
 {{ $RelatedWeeknotes := ((where $.Site.Pages "Type" "weeknotes").Related .) | len }}
 
-<article class="work {{ with .Params.status }}with-status {{.}}{{ end }}">
+<article data-type="{{ .Type }}" class="{{ .Type | singularize }} {{ with .Params.status }}with-status {{.}}{{ end }}">
   {{ with .Params.for }}<p class="customer-name">{{ . }}</p>{{ end }}
   <h3 class="work-name">
     {{ if or .Params.external $RelatedWeeknotes }}

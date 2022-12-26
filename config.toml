@@ -34,6 +34,9 @@ ignoreErrors = ["error-disable-taxonomy"]
     mediaType = "application/xml"
 
 [markup]
+  [markup.tableOfContents]
+    startLevel = 3
+
   [markup.goldmark]
     [markup.goldmark.parser.attribute]
       block = true

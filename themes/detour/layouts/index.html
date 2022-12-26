@@ -8,8 +8,8 @@
   {{ $CurrentWorks := (where (.Site.RegularPages) "Section" "works") | intersect (where (.Site.RegularPages) "Params.status" "ongoing") }}
 
   {{ with $CurrentWorks }}
-  <section id="ongoing-works" aria-label="Projets en cours">
-    <h2>{{- partial "icon.html" "detour" -}}Mes projets du moment</h2>
+  <section aria-labelledby="ongoing-works">
+    <h2 id="ongoing-works">{{- partial "icon.html" "detour" -}}Mes projets du moment</h2>
 
     <p class="subtitle">
       Je prends plaisir à y mettre mon énergie et à naviguer dans leur complexité.
@@ -42,8 +42,8 @@
   {{ end }}
 
   {{ with $WeeknotesPage }}
-  <section id="weeknotes" aria-label="Weeknotes">
-    <h2 aria-label="Weeknotes">
+  <section aria-labelledby="weeknotes">
+    <h2 aria-label="Weeknotes" id="weeknotes">
       {{- partial "icon.html" "journal" -}}{{- .Title -}}
 
       <span class="smaller suffix">
@@ -78,7 +78,7 @@
 
   {{ $Categories := $.Site.GetPage (printf "/%s" "categories") }}
   {{ range $Page := $Categories.Pages.ByWeight }}
-    <section aria-label="{{ $Page.Title | safeHTMLAttr }}" id="{{ $Page.Section | anchorize }}">
+    <section aria-labelledby="{{ .Section | anchorize }}">
       {{ partial "categories/header.html" $Page }}
 
         {{ $NotArchidedPages := where .Pages.ByDate.Reverse "Params.archived" "ne" true }}
