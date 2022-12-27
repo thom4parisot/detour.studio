@@ -8,17 +8,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="https://thom4.net/assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://thom4.net/assets/favicon-16x16.png">
 <link rel="shortcut icon" href="https://thom4.net/assets/favicon.ico">
-<link rel="me" href="https://diaspodon.fr/@thom4" type="text/html">
-<link rel="me" href="https://twitter.com/thom4parisot" type="text/html">
-<link rel="me" href="https://github.com/thom4parisot" type="text/html">
-<link rel="me" href="https://thom4.net" type="text/html">
-{{ $Weeknotes := .Site.GetPage "weeknotes" }}
-{{ with $Weeknotes.AlternativeOutputFormats.Get "rss" -}}
+{{- $Weeknotes := .Site.GetPage "weeknotes" -}}
+{{- with $Weeknotes.AlternativeOutputFormats.Get "rss" -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s • %s" />` .Rel .MediaType.Type .Permalink $.Site.Title $Weeknotes.Title | safeHTML }}
 {{ end -}}
-{{ with $Weeknotes.AlternativeOutputFormats.Get "opml" -}}
+{{- with $Weeknotes.AlternativeOutputFormats.Get "opml" -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s • %s" />` .Rel .MediaType.Type .Permalink $.Site.Title $Weeknotes.Title | safeHTML }}
 {{ end -}}
 {{ template "_internal/opengraph.html" . }}
 {{ template "_internal/twitter_cards.html" . }}
 {{ template "_internal/schema.html" . }}
+{{- partial "github.html" -}}
+{{- partial "mastodon.html" -}}

@@ -2,6 +2,7 @@ baseURL = "https://xn--dtour-bsa.studio/"
 defaultContentLanguage = "fr"
 languageCode = "fr-FR"
 title = "détour.studio"
+timeZone = "Europe/Paris"
 
 theme = "detour"
 sectionPagesMenu = "works"
@@ -11,8 +12,14 @@ cleanDestinationDir = true
 disableKinds = ["taxonomy"]
 ignoreErrors = ["error-disable-taxonomy"]
 
+[social]
+  twitter = "thom4parisot"
+  github = "https://github.com/thom4parisot"
+  mastodon = "https://diaspodon.fr/@thom4"
+  website = "https://thom4.net"
+
 [params]
-  description = "Je donne du sens à des services numériques libres et conviviaux. Je privilégie des projets qui font progresser la biodiversité, ou les connaissances."
+  description = "Développement de services numériques en mode pas à pas — on fait équipe, on s'adapte, on s'écoute. Le produit fini est souvent un logiciel libre, au service des coopératives, de la biodiversité et des connaissances."
   pronouns = "il / lui"
 
 [related]
