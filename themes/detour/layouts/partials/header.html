@@ -1,20 +1,21 @@
 <header>
-  <h1 class="site-title" aria-label="{{ .Site.Title | safeHTMLAttr }}">
-    {{ if .IsHome }}
-    détour<span class="url-part">.</span><wbr>studio
-    {{ else }}
-    <a href="{{ .Site.BaseURL }}" rel="home">
+  <div class="site-brand">
+    <h1 class="site-title" aria-label="{{ .Site.Title | safeHTMLAttr }}">
+      {{ if .IsHome }}
       détour<span class="url-part">.</span><wbr>studio
-    </a>
-    {{ end }}
-  </h1>
+      {{ else }}
+      <a href="{{ .Site.BaseURL }}" rel="home">
+        détour<span class="url-part">.</span><wbr>studio
+      </a>
+      {{ end }}
+    </h1>
 
-
-  <p class="subheading">
-    <img src="https://thom4.net/assets/apple-touch-icon.png" class="avatar" alt="">
-    par <a href="https://thom4.net" target="_blank" rel="me">Thomas Parisot</a>
-    <small aria-label="Pronoms : {{ .Site.Params.pronouns | safeHTMLAttr }}">({{ .Site.Params.pronouns }})</small>
-  </p>
+    <p class="subheading">
+      <img src="https://thom4.net/assets/apple-touch-icon.png" class="avatar" alt="">
+      par <a href="https://thom4.net" target="_blank" rel="me">Thomas Parisot</a>
+      <small aria-label="Pronoms : {{ .Site.Params.pronouns | safeHTMLAttr }}">({{ .Site.Params.pronouns }})</small>
+    </p>
+  </div>
 
   <nav class="menu menu--main">
     <ul class="inline-list">

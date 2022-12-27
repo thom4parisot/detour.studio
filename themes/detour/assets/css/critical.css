@@ -31,6 +31,7 @@ body {
 body > header {
   margin-bottom: 3em;
 }
+
 body > footer {
   font-size: .8em;
   margin-top: 3rem;
@@ -317,24 +318,15 @@ ul {
  * Main menu
  */
 body > header {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
-  .menu--main {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-  }
 
-  @media screen and (min-width: 768px) {
-    body > header {
-      display: flex;
-      flex-direction: column;
-    }
-  }
 .menu--main [aria-current="page"] {
   font-weight: bold;
 }
-.menu--main .inline-list  {
+.menu--main .inline-list {
   gap: .5em;
 }
 .menu--main .inline-list li {
@@ -352,7 +344,9 @@ body > header {
     background-color: #e1d1af;
     color: #3f4100;
   }
-
+.site-brand {
+  flex-shrink: 0;
+}
 .site-title {
   margin: 0;
 }
@@ -368,7 +362,7 @@ body > header {
   white-space: nowrap;
 }
 
-.site-description {
+.site-description, .site-description p {
   margin: 0;
 }
 

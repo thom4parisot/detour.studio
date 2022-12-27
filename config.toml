@@ -55,7 +55,7 @@ ignoreErrors = ["error-disable-taxonomy"]
   [[menu.main]]
     name = "Projets"
     url = "/#développement-web"
-    weight = 90
+    weight = 40
     params = { icon = "love", section = "works" }
 
 [taxonomies]
