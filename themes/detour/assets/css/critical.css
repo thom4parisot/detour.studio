@@ -224,6 +224,7 @@ ul {
   }
 }
 
+#TableOfContents:empty,
 .markdown-content:empty{
   display: none;
 }
@@ -266,12 +267,16 @@ ul {
 
   .list--by-date time {
     color: var(--text-muted-color);
+    font-size: 0.8em;
   }
-  @media screen and (min-width: 768px) {
+  .list--by-date > li {
+    display: flex;
+    flex-direction: column;
+  }
+  @media screen and (min-width: 992px) {
     .list--by-date > li {
-      display: flex;
       align-content: space-between;
-      flex-flow: row nowrap;
+      flex-direction: row;
       width: 400px;
     }
     .list--by-date a {
@@ -280,9 +285,11 @@ ul {
     }
     .list--by-date time {
       flex: 1;
+      font-size: unset;
       text-align: right;
     }
-}
+  }
+
 .inline-list {
   display: flex;
   flex-wrap: wrap;
@@ -303,6 +310,26 @@ ul {
   .with-brackets li::after {
     color: var(--text-muted-color);
     content: "]";
+  }
+
+
+/**
+ * Main menu
+ */
+body > header {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+  .menu--main {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  @media screen and (min-width: 768px) {
+    body > header {
+      display: flex;
+      flex-direction: column;
+    }
   }
 .menu--main [aria-current="page"] {
   font-weight: bold;
@@ -326,11 +353,23 @@ ul {
     color: #3f4100;
   }
 
+.site-title {
+  margin: 0;
+}
+
 .site-title + .subheading {
   font-size: .8em;
   font-weight: bold;
-  margin-right: 2em;
-  margin-top: -1em;
+  padding: .25em 0;
+  margin-top: 0;
+}
+
+.site-title + .subheading small {
+  white-space: nowrap;
+}
+
+.site-description {
+  margin: 0;
 }
 
 #TableOfContents {
@@ -357,7 +396,7 @@ ul {
   border: none;
   border-radius: 50%;
   max-width: 24px;
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 
 .dotted-dl dt:after {
@@ -476,7 +515,7 @@ ul {
     margin-top: 0;
   }
 
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 768px) {
     .preamble {
       font-size: 1.145em;
     }

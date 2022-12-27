@@ -9,20 +9,19 @@
     {{ end }}
   </h1>
 
+
   <p class="subheading">
     <img src="https://thom4.net/assets/apple-touch-icon.png" class="avatar" alt="">
     par <a href="https://thom4.net" target="_blank" rel="me">Thomas Parisot</a>
     <small aria-label="Pronoms : {{ .Site.Params.pronouns | safeHTMLAttr }}">({{ .Site.Params.pronouns }})</small>
   </p>
 
-  <p class="site-description preamble measure-wide">{{ .Site.Params.Description }}</p>
-
   <nav class="menu menu--main">
     <ul class="inline-list">
       {{ $currentPage := . }}
       {{ range .Site.Menus.main }}
       <li>
-        <a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent "main" . }}aria-current="page"{{end}} aria-label="{{ .Name | safeHTMLAttr }}"{{ with .Page }} title="{{ .Title | safeHTMLAttr }}"{{ end }}>
+        <a href="{{ .URL }}" {{ if or ($currentPage.IsMenuCurrent "main" .) (eq .Params.section $currentPage.Section) }}aria-current="page"{{end}} aria-label="{{ .Name | safeHTMLAttr }}"{{ with .Page }} title="{{ .Title | safeHTMLAttr }}"{{ end }}>
           {{ .Pre }}
 
           {{ with .Params.icon }}{{- partial "icon.html" . -}}{{ end }}<span>{{ .Name }}</span>
@@ -31,4 +30,10 @@
       {{ end }}
     </ul>
   </nav>
+
+  {{ if .IsHome }}
+  <blockquote class="site-description preamble measure-wide">
+    <p>{{ .Site.Params.Description }}</p>
+  </blockquote>
+  {{ end }}
 </header>
