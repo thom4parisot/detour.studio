@@ -3,7 +3,7 @@ title: À propos de détour.studio
 menus:
   main:
     name: À propos
-    weight: 1000
+    weight: 500
 ---
 
 👋 Salut, moi c'est Thomas !

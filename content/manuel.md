@@ -6,7 +6,7 @@ aliases:
 menus:
   main:
     name: Manuel d'utilisateur
-    weight: 50
+    weight: 900
     params:
       icon: deal
 ---
