@@ -3,7 +3,8 @@
 <meta name="viewport" content="initial-scale=1.0">
 <title>{{ if .IsHome }}{{ .Title }} • {{ .Site.Params.Description }}{{ else }}{{ index .Params "html-title" | default .Page.Title }} • {{ .Site.Title }}{{ end }}</title>
 <link rel="preload" as="image" href="{{ "/icons.svg" | absURL }}">
-<style type="text/css">{{ (resources.Get "css/critical.css" | resources.ExecuteAsTemplate "critical.css" . | resources.Minify).Content | safeCSS }}</style>
+{{- $CSS := (resources.Get "css/critical.css" | resources.ExecuteAsTemplate "critical.css" . | minify | fingerprint) }}
+<link rel="stylesheet preload" href="{{ $CSS.Permalink }}" integrity="{{ $CSS.Data.Integrity }}">
 <link rel="apple-touch-icon" sizes="180x180" href="https://thom4.net/assets/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://thom4.net/assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://thom4.net/assets/favicon-16x16.png">
