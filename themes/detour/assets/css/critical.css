@@ -133,6 +133,10 @@ ul {
   margin: .5em 0;
   padding: 0;
 }
+  ul ul {
+    padding-left: 1em;
+  }
+
   p + ul {
     margin-top: -0.5em;
   }
@@ -613,3 +617,19 @@ body > header {
 .key-value .key--only {
   flex: 1 0 100%;
 }
+
+/**
+ * Tables
+ */
+main table {
+  margin: 1.5em 0;
+  width: 100%;
+}
+
+  main table thead {
+    text-align: left;
+  }
+  main table :is(td, th) {
+    border-bottom: 2px solid var(--brand-alternative-color);
+    padding: .2em;
+  }
