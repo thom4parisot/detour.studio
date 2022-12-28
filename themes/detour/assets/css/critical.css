@@ -330,12 +330,22 @@ body > header {
   gap: .5em;
 }
 .menu--main .inline-list li {
-  padding: .5em 0;
+  flex-grow: 1;
+  padding: 0;
 }
+  @media screen and (min-width: 992px) {
+    .menu--main .inline-list {
+      flex-wrap: nowrap;
+    }
+    .menu--main .inline-list li {
+      flex-grow: 0;
+    }
+  }
 .menu--main a,
 #TableOfContents {
   background-color: var(--brand-alternative-color);
   border-radius: 5px;
+  display: block;
   padding: .5em;
   text-decoration: none !important;
 }
