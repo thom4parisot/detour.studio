@@ -389,6 +389,7 @@ body > header {
       margin-left: 1em;
       position: sticky;
       top: 1em;
+      max-width: 22em;
     }
   }
 
