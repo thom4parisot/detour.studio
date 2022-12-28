@@ -458,9 +458,9 @@ body > header {
     margin: 0;
   }
     .work.work--highlighted summary {
-      font-size: unset;
-      margin-bottom: calc(1.17em * 0.3); /* as above headline */
       color: var(--link-color);
+      font-size: unset;
+      padding: .5em 0
     }
     .work.work--highlighted summary::marker {
       content: "👀 ";
