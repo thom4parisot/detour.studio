@@ -1,11 +1,8 @@
-{{- $pctx := . -}}
-{{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
-{{- $pages := $pctx.RegularPages -}}
-{{- if eq .Section "weeknotes" }}{{ $pages = sort ($pages | union (where (.Site.RegularPages) "Section" "yearnotes")) "Date" "desc" }}{{- end -}}
-{{- $limit := .Site.Config.Services.RSS.Limit -}}
-{{- if ge $limit 1 -}}
-{{- $pages = $pages | first $limit -}}
-{{- end -}}
+{{- $Weeknotes := where site.RegularPages "Section" "weeknotes" -}}
+{{- $Yearnotes := where site.RegularPages "Section" "yearnotes" -}}
+{{- $pages := union $Weeknotes $Yearnotes -}}
+{{- $limit := site.Config.Services.RSS.Limit | default 10 -}}
+{{- $pages := sort $pages "Date" "desc" | first $limit -}}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
