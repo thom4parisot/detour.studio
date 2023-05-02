@@ -5,7 +5,7 @@ description: |
 categories:
 - accompagnement
 for: Éditions REPAS
-status: ongoing
+status: done
 date: 2022-03-03
 keywords:
 - Éditions REPAS
@@ -19,5 +19,6 @@ with:
 - Valentine Porche
 resources:
   https://framagit.org/reseau-repas/editionsrepas.fr: Code source
+  https://editionsrepas.fr: Site web
 ---
 
