@@ -10,7 +10,6 @@ status: ongoing
 date: 2022-10-14
 keywords:
 - Formasol
-- Solstice
 stack:
 - Ruby on Rails
 with:
