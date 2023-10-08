@@ -9,8 +9,14 @@
   {{- if or .Params.written_in .Params.date }}
   <p class="subtitle">
     {{ .Type | strings.FirstUpper }}
-    {{- with .Params.written_in }} écrites à {{ . }},{{ end }}
-    publiées le {{ .Date.Format "02/01/2006" -}}.
+    {{- with default "" .Params.written_in }}
+      {{ if (findRE `^dans` .) }}
+        écrites {{ . }}
+      {{- else -}}
+       écrites à {{ . }}
+      {{- end -}}
+    {{- end -}}
+    , publiées le {{ .Date.Format "02/01/2006" -}}.
     {{ with .CurrentSection.AlternativeOutputFormats.Get "rss" -}}
       <a href="{{ .Permalink }}" rel="alternate" type="text/xml">
         {{- partial "icon.html" "rss" -}}S'abonner via RSS</a>.
