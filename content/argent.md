@@ -9,6 +9,24 @@ menus:
     weight: 30
     params:
       icon: money
+
+finances:
+  2022:
+    income: 68844
+    invoiced: 92701
+    expenditures:
+      contribution: 7108
+      remainder: 10478 # 17529-2111-4940
+      donations: 2111 # 1102+1009 62380000 + 62810100
+      outsourced: 4940 # 4940 61100000 + 60401002
+  2023:
+    income: 48935
+    invoiced: 86444
+    expenditures:
+      contribution: 7000
+      remainder: 8525 # 19220-2295-8400
+      donations: 2295 # 62380000 + 62810100
+      outsourced: 9373 # 8400+973 61100000 + 60401002
 ---
 
 Les discussions sur l'argent sont peu courantes. J'ai eu zéro discussion sur l'argent au collège. Zéro au lycée. Zéro à l'université. Zéro en entreprise. [Même quand mes associées m'ont caché l'état du compte en banque][dijiwan].

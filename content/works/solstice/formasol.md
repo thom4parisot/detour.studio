@@ -6,7 +6,7 @@ description: |
 categories:
 - accompagnement
 for: Solstice CAE
-status: ongoing
+status: paused
 date: 2022-10-14
 keywords:
 - Formasol
