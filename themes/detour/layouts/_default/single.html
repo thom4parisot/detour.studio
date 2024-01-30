@@ -24,7 +24,12 @@
   </p>
   {{ end }}
 
-  {{ with .TableOfContents }}{{ . }}{{ end }}
+  {{ with .TableOfContents }}
+  <details id="TableOfContentsSummary">
+    <summary>Table des matières</summary>
+    {{ . }}
+  </details>
+  {{ end }}
 
   <div class="content measure-wide">
     {{ .Content }}

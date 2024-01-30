@@ -346,13 +346,14 @@ body > header {
     }
   }
 .menu--main a,
-#TableOfContents {
+#TableOfContentsSummary {
   background-color: var(--brand-alternative-color);
   border-radius: 5px;
   display: block;
   padding: .5em;
   text-decoration: none !important;
 }
+
   .menu--main a:hover,
   .menu--main a:focus {
     background-color: #e1d1af;
@@ -380,20 +381,31 @@ body > header {
   margin: 0;
 }
 
+#TableOfContentsSummary summary {
+  cursor: pointer;
+  font-weight: bold;
+}
 #TableOfContents {
-  padding: .5em 1em;
+  padding: .5em 0;
+  margin: .5em 0;
 }
   #TableOfContents ul li {
     margin-bottom: .5em;
   }
   @media screen and (min-width: 992px) {
-    #TableOfContents {
+    #TableOfContentsSummary {
       float: right;
       font-size: .9em;
       margin-left: 1em;
       position: sticky;
       top: 1em;
       max-width: 22em;
+      min-width: 22em;
+    }
+
+    #TableOfContents {
+      overflow-y: auto;
+      max-height: calc(100vh - 4em - 1.5em - 1em );
     }
   }
 
