@@ -392,7 +392,7 @@ body > header {
   #TableOfContents ul li {
     margin-bottom: .5em;
   }
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 1440px) {
     #TableOfContentsSummary {
       float: right;
       font-size: .9em;
