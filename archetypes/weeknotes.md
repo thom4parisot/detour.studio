@@ -23,20 +23,8 @@ Stylo
 ![](/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.jpg " ({{ now.Format "January 2006" }})")
 
 
-## Des joies
+## Hyper/liens
 
-- x
-
-
-## Des peines
-
-- x
-
-## Vu, lu, regardé, joué
-
-- Lu []().
-- 📚 Continué à lire [](), de X.
-- 🎮 Continué à jouer à X, sur X.
-- 📺 Regardé X.
-- 🎧 Écouté []().
-- 🎵 Écouté [](), de X.
+- <span aria-label="J'ai beaucoup aimé">❤️❤️</span> []().
+- <span aria-label="J'ai aimé">❤️</span> []()
+- <span aria-label="J'ai eu de la peine avec">💔</span> []()
