@@ -5,7 +5,7 @@ description: |
   Intégrer des fonctionnalités d'écriture collaborative en Markdown, ainsi qu'une gestion documentaire scientifique.
 categories:
 - édition numérique
-status: paused
+status: ongoing
 date: 2023-02-03
 via:
   - Antoine Fauchié

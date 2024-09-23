@@ -16,17 +16,12 @@ keywords:
 détour.studio
 : x
 
-La Zone
-: x
-
-CartoBio
-: XX<sup>ème</sup> semaine sur le projet.
-
-![](/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.jpg " ({{ now.Format "January 2006" }})")
-
 Stylo
 : x
 : [Lire le journal de développement](https://github.com/EcrituresNumeriques/stylo/blob/master/JOURNAL.md#mercredi-28-avril-2021).
+
+![](/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.jpg " ({{ now.Format "January 2006" }})")
+
 
 ## Des joies
 

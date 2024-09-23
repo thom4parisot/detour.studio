@@ -5,7 +5,7 @@ description: |
 categories:
 - développement web
 for: Direction Interministérielle du Numérique (DINUM)
-status: ongoing
+status: done
 date: 2022-10-14
 keywords:
 - CartoBio
@@ -19,14 +19,16 @@ stack:
 - GeoJSON
 - OpenID Connect
 with:
+- Anne Faubry
 - Aymeric Maillard
 - Juliette Palumbo
 - Mathilde Petit
+- Maud Royer
 - Roxann Khelif
 resources:
   https://github.com/agenceBio/cartobio-front: Code source (front)
   https://github.com/agenceBio/cartobio-api: Code source (API)
   https://www.data.gouv.fr/fr/datasets/616d6531c2951bbe8bd97771: Jeu de données des parcelles cultivées en bio
-  https://cartobio.org: Site web officiel
+  https://cartobio.agencebio.org: Site web officiel
 ---
 
