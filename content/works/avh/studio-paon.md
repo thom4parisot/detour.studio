@@ -10,8 +10,11 @@ status: done
 date: 2021-04-01
 with:
 - Audrey Bramy
+- Gautier Chomel
 keywords:
 - Studio PAON
+resources:
+  https://gitlab.com/studio-paon-avh/stpaon-tableau-de-suivi: Code source
 stack:
 - JavaScript
 - HTML
