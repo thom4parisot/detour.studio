@@ -9,18 +9,31 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.109.0'
           extended: true
+
       - name: Build
         run: hugo --minify
+
+    # Deploy
+      - name: Transfer
+        if: ${{ contains(github.event.head_commit.message, '[deploy]') }}
+        run: hugo deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.MINIO_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.MINIO_SECRET_ACCESS_KEY }}
+
       - name: Setup SSH
         uses: shimataro/ssh-key-action@v2
+        if: ${{ contains(github.event.head_commit.message, '[deploy]') }}
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-      - run: |
+
+      - if: ${{ contains(github.event.head_commit.message, '[deploy]') }}
+        run: |
           rsync -avzr --delete --exclude 'node_modules' --exclude '.git*' ./public/ oncletom@ssh-oncletom.alwaysdata.net:/home/oncletom/www_detour_studio
