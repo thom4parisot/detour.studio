@@ -13,7 +13,7 @@ disableKinds = ["taxonomy"]
 ignoreErrors = ["error-disable-taxonomy"]
 
 [params]
-  description = "Développement de services numériques en mode pas à pas — on fait équipe, on s'adapte, on s'écoute. Le produit fini est souvent un logiciel libre, au service des coopératives, de la biodiversité et des connaissances."
+  description = "développement de services numériques en mode pas à pas"
   pronouns = "il / lui"
 
   [params.social]
