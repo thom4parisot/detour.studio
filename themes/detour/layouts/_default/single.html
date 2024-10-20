@@ -24,10 +24,10 @@
   </p>
   {{ end }}
 
-  {{ with .TableOfContents }}
+  {{ if (trim .TableOfContents "\n\r<nav id=\"TableOfContents\"></nav>") }}
   <details id="TableOfContentsSummary">
     <summary>Table des matières</summary>
-    {{ . }}
+    {{ .TableOfContents }}
   </details>
   {{ end }}
 
