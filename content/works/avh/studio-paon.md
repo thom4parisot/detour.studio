@@ -8,6 +8,7 @@ categories:
 for: Association Valentin Haüy
 status: done
 date: 2021-04-01
+date_until: 2022-08-10
 with:
 - Audrey Bramy
 - Gautier Chomel

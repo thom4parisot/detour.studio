@@ -13,7 +13,7 @@ disableKinds = ["taxonomy"]
 ignoreErrors = ["error-disable-taxonomy"]
 
 [params]
-  description = "développement de services numériques en mode pas à pas"
+  description = "Développement web en mode agile, publications multiformats, accessibilité numérique et accompagnement d'équipes multi-disciplinaires."
   pronouns = "il / lui"
 
   [params.social]

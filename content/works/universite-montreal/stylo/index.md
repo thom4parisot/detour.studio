@@ -1,12 +1,14 @@
 ---
-title: Un éditeur de texte pour les sciences humaines
+title: Stylo
+subtitle: Un éditeur de texte pour les sciences humaines
 for: Chaire de recherche du Canada sur les écritures numériques
 description: |
   Intégrer des fonctionnalités d'écriture collaborative en Markdown, ainsi qu'une gestion documentaire scientifique.
 categories:
 - édition numérique
 status: ongoing
-date: 2023-02-03
+highlight-order: 1
+date: 2020-02-01
 via:
   - Antoine Fauchié
 with:

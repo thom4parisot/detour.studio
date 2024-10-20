@@ -7,7 +7,8 @@ categories:
 - apprentissage
 for: Télécom ParisTech
 status: done
-date: 2021-03-15
+date: 2018-09-30
+date_until: 2021-02-04
 with:
 - Samuel Huron
 keywords:

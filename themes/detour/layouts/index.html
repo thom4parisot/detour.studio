@@ -5,18 +5,18 @@
   {{ $WeeknotesPage := .Site.GetPage "weeknotes" }}
   {{ $Weeknotes := where (.Site.RegularPages) "Section" "weeknotes" | union (where (.Site.RegularPages) "Section" "yearnotes") }}
   {{ $WorksByType := (where (.Site.RegularPages) "Section" "works").GroupBy "Type" }}
-  {{ $CurrentWorks := (where (.Site.RegularPages) "Section" "works") | intersect (where (.Site.RegularPages) "Params.status" "ongoing") }}
+  {{ $CurrentWorks := (where (.Site.RegularPages) "Section" "works") | intersect (where (.Site.RegularPages) "Params.highlight-order" "!=" nil) }}
 
   {{ with $CurrentWorks }}
   <section aria-labelledby="ongoing-works">
-    <h2 id="ongoing-works">{{- partial "icon.html" "detour" -}}Mes projets du moment</h2>
+    <h2 id="ongoing-works">{{- partial "icon.html" "detour" -}}Les projets du moment</h2>
 
     <p class="subtitle">
       Je prends plaisir à y mettre mon énergie et à naviguer dans leur complexité.
     </p>
 
     <div class="grid">
-    {{ range (sort $CurrentWorks ".Params.type" "desc") }}
+    {{ range (sort $CurrentWorks ".Params.highlight-order" "asc") }}
       {{- partial "works/highlighted.html" . -}}
     {{ end }}
     </div>
