@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{ $Category := $.Site.GetPage (printf "/%s/%s" "categories" (index .Params.categories 0 | anchorize)) }}
+<article class="work" data-type="{{ .Section }}" aria-labelledby="readout">
+  {{ with .Params.for }}<p class="customer-name">{{ . | safeHTML }}</p>{{ end }}
+  <h2 id="readout">{{- partial "icon.html" ($Category.Params.icon |  default "journal") -}}{{ .Title }}</h2>
+
+  {{ with (union .Params.with .Params.via | uniq)}}
+  <div class="measure-wide" aria-labelledby="team">
+    <h3 id="team">On fait équipe avec</h3>
+    <ul class="inline-list with-brackets">
+      {{ range . }}<li>{{ . }}</li>{{ end }}
+    </ul>
+  </div>
+  {{ end }}
+
+  <section class="measure-wide">
+    <div class="markdown-content">{{ .Content }}</div>
+  </section>
+</article>
+{{ end }}
