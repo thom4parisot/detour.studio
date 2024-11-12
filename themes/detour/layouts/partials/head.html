@@ -5,6 +5,9 @@
 <link rel="preload" as="image" href="{{ "/icons.svg" | absURL }}">
 {{- $CSS := (resources.Get "css/critical.css" | resources.ExecuteAsTemplate "critical.css" . | minify | fingerprint) }}
 <link rel="stylesheet preload" href="{{ $CSS.Permalink }}" integrity="{{ $CSS.Data.Integrity }}">
+{{ with resources.Get "css/print.css" }}
+<link rel="stylesheet preload" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" media="print">
+{{ end }}
 <link rel="apple-touch-icon" sizes="180x180" href="https://thom4.net/assets/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://thom4.net/assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://thom4.net/assets/favicon-16x16.png">
