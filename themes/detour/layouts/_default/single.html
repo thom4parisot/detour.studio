@@ -62,7 +62,7 @@
     {{ range . }}
     <li class="mini-cards__item">
       <a href="{{ .Permalink }}#readout" class="mini-cards__title" rel="permalink">{{ .Title }}</a>
-      {{ with .Params.for }}<p class="customer-name">{{ . }}</p>{{ end }}
+      {{ with .Params.for }}<p class="customer-name">{{ . | safeHTML }}</p>{{ end }}
     </li>
     {{ end }}
     </ul>

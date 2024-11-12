@@ -33,7 +33,7 @@ ignoreErrors = ["error-disable-taxonomy"]
   weight = 50
 
 [permalinks]
-  works = "/works/:filename"
+  # works = "/works/:filename"
 
 [outputFormats]
   [outputFormats.opml]
@@ -61,8 +61,3 @@ ignoreErrors = ["error-disable-taxonomy"]
 [taxonomies]
   category = "categories"
   stack = "stack"
-
-[deployment]
-[[deployment.targets]]
-  name = "deuxfleurs"
-  URL = "s3://detour.studio?endpoint=https://garage.deuxfleurs.fr&region=garage"

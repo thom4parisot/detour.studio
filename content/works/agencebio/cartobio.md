@@ -4,7 +4,7 @@ description: |
   Réduire la charge de travail administratif pour les certifié·es, les auditeur·ices bio et les instructeur·ices PAC. En publier une cartographie d'intérêt environnemental.
 categories:
 - développement web
-for: Direction Interministérielle du Numérique (DINUM)
+for: Agence Bio / <abbr title="Direction Interministérielle du Numérique">DINUM</abbr>
 status: done
 date: 2020-02-03
 date_until: 2024-06-30

@@ -2,7 +2,7 @@
 {{ $Category := $.Site.GetPage (printf "/%s/%s" "categories" (index .Params.categories 0 | anchorize)) }}
 <article class="work" data-type="{{ .Section }}" aria-labelledby="readout">
   <header>
-    {{ with .Params.for }}<p class="customer-name">{{ . }}</p>{{ end }}
+    {{ with .Params.for }}<p class="customer-name">{{ . | safeHTML }}</p>{{ end }}
     <h2 id="readout">{{- partial "icon.html" ($Category.Params.icon |  default "journal") -}}{{ .Title }}</h2>
 
     <div class="measure-wide{{ with .Params.extraClass }} {{ . }}{{ end }}" aria-labelledby="focus">
