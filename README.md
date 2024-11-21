@@ -28,6 +28,5 @@ hugo new weeknotes/$(( (($(date -j -f "%Y-%m-%d %H:%M:%S" "2024-02-14 18:00:00" 
 ## Déployer une mise à jour
 
 ```bash
-hugo
-rsync -a --compress --stats --delete ./public/ thom4:../www_detour_studio/
+sh deploy.sh
 ```
