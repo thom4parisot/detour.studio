@@ -21,6 +21,7 @@ ignoreErrors = ["error-disable-taxonomy"]
     twitter = "thom4parisot"
     github = "https://github.com/thom4parisot"
     mastodon = "https://diaspodon.fr/@thom4"
+    fediverse = "@thom4@diaspodon.fr"
     website = "https://thom4.net"
 
 [related]
