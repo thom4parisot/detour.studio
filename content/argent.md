@@ -37,9 +37,6 @@ Merci de m'avoir pointé que j'avais des difficultés à parler d'argent.
 ### Mon salaire {#salaire}
 
 Je me verse un **salaire mensuel net après impôts de ~~1900€~~ 2000€**.<br>
-Je me rends la vie douce avec un carnet mensuel de ~~10~~ 6 tickets restaurants (de 8€ chacun).
-
-~~Mes interventions à TélécomParisTech ajoutent 1300€ à ma tirelire.~~
 
 Je travaille depuis 2004 —
 2000€, c'est un peu plus qu'après ma première augmentation, dans mon premier job.
@@ -48,27 +45,39 @@ Je travaille depuis 2004 —
 Mon salaire actuel est ce qu'on qualifierait de [salaire au besoin](https://www.bastamag.net/salaire-au-besoin-egalite-salariale-alternative-cooperative-Scop-boulangerie-Le-Pain-des-Cairns-reconnaissance-du-travail).
 
 
-### Combien je facture ? {#facturation}
+### Tarif institutionnel {#facturation}
 
-Je facture au moins 600€ hors-taxe une journée de travail.
+Je facture 700€ <abbr title="hors-taxe">HT</abbr> la journée.
 
-À 600€HT par journée de travail, ça rémunère :
+Cet argent abonde :
 
 - mon salaire
-- ma [coopérative]
-- ma participation à des temps de formation[^1]
-- ma santé
-- mon temps de recherche & développement
-- mon temps libre
-- mon temps bénévole
-- mon temps sur des projets open source
-- des dons à des structures qui contribuent à la biodiversité, à encapaciter des personnes souffrant d'oppressions systémiques, à diffuser de la connaissance non-patriarcale
+- ma santé [^2]
+- le fonctionnement de ma [coopérative]
+- la participation à des temps de formation[^1]
+- du temps de recherche & développement
+- du temps libre
+- du temps sur des projets open source
+- possiblement des dons à des structures qui contribuent à la biodiversité, à encapaciter des personnes souffrant d'oppressions systémiques, à diffuser de la connaissance non-patriarcale
 
-[J'ai écris plus en détails][24joursdeweb] comment je dépensais le surplus d'argent facturé.
 
 Je facture mes clients chaque mois si c'est un engagement régulier, ou étalé dans le temps.
 
-C'est un tarif que je considère élevé, et qui me met dans une position privilégiée et confortable. Je fais de mon mieux pour le garder en conscience, et partager ce que j'ai. Je peux surement faire mieux encore.
+C'est un tarif que je considère élevé, et qui me met dans une position privilégiée et confortable. Je fais de mon mieux pour le garder en conscience, et partager ce que j'ai.
+
+### Tarif militant {#tarif-militant}
+
+Je facture entre 400€ et 600€ <abbr title="hors-taxe">HT</abbr> la journée&nbsp;:
+
+- pour des projets environnementaux ou de l'économie sociale et solidaire
+- pour des projets qui créent ou maintiennent des communs
+- si ça ne présente pas un danger financier pour mon activité
+
+Cet argent abonde :
+
+- mon salaire
+- ma santé [^2]
+- le fonctionnement de ma [coopérative]
 
 ### Prix libre {#prix-libre}
 
@@ -76,9 +85,11 @@ Je pratique le prix libre et conscient avec les personnes qui le souhaitent.
 
 Par exemple à 180€HT par journée de travail, ça rémunère :
 
-- mon salaire
-- ma [coopérative]
+- mon salaire, partiellement
 - ma santé
+
+:information_source: [Je décris plus en détails][24joursdeweb] ma vision de la facturation et de la redistribution d'argent chez [24 jours de Web][24jw].
+
 
 ### Échange de temps {#échange}
 
@@ -97,5 +108,7 @@ Peu importe le sujet.
 [coopérative]: https://solstice.coop
 [opencollective]: https://opencollective.com/nodebook
 [24joursdeweb]: https://www.24joursdeweb.fr/2022/tjm-tarif-journalier-militant/
+[24jw]: https://www.24joursdeweb.fr/
 
 [^1]: Je choisis souvent 1 jour de formation = 1 jour de facturation. Pour une formation de 3 jours, j'utilise 1800€ de mon compte d'activité.
+[^2]: Et la vôtre, via la solidarité nationale des côtisations sociales.
