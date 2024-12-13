@@ -16,12 +16,12 @@ meilleures chances de se comprendre lors de nos interactions.
 
 Merci [Sandra] d'avoir initié cette idée.
 
-Le format s'inspire aussi des manuels de [Cassie Robinson](https://cassierobinson.medium.com/a-user-manual-for-me-d3a851fbc694), et de l'outil [Manual of Me](http://manualofme.co/).
+Le format s'inspire aussi des manuels de [Cassie Robinson](https://cassierobinson.medium.com/a-user-manual-for-me-d3a851fbc694), et de l'outil [Manual of Me](https://www.manualof.me/).
 
 ---
 
 J'apporte de la valeur dans une équipe
-: avec une pensée arborescente, qui explore et relie les choses entre elles
+: avec une approche systémique, qui explore et relie les choses entre elles
 : en proposant des systèmes informatiques frugaux, qui s'installent vite et se naviguent "facilement"
 : avec une approche par "petits pas", qui produit des résultats rapidement, sur lesquels on peut revenir souvent
 : en participant moi-même aux séquences de recherche utilisateur
@@ -40,20 +40,20 @@ Je prends beaucoup de plaisir à travailler
 : dans un environnement sans interruption — silence, brouhaha ou proche d'une rivière, peu importe
 : dans une équipe multi-disciplinaire — aux compétences et au bagage varié
 : dans une équipe en coopération — on fait de notre mieux, dans l'intérêt du projet
-: dans une équipe qui privilégie la qualité et l'utilité, plutôt que la vitesse pure
+: dans une équipe qui privilégie la qualité et l'utilité, plutôt que la vitesse
 
 Je galère
 : quand j'ai trop de trucs dans ma tête/dans mon agenda — je m'organise moins bien, je stresse un peu plus quand je sens qu'on charge davantage ma barque
 : quand les prises de parole ne sont pas équilibrées et/ou que j'ai la sensation de perdre mon temps, de ne pas être au bon endroit
 : quand j'ai affaire à des personnes qui interprètent ce que je dis, et agissent sans demander de clarification
-: quand les personnes avec qui je suis en interaction ne prennent pas leurs responsabilités, ne demandent pas d'aide, et que je me retrouve à gérer leur charge émotionnelle — ça me concerne aussi
+: quand les personnes avec qui je suis en interaction ne prennent pas leurs responsabilités, ne demandent pas d'aide, et que je me retrouve à gérer leur charge émotionnelle
 : quand je pose des limites et qu'elles ne sont pas respectées
-: quand je me sens impuissant face à une situation, que je la verbalise à plusieurs reprise, et que ça n'aboutit à aucun changement — j'ai souvent besoin d'aide, car je perds les moyens de m'en sortir tout seul
+: quand je me sens impuissant face à une situation, que je la verbalise à plusieurs reprise, et que ça n'aboutit à aucun changement
 
-J'ai des préférences pour les prises de contact
-: par **email** — par défaut
-: par **téléphone**, par **visio** — pour des besoins de synchronisation rapide, pour se donner des rendez-vous
-: par **Slack** et **Mattermost** — pour discuter opérationnel, pour des échanges courts, pour un partage d'information à part égale
+J'ai des préférences pour les prises de contact (par ordre de préférence)
+: asynchrone, par **email** — par défaut
+: synchrone, par **téléphone** ou **visio** — pour un échange rapide, pour se donner  rendez-vous
+: a/synchrone, genre par **Mattermost**, **Matrix** ou **Slack** — pour discuter opérationnel, pour des échanges courts, pour un partage d'information à part égale
 : pas de **SMS**, pas de **messagerie instantanée**
 
 Quelques pointeurs culturels pour mieux me connaître
