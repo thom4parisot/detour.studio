@@ -27,9 +27,10 @@ with:
 - Maud Royer
 - Roxann Khelif
 resources:
+  https://cartobio.agencebio.org: Site web
+  https://beta.gouv.fr/startups/cartobio.html: Fiche projet
   https://github.com/agenceBio/cartobio-front: Code source (front)
   https://github.com/agenceBio/cartobio-api: Code source (API)
   https://www.data.gouv.fr/fr/datasets/616d6531c2951bbe8bd97771: Jeu de données des parcelles cultivées en bio
-  https://cartobio.agencebio.org: Site web officiel
 ---
 
