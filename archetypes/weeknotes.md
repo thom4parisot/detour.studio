@@ -6,6 +6,9 @@ written_in: Crest
 images: [/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.jpg]
 network:
 keywords:
+- Équibio
+- Stocks fédérés
+- Stylo
 ---
 
 
@@ -19,6 +22,12 @@ détour.studio
 Stylo
 : x
 : [Lire le journal de développement](https://github.com/EcrituresNumeriques/stylo/blob/master/JOURNAL.md#mercredi-28-avril-2021).
+
+Stocks fédérés de vélo
+: x
+
+Équipements bio
+: x
 
 ![](/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.jpg " ({{ now.Format "January 2006" }})")
 
