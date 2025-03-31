@@ -1,8 +1,8 @@
-<h2 id="{{ .Name | anchorize }}">
+<h2 id="section-{{ .Name | anchorize }}">
   {{ with .Params.icon }}{{- partial "icon.html" . -}}{{ end }}
   {{- .Title -}}
 </h2>
 
-{{ with .Params.description }}
-<p class="subtitle measure-wide">{{ . }}</p>
+{{ if .Params.description }}
+<p class="subtitle measure-wide" id="section-{{ .Name | anchorize }}-description">{{ .Params.description }}</p>
 {{ end }}

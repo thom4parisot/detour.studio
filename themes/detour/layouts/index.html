@@ -8,10 +8,10 @@
   {{ $CurrentWorks := (where (.Site.RegularPages) "Section" "works") | intersect (where (.Site.RegularPages) "Params.highlight-order" "!=" nil) }}
 
   {{ with $CurrentWorks }}
-  <section aria-labelledby="ongoing-works">
+  <section aria-labelledby="ongoing-works" aria-describedby="ongoing-works-descrption">
     <h2 id="ongoing-works">{{- partial "icon.html" "detour" -}}Les projets du moment</h2>
 
-    <p class="subtitle">
+    <p class="subtitle" id="ongoing-works-descrption">
       Je prends plaisir à y mettre mon énergie et à naviguer dans leur complexité.
     </p>
 
@@ -20,22 +20,17 @@
       {{- partial "works/highlighted.html" . -}}
     {{ end }}
     </div>
+  </section>
   {{ end }}
 
   {{ with $WeeknotesPage }}
-  <section aria-labelledby="weeknotes">
-    <h2 aria-label="Weeknotes" id="weeknotes">
+  <section aria-labelledby="weeknotes" aria-describedby="weeknotes-description">
+    <h2 id="weeknotes">
       {{- partial "icon.html" "journal" -}}{{- .Title -}}
-
-      <span class="smaller suffix">
-        <a href="{{ ($WeeknotesPage.AlternativeOutputFormats.Get "rss").Permalink }}" rel="alternate" type="text/xml">
-          {{- partial "icon.html" "rss" -}}fil RSS
-        </a>
-      </span>
     </h2>
 
     {{ with .Summary }}
-    <p class="subtitle">{{ . }}</p>
+    <p class="subtitle" id="weeknotes-description">{{ . | plainify }}</p>
     {{ end }}
 
     <div class="overflow-y" id="weeknotes-list">
@@ -54,12 +49,18 @@
         {{- partial "icon.html" "more" -}}Déplier la liste des {{ $Weeknotes | len }} notes
       </a>
     </p>
+
+    <p>
+      <a href="{{ ($WeeknotesPage.AlternativeOutputFormats.Get "rss").Permalink }}" rel="alternate" type="text/xml">
+        {{- partial "icon.html" "rss" -}} Fil d'abonnement au format RSS
+      </a>
+    </p>
   </section>
   {{ end }}
 
   {{ $Categories := $.Site.GetPage "/categories" }}
   {{ range $Page := $Categories.Pages.ByWeight }}
-    <section aria-labelledby="{{ $Page.Name | anchorize }}">
+    <section aria-labelledby="section-{{ $Page.Name | anchorize }}" aria-describedby="section-{{ $Page.Name | anchorize }}-description">
       {{ partial "categories/header.html" $Page }}
 
       {{ $NotArchidedPages := where .Pages.ByDate.Reverse "Params.archived" "ne" true }}

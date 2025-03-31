@@ -4,25 +4,24 @@
 <title>{{ if .IsHome }}{{ .Title }} • {{ .Site.Params.Description }}{{ else }}{{ index .Params "html-title" | default .Page.Title }} • {{ .Site.Title }}{{ end }}</title>
 <link rel="preload" as="image" href="{{ "/icons.svg" | absURL }}">
 {{ with (resources.Get "css/critical.css" | resources.ExecuteAsTemplate "critical.css" . | minify | fingerprint) -}}
-<link rel="stylesheet preload" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+<link rel="stylesheet preload" as="style" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
 {{ end -}}
 {{ with resources.Get "css/print.css" | minify | fingerprint -}}
-<link rel="stylesheet preload" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" media="print">
+<link rel="stylesheet preload" as="style" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" media="print">
 {{ end -}}
-<link rel="icon" type="image/png" href="https://thom4.net/assets/favicon-48x48.png" sizes="48x48" />
-<link rel="icon" type="image/svg+xml" href="https://thom4.net/assets/favicon.svg" />
-<link rel="shortcut icon" href="https://thom4.net/assets/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="https://thom4.net/assets/apple-touch-icon.png" />
+<link rel="icon" type="image/png" href="https://thom4.net/assets/favicon-48x48.png" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="https://thom4.net/assets/favicon.svg">
+<link rel="shortcut icon" href="https://thom4.net/assets/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="https://thom4.net/assets/apple-touch-icon.png">
 {{- $Weeknotes := .Site.GetPage "weeknotes" -}}
 {{- with $Weeknotes.AlternativeOutputFormats.Get "rss" -}}
-  {{ printf `<link rel="%s" type="%s" href="%s" title="%s • %s" />` .Rel .MediaType.Type .Permalink $.Site.Title $Weeknotes.Title | safeHTML }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s • %s">` .Rel .MediaType.Type .Permalink $.Site.Title $Weeknotes.Title | safeHTML }}
 {{ end -}}
 {{- with $Weeknotes.AlternativeOutputFormats.Get "opml" -}}
-  {{ printf `<link rel="%s" type="%s" href="%s" title="%s • %s" />` .Rel .MediaType.Type .Permalink $.Site.Title $Weeknotes.Title | safeHTML }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s • %s">` .Rel .MediaType.Type .Permalink $.Site.Title $Weeknotes.Title | safeHTML }}
 {{ end -}}
-<meta name="fediverse:creator" content="{{ site.Params.social.fediverse }}" />
+<meta name="fediverse:creator" content="{{ site.Params.social.fediverse }}">
 {{ template "_internal/opengraph.html" . }}
 {{ template "_internal/twitter_cards.html" . }}
-{{ template "_internal/schema.html" . }}
 {{- partial "github.html" -}}
 {{- partial "mastodon.html" -}}

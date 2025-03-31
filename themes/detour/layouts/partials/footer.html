@@ -3,10 +3,13 @@
     {{ if not .IsHome }}{{- partial "icon.html" "home" -}}<a href="{{ .Site.BaseURL }}" rel="home">Vers la page d'accueil</a><br>{{ end }}
     {{- partial "icon.html" "email" -}}<a href="mailto:&#099;&#111;&#110;&#116;&#097;&#099;&#116;&#064;&#100;&#101;&#116;&#111;&#117;&#114;&#046;&#115;&#116;&#117;&#100;&#105;&#111;?subject=Une%20question%20en%20passant" aria-label="Me contacter par email pour me poser une question ou engager une discussion">Une question en passant ?</a><br>
     {{- partial "icon.html" "more" -}}<a href="https://github.com/thom4parisot/detour.studio" target="_blank" rel="me noopener" aria-label="Parcourir le code source de ce site web">Code source de ce site</a>
-    / <a href="https://github.com/thom4parisot/detour.studio/issues/new" target="_blank" rel="me noopener" aria-label="Signaler un problème technique">oups, y'a une coquille</a>&nbsp;?<br>
+    / <a href="https://github.com/thom4parisot/detour.studio/issues/new" target="_blank" rel="me noopener" aria-label="Signaler un problème technique">oups, y'a une coquille</a><span aria-hidden>&nbsp;?</span>
   </p>
 
-  <dl class="key-value">
+  <dl class="key-value" aria-labelledby="footer-admin-info">
+    <dt class="sr-only" id="footer-admin-info">
+      Informations administratives
+    </dt>
     <dd class="key--only">
       Activité portée par la
       <a href="https://solstice.coop" target="_blank" rel="noopener">coopérative d'activité Solstice</a>.
@@ -19,8 +22,8 @@
     <dd><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/438279382#tva-cell-result" target="_blank" rel="noreferrer noopener">FR54438279382</a></dd>
   </dl>
 
-  <dl class="key-value">
-    <dt>Crédits</dt>
+  <dl class="key-value" aria-labelledby="footer-credits">
+    <dt id="footer-credits">Crédits</dt>
     <dd><a href="http://www.heropatterns.com/" target="_blank" rel="noreferrer noopener">HeroPatterns</a></dd>
     <dd><a href="https://thenounproject.com/coquet_adrien/" target="_blank" rel="noreferrer noopener">Adrien Coquet</a></dd>
   </dl>

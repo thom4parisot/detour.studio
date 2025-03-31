@@ -1,6 +1,8 @@
 {{ define "main" }}
 {{ $Category := $.Site.GetPage (printf "/%s/%s" "categories" (index .Params.categories 0 | anchorize)) }}
-<article class="work" data-type="{{ .Section }}" aria-labelledby="readout">
+<article class="work" data-type="{{ .Section }}" aria-labelledby="readout" itemscope itemtype="http://schema.org/Project">
+  {{ template "_internal/schema.html" . }}
+
   <header>
     {{ with .Params.for }}<p class="customer-name">{{ . | safeHTML }}</p>{{ end }}
     <h2 id="readout">{{- partial "icon.html" ($Category.Params.icon |  default "journal") -}}{{ .Title }}</h2>

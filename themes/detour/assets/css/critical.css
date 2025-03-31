@@ -9,6 +9,17 @@
   --mid-gray: hsl(216, 21%, 41%);
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -195,7 +206,7 @@ ul {
 }
 
 .suffix:before {
-  content: "—";
+  content: "—" / "";
   color: var(--brand-alternative-color);
   padding-left: .5em;
   padding-right: .5em;
@@ -308,12 +319,12 @@ ul {
 
   .with-brackets li::before {
     color: var(--text-muted-color);
-    content: "[";
+    content: "[" / "";
     margin-left: -.2em;
   }
   .with-brackets li::after {
     color: var(--text-muted-color);
-    content: "]";
+    content: "]" / "";
   }
 
 
@@ -417,13 +428,13 @@ body > header {
 }
 
 .dotted-dl dt:after {
-  content: "…";
+  content: "…" / "";
 }
 .dotted-dl dd:before {
-  content: "… ";
+  content: "… " / "";
 }
 .dotted-dl dd:after {
-  content: " ;";
+  content: " ;" / "";
 }
 
 /**
@@ -476,7 +487,7 @@ body > header {
       padding: .5em 0
     }
     .work.work--highlighted summary::marker {
-      content: "👀 ";
+      content: "👀 " / "";
       transform: rotateY(0.5turn);
     }
   .work .work-name a,
@@ -567,23 +578,23 @@ body > header {
   }
   .work.upcoming .summary:before {
     background: var(--text-muted-color);
-    content: "Bientôt";
+    content: "Bientôt" / "";
     color: var(--background-color);
   }
   .work.paused .summary:before {
     background: var(--brand-alternative-color);
     color: var(--text-muted-color);
-    content: "En pause";
+    content: "En pause" / "";
   }
   .work.cancelled .summary:before {
     background: hsl(213, 16%, 89%);
     color: var(--mid-gray);
-    content: "Annulé";
+    content: "Annulé" / "";
   }
   .work.done .summary:before {
     color: hsl(124, 96%, 25%);
     background: hsl(124, 100%, 89%);
-    content: "Terminé";
+    content: "Terminé" / "";
   }
 
   .work-name {
@@ -612,14 +623,14 @@ body > header {
 .key-value dt {
 }
   .key-value dt:not(.key--only)::after {
-    content: ":";
+    content: ":" / "";
     padding: 0 .2em;
   }
 .key-value dd {
   margin: 0;
 }
   .key-value dd:not(.key--only):not(:last-child)::after {
-    content: "•";
+    content: "•" / "";
     padding-right: .4em;
   }
 .key-value .key--only {

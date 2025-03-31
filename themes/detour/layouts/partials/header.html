@@ -1,6 +1,6 @@
 <header>
   <div class="site-brand">
-    <h1 class="site-title" aria-label="{{ .Site.Title | safeHTMLAttr }}">
+    <h1 class="site-title" aria-label="{{ .Site.Title | safeHTMLAttr }}"{{ if .IsHome }} aria-describedby="site-description"{{ end }}>
       {{ if .IsHome }}
       détour<span class="url-part">.</span><wbr>studio
       {{ else }}
@@ -13,11 +13,11 @@
     <p class="subheading">
       <img src="https://thom4.net/assets/avatar.avif" class="avatar" alt="">
       par <a href="https://thom4.net" target="_blank" rel="me">Thomas Parisot</a>
-      <small aria-label="Pronoms : {{ .Site.Params.pronouns | safeHTMLAttr }}">({{ .Site.Params.pronouns }})</small>
+      <small>(<span class="sr-only">Pronoms : </span>{{ .Site.Params.pronouns }})</small>
     </p>
   </div>
 
-  <nav class="menu menu--main">
+  <nav class="menu menu--main" aria-label="Menu principal">
     <ul class="inline-list">
       {{ $currentPage := . }}
       {{ range .Site.Menus.main }}
@@ -33,8 +33,8 @@
   </nav>
 
   {{ if .IsHome }}
-  <blockquote class="site-description preamble measure-wide">
-    <p>{{ .Site.Params.Description }}</p>
-  </blockquote>
+  <p class="site-description preamble measure-wide" id="site-description">
+    {{ .Site.Params.Description }}
+  </p>
   {{ end }}
 </header>

@@ -3,7 +3,7 @@
     {{- partial "head.html" . -}}
     <body class="kind-{{ .Kind }}{{ with .Section }} section-{{ . }}{{ end }}">
         {{- partial "header.html" . -}}
-        <main id="content" role="presentation">
+        <main id="content">
         {{- block "main" . }}{{- end }}
         </main>
         {{- partial "footer.html" . -}}
