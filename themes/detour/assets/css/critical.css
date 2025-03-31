@@ -250,7 +250,7 @@ ul {
   .markdown-image > img {
     border: 1em solid var(--brand-alternative-color);
   }
-  .markdown-image > figcaption {
+  .markdown-image > .figcaption {
     color: var(--brand-color);
     font-weight: bold;
     margin-left: 1em;

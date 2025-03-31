@@ -1,6 +1,8 @@
-<figure class="markdown-image">
+<span role="figure" class="markdown-image" aria-labelledby="image-{{ .Destination | anchorize }}-caption">
   <img src="{{ .Destination | safeURL }}" alt="{{ .Text | safeHTML }}" loading="lazy">
-  {{ with .Title}}
-  <figcaption>{{ . | markdownify }}.</figcaption>
+  {{ if .Title }}
+  <span class="figcaption" id="image-{{ .Destination | anchorize }}-caption">
+    {{ .Title | markdownify }}.
+  </span>
   {{ end }}
-</figure>
+</span>

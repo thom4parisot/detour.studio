@@ -1,6 +1,8 @@
 {{ define "main" }}
 
-<article data-type="{{ .Type }}" class="{{ .Type | singularize }}" aria-labelledby="readout">
+<article data-type="{{ .Type }}" class="{{ .Type | singularize }}" aria-labelledby="readout" itemscope itemtype="https://schema.org/Article">
+  {{ template "_internal/schema.html" . }}
+
   <h2 id="readout">
     {{- partial "icon.html" (index .Params "menus" "main" "params" "icon" | default .Params.icon |  default "journal") -}}
     {{ .Title }}
