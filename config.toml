@@ -1,7 +1,7 @@
 baseURL = "https://xn--dtour-bsa.studio/"
 defaultContentLanguage = "fr"
 languageCode = "fr-FR"
-title = "détour.studio"
+title = "détour studio"
 timeZone = "Europe/Paris"
 
 theme = "detour"
@@ -14,52 +14,52 @@ disableKinds = ["taxonomy"]
 ignoreErrors = ["error-disable-taxonomy"]
 
 [params]
-  description = "Développement web en mode agile, publications multiformats, accessibilité numérique et accompagnement d'équipes multi-disciplinaires."
-  pronouns = "il / lui"
+description = "Développement web en mode agile, publications multiformats, accessibilité numérique et accompagnement d'équipes multi-disciplinaires."
+pronouns = "il / lui"
 
-  [params.social]
-    twitter = "thom4parisot"
-    github = "https://github.com/thom4parisot"
-    mastodon = "https://diaspodon.fr/@thom4"
-    fediverse = "@thom4@diaspodon.fr"
-    website = "https://thom4.net"
+[params.social]
+twitter = "thom4parisot"
+github = "https://github.com/thom4parisot"
+mastodon = "https://diaspodon.fr/@thom4"
+fediverse = "@thom4@diaspodon.fr"
+website = "https://thom4.net"
 
 [related]
-  includeNewer = true
-  toLower = true
+includeNewer = true
+toLower = true
 [[related.indices]]
-  name = "keywords"
-  weight = 100
+name = "keywords"
+weight = 100
 [[related.indices]]
-  name = "for"
-  weight = 50
+name = "for"
+weight = 50
 
 [permalinks]
-  # works = "/works/:filename"
+# works = "/works/:filename"
 
 [outputFormats]
-  [outputFormats.opml]
-    basename = "collection"
-    mediaType = "application/xml"
+[outputFormats.opml]
+basename = "collection"
+mediaType = "application/xml"
 
 [markup]
-  [markup.tableOfContents]
-    startLevel = 3
+[markup.tableOfContents]
+startLevel = 3
 
-  [markup.goldmark]
-    [markup.goldmark.parser.attribute]
-      block = true
-    [markup.goldmark.renderer]
-      unsafe = true
-      attribute = true
+[markup.goldmark]
+[markup.goldmark.parser.attribute]
+block = true
+[markup.goldmark.renderer]
+unsafe = true
+attribute = true
 
 [menu]
-  [[menu.main]]
-    name = "Projets"
-    url = "/#développement-web"
-    weight = 40
-    params = { icon = "love", section = "works" }
+[[menu.main]]
+name = "Projets"
+url = "/#développement-web"
+weight = 40
+params = { icon = "love", section = "works" }
 
 [taxonomies]
-  category = "categories"
-  stack = "stack"
+category = "categories"
+stack = "stack"

@@ -9,7 +9,7 @@
 
   {{ with $CurrentWorks }}
   <section aria-labelledby="ongoing-works" aria-describedby="ongoing-works-descrption">
-    <h2 id="ongoing-works">{{- partial "icon.html" "detour" -}}Les projets du moment</h2>
+    <h1 id="ongoing-works">{{- partial "icon.html" "detour" -}}Les projets du moment</h1>
 
     <p class="subtitle" id="ongoing-works-descrption">
       Je prends plaisir à y mettre mon énergie et à naviguer dans leur complexité.
@@ -25,9 +25,9 @@
 
   {{ with $WeeknotesPage }}
   <section aria-labelledby="weeknotes" aria-describedby="weeknotes-description">
-    <h2 id="weeknotes">
+    <h1 id="weeknotes">
       {{- partial "icon.html" "journal" -}}{{- .Title -}}
-    </h2>
+    </h1>
 
     {{ with .Summary }}
     <p class="subtitle" id="weeknotes-description">{{ . | plainify }}</p>
@@ -57,6 +57,8 @@
     </p>
   </section>
   {{ end }}
+
+  <h1 class="sr-only" id="works">Projets de développement web et en accompagnement aux projets numériques</h1>
 
   {{ $Categories := $.Site.GetPage "/categories" }}
   {{ range $Page := $Categories.Pages.ByWeight }}
