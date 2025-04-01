@@ -498,6 +498,10 @@ body > header {
   flex-direction: column;
   margin: 2em 0;
 }
+  .work .customer-name {
+    order: -1;
+  }
+
   .work.work--highlighted {
     background: rgba(250, 250, 250, .6);
     background-image: url("data:image/svg+xml;charset=utf-8;base64,{{ (resources.Get "projects.svg").Content | base64Encode }}");
@@ -585,41 +589,31 @@ body > header {
     margin-top: 0;
   }
 
-  .work.with-status .summary:before {
+  .work .status {
     border-radius: .2em;
     float: left;
     margin-right: .5em;
     padding: 0 .5em;
   }
-  .work.ongoing .summary:before {
+  .work .status.ongoing{
     background: hsl(124, 96%, 25%);
-    content: "En cours";
     color: hsl(124, 100%, 89%);
   }
-  .work.upcoming,
-  .work.cancelled,
-  .work.paused {
-    color: var(--text-muted-color);
-  }
-  .work.upcoming .summary:before {
+
+  .work .status.upcoming {
     background: var(--text-muted-color);
-    content: "Bientôt" / "";
     color: var(--background-color);
   }
-  .work.paused .summary:before {
+  .work .status.paused {
     background: var(--brand-alternative-color);
-    color: var(--text-muted-color);
-    content: "En pause" / "";
   }
-  .work.cancelled .summary:before {
+  .work .status.cancelled {
     background: hsl(213, 16%, 89%);
     color: var(--mid-gray);
-    content: "Annulé" / "";
   }
-  .work.done .summary:before {
+  .work .status.done {
     color: hsl(124, 96%, 25%);
     background: hsl(124, 100%, 89%);
-    content: "Terminé" / "";
   }
 
   .work-name {

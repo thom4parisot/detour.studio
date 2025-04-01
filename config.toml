@@ -24,6 +24,13 @@ mastodon = "https://diaspodon.fr/@thom4"
 fediverse = "@thom4@diaspodon.fr"
 website = "https://thom4.net"
 
+[params.workStatus]
+done = "Fini"
+ongoing = "En cours"
+cancelled = "Annulé"
+paused = "En pause"
+upcoming = "À venir"
+
 [related]
 includeNewer = true
 toLower = true

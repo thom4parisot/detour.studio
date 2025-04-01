@@ -1,13 +1,13 @@
 <header>
   <div class="site-brand">
     <h1 class="site-title" {{ if .IsHome }} aria-describedby="site-description"{{ end }}>
-      {{ if .IsHome }}
+      {{- if .IsHome -}}
       détour<span class="url-part" aria-hidden>.</span><wbr>studio
-      {{ else }}
+      {{- else -}}
       <a href="{{ .Site.BaseURL }}" rel="home" aria-label="Retour accueil détour studio">
         détour<span class="url-part" aria-hidden>.</span><wbr>studio
       </a>
-      {{ end }}
+      {{- end -}}
     </h1>
 
     <p class="subheading">

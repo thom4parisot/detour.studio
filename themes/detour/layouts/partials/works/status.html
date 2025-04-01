@@ -1,0 +1,4 @@
+{{- $label := index site.Params.WorkStatus . -}}
+<span class="status {{ . }}" aria-label="Projet en statut {{ $label | safeHTMLAttr }}">
+  {{ $label }}
+</span>

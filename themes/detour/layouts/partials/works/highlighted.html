@@ -1,7 +1,7 @@
 {{ $Icon := (index $.Site.Params.works .Params.type).icon }}
 {{ $RelatedWeeknotes := ((where $.Site.Pages "Type" "weeknotes").Related .) | len }}
 <article class="work work--highlighted card">
-  <h3 class="work-name">
+  <h3 class="work-name" aria-level="2">
     {{ if or .Params.external $RelatedWeeknotes }}
     <a {{ with .Params.external }} href="{{ .link }}" {{ with .lang }}lang="{{.}}"{{ end }} rel="external noopener noreferrer" target="_blank"{{ end }}{{ if not .Params.external }}href="{{ .Permalink }}" rel="permalink"{{ end }}>
       {{ .Title }}
@@ -13,7 +13,7 @@
 
   {{ if or .Params.with .Description }}
   <details class="summary description">
-    <summary>avec qui ? pourquoi ?</summary>
+    <summary aria-label="Équipe, objectifs et enjeux du projet {{ .Title | safeHTML }}">avec qui ? pourquoi ?</summary>
     {{ with .Params.with }}<p class="with">Avec {{ delimit . ", " ", et " }}.</p>{{ end }}
     {{ with .Description }}
       <div>
@@ -22,7 +22,7 @@
       </div>
     {{ end }}
     <p>
-      <a href="{{ .Permalink }}" rel="permalink" aria-label="Documentation, liens et éléments techniques de ce projet">
+      <a href="{{ .Permalink }}" rel="permalink" aria-label="Fiche détaillée du projet {{ .Title | safeHTML }}">
         {{- partial "icon.html" "more" -}}
         En savoir plus
       </a>
