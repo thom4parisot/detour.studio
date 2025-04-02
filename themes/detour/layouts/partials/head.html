@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="initial-scale=1.0">
+{{ hugo.Generator }}
 <title>{{ if .IsHome }}{{ .Title }} • {{ .Site.Params.Description }}{{ else }}{{ index .Params "html-title" | default .Page.Title }} • {{ .Site.Title }}{{ end }}</title>
 <link rel="preload" as="image" href="{{ "/icons.svg" | absURL }}">
 {{ with (resources.Get "css/critical.css" | resources.ExecuteAsTemplate "critical.css" . | minify | fingerprint) -}}
