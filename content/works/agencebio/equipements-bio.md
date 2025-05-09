@@ -8,8 +8,7 @@ categories:
 for: Agence Bio / Ruche Numérique
 status: ongoing
 date: 2025-01-06
-highlight-order: 2
-date_until:
+date_until: 2025-03-31
 keywords:
 - Équipements Bio
 - Équibio
