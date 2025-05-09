@@ -1,5 +1,5 @@
 ---
-title: Weeknotes
+title: Notes hebdomadaires
 outputs:
 - rss
 - opml
