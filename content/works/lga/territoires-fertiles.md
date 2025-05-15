@@ -14,6 +14,7 @@ date_until:
 keywords:
 - LGA
 - TeF
+- Territoires fertiles
 stack:
 with:
 resources:
