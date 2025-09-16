@@ -7,10 +7,9 @@ description: |
 categories:
 - développement web
 for: Les Greniers d'Abondance
-status: ongoing
+status: cancelled
 date: 2025-04-07
-highlight-order: 2
-date_until:
+date_until: 2025-09-15
 keywords:
 - LGA
 - TeF

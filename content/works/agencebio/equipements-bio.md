@@ -6,7 +6,7 @@ description: |
 categories:
 - développement web
 for: Agence Bio / Ruche Numérique
-status: ongoing
+status: done
 date: 2025-01-06
 date_until: 2025-03-31
 keywords:

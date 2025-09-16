@@ -6,8 +6,9 @@ description: |
 categories:
 - accompagnement
 for: Solstice CAE
-status: paused
+status: done
 date: 2022-10-14
+date_until: 2024-09-20
 keywords:
 - Formasol
 stack:
