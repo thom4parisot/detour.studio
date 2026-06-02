@@ -10,10 +10,12 @@
 
   {{ with .Params.for }}<p class="customer-name">{{ . | safeHTML }}</p>{{ end }}
 
+  {{ if and (.Summary) (not .Truncated) }}
   <div class="measure-wide{{ with .Params.extraClass }} {{ . }}{{ end }}" aria-labelledby="focus">
     <h3 id="focus" aria-level="2">Objectifs et enjeux</h3>
     <p>{{ .Description | markdownify }}</p>
   </div>
+  {{ end }}
 
   {{ with .Resources.GetMatch "screenshot.{jpg,jpeg,png}" }}
     <picture class="screenshot markdown-image">
@@ -46,10 +48,10 @@
   </div>
   {{ end }}
 
-  {{ with .Content }}
+  {{ if .Content }}
   <section class="measure-wide" aria-labelledby="presentation">
-    <h3 id="presentation" aria-level="2">Présentation</h3>
-    <div class="markdown-content">{{ . }}</div>
+    <h3 id="presentation" {{ if or (not .Summary) (.Truncated) }}class="visually-hidden"{{ end }} aria-level="2">Présentation</h3>
+    <div class="markdown-content">{{ .Content }}</div>
   </section>
   {{ end }}
 
