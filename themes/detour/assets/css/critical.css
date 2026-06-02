@@ -10,6 +10,7 @@
 }
 
 .sr-only,
+.visually-hidden,
 .skip-links:not(:focus-within) {
   position: absolute;
   width: 1px;
@@ -74,10 +75,6 @@ body > footer:before {
   max-width: 66vw;
 }
 
-h2 {
-  color: var(--brand-color);
-}
-
 section:not(:last-child),
 article > header:first-child,
 article.weeknote,
@@ -91,19 +88,28 @@ img {
 }
 
 h1 {
+  font-size: 2.027rem;
   margin: .8em 0 .5em;
 }
 
 h2 {
-  margin: .9em 0 .5em;
+  color: var(--brand-color);
+  font-size: 1.802rem;
+  margin: .9em 0 .4em;
 }
 
 h3 {
-  margin: 1em 0 .3em;
+  font-size: 1.602rem;
+  margin: 1em 0 .4em;
+}
+
+h4 {
+  font-size: 1.424rem;
+  margin: .8em 0 .5em;
 }
 
 p {
-  margin: 1em 0;
+  margin: 0 0 1em;
 }
   p:last-child{
     margin-bottom: 0;
@@ -141,7 +147,7 @@ a:active {
 
 ul {
   list-style-position: inside;
-  margin: .5em 0;
+  margin: .5em 0 1em;
   padding: 0;
 }
   ul ul {
@@ -552,16 +558,14 @@ body > header {
     color: var(--mid-gray);
     margin: 0 0 .2em;
   }
-  p.customer-name + h2,
-  p.customer-name + h3,
-  p.customer-name + h4 {
+  p.customer-name + :where(h2, h3, h4) {
     margin-top: 0;
   }
 
   h3 + ul.metadata,
   h4 + ul.metadata {
     font-size: .7em;
-    margin-top: -1.5em;
+    list-style: none;
   }
 
   .work .customer-name,
