@@ -5,9 +5,10 @@ url: works/cv.html
 icon: grow
 ---
 
-Thomas Parisot développe des services numériques basé sur des technologies web et ouvertes.
+Thomas Parisot développe des services numériques centrés sur les besoins utilisateurs. Il apprécie particulièrement les technologies web, les logiciels libres et les approches agiles en mode pas à pas.
 
-Thomas est basé à Crest, dans la Drôme (26).
+Thomas est basé à Crest, dans la vallée de la Drôme (26).\
+Mobile sur Paris et la France entière.
 
 
 ## Expériences professionnelles
@@ -16,19 +17,79 @@ Solstice SCOP CAE
 {.customer-name}
 ### Développeur web (<small>2020 à aujourd'hui</small>)
 
-Développement d'applications web et ouverture de données d'intérêt public qui intègrent les usagers au cœur de la conception.
+Développement d'applications web et ouverture de données d'intérêt public en mode agile.
+
+Agence Bio
+{.customer-name}
+#### CartoBio
+
+Fonctionnalités notables :
+
+- Mise en accessibilité de l'application
+- Module de conversion inter-référentiels (CPF, PAC)
+- Module d'export Excel avec stratégie par organisme de certification
+- API d'échanges de données avec les systèmes des organismes de certification
+- Tests unitaires et fonctionnels
+
+Actions notables :
+
+- Entretiens utilisateurs
+- Lien technique avec les DSI des organismes de certification
+- Recrutement d'un organisme de certification
+
+Université de Montréal
+{.customer-name}
+#### Stylo
+
+Fonctionnalités notables :
+
+- Mise en accessibilité de la navigation
+- Prévisualisation markdown et exports multi-formats
+- Écriture collaborative temps-réel
+- Connecteurs Zotero, Hypothesis et OAuth
+- Formulaires configurables par schémas
+
+
+#### Solstice
+
+Actions notables :
+
+- Gestion de projet d'un logiciel de gestion de formations professionnelles
+- Refonte d'un accord d'intéressement d'entreprise
+- Intégration du site web avec des outils de prise de rendez-vous
+
 
 dtc innovation
 {.customer-name}
 ### Développeur web (<small>2016-2019</small>)
 
-Développement d'applications web et ouverture de données d'intérêt public qui intègrent les usagers au cœur de la conception.
+Développement d'applications web et ouverture de données d'intérêt public en mode agile.
+
+Sciences-Po Médialab
+{.customer-name}
+#### Refonte du site web
+
+Actions notables :
+
+- Animation du projet en mode agile
+- Animation d'ateliers d'écriture pour tester le nouveau CMS
+- Documentation projet
+
+#### Données financières de Montreuil
 
 BBC R&D
 {.customer-name}
 ### Développeur web (<small>2013-2015</small>)
 
-Développement d'applications web pour prototyper de nouveaux usages radiophoniques et télévisuels (exploration d'archives sonores, création de productions éditorialisées assistées par des algorithmes, création d'applications pour Smart TV basées sur des technologies web).
+Prototypage rapide de nouveaux usages radiophoniques et télévisuels (exploration d'archives sonores, création de productions éditorialisées assistées par des algorithmes, création d'applications pour Smart TV basées sur des technologies web).
+
+#### Recommandation algorithmique de contenus
+
+Création d'une chaîne d'analyse et de recommandation d'articles orchestrée avec Amazon Lambda. Lead technique de l'équipe.
+
+#### Exploration visuelle d'archives sonores
+
+Création d'un outil de visualisation et de segmentation de contenu audio open source.
 
 Dijiwan
 {.customer-name}
@@ -62,7 +123,7 @@ Support utilisateur des applications par email et par téléphone.
 
 Sciences du Design
 {.customer-name}
-#### Repenser les chaînes de publication par l’intégration des pratiques du développement logiciel (<small>2018</small>)
+### Repenser les chaînes de publication par l’intégration des pratiques du développement logiciel (<small>2018</small>)
 
 - 4 années d'écriture
 - 10 ateliers de relecture au vidéoprojecteur
@@ -73,7 +134,7 @@ Sciences du Design
 
 Éditions Eyrolles
 {.customer-name}
-#### Apprendre Node.js par la pratique (<small>2018</small>)
+### Apprendre Node.js par la pratique (<small>2018</small>)
 
 - 4 années d'écriture
 - 10 ateliers de relecture au vidéoprojecteur
@@ -86,7 +147,7 @@ Sciences du Design
 
 Institut de la gestion publique et du développement économique
 {.customer-name}
-#### [Apprendre les bases de la culture du code][igdpe-2021] (<small>2021</small>) {.customerName}
+### [Apprendre les bases de la culture du code][igdpe-2021] (<small>2021</small>) {.customerName}
 
 - alternance d'ateliers en solo, en duo et en groupes
 - 2 journées
@@ -97,7 +158,7 @@ Construction d'un programme basé sur le jeu, la parole et l'écoute, pour que d
 
 Sciences Po + TélécomParisTech
 {.customer-name}
-#### Apprendre la programmation web (<small>2018-2020</small>)
+### Apprendre la programmation web (<small>2018-2020</small>)
 
 - 24h de cours répartis sur 2 mois
 - journaux d'apprentissage : [2018](https://github.com/thom4parisot/m2-min-2018/blob/master/JOURNAL.md), [2019](https://github.com/thom4parisot/m2-min-2019/blob/master/JOURNAL.md) et [2020](https://github.com/thom4parisot/m2-min-2020/blob/main/JOURNAL.md)
