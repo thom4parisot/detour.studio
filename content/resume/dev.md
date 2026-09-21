@@ -1,14 +1,25 @@
 ---
 title: Thomas Parisot
-html-title: CV orienté développement web de Thomas Parisot
-url: works/cv.html
+html-title: Thomas Parisot, développeur web full-stack et product owner basé à Crest (Drôme, 26)
+url: resume/thomas-parisot-dev.html
 icon: grow
 ---
 
 Thomas Parisot développe des services numériques centrés sur les besoins utilisateurs. Il apprécie particulièrement les technologies web, les logiciels libres et les approches agiles en mode pas à pas.
+{.hero}
 
-Thomas est basé à Crest, dans la vallée de la Drôme (26).\
-Mobile sur Paris et la France entière.
+Contact
+: [06 08 40 35 49](tel:+33608403549) (téléphone, SMS et Signal)
+: [contact@detour.studio](mailto:contact@detour.studio)
+
+Lieu de résidence
+: Crest (26, Drôme)
+
+Mobilité
+: Déplacements possibles sur Paris et la France entière.
+: À 2 heures de Montpellier, Lyon et Marseille
+: À 3 heures de Paris
+{.metadata}
 
 
 ## Expériences professionnelles

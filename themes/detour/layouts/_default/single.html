@@ -5,7 +5,7 @@
 
   <h2 id="readout">
     {{- partial "icon.html" (index .Params "menus" "main" "params" "icon" | default .Params.icon |  default "journal") -}}
-    {{ .Title }}
+    {{ .Title | safeHTML }}
   </h2>
 
   {{- if or .Params.written_in .Params.date }}
