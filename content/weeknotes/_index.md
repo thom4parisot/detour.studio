@@ -16,6 +16,7 @@ collection:
 - https://juliebrillet.fr/index.xml
 - https://basilesimon.fr/weeknotes/index.xml
 - https://janmonschke.com/weeknotes.xml
+- https://bouvier.cc/tags/notes/atom.xml
 ---
 
 Actions, réflexions et événements marquants de la semaine.
