@@ -3,6 +3,7 @@ title = "détour studio"
 timeZone = "Europe/Paris"
 defaultContentLanguage = "fr"
 locale = "fr-FR"
+printI18nWarnings = true
 
 theme = "detour"
 sectionPagesMenu = "works"
@@ -65,11 +66,6 @@ unsafe = true
 attribute = true
 
 [menu]
-[[menu.main]]
-name = "Projets"
-url = "/#développement-web"
-weight = 40
-params = { icon = "love", section = "works" }
 
 [taxonomies]
 category = "categories"

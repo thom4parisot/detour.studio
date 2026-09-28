@@ -4,7 +4,7 @@ description: |
   L'objectif d'Alexandre, développeur : devenir aussi efficace avec Node.js
   qu'avec le CMS Drupal.
 categories:
-- apprentissage
+- formation
 status: done
 archived: true
 with: [Alexandre R]

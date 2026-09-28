@@ -4,7 +4,7 @@ description: |
   L'objectif de Sofia, designer : combiner des jeux de données pour les visualiser
   sur une carte.
 categories:
-- apprentissage
+- formation
 with: [Sofia]
 status: done
 archived: true

@@ -7,7 +7,7 @@ description = ""
 homepage = "https://détour.studio"
 tags = []
 features = []
-min_version = "0.41"
+min_version = "0.166.0"
 
 [author]
   name = ""

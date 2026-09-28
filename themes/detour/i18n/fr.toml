@@ -1,0 +1,3 @@
+[project_with_count]
+  one = '<span class="visually-hidden">(</span>{{ . }}<span class="visually-hidden"> projet)</span>'
+  other = '<span class="visually-hidden">(</span>{{ . }}<span class="visually-hidden"> projets)</span>'

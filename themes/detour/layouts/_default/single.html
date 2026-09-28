@@ -18,7 +18,7 @@
        écrites à {{ . }}
       {{- end -}}
     {{- end -}}
-    , publiées le {{ .Date.Format "02/01/2006" -}}.
+    , publiées le {{ .Date | time.Format ":date_short" -}}.
     {{ with .CurrentSection.AlternativeOutputFormats.Get "rss" -}}
       <a href="{{ .Permalink }}" rel="alternate" type="text/xml">
         {{- partial "icon.html" "rss" -}}S'abonner via RSS</a>.

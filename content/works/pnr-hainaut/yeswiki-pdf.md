@@ -19,6 +19,7 @@ stack:
 - PHP
 - Docker
 resources:
-  https://github.com/YesWiki/yeswiki-extension-publication: Code source
+  - src: https://github.com/YesWiki/yeswiki-extension-publication
+    title: Code source
 ---
 

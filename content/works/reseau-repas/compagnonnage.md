@@ -16,7 +16,9 @@ stack:
 - CSS
 - MaplibreGL
 resources:
-  https://framagit.org/reseau-repas/compagnonnage-repas.org: Code source
-  https://compagnonnage-repas.org: Site web
+  - src: https://framagit.org/reseau-repas/compagnonnage-repas.org
+    title: Code source
+  - src: https://compagnonnage-repas.org
+    title: Site web
 ---
 

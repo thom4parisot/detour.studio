@@ -18,6 +18,8 @@ stack:
 - CSS
 - Figma
 resources:
-  https://www.montreuil.fr/vie-citoyenne/finances-et-marches-publics/explorer-les-comptes-de-la-ville: Visualisation sur le site de la ville de Montreuil
-  https://github.com/dtc-innovation/dataviz-finances-montreuil: Code source
+  - src: https://www.montreuil.fr/vie-citoyenne/finances-et-marches-publics/explorer-les-comptes-de-la-ville
+    title: Visualisation sur le site de la ville de Montreuil
+  - src: https://github.com/dtc-innovation/dataviz-finances-montreuil
+    title: Code source
 ---

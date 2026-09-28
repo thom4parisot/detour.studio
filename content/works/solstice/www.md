@@ -16,6 +16,8 @@ stack:
 with:
 - Sofia Boularaab
 resources:
-  https://gitlab.com/solstice.coop/www/: Code source
-  https://solstice.coop/: Site web
+  - src: https://gitlab.com/solstice.coop/www/
+    title: Code source
+  - src: https://solstice.coop/
+    title: Site web
 ---

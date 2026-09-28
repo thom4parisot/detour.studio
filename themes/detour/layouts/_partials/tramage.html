@@ -1,0 +1,43 @@
+{{- /*
+  tramage.html — transforme une photo en trame de points (dithering) légère,
+  pour servir de filigrane derrière un bloc de texte. L'image n'est qu'un masque :
+  la couleur des points et le fondu vers la gauche viennent du CSS (voir intro.css),
+  un seul fichier sert donc pour tous les thèmes et toutes les mises en page.
+
+  Usage :
+    {{ partial "tramage.html" (dict "src" (resources.Get "images/drome.jpg")) }}
+    {{ partial "tramage.html" (dict "src" (.Resources.GetMatch "photo.jpg") "method" "FloydSteinberg") }}
+
+  Paramètres :
+    src     ressource image (obligatoire)
+    width   largeur de la trame en points (défaut 320) ; affichée au double, points nets
+    height  hauteur (défaut 186)
+    method  algorithme de tramage (défaut "Atkinson")
+    gamma    > 1 éclaircit, donc moins de points (défaut 3.2)
+    contrast renforce les masses, de -100 à 100 (défaut 15)
+    anchor   partie de la photo gardée au recadrage : Center, Top, Bottom, Left… (défaut Center)
+  Nécessite Hugo ≥ 0.141 (images.Dither, images.Mask).
+*/ -}}
+{{- $w := .width | default 320 | int -}}
+{{- $h := .height | default 186 | int -}}
+{{- $method := .method | default "Atkinson" -}}
+{{- $gamma := .gamma | default 3.2 -}}
+{{- $anchor := .anchor | default "Center" -}}
+{{- $contrast := .contrast | default 15 -}}
+{{- with .src -}}
+  {{- /* 1. Redresser selon l'EXIF, recadrer, passer en gris, renforcer les contours, éclaircir */ -}}
+  {{- $img := . | images.Filter images.AutoOrient -}}
+  {{- $img = $img.Fill (printf "%dx%d %s webp" $w $h $anchor) | images.Filter
+      images.Grayscale
+      (images.UnsharpMask 2 1.2 0.02)
+      (images.Contrast $contrast)
+      (images.Gamma $gamma) -}}
+  {{- /* 2. Tramer en noir et blanc, inverser : les zones sombres deviennent des points blancs */ -}}
+  {{- $dots := $img | images.Filter
+      (images.Dither (dict "colors" (slice "#000000" "#ffffff") "method" $method))
+      images.Invert -}}
+  {{- /* 3. Le noir devient transparent, puis on double la taille sans lisser */ -}}
+  {{- $dots = $dots | images.Filter (images.Mask $dots) -}}
+  {{- $dots = $dots.Resize (printf "%dx%d webp NearestNeighbor" (mul $w 2) (mul $h 2)) -}}
+<div class="tramage illustration illustration--tramage" aria-hidden="true" style="--tramage-src: url({{ $dots.RelPermalink }}); aspect-ratio: {{ $w }} / {{ $h }};"></div>
+{{- end -}}

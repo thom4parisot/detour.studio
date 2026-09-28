@@ -1,0 +1,104 @@
+{{- /*
+  detours.html — motif « Sillons » : des rangs de lavande ou de vigne,
+  et un chemin qui trouve les passages entre eux, avec un point posé dessus.
+
+  Le dessin dépend d'une graine : le titre de la page.
+  Même titre, même dessin ; autre titre, autre dessin.
+  Chaque décision vient d'un hachage FNV-1a 32 bits de « <graine>#sillons:<clé> »,
+  pris modulo le nombre de choix possibles. Tout est en calcul entier : pas d'aléatoire au build.
+
+  Usage :
+    {{ partial "detours.html" (dict "seed" .Title) }}
+    {{ partial "detours.html" (dict "seed" .Title "width" 640 "height" 372) }}
+
+  Paramètres : seed (texte, défaut : titre du site), width (défaut 640), height (défaut 372, au moins 88).
+
+  Couleurs : variables CSS, à définir sur .detours ou sur un parent (voir intro.css).
+    --sillons-chemin     ligne principale : le chemin et le point
+    --sillons-fond       ligne de fond : les rangs
+    --sillons-fond-alt   ligne de fond alternative : un rang sur trois
+
+  Nécessite Hugo ≥ 0.129 (hash.FNV32a).
+*/ -}}
+{{- $seed := .seed | default site.Title -}}
+{{- $W := .width | default 640 | int -}}
+{{- $H := .height | default 372 | int -}}
+{{- $key := printf "%s#sillons:" $seed -}}
+{{- $sp := 34 -}}{{- /* écart entre deux rangs */ -}}
+{{- $rows := math.Max 2 (div (sub $H 20) $sp) | int -}}
+{{- $gMin := int (math.Round (mul $W 0.42)) -}}
+{{- $gSpan := math.Max 1 (math.Round (mul $W 0.5)) | int -}}
+
+{{- /* 1. Les rangs : des lignes pleine largeur, chacune coupée par une trouée de 48 px à une abscisse tirée au sort */ -}}
+{{- $gx := slice -}}{{- $gy := slice -}}
+{{- $fond := "" -}}{{- $fondAlt := "" -}}
+{{- range $k := seq 0 (sub $rows 1) -}}
+  {{- $y := add 24 (mul $k $sp) -}}
+  {{- $g := add $gMin (mod (hash.FNV32a (printf "%sg%d" $key $k)) $gSpan) -}}
+  {{- $seg := printf "M-20 %d H%d M%d %d H%d " $y (sub $g 24) (add $g 24) $y (add $W 20) -}}
+  {{- if eq (mod $k 3) 1 }}{{ $fondAlt = printf "%s%s" $fondAlt $seg }}{{ else }}{{ $fond = printf "%s%s" $fond $seg }}{{ end -}}
+  {{- $gx = $gx | append $g -}}{{- $gy = $gy | append $y -}}
+{{- end -}}
+
+{{- /* 2. Le chemin : il entre par le haut dans la première trouée ; entre deux rangs,
+       il glisse jusqu'à la trouée suivante ; il sort par le bas */ -}}
+{{- $px := slice (index $gx 0) -}}{{- $py := slice -20 -}}
+{{- range $k := seq 0 (sub $rows 2) -}}
+  {{- $mid := add (index $gy $k) (div $sp 2) -}}
+  {{- $px = $px | append (index $gx $k) (index $gx (add $k 1)) -}}
+  {{- $py = $py | append $mid $mid -}}
+{{- end -}}
+{{- $px = $px | append (index $gx (sub $rows 1)) -}}{{- $py = $py | append (add $H 20) -}}
+
+{{- /* Nettoyage : points répétés, puis points au milieu d'une ligne droite (deux trouées alignées) */ -}}
+{{- $ax := slice (index $px 0) -}}{{- $ay := slice (index $py 0) -}}
+{{- range $i := seq 1 (sub (len $px) 1) -}}
+  {{- $x := index $px $i -}}{{- $y := index $py $i -}}
+  {{- if or (ne $x (index $ax (sub (len $ax) 1))) (ne $y (index $ay (sub (len $ay) 1))) -}}
+    {{- $ax = $ax | append $x -}}{{- $ay = $ay | append $y -}}
+  {{- end -}}
+{{- end -}}
+{{- $cx := slice -}}{{- $cy := slice -}}
+{{- $n := len $ax -}}
+{{- range $i := seq 0 (sub $n 1) -}}
+  {{- $keep := true -}}
+  {{- if and (gt $i 0) (lt $i (sub $n 1)) -}}
+    {{- $x0 := index $ax (sub $i 1) }}{{ $x1 := index $ax $i }}{{ $x2 := index $ax (add $i 1) -}}
+    {{- $y0 := index $ay (sub $i 1) }}{{ $y1 := index $ay $i }}{{ $y2 := index $ay (add $i 1) -}}
+    {{- if or (and (eq $x0 $x1) (eq $x1 $x2)) (and (eq $y0 $y1) (eq $y1 $y2)) }}{{ $keep = false }}{{ end -}}
+  {{- end -}}
+  {{- if $keep }}{{ $cx = $cx | append (index $ax $i) }}{{ $cy = $cy | append (index $ay $i) }}{{ end -}}
+{{- end -}}
+
+{{- /* 3. Tracé : segments droits et quarts de cercle de 12 px (moins si le segment est court) */ -}}
+{{- $n = len $cx -}}
+{{- $d := printf "M%d %d" (index $cx 0) (index $cy 0) -}}
+{{- range $i := seq 1 (sub $n 2) -}}
+  {{- $x0 := index $cx (sub $i 1) }}{{ $x1 := index $cx $i }}{{ $x2 := index $cx (add $i 1) -}}
+  {{- $y0 := index $cy (sub $i 1) }}{{ $y1 := index $cy $i }}{{ $y2 := index $cy (add $i 1) -}}
+  {{- $inx := 0 }}{{ if gt $x1 $x0 }}{{ $inx = 1 }}{{ else if lt $x1 $x0 }}{{ $inx = -1 }}{{ end -}}
+  {{- $iny := 0 }}{{ if gt $y1 $y0 }}{{ $iny = 1 }}{{ else if lt $y1 $y0 }}{{ $iny = -1 }}{{ end -}}
+  {{- $outx := 0 }}{{ if gt $x2 $x1 }}{{ $outx = 1 }}{{ else if lt $x2 $x1 }}{{ $outx = -1 }}{{ end -}}
+  {{- $outy := 0 }}{{ if gt $y2 $y1 }}{{ $outy = 1 }}{{ else if lt $y2 $y1 }}{{ $outy = -1 }}{{ end -}}
+  {{- $lin := add (int (math.Abs (sub $x1 $x0))) (int (math.Abs (sub $y1 $y0))) -}}
+  {{- $lout := add (int (math.Abs (sub $x2 $x1))) (int (math.Abs (sub $y2 $y1))) -}}
+  {{- $r := int (math.Min 12 (math.Min (div $lin 2) (div $lout 2))) -}}
+  {{- $sweep := cond (gt (sub (mul $inx $outy) (mul $iny $outx)) 0) 1 0 -}}
+  {{- $d = printf "%s L%d %d A%d %d 0 0 %d %d %d" $d (sub $x1 (mul $inx $r)) (sub $y1 (mul $iny $r)) $r $r $sweep (add $x1 (mul $outx $r)) (add $y1 (mul $outy $r)) -}}
+{{- end -}}
+{{- $d = printf "%s L%d %d" $d (index $cx (sub $n 1)) (index $cy (sub $n 1)) -}}
+
+{{- /* 4. Le point : au milieu du plus long tronçon horizontal */ -}}
+{{- $best := 1 }}{{ $bl := 0 -}}
+{{- range $i := seq 1 (sub $n 1) -}}
+  {{- $l := int (math.Abs (sub (index $cx $i) (index $cx (sub $i 1)))) -}}
+  {{- if gt $l $bl }}{{ $bl = $l }}{{ $best = $i }}{{ end -}}
+{{- end -}}
+{{- $dotX := div (add (add (index $cx $best) (index $cx (sub $best 1))) 1) 2 -}}
+{{- $dotY := index $cy $best -}}
+<svg class="detours illustration illustration--detours" aria-hidden="true" focusable="false" viewBox="0 0 {{ $W }} {{ $H }}" preserveAspectRatio="xMaxYMid slice">
+  <path class="detours__fond" d="{{ $fond }}" fill="none" stroke-width="10" stroke-linecap="round"/>
+  <path class="detours__fond-alt" d="{{ $fondAlt }}" fill="none" stroke-width="10" stroke-linecap="round"/>
+  <path class="detours__chemin" d="{{ $d }}" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="detours__point" cx="{{ $dotX }}" cy="{{ $dotY }}" r="8" stroke-width="3"/>
+</svg>

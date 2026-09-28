@@ -1,7 +1,6 @@
 ---
 title: Thomas Parisot
 html-title: Thomas Parisot, développeur web full-stack et product owner basé à Crest (Drôme, 26)
-url: resume/thomas-parisot-dev.html
 icon: grow
 ---
 
