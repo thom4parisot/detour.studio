@@ -17,6 +17,7 @@ stack:
 - SQLite
 with:
 resources:
-  https://framagit.org/ohcyclo/paheko-module-stock-federe: Code source
+  - src: https://framagit.org/ohcyclo/paheko-module-stock-federe
+    title: Code source
 ---
 

@@ -2,10 +2,10 @@
   <div class="site-brand">
     <h1 class="site-title" {{ if .IsHome }} aria-describedby="site-description"{{ end }}>
       {{- if .IsHome -}}
-      détour<span class="url-part" aria-hidden>.</span><wbr>studio
+      détour<span class="url-part" aria-label=" " role="presentation">.</span><wbr>studio
       {{- else -}}
       <a href="{{ .Site.BaseURL }}" rel="home" aria-label="Retour accueil détour studio">
-        détour<span class="url-part" aria-hidden>.</span><wbr>studio
+        détour<span class="url-part" aria-hidden>.</span>studio
       </a>
       {{- end -}}
     </h1>
@@ -18,7 +18,7 @@
   </div>
 
   <nav class="menu menu--main" id="navigation" aria-label="Menu principal">
-    <ul class="inline-list">
+    <ul>
       {{ $currentPage := . }}
       {{ range .Site.Menus.main }}
       <li>
@@ -31,10 +31,4 @@
       {{ end }}
     </ul>
   </nav>
-
-  {{ if .IsHome }}
-  <p class="site-description preamble measure-wide" id="site-description">
-    {{ .Site.Params.Description }}
-  </p>
-  {{ end }}
 </header>

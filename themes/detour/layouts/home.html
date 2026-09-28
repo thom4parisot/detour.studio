@@ -1,0 +1,117 @@
+{{ define "main" }}
+
+  <div class="page-intro" id="site-description">
+    <p class="preamble">{{ .Site.Params.Description }}</p>
+    {{ partial "detours.html" (dict "seed" .Title) }}
+  </div>
+
+  {{ $WorksByType := (where (.Site.RegularPages) "Section" "works").GroupBy "Type" }}
+
+  <div class="bento-grid bento-grid--home">
+    <section id="weeknotes" class="container container--light">
+
+      <div class="container__content">
+        <h2>Dernières notes</h2>
+        {{ $WeeknotesPage := .Site.GetPage "weeknotes" }}
+        {{ $Weeknotes := where (.Site.RegularPages) "Section" "weeknotes" | union (where (.Site.RegularPages) "Section" "yearnotes") }}
+
+        {{ range (sort $Weeknotes "Date" "desc") | first 3 }}
+        <article class="post type--{{ .Type }}">
+          <h3 class="h4">
+            <a href="{{ .Permalink }}" rel="bookmark">{{ .Title }}</a>
+          </h3>
+
+          <ul class="inline-list metadata">
+            <li>
+              <time datetime="{{ .Date.Format "2006-01-02T15:04:05-0700"}}">
+                {{- .Date | time.Format ":date_long" -}}
+              </time>
+            </li>
+            {{- with .Params.written_in -}}
+            <li>
+              <span class="visually-hidden">Écrite à</span>
+              {{ . -}}
+            </li>
+            {{- end -}}
+          </ul>
+
+          <div class="markdown-content">{{ .Summary }}</div>
+        </article>
+        {{ end }}
+      </div>
+    </section>
+
+    <section id="expertises" class="container container--light">
+      {{- $Categories := $.Site.GetPage "/categories" -}}
+      <div class="container__content">
+        <h2>Expertises</h2>
+
+        <ul class="invisible-list list--categories list--with-separators">
+          {{ range $Page := $Categories.Pages.ByWeight }}
+          <li class="list__item type--{{ $Categories.Type }}">
+            <a href="{{ $Page.Permalink }}" rel="bookmark" class="link--with-counter">
+              <span class="headline h4">{{ $Page.Title }}</span>
+
+              <span class="counter">
+                {{- T "project_with_count" ($Page.Pages | len) | safeHTML -}}
+              </span>
+            </a>
+
+            <p>{{ $Page.Description }}</p>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </section>
+
+    <h2 class="visually-hidden">Les projets phares</h2>
+    {{- $FeaturedWorks := (where (.Site.RegularPages) "Section" "works") | intersect (where (.Site.RegularPages) "Params.highlight-order" "!=" nil) -}}
+
+    {{ range (sort $FeaturedWorks "Params.highlight-order") }}
+    {{- $dateUntil := or (.Param "date_until") time.Now | time.AsTime -}}
+    {{- $diffYears := math.Round (div ($dateUntil.Sub .Date).Hours 8760) -}}
+    {{- $hasEnded := or (.Param "date_until") false }}
+    {{ $Category := $.Site.GetPage (printf "/%s/%s" "categories" (index .Params.categories 0 | anchorize)) }}
+
+    <article class="card type--{{ .Type }}">
+      {{ with .Resources.Get "screenshot.webp" }}
+      <div class="card__cover">
+        <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+      </div>
+      {{ end }}
+
+      <div class="card__content">
+        <h3>
+          <a href="{{ .Permalink }}" rel="permalink" class="title">
+            <span>{{ .Title }}</span>
+
+            {{ with .Params.for }}
+              <span class="visually-hidden">avec</span>
+              <span class="suptitle">{{ . | safeHTML }}</span>
+            {{ end }}
+          </a></h3>
+
+        <ul class="invisible-list">
+          <li>
+            {{ $Category.Title }}
+          </li>
+          <li>
+            {{ if not $hasEnded }}
+            <div class="visually-hidden">Projet en cours</div>
+            depuis {{ .Date.Format "2006" }}
+            {{ else if le $diffYears 1 }}
+            <div class="visually-hidden">Projet réalisé en</div>
+            {{ .Date.Format "2006" }}
+            {{ else }}
+            <div class="visually-hidden">Projet réalisé sur la période</div>
+            {{ .Date.Format "2006" }}—{{ $dateUntil.Format "2006" }}
+            {{ end }}
+          </li>
+        </ul>
+
+        <p>{{ .Description }}</p>
+      </div>
+    </article>
+    {{ end }}
+</div>
+{{ end }}

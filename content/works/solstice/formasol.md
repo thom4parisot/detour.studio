@@ -16,6 +16,7 @@ stack:
 with:
 - Goulven Champenois
 resources:
-  https://gitlab.com/solstice.coop/formasol/: Code source
+  - src: https://gitlab.com/solstice.coop/formasol/
+    title: Code source
 ---
 

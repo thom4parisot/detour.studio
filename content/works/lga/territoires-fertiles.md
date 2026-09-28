@@ -17,7 +17,9 @@ keywords:
 stack:
 with:
 resources:
-  https://territoiresfertiles.fr: Site web
-  https://framagit.org/lga/ui/: Code source
+  - src: https://territoiresfertiles.fr
+    title: Site web
+  - src: https://framagit.org/lga/ui/
+    title: Code source
 ---
 

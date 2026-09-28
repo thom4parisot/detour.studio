@@ -1,6 +1,13 @@
 ---
 title: Notes hebdomadaires
+menu:
+  main:
+    weight: 20
+    name: Notes hebdo
+    params:
+      icon: journal
 outputs:
+- html
 - rss
 - opml
 collection:

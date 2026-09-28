@@ -16,9 +16,10 @@ stack:
 - HTML
 - CSS
 resources:
-  https://index.opendri.org/: Portail Open Data
-  https://github.com/GFDRR/open-risk-data-dashboard: Code source du portail
-  https://github.com/GFDRR/open-risk-data-dashboard/tree/master/docs: Documentation et entretiens utilisateurs
-external:
-  link: https://github.com/GFDRR/open-risk-data-dashboard
+  - src: https://index.opendri.org/
+    title: Portail Open Data
+  - src: https://github.com/GFDRR/open-risk-data-dashboard
+    title: Code source du portail
+  - src: https://github.com/GFDRR/open-risk-data-dashboard/tree/master/docs
+    title: Documentation et entretiens utilisateurs
 ---

@@ -29,7 +29,7 @@ Stocks fédérés de vélo
 Équipements bio
 : x
 
-![](/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.webp " ({{ now.Format "January 2006" }})")
+![](/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.webp " ({{ now | time.Format ":date_long" }})")
 
 
 ## Hyper/liens

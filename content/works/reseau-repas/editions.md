@@ -18,7 +18,9 @@ stack:
 with:
 - Valentine Porche
 resources:
-  https://framagit.org/reseau-repas/editionsrepas.fr: Code source
-  https://editionsrepas.fr: Site web
+  - src: https://framagit.org/reseau-repas/editionsrepas.fr
+    title: Code source
+  - src: https://editionsrepas.fr
+    title: Site web
 ---
 

@@ -15,7 +15,8 @@ with:
 keywords:
 - Studio PAON
 resources:
-  https://gitlab.com/studio-paon-avh/stpaon-tableau-de-suivi: Code source
+  - src: https://gitlab.com/studio-paon-avh/stpaon-tableau-de-suivi
+    title: Code source
 stack:
 - JavaScript
 - HTML

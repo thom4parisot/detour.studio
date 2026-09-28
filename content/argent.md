@@ -6,7 +6,7 @@ aliases:
 menus:
   main:
     name: Argent
-    weight: 30
+    weight: 910
     params:
       icon: money
 

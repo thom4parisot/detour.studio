@@ -17,6 +17,7 @@ with:
 - Juliette Palumbo
 - Mathilde Petit
 resources:
-  https://beta.gouv.fr/startups/equipements-bio.html: Fiche projet
+  - src: https://beta.gouv.fr/startups/equipements-bio.html
+    title: Fiche projet
 ---
 

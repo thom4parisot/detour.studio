@@ -17,9 +17,10 @@ stack:
 - Markdown
 - GitLab CI
 resources:
-  https://www.cairn.info/revue-sciences-du-design-2018-2-page-45.htm: L'article sur cairn.info
-  https://antoinentl.gitlab.io/readme.book/: Lire l'article en ligne
-  https://gitlab.com/antoinentl/readme.book: Code source de l'article
-external:
-  link: https://www.cairn.info/revue-sciences-du-design-2018-2-page-45.htm
+  - src: https://www.cairn.info/revue-sciences-du-design-2018-2-page-45.htm
+    title: L'article sur cairn.info
+  - src: https://antoinentl.gitlab.io/readme.book/
+    title: Lire l'article en ligne
+  - src: https://gitlab.com/antoinentl/readme.book
+    title: Code source de l'article
 ---

@@ -4,10 +4,10 @@
 {{ hugo.Generator }}
 <title>{{ if .IsHome }}{{ .Title }} • {{ .Site.Params.Description }}{{ else }}{{ index .Params "html-title" | default .Page.Title }} • {{ .Site.Title }}{{ end }}</title>
 <link rel="preload" as="image" href="{{ "/icons.svg" | absURL }}">
-{{ with (resources.Get "css/critical.css" | resources.ExecuteAsTemplate "critical.css" . | minify | fingerprint) -}}
+{{ with (resources.Get "css/critical.css" | css.Build | minify | fingerprint) -}}
 <link rel="stylesheet preload" as="style" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
 {{ end -}}
-{{ with resources.Get "css/print.css" | minify | fingerprint -}}
+{{ with resources.Get "css/print.css" | css.Build | minify | fingerprint -}}
 <link rel="stylesheet preload" as="style" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" media="print">
 {{ end -}}
 <link rel="icon" type="image/png" href="https://thom4.net/assets/favicon-48x48.png" sizes="48x48">

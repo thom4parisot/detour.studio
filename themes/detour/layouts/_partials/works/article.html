@@ -27,7 +27,7 @@
 
   {{ if .Description }}
   <div class="summary description measure-wide" id="{{ .RelPermalink | anchorize }}-description">
-    {{ with .Params.status }}{{ partial "works/status.html" . }}{{ end }}
+    {{/* with .Params.status }}{{ partial "works/status.html" . }}{{ end */}}
 
     {{ .Description | markdownify }}
   </div>

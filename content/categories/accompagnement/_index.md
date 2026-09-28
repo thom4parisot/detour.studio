@@ -2,8 +2,6 @@
 title: Accompagnement
 icon: mountain
 description: |
-  J'emmène et protège des équipes dans une direction
-  où elles y trouvent du sens,
-  du plaisir et de l'autonomie.
+  Organiser le travail avec agilité et transformer les pratiques numériques des organisations.
 weight: 20
 ---

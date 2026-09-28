@@ -1,3 +1,3 @@
-body > *:not(main) {
+body > *:not(main), #TableOfContentsSummary {
   display: none;
 }

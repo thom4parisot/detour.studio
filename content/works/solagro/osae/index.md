@@ -13,6 +13,7 @@ keywords:
 stack:
 with:
 resources:
-  https://osez-agroecologie.org/: Site web
+  - src: https://osez-agroecologie.org/
+    title: Site web
 ---
 

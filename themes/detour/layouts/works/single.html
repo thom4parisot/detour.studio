@@ -17,7 +17,7 @@
   </div>
   {{ end }}
 
-  {{ with .Resources.GetMatch "screenshot.{jpg,jpeg,png}" }}
+  {{ with .Resources.GetMatch "screenshot.{jpg,jpeg,png,webp,avif}" }}
     <picture class="screenshot markdown-image">
       <img src="{{ ((.Resize "1440x").Crop "1440x900 TopLeft").RelPermalink }}" width="896" alt="" type="{{ .MediaType }}">
     </picture>
@@ -75,7 +75,7 @@
     {{ range . }}
       <li class="mini-cards__item">
         <a class="mini-cards__title" href="{{ .RelPermalink }}#readout">{{ .Title }}</a>
-        <time datetime="{{ .Date.Format "2006-01-02T15:04:05-0700"}}">{{ .Date.Format "Jan _2, 2006" }}</time>
+        <time datetime="{{ .Date.Format "2006-01-02T15:04:05-0700"}}">{{ .Date | time.Format ":date_long" }}</time>
       </li>
     {{ end }}
     </ul>
