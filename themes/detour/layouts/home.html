@@ -1,5 +1,4 @@
 {{ define "main" }}
-
   <div class="page-intro" id="site-description">
     <p class="preamble">{{ .Site.Params.Description }}</p>
     {{ partial "detours.html" (dict "seed" .Title) }}
@@ -8,15 +7,15 @@
   {{ $WorksByType := (where (.Site.RegularPages) "Section" "works").GroupBy "Type" }}
 
   <div class="bento-grid bento-grid--home">
-    <section id="weeknotes" class="container container--light">
+    <section id="weeknotes" aria-label="Notes hebdomadaires" class="container container--light">
 
-      <div class="container__content">
+      <div class="container__content list--with-separators">
         <h2>Dernières notes</h2>
         {{ $WeeknotesPage := .Site.GetPage "weeknotes" }}
         {{ $Weeknotes := where (.Site.RegularPages) "Section" "weeknotes" | union (where (.Site.RegularPages) "Section" "yearnotes") }}
 
         {{ range (sort $Weeknotes "Date" "desc") | first 3 }}
-        <article class="post type--{{ .Type }}">
+        <article class="post list__item type--{{ .Type }}">
           <h3 class="h4">
             <a href="{{ .Permalink }}" rel="bookmark">{{ .Title }}</a>
           </h3>
@@ -38,10 +37,25 @@
           <div class="markdown-content">{{ .Summary }}</div>
         </article>
         {{ end }}
+
+        <ul class="inline-list">
+          <li>
+            <a href="{{ $WeeknotesPage.Permalink }}" class="browse">
+              Toutes les notes
+              ({{- $Weeknotes | len }}<span class="visually-hidden"> notes</span>)
+            </a>
+          </li>
+          <li>
+            <a href="{{ $WeeknotesPage.Permalink }}" class="browse">
+              {{- partial "icon.html" "rss" -}}
+              <div class="visually-hidden">Flux</div> <abbr title="Really Simple Syndication" lang="en">RSS</abbr>
+            </a>
+          </li>
+        </p>
       </div>
     </section>
 
-    <section id="expertises" class="container container--light">
+    <section id="expertises" aria-label="Expertises" class="container container--light">
       {{- $Categories := $.Site.GetPage "/categories" -}}
       <div class="container__content">
         <h2>Expertises</h2>
@@ -91,7 +105,7 @@
             {{ end }}
           </a></h3>
 
-        <ul class="invisible-list">
+        <ul class="inline-list metadata">
           <li>
             {{ $Category.Title }}
           </li>

@@ -3,7 +3,7 @@ title: Notes hebdomadaires
 menu:
   main:
     weight: 20
-    name: Notes hebdo
+    name: Carnet
     params:
       icon: journal
 outputs:

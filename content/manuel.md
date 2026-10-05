@@ -1,11 +1,11 @@
 ---
-title: Manuel d'utilisateur
+title: Manuel d'interactions
 extraClass: dotted-dl
 aliases:
 - user-manual
 menus:
   main:
-    name: Manuel d'utilisateur
+    name: Manuel d'interactions
     weight: 950
     params:
       icon: deal
