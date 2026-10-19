@@ -1,5 +1,6 @@
-{{ if (gt .WordCount 400 )}}
-<aside>
-  <strong>Navigation rapide</strong> : {{ .TableOfContents }}
-</aside>
+{{ if (trim .TableOfContents "\n\r<nav id=\"TableOfContents\"></nav>") }}
+<details id="TableOfContentsSummary" open>
+  <summary>Table des matières</summary>
+  {{ .TableOfContents }}
+</details>
 {{ end }}

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
     {{- partial "head.html" . -}}
-    <body class="kind-{{ .Kind }}{{ with .Section }} section-{{ . }}{{ end }}">
+    <body class="kind-{{ .Kind }}">
       {{- partial "skip-links.html" . -}}
       {{- partial "header.html" . -}}
-      <main id="content" tabindex="-1">
+      <main id="content" tabindex="-1" {{ with .Section }}class="section-{{ . }}"{{ end }}>
       {{- block "main" . }}{{- end }}
       </main>
       {{- partial "footer.html" . -}}

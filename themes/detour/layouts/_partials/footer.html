@@ -1,15 +1,22 @@
-<footer aria-label="Contact et détails administratifs">
-  <p>
-    {{ if not .IsHome }}{{- partial "icon.html" "home" -}}<a href="{{ .Site.BaseURL }}" rel="home">Vers la page d'accueil</a><br>{{ end }}
-    {{- partial "icon.html" "email" -}}<a href="mailto:&#099;&#111;&#110;&#116;&#097;&#099;&#116;&#064;&#100;&#101;&#116;&#111;&#117;&#114;&#046;&#115;&#116;&#117;&#100;&#105;&#111;?subject=Une%20question%20en%20passant" aria-label="Me contacter par email pour me poser une question ou engager une discussion">Une question en passant ?</a><br>
-    {{- partial "icon.html" "code" -}}<a href="https://github.com/thom4parisot/detour.studio" target="_blank" rel="me noopener" aria-label="Parcourir le code source de ce site web">Code source de ce site</a><br>
-    {{- partial "icon.html" "attention" -}}<a href="https://github.com/thom4parisot/detour.studio/issues/new" target="_blank" rel="me noopener" aria-label="Signaler un problème technique">oups, y'a une coquille</a><span aria-hidden>&nbsp;?</span>
-  </p>
+<footer class="with-separator" aria-label="Contact et détails administratifs">
+  <ul class="inline-list">
+    {{ if not .IsHome }}
+    <li>
+      {{- partial "icon.html" "home" -}}<a href="{{ .Site.BaseURL }}" rel="home">Vers la page d'accueil</a>
+    </li>
+    {{ end }}
+    <li>
+      {{- partial "icon.html" "email" -}}<a href="mailto:&#099;&#111;&#110;&#116;&#097;&#099;&#116;&#064;&#100;&#101;&#116;&#111;&#117;&#114;&#046;&#115;&#116;&#117;&#100;&#105;&#111;?subject=Une%20question%20en%20passant" aria-label="Me contacter par email pour me poser une question ou engager une discussion">Une question en passant ?</a>
+    </li>
+    <li>
+      {{- partial "icon.html" "code" -}}<a href="https://github.com/thom4parisot/detour.studio/tree/main/content/{{ .File.Path }}" target="_blank" rel="me noopener">Code source de cette page</a>
+    </li>
+    <li>
+      {{- partial "icon.html" "attention" -}}<a href="https://github.com/thom4parisot/detour.studio/issues/new" target="_blank" rel="me noopener">Signaler un problème technique</a>
+    </li>
+  </ul>
 
-  <dl class="key-value" aria-labelledby="footer-admin-info">
-    <dt class="sr-only" id="footer-admin-info">
-      Informations administratives
-    </dt>
+  <dl class="key-value" aria-label="Informations administratives">
     <dt>Activité portée par</dt>
     <dd class="key--only">
       <a href="https://solstice.coop" target="_blank" rel="noopener"><abbr title="Coopérative d'Activité">CAE</abbr> Solstice</a>
