@@ -1,10 +1,78 @@
 {{ define "main" }}
+{{- $works := where .Pages "Params.archived" "!=" true -}}
+{{- $archived := where .Pages "Params.archived" true -}}
 
-<section aria-labelledby="{{ .Title | anchorize }}" id="readout">
-  {{ partial "categories/header.html" . }}
+{{- $stack := slice -}}
+{{- range .Pages }}{{ range .Params.stack }}{{ $stack = $stack | append . }}{{ end }}{{ end -}}
+{{- $tools := slice -}}
+{{- range uniq $stack }}{{ $tools = $tools | append (dict "name" . "count" (len (where $.Pages "Params.stack" "intersect" (slice .)))) }}{{ end -}}
+<header class="page-intro">
+  <div class="preamble">
+    {{ partial "breadcrumb.html" . }}
 
-  {{ range .Pages }}
-    {{ partial "works/article.html" . }}
-  {{ end }}
-</section>
+    <h1 id="readout">{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+  </div>
+
+  {{ partial "detours.html" (dict "seed" .Title) }}
+</header>
+
+<div class="bento-grid bento-grid--term">
+  <section id="works" aria-labelledby="works-title">
+    <h2 id="works-title" class="subheader">
+      {{ partial "icon.html" (.Params.icon | default "mountain") }}Les {{ len .Pages }} projets
+    </h2>
+
+    <ul class="invisible-list bento-grid bento-grid--works">
+      {{ range $works.ByDate.Reverse }}
+        <li{{ with index .Params "highlight-order" }} class="highlighted"{{ end }}>{{ .Render "card" }}</li>
+      {{ end }}
+
+      {{ with $tools }}
+      <li class="tools container container--light">
+        <section class="container__content" aria-labelledby="tools-title">
+          <h2 id="tools-title">Outils les plus utilisés</h2>
+          <ul class="tags-list compact-list">
+            {{ range first 9 (sort . "count" "desc") }}
+            <li>{{ .name }} <span class="counter">×{{ .count }}<span class="visually-hidden"> projets</span></span></li>
+            {{ end }}
+          </ul>
+        </section>
+      </li>
+      {{ end }}
+    </ul>
+
+    {{ with $archived }}
+    <details>
+      <summary>Et aussi {{ len . }} projets archivés</summary>
+      <ul class="invisible-list bento-grid bento-grid--works">
+        {{ range .ByDate.Reverse }}<li>{{ .Render "card" }}</li>{{ end }}
+      </ul>
+    </details>
+    {{ end }}
+  </section>
+
+  <nav id="categories" aria-labelledby="categories-title">
+    <h2 id="categories-title" class="subheader">Mes autres expertises</h2>
+    <ul class="invisible-list list--categories list--with-separators">
+      {{ range (site.GetPage "/categories").Pages.ByWeight }}{{ if ne .RelPermalink $.RelPermalink }}
+      <li class="list__item">
+        <a href="{{ .RelPermalink }}" class="link--with-counter">
+          <span class="headline h4">{{ .Title }}</span>
+          <span class="counter">{{ T "project_with_count" (len .Pages) | safeHTML }}</span>
+        </a>
+      </li>
+      {{ end }}{{ end }}
+    </ul>
+  </nav>
+
+  <section id="contact" class="container container--light" aria-labelledby="contact-title">
+    <div class="container__content">
+      <h2 id="contact-title">Travailler ensemble ?</h2>
+      <p>Décrivez-moi votre projet : je vous dis comment je peux y contribuer, ou vers qui vous orienter.</p>
+      <p><a href="/contact/" class="bouton">Parlez-moi de votre projet</a></p>
+    </div>
+  </section>
+</div>
+
 {{ end }}

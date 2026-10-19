@@ -1,0 +1,13 @@
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <ol class="invisible-list compact-list">
+    <li><a href="{{ site.Home.RelPermalink }}">
+        {{- partial "icon.html" "home" -}}
+        <span class="visually-hidden"> Accueil</span></a></li>
+    {{ range site.Menus.main }}{{ if $.HasMenuCurrent "main" . }}
+    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+    {{ end }}{{ end }}
+    {{ with index (.GetTerms "categories") 0 }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ol>
+</nav>

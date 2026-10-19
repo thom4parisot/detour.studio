@@ -17,7 +17,6 @@ with:
 resources:
   - src: screenshot.webp
     title: Capture d'écran de l'écran d'écriture collaborative
-    type: cover
   - src: https://ecrituresnumeriques.ca/fr/Activites/Projets/2016/1/14/Stylo
     title: Présentation du projet
   - src: https://github.com/ecrituresNumeriques/stylo

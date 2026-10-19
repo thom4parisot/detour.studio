@@ -1,3 +1,76 @@
 {{ define "main" }}
-{{ .Section }}
+{{- $all := where .RegularPagesRecursive "Type" "works" -}}
+{{- $works := where $all "Params.archived" "!=" true -}}
+{{- $archived := where $all "Params.archived" true -}}
+{{- $ongoing := where $works "Params.status" "ongoing" -}}
+
+<header class="page-intro">
+  <div class="preamble">
+    <h1 id="readout">{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+
+    <ul class="metadata inline-list">
+      <li><strong>{{ len $all }}</strong> projets</li>
+      {{ with $ongoing }}<li><strong>{{ len . }}</strong> en cours</li>{{ end }}
+      {{ with $archived }}<li><strong>{{ len . }}</strong> archivés</li>{{ end }}
+    </ul>
+  </div>
+
+  {{ partial "detours.html" (dict "seed" .Title) }}
+</header>
+
+<nav aria-labelledby="categories-title">
+  <h2 id="categories-title" class="subheader">Par expertise</h2>
+  <ul class="invisible-list layout-row">
+    {{ range (site.GetPage "/categories").Pages.ByWeight }}
+    <li class="card">
+      <div class="card__content">
+        <a href="{{ .RelPermalink }}" class="title">
+          <span>{{ .Title }}</span>
+        </a>
+        <p class="counter">{{ len .Pages }} projets</p>
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+</nav>
+
+{{ with $ongoing }}
+<section aria-labelledby="ongoing-title">
+  <h2 id="ongoing-title" class="subheader">En cours</h2>
+  <ul class="invisible-list bento-grid bento-grid--works">
+    {{ range .ByDate.Reverse }}
+    <li{{ with index .Params "highlight-order" }} class="highlighted"{{ end }}>{{ .Render "card" }}</li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+<section aria-labelledby="years-title">
+  <h2 id="years-title" class="subheader">Tous les projets, par année de début</h2>
+
+  {{ range $works.GroupByDate "2006" }}
+  <section class="year-group" aria-labelledby="year-{{ .Key }}">
+    <h3 id="year-{{ .Key }}" class="h2">{{ .Key }}</h3>
+    <ul class="invisible-list compact-list list--with-separators list--works">
+      {{ range .Pages }}{{ .Render "li" }}{{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  {{ with $archived }}
+  <details>
+    <summary>Les {{ len . }} projets archivés</summary>
+
+    {{ range .GroupByDate "2006" }}
+    <section class="year-group" aria-labelledby="archived-{{ .Key }}">
+      <h3 id="archived-{{ .Key }}" class="h2">{{ .Key }}</h3>
+      <ul class="invisible-list compact-list list--with-separators list--works">
+        {{ range .Pages }}{{ .Render "li" }}{{ end }}
+      </ul>
+    </section>
+    {{ end }}
+  </details>
+  {{ end }}
+</section>
 {{ end }}
