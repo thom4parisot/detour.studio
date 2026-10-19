@@ -1,3 +1,77 @@
 {{ define "main" }}
-{{ .Section }}
+{{- $notes := union (where site.RegularPages "Section" "weeknotes") (where site.RegularPages "Section" "yearnotes") -}}
+
+{{- $places := slice -}}
+{{- range $notes }}{{ with .Params.written_in }}{{ $places = $places | append . }}{{ end }}{{ end -}}
+{{- $placeCounts := slice -}}
+{{- range uniq $places }}{{ $name := . }}{{ $count := 0 }}{{ range $places }}{{ if eq . $name }}{{ $count = add $count 1 }}{{ end }}{{ end }}{{ $placeCounts = $placeCounts | append (dict "name" $name "count" $count) }}{{ end -}}
+{{- $placeCounts = sort $placeCounts "count" "desc" -}}
+
+<header class="page-intro">
+  <div class="preamble">
+    <h1 id="readout">{{ .Title }}</h1>
+    {{ with .Description | default (.Summary | plainify) }}<p class="lead">{{ . }}</p>{{ end }}
+
+    <ul class="metadata inline-list">
+      <li><strong>{{ len $notes }}</strong> notes</li>
+      {{ with index $placeCounts 0 }}<li>écrites depuis <strong>{{ .name }}</strong>, le plus souvent</li>{{ end }}
+      {{ with .OutputFormats.Get "rss" }}
+      <li><a href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml">{{ partial "icon.html" "rss" }}S'abonner</a></li>
+      {{ end }}
+    </ul>
+  </div>
+
+  {{ partial "detours.html" (dict "seed" .Title) }}
+</header>
+
+<section aria-labelledby="latest-title">
+  <h2 id="latest-title" class="visually-hidden">Dernières notes</h2>
+  <ol class="invisible-list compact-list bento-grid bento-grid--weeknotes">
+    {{ range first 5 $notes.ByDate.Reverse }}<li>{{ .Render "card" }}</li>{{ end }}
+  </ol>
+</section>
+
+<div class="layout-8-4">
+  <section aria-labelledby="archives-title">
+    <h2 id="archives-title" class="subheader">Archives par année</h2>
+
+    {{ range $notes.GroupByDate "2006" }}
+    {{- $weeks := slice -}}
+    {{- range .Pages }}{{ $weeks = $weeks | append (int (div .Date.YearDay 7)) }}{{ end -}}
+    <details class="year-archive">
+      <summary>
+        <span class="h2">{{ .Key }}</span>
+        <span class="counter">{{ len .Pages }} notes</span>
+        <span class="weeks" aria-hidden="true">{{ range seq 0 52 }}<span{{ if in $weeks . }} class="week--with-note"{{ end }}></span>{{ end }}</span>
+      </summary>
+      <ol class="invisible-list layout-4-4-4">
+        {{ range .Pages }}{{ .Render "li" }}{{ end }}
+      </ol>
+    </details>
+    {{ end }}
+  </section>
+
+  <aside class="layout-aside">
+    {{ with $placeCounts }}
+    <section class="container container--light" aria-labelledby="places-title">
+      <div class="container__content">
+        <h2 id="places-title">Écrites depuis</h2>
+        <ul class="tags-list">
+          {{ range first 6 . }}<li>{{ .name }} <span class="counter">×{{ .count }}<span class="visually-hidden"> notes</span></span></li>{{ end }}
+        </ul>
+      </div>
+    </section>
+    {{ end }}
+
+    <section class="container container--light" aria-labelledby="follow-title">
+      <div class="container__content">
+        <h2 id="follow-title">Suivre les notes</h2>
+        <p>
+          Par flux {{ with .OutputFormats.Get "rss" }}<a href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml">RSS</a>{{ end }},
+          ou avec les carnets que je suis {{ with .OutputFormats.Get "opml" }}<a href="{{ .RelPermalink }}" type="text/x-opml">en OPML</a>{{ end }}.
+        </p>
+      </div>
+    </section>
+  </aside>
+</div>
 {{ end }}
