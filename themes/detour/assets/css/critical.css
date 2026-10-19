@@ -173,6 +173,8 @@ h1 {
   font-size: 2.4em;
   font-weight: 700;
   text-wrap: balance;
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 h2,
@@ -593,7 +595,7 @@ body>header {
   display: inline-flex;
 }
 
-:is(.menu--main, .bouton):is(a:hover, a:focus) {
+:is(.menu--main a, .bouton):is(:hover, :focus) {
   background-color: var(--section-clair);
 }
 
@@ -742,8 +744,12 @@ details {
 
   .preamble {
     margin: 0;
-    padding: var(--radius-tile);
     z-index: 10;
+    padding: var(--space-card);
+
+    @media (width >=48rem) {
+      padding: var(--radius-tile);
+    }
 
     h1 {
       margin-top: 0;
@@ -939,6 +945,29 @@ a.link--with-counter {
   border-color: var(--card-light-rule-color);
 }
 
+/**
+ * Carte mise en avant : couverture à gauche, texte à droite
+ */
+@media (width >=48rem) {
+
+  :is(.bento-grid--home > .card.type--works:first-of-type,
+    .bento-grid--weeknotes > li:first-child .card):has(.card__cover) {
+    flex-direction: row;
+
+    .card__cover {
+      border: none;
+      border-right: var(--rule-card) solid var(--card-light-rule-color);
+      border-radius: var(--radius) 0 0 var(--radius);
+      flex: 1 0 50%;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
+
 a.title {
   color: var(--brand-color);
   margin: 0;
@@ -963,6 +992,55 @@ a.title {
       order: -1;
     }
   }
+}
+
+
+/**
+ * Layouts
+ */
+
+.layout-row {
+  display: grid;
+  gap: var(--space-card);
+
+  @media (width >=62rem) {
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+  }
+}
+
+.layout-8-4 {
+  display: grid;
+  gap: var(--space-section);
+  align-items: start;
+
+  @media (width >=62rem) {
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+  }
+}
+
+.layout-4-4-4 {
+  display: grid;
+  gap: var(--space-card);
+  padding: 0;
+
+  @media (width >=62rem) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.layout-aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-section);
+}
+
+/**
+ * Generics
+ */
+.summary {
+  font-size: var(--text-small);
+  margin: 0;
 }
 
 /**
@@ -995,19 +1073,6 @@ a.title {
 
   .card.type--works:first-of-type {
     grid-area: highlighted-work1;
-    flex-direction: row;
-
-    .card__cover {
-      border: none;
-      border-right: var(--rule-card) solid var(--card-light-rule-color);
-      border-radius: var(--radius) 0 0 var(--radius);
-      flex: 1 0 50%;
-
-      img {
-        height: 100%;
-        width: 100%;
-      }
-    }
   }
 
   .card.type--works:last-of-type {
@@ -1122,6 +1187,80 @@ a.title {
 }
 
 
+/**
+ * /weeknotes
+ */
+.bento-grid--weeknotes {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  >li {
+    display: grid;
+
+    .card__content .summary+.tags-list {
+      margin-top: var(--space-inset);
+    }
+  }
+
+  >li:first-child {
+    grid-column: span 2;
+  }
+
+  >li:not(:first-child) .card__cover {
+    display: none;
+  }
+}
+
+.year-archive {
+  border-bottom: var(--rule-thin) solid var(--brand-alternative-color);
+
+  summary {
+    align-items: center;
+    display: grid;
+    gap: var(--space-tight) var(--space);
+    grid-template-columns: auto minmax(0, 1fr);
+    padding-block: var(--space-inset);
+
+    .h2 {
+      margin: 0;
+    }
+
+    .weeks {
+      grid-column: 1 / -1;
+    }
+
+    @media (width >=48rem) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 4fr);
+
+      .weeks {
+        grid-column: auto;
+      }
+    }
+  }
+
+  &[open]>ol {
+    padding-block-end: var(--space-card);
+  }
+}
+
+.weeks {
+  display: grid;
+  gap: calc(var(--space-tight) / 2);
+  grid-template-columns: repeat(53, minmax(0, 1fr));
+
+  >span {
+    aspect-ratio: 1;
+    background-color: var(--brand-alternative-color);
+  }
+
+  >.week--with-note {
+    background-color: var(--section-base);
+  }
+}
+
+
+/**
+ * ?
+ */
 article.post {
   display: flex;
   flex-direction: column;
@@ -1141,56 +1280,9 @@ article.post {
   }
 }
 
-/**
- * Layouts
- */
-
-.layout-row {
-  display: grid;
-  gap: var(--space-card);
-
-  @media (width >=62rem) {
-    grid-auto-columns: minmax(0, 1fr);
-    grid-auto-flow: column;
-  }
-}
-
-.layout-8-4 {
-  display: grid;
-  gap: var(--space-section);
-  align-items: start;
-
-  @media (width >=62rem) {
-    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
-  }
-}
-
-.layout-4-4-4 {
-  display: grid;
-  gap: var(--space-card);
-  padding: 0;
-
-  @media (width >=62rem) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-.layout-aside {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-section);
-}
 
 /**
- * Generics
- */
-.summary {
-  font-size: var(--text-small);
-  margin: 0;
-}
-
-/**
- * Weeknote
+ * Weeknote single
  */
 .weeknote .content {
   h2 {

@@ -1,0 +1,26 @@
+{{- $img := false -}}
+{{- with .Params.images }}{{ with index . 0 }}{{ $img = $.CurrentSection.Resources.GetMatch (strings.TrimPrefix "/weeknotes/" .) }}{{ end }}{{ end -}}
+<article class="card">
+  {{ with $img }}
+  <div class="card__cover">
+    {{ with (. | images.Filter images.AutoOrient).Fill "960x720 Center" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="" loading="lazy">{{ end }}  </div>
+  {{ end }}
+
+  <div class="card__content">
+    <h3>
+      <a href="{{ .RelPermalink }}" class="title">
+        <span>{{ .Title }}</span>
+        <span class="visually-hidden">publiée le</span>
+        <span class="suptitle"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>{{ with .Params.written_in }} · {{ . }}{{ end }}</span>
+      </a>
+    </h3>
+
+    <p class="summary">{{ .Summary | plainify | truncate 200 }}</p>
+
+    {{ with (where site.RegularPages "Section" "works").Related . }}
+    <ul class="tags-list section-works" aria-label="Projets évoqués">
+      {{ range first 3 . }}<li>{{ .Title }}</li>{{ end }}
+    </ul>
+    {{ end }}
+  </div>
+</article>
