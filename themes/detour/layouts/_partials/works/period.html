@@ -1,0 +1,7 @@
+{{- if eq .Params.status "ongoing" -}}
+  depuis {{ .Date.Format "2006" }}
+{{- else if and .Params.date_until (ne (.Params.date_until | time.Format "2006") (.Date.Format "2006")) -}}
+  {{ .Date.Format "2006" }}–{{ .Params.date_until | time.Format "2006" }}
+{{- else -}}
+  {{ .Date.Format "2006" }}
+{{- end -}}

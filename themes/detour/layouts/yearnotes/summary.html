@@ -1,0 +1,8 @@
+<li class="list__item">
+  <a href="{{ .RelPermalink }}" class="title">
+    <span>{{ .Title }}</span>
+    <span class="visually-hidden">publiée le</span>
+    <time class="suptitle" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+  </a>
+  <p class="summary">{{ .Summary | plainify | truncate 140 }}</p>
+</li>

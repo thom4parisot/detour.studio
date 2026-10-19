@@ -1,0 +1,31 @@
+{{- $page := .page -}}
+<div class="layout-aside">
+  {{ with .screenshot }}
+  <figure class="card">
+    <div class="card__cover">
+            {{ with (.Resize "1440x").Crop "1440x900 Top" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">{{ end }}
+    </div>
+    {{ if ne .Title .Name }}<figcaption class="card__content">{{ .Title }}</figcaption>{{ end }}
+  </figure>
+  {{ end }}
+
+  {{ with $page.Description }}
+  <section aria-labelledby="enjeux">
+    <h2 id="enjeux" class="subheader h4">Objectifs et enjeux</h2>
+    {{ . | markdownify }}
+  </section>
+  {{ end }}
+
+  {{ with where ($page.Params.resources | default slice) "src" "like" "^https?://" }}
+  <section aria-labelledby="ressources">
+    <h2 id="ressources" class="subheader h4">Ressources</h2>
+    <ul class="invisible-list compact-list list--with-separators">
+      {{ range . }}
+      <li class="list__item">
+        <a href="{{ .src }}" rel="external"{{ with .lang }} hreflang="{{ . }}" lang="{{ . }}"{{ end }}>{{ .title }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+</div>

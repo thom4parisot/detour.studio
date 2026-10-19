@@ -1,86 +1,102 @@
 {{ define "main" }}
-{{ $Category := $.Site.GetPage (printf "/%s/%s" "categories" (index .Params.categories 0 | anchorize)) }}
-<article class="work" data-type="{{ .Section }}" aria-labelledby="readout" itemscope itemtype="https://schema.org/Project">
+{{- $screenshot := .Resources.GetMatch "screenshot.{jpg,png,webp,avif}" -}}
+{{- $notes := sort ((where site.RegularPages "Section" "weeknotes").Related .) "Date" "desc" -}}
+{{- $category := site.GetPage (printf "/categories/%s" (index .Params.categories 0 | anchorize)) -}}
+
+<article class="work" aria-labelledby="readout" itemscope itemtype="https://schema.org/Project">
   {{ template "_internal/schema.html" . }}
 
-  <h1 id="readout" aria-label="Projet {{ .Title | safeHTMLAttr }}">
-    {{- partial "icon.html" ($Category.Params.icon |  default "journal") -}}
-    {{ .Title }}
-  </h1>
+  <header class="page-intro">
+    <div class="preamble">
+      {{ partial "breadcrumb.html" . }}
 
-  {{ with .Params.for }}<p class="customer-name">{{ . | safeHTML }}</p>{{ end }}
+      <h1 id="readout">{{ .Title }}</h1>
 
-  {{ if and (.Summary) (not .Truncated) }}
-  <div class="measure-wide{{ with .Params.extraClass }} {{ . }}{{ end }}" aria-labelledby="focus">
-    <h3 id="focus" aria-level="2">Objectifs et enjeux</h3>
-    <p>{{ .Description | markdownify }}</p>
-  </div>
-  {{ end }}
+      {{ with .Params.subtitle }}<p class="lead">{{ . }}</p>{{ end }}
 
-  {{ with .Resources.GetMatch "screenshot.{jpg,jpeg,png,webp,avif}" }}
-    <picture class="screenshot markdown-image">
-      <img src="{{ ((.Resize "1440x").Crop "1440x900 TopLeft").RelPermalink }}" width="896" alt="" type="{{ .MediaType }}">
-    </picture>
-  {{ end }}
+      <ul class="metadata inline-list">
+        {{ with .Params.for }}<li>pour {{ . | safeHTML }}</li>{{ end }}
+      </ul>
+    </div>
 
+    {{ partial "detours.html" (dict "seed" .Title) }}
+  </header>
 
-  {{ with .Params.resources }}
-  <div class="measure-wide" aria-labelledby="resources">
-    <h3 id="resources" aria-level="2">Ressources complémentaires</h3>
-    <ul class="inline-list" aria-labelledby="resources">
-      {{ range $URL,$Label := . }}
-        <li>
-          <a href="{{ $URL }}" target="_blank" rel="external noopener noreferrer">
-            {{ $Label }}
-          </a>
+  <div class="layout-8-4">
+    {{ with .Params.contributions }}
+    <section aria-labelledby="apports">
+      <h2 id="apports" class="subheader h4">
+        {{ partial "icon.html" "success" }}Ce que j'y ai apporté
+      </h2>
+
+      <ol class="invisible-list list--with-separators">
+        {{ range . }}
+        <li class="list__item">
+          <strong>{{ .title }}</strong> : {{ .text | markdownify }}
+          {{ with .note }}{{ with site.GetPage . }}
+          <a href="{{ .RelPermalink }}" class="section-weeknotes">{{ .Title }}</a>
+          {{ end }}{{ end }}
         </li>
-      {{ end }}
-    </ul>
-  </div>
-  {{ end }}
-
-  {{ with (union .Params.with .Params.via | uniq)}}
-  <div class="measure-wide" aria-labelledby="team">
-    <h3 id="team" aria-level="2">On fait équipe avec</h3>
-    <ul class="inline-list with-brackets" aria-labelledby="team">
-      {{ range . }}<li>{{ . }}</li>{{ end }}
-    </ul>
-  </div>
-  {{ end }}
-
-  {{ if .Content }}
-  <section class="measure-wide" aria-labelledby="presentation">
-    <h3 id="presentation" {{ if or (not .Summary) (.Truncated) }}class="visually-hidden"{{ end }} aria-level="2">Présentation</h3>
-    <div class="markdown-content">{{ .Content }}</div>
-  </section>
-  {{ end }}
-
-  {{ with .Params.stack }}
-  <section class="measure-wide" aria-labelledby="technical-stack">
-    <h3 id="technical-stack" aria-level="2">Éléments techniques</h3>
-
-    <ul class="inline-list with-brackets">
-      {{ range . }}<li>{{ . }}</li>{{ end }}
-    </ul>
-  </section>
-  {{ end }}
-
-  {{ with (sort ((where .Site.Pages "Type" "weeknotes").Related .)  "Date" "desc") }}
-  <nav aria-labelledby="weeknotes" aria-describedby="weeknotes-description">
-    <h3 id="weeknotes" aria-level="2">Notes hebdomadaires associées</h3>
-
-    <p id="weeknotes-description">Projet évoqué dans {{ . | len }} notes.</p>
-
-    <ul class="grid mini-cards" aria-labelledby="weeknotes">
-    {{ range . }}
-      <li class="mini-cards__item">
-        <a class="mini-cards__title" href="{{ .RelPermalink }}#readout">{{ .Title }}</a>
-        <time datetime="{{ .Date.Format "2006-01-02T15:04:05-0700"}}">{{ .Date | time.Format ":date_long" }}</time>
-      </li>
+        {{ end }}
+      </ol>
+    </section>
+    {{ else }}
+      {{ partial "works/overview.html" (dict "page" . "screenshot" $screenshot) }}
     {{ end }}
-    </ul>
-  </nav>
+
+    <aside class="container container--light" aria-labelledby="en-bref">
+      <div class="container__content">
+        <h2 id="en-bref">En bref</h2>
+
+        <dl class="facts">
+          {{ with .Params.for }}<div><dt>Pour</dt><dd>{{ . | safeHTML }}</dd></div>{{ end }}
+          <div><dt>Période</dt><dd>
+            {{- if eq .Params.status "ongoing" -}}
+              depuis {{ .Date | time.Format "January 2006" }}
+            {{- else if .Params.date_until -}}
+              de {{ .Date | time.Format "January 2006" }} à {{ .Params.date_until | time.Format "January 2006" }}
+            {{- else -}}
+              en {{ .Date | time.Format "January 2006" }}
+            {{- end -}}
+          </dd></div>
+          {{ with .Params.via }}<div><dt>Par l'entremise de</dt><dd>{{ delimit . ", " " et " }}</dd></div>{{ end }}
+          {{ with .Params.with }}<div><dt>Avec</dt><dd>{{ delimit . ", " " et " }}</dd></div>{{ end }}
+          {{ with $category }}<div><dt>Catégorie</dt><dd><a href="{{ .RelPermalink }}">{{ .Title }}</a></dd></div>{{ end }}
+          {{ with $notes }}<div><dt>Raconté dans</dt><dd class="section-weeknotes"><a href="#dans-les-notes">{{ len . }} notes hebdomadaires</a></dd></div>{{ end }}
+        </dl>
+
+        {{ with .Params.stack }}
+        <ul class="tags-list" aria-label="Pile technique">
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{ end }}
+      </div>
+    </aside>
+  </div>
+
+  {{ if .Params.contributions }}
+    {{ partial "works/overview.html" (dict "page" . "screenshot" $screenshot) }}
+  {{ end }}
+
+  {{ with $notes }}
+  <section class="section-weeknotes" aria-labelledby="dans-les-notes">
+    <h2 id="dans-les-notes" class="subheader">
+      {{ partial "icon.html" "journal" }}Dans les notes
+    </h2>
+
+    <ol class="invisible-list layout-4-4-4">
+      {{ range first 3 . }}{{ .Render "summary" }}{{ end }}
+    </ol>
+
+    {{ with after 3 . }}
+    <details>
+      <summary>Les {{ len . }} autres notes qui parlent de {{ $.Title }}</summary>
+      <ol class="invisible-list layout-4-4-4">
+        {{ range . }}{{ .Render "li" }}{{ end }}
+      </ol>
+    </details>
+    {{ end }}
+  </section>
   {{ end }}
 </article>
-
 {{ end }}

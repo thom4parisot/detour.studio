@@ -1,0 +1,12 @@
+<li class="list__item">
+  <a href="{{ .RelPermalink }}" rel="bookmark" class="title">
+    <span>{{ .Title }}</span>
+    {{ with .Params.for }}<span class="visually-hidden">pour</span><span class="suptitle">{{ . | safeHTML }}</span>{{ end }}
+  </a>
+
+  {{ if ne page.Kind "term" }}
+  <ul class="inline-list metadata">
+    {{ with index (.GetTerms "categories") 0 }}<li>{{ .Title }}</li>{{ end }}
+  </ul>
+  {{ end }}
+</li>

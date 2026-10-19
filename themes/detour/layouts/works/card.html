@@ -1,0 +1,26 @@
+{{- $category := site.GetPage (printf "/categories/%s" (index .Params.categories 0 | anchorize)) -}}
+<article class="card type--works section-works">
+  {{ with .Resources.GetMatch "screenshot.{jpg,png,webp,avif}" }}
+  <div class="card__cover">
+    {{ with .Fill "960x420 Center" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">{{ end }}
+  </div>
+  {{ end }}
+
+  <div class="card__content">
+    <h3>
+      <a href="{{ .RelPermalink }}" class="title">
+        <span>{{ .Title }}</span>
+        {{ with .Params.for }}<span class="visually-hidden">pour</span><span class="suptitle">{{ . | safeHTML }}</span>{{ end }}
+      </a>
+    </h3>
+
+    <ul class="inline-list metadata">
+      {{ if ne page.Kind "term" }}{{ with $category }}<li>{{ .Title }}</li>{{ end }}{{ end }}
+      <li>
+        {{ partial "works/period.html" . }}
+      </li>
+    </ul>
+
+    {{ with .Description }}<p>{{ . | markdownify }}</p>{{ end }}
+  </div>
+</article>

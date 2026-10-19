@@ -3,8 +3,6 @@ title: Refonte du site OSAÉ
 date: 2024-11-11
 for: Solagro
 type: reponse
-categories:
-- développement web
 keywords:
 - solagro
 - osaé

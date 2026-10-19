@@ -34,80 +34,21 @@
     {{- $FeaturedWorks := where (where .Site.RegularPages "Section" "works") "Params.highlight-order" "!=" nil -}}
 
     {{ range (sort $FeaturedWorks "Params.highlight-order") | first 4 }}
-    {{- $dateUntil := or (.Param "date_until") time.Now | time.AsTime -}}
-    {{- $diffYears := math.Round (div ($dateUntil.Sub .Date).Hours 8760) -}}
-    {{- $hasEnded := or (.Param "date_until") false }}
-    {{ $Category := $.Site.GetPage (printf "/%s/%s" "categories" (index .Params.categories 0 | anchorize)) }}
-
-    <article class="card type--{{ .Type }} section-{{ .Type }}">
-      {{ with .Resources.Get "screenshot.webp" }}
-      <div class="card__cover">
-        <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
-      </div>
-      {{ end }}
-
-      <div class="card__content">
-        <h3>
-          <a href="{{ .Permalink }}" rel="permalink" class="title">
-            <span>{{ .Title }}</span>
-
-            {{ with .Params.for }}
-              <span class="visually-hidden">avec</span>
-              <span class="suptitle">{{ . | safeHTML }}</span>
-            {{ end }}
-          </a></h3>
-
-        <ul class="inline-list metadata">
-          <li>
-            {{ $Category.Title }}
-          </li>
-          <li>
-            {{ if not $hasEnded }}
-            <div class="visually-hidden">Projet en cours</div>
-            depuis {{ .Date.Format "2006" }}
-            {{ else if le $diffYears 1 }}
-            <div class="visually-hidden">Projet réalisé en</div>
-            {{ .Date.Format "2006" }}
-            {{ else }}
-            <div class="visually-hidden">Projet réalisé sur la période</div>
-            {{ .Date.Format "2006" }}—{{ $dateUntil.Format "2006" }}
-            {{ end }}
-          </li>
-        </ul>
-
-        <p>{{ .Description }}</p>
-      </div>
-    </article>
+      {{ .Render "card" }}
     {{ end }}
 
     <section id="weeknotes" aria-label="Notes hebdomadaires" class="container container--light section-weeknotes">
 
-      <div class="container__content list--with-separators">
+      <div class="container__content">
         <h2>Dernières notes</h2>
         {{ $WeeknotesPage := .Site.GetPage "weeknotes" }}
         {{ $Weeknotes := where (.Site.RegularPages) "Section" "weeknotes" | union (where (.Site.RegularPages) "Section" "yearnotes") }}
 
-        {{ range (sort $Weeknotes "Date" "desc") | first 3 }}
-        <article class="post list__item type--{{ .Type }}">
-          <h3><a href="{{ .Permalink }}" rel="bookmark">{{ .Title }}</a></h3>
-
-          <ul class="inline-list metadata suptitle">
-            <li>
-              <time datetime="{{ .Date.Format "2006-01-02T15:04:05-0700"}}">
-                {{- .Date | time.Format ":date_long" -}}
-              </time>
-            </li>
-            {{- with .Params.written_in -}}
-            <li>
-              <span class="visually-hidden">Écrite à</span>
-              {{ . }}
-            </li>
-            {{- end -}}
-          </ul>
-
-          <div class="markdown-content">{{ .Summary }}</div>
-        </article>
-        {{ end }}
+        <ol class="invisible-list compact-list list--with-separators">
+          {{ range (sort $Weeknotes "Date" "desc") | first 3 }}
+            {{ .Render "summary" }}
+          {{ end }}
+        </ol>
 
         <ul class="inline-list">
           <li>
@@ -122,7 +63,7 @@
               <abbr title="Really Simple Syndication" lang="en">RSS</abbr>
             </a>
           </li>
-        </p>
+        </ul>
       </div>
     </section>
 </div>
