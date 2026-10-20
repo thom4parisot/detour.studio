@@ -3,14 +3,16 @@ version: v1.1
 date: 2021-06-29
 lieu: Bercy Lab
 title: CSNum Apprendre à coder, proposition de programme
+type: deliverable
+aliases:
+- /trainings/2021/igdpe/
 ---
 
-**Table des matières**
-[TOC]
-
-# Contexte
-
 Proposition de cadre d'apprentissage du séminaire "apprendre à coder", du [Cycle Supérieur du Numérique](http://www11.minefi.gouv.fr/catalogue-igpde/2021/co/8921.html) 2021.
+
+<!--more-->
+
+## Contexte
 
 - **Public** : Cadres supérieurs de la fonction publique d’État
 - **Objectifs du cycle** :
@@ -28,7 +30,7 @@ Proposition de cadre d'apprentissage du séminaire "apprendre à coder", du [Cyc
 
 ---
 
-# Pré-requis
+## Pré-requis
 
 Un formulaire sera envoyé au préalable avec ces questions :
 
@@ -41,9 +43,9 @@ Un formulaire sera envoyé au préalable avec ces questions :
 
 ---
 
-# Programme
+## Programme
 
-## 1er juillet 2021 : Jouer & Coder
+### 1er juillet 2021 : Jouer & Coder
 
 `9h00` - Introduction
 : Introduction de la directrice de la formation.
@@ -117,7 +119,7 @@ Un formulaire sera envoyé au préalable avec ces questions :
 `17h15` - Clôture (plénière)
 : Tour de parole sur son vécu de la journée.
 
-## 2 juillet 2021 : Organiser & Relier
+### 2 juillet 2021 : Organiser & Relier
 
 `9h00` - Conférence inspirante (plénière)
 : Présentée par Alain Buzzacaro.

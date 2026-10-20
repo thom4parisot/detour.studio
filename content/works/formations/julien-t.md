@@ -8,7 +8,6 @@ categories:
 with: [Julien]
 for: Book Sprints
 status: done
-archived: true
 date: 2019-12-01
 ---
 

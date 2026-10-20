@@ -16,8 +16,19 @@
     </ul>
   </div>
 
-  {{ partial "detours.html" (dict "seed" .Title) }}
+  {{ partial "detours.html" (dict) }}
 </header>
+
+{{ with $ongoing }}
+<section aria-labelledby="ongoing-title">
+  <h2 id="ongoing-title" class="subheader">En cours</h2>
+  <ul class="invisible-list bento-grid bento-grid--works">
+    {{ range .ByDate.Reverse }}
+    <li{{ with index .Params "highlight-order" }} class="highlighted"{{ end }}>{{ .Render "card" }}</li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
 
 <nav aria-labelledby="categories-title">
   <h2 id="categories-title" class="subheader">Par expertise</h2>
@@ -34,17 +45,6 @@
     {{ end }}
   </ul>
 </nav>
-
-{{ with $ongoing }}
-<section aria-labelledby="ongoing-title">
-  <h2 id="ongoing-title" class="subheader">En cours</h2>
-  <ul class="invisible-list bento-grid bento-grid--works">
-    {{ range .ByDate.Reverse }}
-    <li{{ with index .Params "highlight-order" }} class="highlighted"{{ end }}>{{ .Render "card" }}</li>
-    {{ end }}
-  </ul>
-</section>
-{{ end }}
 
 <section aria-labelledby="years-title">
   <h2 id="years-title" class="subheader">Tous les projets, par année de début</h2>

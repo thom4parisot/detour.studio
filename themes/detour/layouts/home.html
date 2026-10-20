@@ -1,7 +1,7 @@
 {{ define "main" }}
   <div class="page-intro" id="site-description">
     <p class="preamble">{{ .Site.Params.Description }}</p>
-    {{ partial "detours.html" (dict "seed" .Title) }}
+    {{ partial "detours.html" (dict) }}
   </div>
 
   {{ $WorksByType := (where (.Site.RegularPages) "Section" "works").GroupBy "Type" }}

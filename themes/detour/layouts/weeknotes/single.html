@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{- $notes := union (where site.RegularPages "Type" "weeknotes") (where site.RegularPages "Type" "yearnotes") -}}
 {{- $img := false -}}
 {{- with .Params.images }}
   {{ with index . 0 -}}
@@ -11,6 +12,8 @@
 
   <header class="page-intro">
     <div class="preamble">
+      {{ partial "breadcrumb.html" . }}
+
       <h1 id="readout">{{ .Title }}</h1>
 
       <p class="lead">{{ .Summary | plainify }}</p>
@@ -31,14 +34,14 @@
         {{- with .CurrentSection.OutputFormats.Get "rss" }}
         <li>
           <a href="{{ .Permalink }}" rel="alternate" type="application/rss+xml">
-            {{ partial "icon.html" "rss" }}S'abonner
+            {{ partial "icon.html" "rss" }}S'abonner via <abbr title="Really Simple Syndication" lang="en">RSS</abbr>
           </a>
         </li>
         {{ end }}
       </ul>
     </div>
 
-    {{ with $img }}{{ partial "tramage.html" (dict "src" .) }}{{ else }}{{ partial "detours.html" (dict "seed" .Title) }}{{ end }}
+    {{ with $img }}{{ partial "tramage.html" (dict "src" .) }}{{ else }}{{ partial "detours.html" (dict) }}{{ end }}
   </header>
 
   <div class="layout-8-4">
@@ -46,7 +49,7 @@
       {{ .ContentWithoutSummary }}
     </div>
 
-    <aside class="layout-aside">
+    <aside class="layout-narrow-column">
       {{ with (where site.RegularPages "Section" "works").Related . }}
       <section class="container container--light section-works" aria-labelledby="projets-mentionnes">
         <div class="container__content">
@@ -105,7 +108,7 @@
         <p class="nav-item">
           <a href="{{ .CurrentSection.RelPermalink }}">
             <span class="prefix-item">Parcourir les archives<span class="visually-hidden"> des</span></span>
-            {{ len .CurrentSection.RegularPages }} notes depuis 2020</a>
+            {{ len $notes }} notes depuis 2020</a>
         </p>
       </nav>
     </aside>

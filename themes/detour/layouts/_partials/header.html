@@ -20,9 +20,10 @@
   <nav class="menu menu--main" id="navigation" aria-label="Menu principal">
     <ul>
       {{ $currentPage := . }}
-      {{ range .Site.Menus.main }}
+      {{ $menu := site.Menus.main }}
+      {{ range .Site.Menus.main.ByWeight }}
       <li>
-        <a href="{{ .URL }}" {{ if or ($currentPage.IsMenuCurrent "main" .) (eq .Params.section $currentPage.Section) }}aria-current="page"{{end}} aria-label="{{ .Name | safeHTMLAttr }}"{{ with .Page }} title="{{ .Title | safeHTMLAttr }}"{{ end }}>
+        <a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent .Menu . }}aria-current="page"{{end}} {{if $currentPage.HasMenuCurrent .Menu .}}aria-current="true"{{end}} aria-label="{{ .Name | safeHTMLAttr }}"{{ with .Page }} title="{{ .Title | safeHTMLAttr }}"{{ end }}>
           {{- .Pre -}}
           {{- with .Params.icon }}{{- partial "icon.html" . -}}{{ end -}}
           <span>{{ .Name }}</span>

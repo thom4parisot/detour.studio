@@ -3,12 +3,16 @@ title: Parlons argent
 toc: true
 aliases:
 - money
+credits: |
+  Merci [David](https://davidbruant.github.io/) d'avoir amené ce sujet dans [notre aventure](https://dtc-innovation.github.io).
+  Merci de m'avoir pointé que j'avais des difficultés à parler d'argent.
 menus:
   main:
+    parent: about
     name: Argent
-    weight: 910
+    weight: 20
     params:
-      icon: money
+      description: Combien je me paie, comment je facture, et pourquoi j'en parle.
 
 finances:
   2022:
@@ -31,10 +35,9 @@ finances:
 
 Les discussions sur l'argent sont peu courantes. J'ai eu zéro discussion sur l'argent au collège. Zéro au lycée. Zéro à l'université. Zéro en entreprise. [Même quand mes associées m'ont caché l'état du compte en banque][dijiwan].
 
-Merci [David] d'avoir amené ce sujet dans [notre aventure][dtc].
-Merci de m'avoir pointé que j'avais des difficultés à parler d'argent.
+<!--more-->
 
-### Mon salaire {#salaire}
+## Mon salaire {#salaire}
 
 Je me verse un **salaire mensuel net après impôts de ~~1900€~~ 2000€**.<br>
 
@@ -45,7 +48,7 @@ Je travaille depuis 2004 —
 Mon salaire actuel est ce qu'on qualifierait de [salaire au besoin](https://www.bastamag.net/salaire-au-besoin-egalite-salariale-alternative-cooperative-Scop-boulangerie-Le-Pain-des-Cairns-reconnaissance-du-travail).
 
 
-### Tarif institutionnel {#facturation}
+## Tarif institutionnel {#facturation}
 
 Je facture 700€ <abbr title="hors-taxe">HT</abbr> la journée.
 
@@ -65,7 +68,7 @@ Je facture mes clients chaque mois si c'est un engagement régulier, ou étalé 
 
 C'est un tarif que je considère élevé, et qui me met dans une position privilégiée et confortable. Je fais de mon mieux pour le garder en conscience, et partager ce que j'ai.
 
-### Tarif militant {#tarif-militant}
+## Tarif militant {#tarif-militant}
 
 Je facture entre 400€ et 600€ <abbr title="hors-taxe">HT</abbr> la journée&nbsp;:
 
@@ -79,7 +82,7 @@ Cet argent abonde :
 - ma santé [^2]
 - le fonctionnement de ma [coopérative]
 
-### Prix libre {#prix-libre}
+## Prix libre {#prix-libre}
 
 Je pratique le prix libre et conscient avec les personnes qui le souhaitent.
 
@@ -91,7 +94,7 @@ Par exemple à 180€HT par journée de travail, ça rémunère :
 :information_source: [Je décris plus en détails][24joursdeweb] ma vision de la facturation et de la redistribution d'argent chez [24 jours de Web][24jw].
 
 
-### Échange de temps {#échange}
+## Échange de temps {#échange}
 
 Je pratique l'échange de temps avec les personnes qui le souhaitent.
 
@@ -101,9 +104,7 @@ Tu me donnes une heure de ton temps pour me rendre autonome sur un sujet qui m'i
 
 Peu importe le sujet.
 
-[David]: https://davidbruant.github.io/
 [dijiwan]: https://www.youtube.com/watch?v=NVpH1w_aSUk
-[dtc]: https://dtc-innovation.github.io
 [bbc]: https://www.bbc.co.uk/rd/people/thomas-parisot
 [coopérative]: https://solstice.coop
 [opencollective]: https://opencollective.com/nodebook

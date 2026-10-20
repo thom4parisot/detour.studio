@@ -1,0 +1,119 @@
+{{ define "main" }}
+{{- $weeknotes := site.GetPage "/weeknotes" -}}
+{{- $notes := union (where site.RegularPages "Type" "weeknotes") (where site.RegularPages "Type" "yearnotes") -}}
+{{- $img := false -}}
+{{- with .Params.images }}
+  {{ with index . 0 -}}
+    {{- $img = $weeknotes.Resources.GetMatch (strings.TrimPrefix "/weeknotes/" .) -}}
+  {{- end }}
+{{ end -}}
+
+
+<article class="weeknote" aria-labelledby="readout" itemscope itemtype="https://schema.org/Article">
+  {{ template "_internal/schema.html" . }}
+
+  <header class="page-intro">
+    <div class="preamble">
+      {{ partial "breadcrumb.html" . }}
+
+      <h1 id="readout">{{ .Title }}</h1>
+
+      <p class="lead">{{ .Summary | plainify }}</p>
+
+      <ul class="metadata inline-list">
+        {{- with .Params.written_in }}
+        <li>
+         Note écrite à {{ . }}
+        </li>
+        {{ end }}
+        <li>
+          publiée le
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+        </li>
+        <li>
+          {{ .ReadingTime }} minutes de lecture
+        </li>
+        {{- with $weeknotes.OutputFormats.Get "rss" }}
+        <li>
+          <a href="{{ .Permalink }}" rel="alternate" type="application/rss+xml">
+            {{ partial "icon.html" "rss" }}S'abonner via <abbr title="Really Simple Syndication" lang="en">RSS</abbr>
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+
+    {{ with $img }}{{ partial "tramage.html" (dict "src" .) }}{{ else }}{{ partial "detours.html" (dict) }}{{ end }}
+  </header>
+
+  <div class="layout-8-4">
+    <div class="content measure-wide">
+      {{ .ContentWithoutSummary }}
+    </div>
+
+    <aside class="layout-narrow-column">
+      {{ with (where site.RegularPages "Section" "works").Related . }}
+      <section class="container container--light section-works" aria-labelledby="projets-mentionnes">
+        <div class="container__content">
+          <h2 id="projets-mentionnes" class="h4">
+            {{ partial "icon.html" "mountain" }}Projets mentionnés
+          </h2>
+
+          <ul class="invisible-list compact-list list--with-separators">
+            {{ range . }}
+            <li class="list__item">
+              <a href="{{ .RelPermalink }}" class="title h4">
+                <span>{{ .Title }}</span>
+                {{ with .Params.for }}<span class="visually-hidden">pour</span><span class="suptitle">{{ . | safeHTML }}</span>{{ end }}
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+      </section>
+      {{ end }}
+
+      {{ with .Params.network }}
+      <nav aria-labelledby="ailleurs">
+        <h2 id="ailleurs" class="subheader h4">
+          {{ partial "icon.html" "network" }}Ailleurs, au même moment
+        </h2>
+
+        <ul class="compact-list tags-list">
+          {{ range $url, $name := . }}
+          <li>
+            <a href="{{ $url }}" rel="external"><span class="visually-hidden">Chez </span>{{ $name }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </nav>
+      {{ end }}
+
+      <nav aria-label="Notes voisines" class="side-navigation">
+        {{ with .PrevInSection }}
+          <p class="nav-item">
+            <a href="{{ .RelPermalink }}" rel="prev">
+              <span class="previous-item">Note précédente<span class="visually-hidden"> :</span></span>
+              {{ .Title -}}
+            </a>
+          </p>
+        {{ end }}
+
+        {{ with .NextInSection }}
+          <p class="nav-item">
+            <a href="{{ .RelPermalink }}" rel="next">
+              <span class="next-item">Note suivante<span class="visually-hidden"> :</span></span>
+              {{ .Title -}}
+            </a>
+          </p>
+        {{ end }}
+        <p class="nav-item">
+          <a href="{{ $weeknotes.RelPermalink }}">
+            <span class="prefix-item">Parcourir les archives<span class="visually-hidden"> des</span></span>
+            {{ len $notes }} notes depuis 2020</a>
+        </p>
+      </nav>
+    </aside>
+  </div>
+</article>
+{{ end }}

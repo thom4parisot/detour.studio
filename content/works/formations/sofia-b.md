@@ -7,6 +7,5 @@ categories:
 - formation
 with: [Sofia]
 status: done
-archived: true
 date: 2020-03-20
 ---

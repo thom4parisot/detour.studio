@@ -1,0 +1,41 @@
+{{- /*
+  Une publication ou une formation d'un CV, présentée comme une carte.
+  Paramètres : entry (la donnée du front matter), page (le CV, pour RenderString)
+*/ -}}
+{{- $page := .page -}}
+{{- with .entry -}}
+{{- $work := false }}{{ with .page }}{{ $work = site.GetPage . }}{{ end -}}
+{{- $url := .url }}{{ with $work }}{{ $url = $url | default .RelPermalink }}{{ end -}}
+<li>
+  <article class="card{{ if $work }} section-works{{ end }}">
+    <div class="card__content">
+      <h3>
+        {{ if $url }}
+        <a href="{{ $url }}" class="title">
+          <span>{{ $page.RenderString .title }}</span>
+          {{ with .source }}<span class="visually-hidden">,</span><span class="suptitle">{{ . }}</span>{{ end }}
+        </a>
+        {{ else }}
+        <span class="title">
+          <span>{{ $page.RenderString .title }}</span>
+          {{ with .source }}<span class="visually-hidden">,</span><span class="suptitle">{{ . }}</span>{{ end }}
+        </span>
+        {{ end }}
+      </h3>
+
+      <ul class="inline-list metadata">
+        {{ with .year }}<li>{{ . }}</li>{{ end }}
+        {{ range .items }}<li>{{ $page.RenderString . }}</li>{{ end }}
+      </ul>
+
+      {{ with .text }}{{ $page.RenderString (dict "display" "block") . }}{{ end }}
+
+      {{ with .links }}
+      <ul class="inline-list metadata">
+        {{ range . }}<li><a href="{{ .url }}">{{ .label }}</a></li>{{ end }}
+      </ul>
+      {{ end }}
+    </div>
+  </article>
+</li>
+{{- end -}}

@@ -11,7 +11,8 @@ date_until: 2021-07-02
 keywords:
 - IGDPE Culture du code
 resources:
-  - src: /trainings/2021/igdpe/
+  - src: /works/igdpe/culture-code/programme
     title: Programme de formation
+    type: page
 ---
 

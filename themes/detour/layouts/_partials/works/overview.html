@@ -1,5 +1,5 @@
 {{- $page := .page -}}
-<div class="layout-aside">
+<div class="layout-narrow-column">
   {{ with .screenshot }}
   <figure class="card">
     <div class="card__cover">
@@ -16,13 +16,23 @@
   </section>
   {{ end }}
 
-  {{ with where ($page.Params.resources | default slice) "src" "like" "^https?://" }}
+  {{- $links := slice }}
+  {{- range $page.Params.resources }}
+    {{- if in (slice "link" "page") (.type | default "link") }}{{ $links = $links | append . }}{{ end }}
+  {{- end }}
+
+  {{ with $links }}
   <section aria-labelledby="ressources">
     <h2 id="ressources" class="subheader h4">Ressources</h2>
     <ul class="invisible-list compact-list list--with-separators">
       {{ range . }}
+      {{- $title := .title }}
       <li class="list__item">
-        <a href="{{ .src }}" rel="external"{{ with .lang }} hreflang="{{ . }}" lang="{{ . }}"{{ end }}>{{ .title }}</a>
+        {{ if eq .type "page" }}
+          {{ with $page.GetPage .src }}<a href="{{ .RelPermalink }}">{{ $title | default .Title }}</a>{{ end }}
+        {{ else }}
+          <a href="{{ .src }}" rel="external"{{ with .lang }} hreflang="{{ . }}" lang="{{ . }}"{{ end }}>{{ .title }}</a>
+        {{ end }}
       </li>
       {{ end }}
     </ul>
