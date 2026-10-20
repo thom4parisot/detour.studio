@@ -3,7 +3,7 @@
   {{ with .screenshot }}
   <figure class="card">
     <div class="card__cover">
-            {{ with (.Resize "1440x").Crop "1440x900 Top" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">{{ end }}
+            {{ with (.Resize "1440x webp").Crop "1440x900 Top webp" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">{{ end }}
     </div>
     {{ if ne .Title .Name }}<figcaption class="card__content">{{ .Title }}</figcaption>{{ end }}
   </figure>

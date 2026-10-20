@@ -3,7 +3,7 @@
 <article class="card">
   {{ with $img }}
   <div class="card__cover">
-    {{ with (. | images.Filter images.AutoOrient).Fill "960x720 Center" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="" loading="lazy">{{ end }}  </div>
+    {{ with (. | images.Filter images.AutoOrient).Fill "960x720 Center webp" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="" loading="lazy">{{ end }}  </div>
   {{ end }}
 
   <div class="card__content">

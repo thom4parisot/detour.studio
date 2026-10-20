@@ -166,6 +166,7 @@ body>footer {
 
 img {
   box-sizing: border-box;
+  height: auto;
   max-width: 100%;
 }
 
@@ -362,7 +363,8 @@ small {
 .markdown-image>.figcaption {
   color: var(--section-fonce);
   display: block;
-  font-weight: 700;
+  font-size: var(--text-small);
+  font-weight: 400;
   margin-left: var(--rule-frame);
   text-wrap: balance;
 }

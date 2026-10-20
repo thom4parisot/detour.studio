@@ -2,7 +2,7 @@
 <article class="card type--works section-works">
   {{ with .Resources.GetMatch "screenshot.{jpg,png,webp,avif}" }}
   <div class="card__cover">
-    {{ with .Fill "960x420 Center" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">{{ end }}
+    {{ with .Fill "960x420 Center webp" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">{{ end }}
   </div>
   {{ end }}
 
