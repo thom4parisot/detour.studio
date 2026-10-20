@@ -1,13 +1,7 @@
 {{ define "main" }}
 {{- $weeknotes := site.GetPage "/weeknotes" -}}
 {{- $notes := union (where site.RegularPages "Type" "weeknotes") (where site.RegularPages "Type" "yearnotes") -}}
-{{- $img := false -}}
-{{- with .Params.images }}
-  {{ with index . 0 -}}
-    {{- $img = $weeknotes.Resources.GetMatch (strings.TrimPrefix "/weeknotes/" .) -}}
-  {{- end }}
-{{ end -}}
-
+{{- $img := partial "page-image.html" . -}}
 
 <article class="weeknote" aria-labelledby="readout" itemscope itemtype="https://schema.org/Article">
   {{ template "_internal/schema.html" . }}

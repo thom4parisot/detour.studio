@@ -1,0 +1,11 @@
+{{- /*
+  page-image.html — la première image du front matter `images`, comme ressource :
+  celle du bundle de la page, sinon celle d'assets/ (dont weeknotes/images, monté).
+  Renvoie false s'il n'y en a pas.
+
+  Usage :
+    {{ $img := partial "page-image.html" . }}
+*/ -}}
+{{- $img := false -}}
+{{- with .Params.images }}{{ with index . 0 }}{{ $img = or ($.Resources.Get .) (resources.Get .) }}{{ end }}{{ end -}}
+{{- return $img -}}
