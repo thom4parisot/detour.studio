@@ -2,10 +2,10 @@
   <div class="site-brand">
     <h1 class="site-title" {{ if .IsHome }} aria-describedby="site-description"{{ end }}>
       {{- if .IsHome -}}
-      détour<span class="url-part" aria-label=" " role="presentation">.</span><wbr>studio
+      détour<span class="url-part" aria-hidden="true">.</span><wbr>studio
       {{- else -}}
       <a href="{{ .Site.BaseURL }}" rel="home" aria-label="Retour accueil détour studio">
-        détour<span class="url-part" aria-hidden>.</span><wbr>studio
+        détour<span class="url-part" aria-hidden="true">.</span><wbr>studio
       </a>
       {{- end -}}
     </h1>
@@ -23,7 +23,7 @@
       {{ $menu := site.Menus.main }}
       {{ range .Site.Menus.main.ByWeight }}
       <li>
-        <a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent .Menu . }}aria-current="page"{{end}} {{if $currentPage.HasMenuCurrent .Menu .}}aria-current="true"{{end}} aria-label="{{ .Name | safeHTMLAttr }}"{{ with .Page }} title="{{ .Title | safeHTMLAttr }}"{{ end }}>
+        <a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent .Menu . }}aria-current="page"{{end}} {{if $currentPage.HasMenuCurrent .Menu .}}aria-current="true"{{end}} title="{{ .Name | safeHTMLAttr }}">
           {{- .Pre -}}
           {{- with .Params.icon }}{{- partial "icon.html" . -}}{{ end -}}
           <span>{{ .Name }}</span>
