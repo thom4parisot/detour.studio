@@ -1,0 +1,8 @@
+{{ with .Params.credits }}
+<section class="container container--light" aria-labelledby="remerciements">
+  <div class="container__content">
+    <h2 id="remerciements">Remerciements</h2>
+    {{ . | markdownify }}
+  </div>
+</section>
+{{ end }}

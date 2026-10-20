@@ -1,5 +1,4 @@
 {{ define "main" }}
-{{- $about := index (where site.Menus.main "Identifier" "about") 0 -}}
 
 <article class="{{ .Type | singularize }}" aria-labelledby="readout" itemscope itemtype="https://schema.org/Article">
   {{ template "_internal/schema.html" . }}
@@ -19,36 +18,12 @@
       {{ .ContentWithoutSummary }}
     </div>
 
+    {{- $blocks := .Params.aside | default (slice "credits" "about" "toc") }}
+    {{ with $blocks }}
     <aside class="layout-narrow-column">
-      {{ with .Params.credits }}
-      <section class="container container--light" aria-labelledby="remerciements">
-        <div class="container__content">
-          <h2 id="remerciements">Remerciements</h2>
-          {{ . | markdownify }}
-        </div>
-      </section>
-      {{ end }}
-
-      <nav class="container container--light" aria-labelledby="rubrique">
-        <div class="container__content">
-          <h2 id="rubrique" class="visually-hidden">{{ $about.Name }}</h2>
-          <ul class="invisible-list compact-list list--with-separators">
-            <li class="list__item">
-              <a href="{{ $about.URL }}" class="title"{{ if .IsMenuCurrent "main" $about }} aria-current="page"{{ end }}><span>{{ $about.Name }}</span></a>
-              {{ with $about.Params.description }}<p class="summary">{{ . }}</p>{{ end }}
-            </li>
-            {{ range $about.Children }}
-            <li class="list__item">
-              <a href="{{ .URL }}" class="title"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}><span>{{ .Name }}</span></a>
-              {{ with .Params.description }}<p class="summary">{{ . }}</p>{{ end }}
-            </li>
-            {{ end }}
-          </ul>
-        </div>
-      </nav>
-
-      {{ partial "toc.html" . }}
+      {{ range . }}{{ partial (printf "aside/%s.html" .) $ }}{{ end }}
     </aside>
+    {{ end }}
   </div>
 </article>
 {{ end }}

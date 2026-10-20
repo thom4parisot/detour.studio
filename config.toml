@@ -29,6 +29,29 @@ mastodon = "https://diaspodon.fr/@thom4"
 fediverse = "@thom4@diaspodon.fr"
 website = "https://thom4.net"
 
+[params.contact]
+modes = [
+  "synchrone, par **téléphone** ou **visio** — pour un échange rapide, pour se donner rendez-vous",
+  "asynchrone, par **email** — pour présenter un projet, donner du contexte et joindre des documents",
+  "asynchrone par [**SMS**](sms:+33608403549) ou [**Signal**](https://signal.me/#eu/n6TkQ-1rnWYwYveviRgI2WQkOD6F3Pw1-vOOuDDngvhfHKNWYDBMUpJQAKZgc7Kv) — pour une prise de contact rapide ou un vocal",
+]
+
+[[params.contact.channels]]
+label = "Téléphone"
+hrefLabel = "06 08 40 35 49"
+href = "tel:+33608403549"
+[[params.contact.channels]]
+label = "Signal"
+hrefLabel = "Envoyer un message"
+href = "https://signal.me/#eu/n6TkQ-1rnWYwYveviRgI2WQkOD6F3Pw1-vOOuDDngvhfHKNWYDBMUpJQAKZgc7Kv"
+
+[params.organisation]
+name = "Solstice SCOP CAE"
+url = "https://solstice.coop"
+siret = "43827938200040"
+tva = "FR54438279382"
+qualiopi = true
+
 [params.workStatus]
 done = "Fini"
 ongoing = "En cours"

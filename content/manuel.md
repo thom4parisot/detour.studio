@@ -53,12 +53,9 @@ Le format s'inspire aussi des manuels de [Cassie Robinson](https://cassierobinso
 - quand je pose des limites et qu'elles ne sont pas respectées
 - quand je me sens impuissant face à une situation, que je la verbalise à plusieurs reprise, et que ça n'aboutit à aucun changement
 
-## J'ai des préférences pour les prises de contact (par ordre de préférence)
+## Mes préférences de contact
 
-- asynchrone, par **email** — par défaut
-- synchrone, par **téléphone** ou **visio** — pour un échange rapide, pour se donner  rendez-vous
-- a/synchrone, genre par **Mattermost**, **Matrix** ou **Slack** — pour discuter opérationnel, pour des échanges courts, pour un partage d'information à part égale
-- pas de **SMS**, pas de **messagerie instantanée**
+{{< contact-modes >}}
 
 ## Quelques pointeurs culturels pour mieux me connaître
 

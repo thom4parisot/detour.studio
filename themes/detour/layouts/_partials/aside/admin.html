@@ -1,0 +1,13 @@
+{{ with site.Params.organisation }}
+<section class="container container--light" aria-labelledby="administratif">
+  <div class="container__content">
+    <h2 id="administratif">Informations administratives</h2>
+    <dl class="facts">
+      <div><dt>Activité portée par</dt><dd><a href="{{ .url }}" rel="external">{{ .name }}</a></dd></div>
+      <div><dt>SIRET</dt><dd>{{ .siret }}</dd></div>
+      <div><dt><abbr title="Numéro">N°</abbr> TVA</dt><dd>{{ .tva }}</dd></div>
+      {{ if .qualiopi }}<div><dt>Formation</dt><dd>Organisme de formation certifié Qualiopi</dd></div>{{ end }}
+    </dl>
+  </div>
+</section>
+{{ end }}
