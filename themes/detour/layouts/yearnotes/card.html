@@ -1,5 +1,4 @@
-{{- $img := false -}}
-{{- with .Params.images }}{{ with index . 0 }}{{ $img = (site.GetPage "/weeknotes").Resources.GetMatch (strings.TrimPrefix "/weeknotes/" .) }}{{ end }}{{ end -}}
+{{- $img := partial "page-image.html" . -}}
 <article class="card">
   {{ with $img }}
   <div class="card__cover">

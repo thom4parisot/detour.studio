@@ -1,8 +1,7 @@
 {{ define "main" }}
 {{- $about := index (where site.Menus.main "Identifier" "about") 0 -}}
 {{- $others := where (where site.RegularPages "Type" "resume") "RelPermalink" "ne" .RelPermalink -}}
-{{- $img := false }}
-{{- with .Params.images }}{{ with index . 0 }}{{ $img = or ($.Resources.Get .) (resources.Get .) }}{{ end }}{{ end }}
+{{- $img := partial "page-image.html" . -}}
 
 <article class="resume" aria-labelledby="readout" itemscope itemtype="https://schema.org/Person">
   <header class="page-intro">
