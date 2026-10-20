@@ -9,6 +9,7 @@ for: Etalab
 status: done
 archived: true
 date: 2017-10-01
-external:
-  link: https://github.com/etalab/user-research/#juillet-septembre-2017
+resources:
+  - src: https://github.com/etalab/user-research/#juillet-septembre-2017
+    title: Synthèse juillet–septembre 2017
 ---

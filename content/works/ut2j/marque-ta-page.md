@@ -17,6 +17,7 @@ stack:
 - JavaScript
 - CSS
 - Glitch.com
-external:
-  link: https://glitch.com/~gh003-piratx
+resources:
+  - src: https://glitch.com/~gh003-piratx
+    title: Prototype sur Glitch
 ---

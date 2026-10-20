@@ -15,7 +15,10 @@ stack:
 - Markdown
 - HTML
 - CSS
-external:
-  link: https://github.com/CDSP-SCPO/site-DIME-SHS
+resources:
+  - src: https://dime-shs.sciencespo.fr/
+    title: Site web du projet
+  - src: https://github.com/CDSP-SCPO/site-DIME-SHS
+    title: Code source
 ---
 

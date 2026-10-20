@@ -12,6 +12,7 @@ stack:
 - Asciidoc
 - Node.js
 - JavaScript
-external:
-  link: https://dtc-innovation.github.io/research/
+resources:
+  - src: https://dtc-innovation.github.io/research/audit-radiofrance/
+    title: Audit et conclusions
 ---

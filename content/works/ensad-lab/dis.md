@@ -16,6 +16,7 @@ via:
 stack:
 - Vue.js
 - GitLab CI
-external:
-  link: https://gitlab.com/dis-project/journee-etude
+resources:
+  - src: https://gitlab.com/dis-project/journee-etude
+    title: Code source
 ---
