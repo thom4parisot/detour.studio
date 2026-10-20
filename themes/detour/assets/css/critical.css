@@ -594,15 +594,11 @@ body>header {
 .bouton {
   background-color: var(--intro-fond);
   border-radius: var(--radius-pill);
-  display: flex;
+  display: inline-flex;
   gap: var(--space-inset);
   align-items: center;
   padding: var(--space-inset);
   text-decoration: none !important;
-}
-
-.bouton {
-  display: inline-flex;
 }
 
 :is(.menu--main a, .bouton):is(:hover, :focus) {
@@ -1429,12 +1425,6 @@ article.post {
   }
 }
 
-/**
- * Timeline
- */
-/**
- * Timeline
- */
 /**
  * Timeline
  */

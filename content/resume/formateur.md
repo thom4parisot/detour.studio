@@ -3,6 +3,7 @@ title: Thomas Parisot
 subtitle: Formateur
 html-title: CV orienté formation de Thomas Parisot
 icon: grow
+images: [/images/portrait.jpg]
 aliases:
 - /trainings/cv.html
 menu:

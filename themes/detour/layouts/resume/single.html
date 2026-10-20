@@ -1,6 +1,8 @@
 {{ define "main" }}
 {{- $about := index (where site.Menus.main "Identifier" "about") 0 -}}
 {{- $others := where (where site.RegularPages "Type" "resume") "RelPermalink" "ne" .RelPermalink -}}
+{{- $img := false }}
+{{- with .Params.images }}{{ with index . 0 }}{{ $img = or ($.Resources.Get .) (resources.Get .) }}{{ end }}{{ end }}
 
 <article class="resume" aria-labelledby="readout" itemscope itemtype="https://schema.org/Person">
   <header class="page-intro">
@@ -13,8 +15,8 @@
       <div class="lead">{{ .Summary }}</div>
     </div>
 
-    {{ with resources.Get "images/portrait.jpg" }}
-      {{ partial "tramage.html" (dict "src" . "anchor" "Top") }}
+    {{ with $img }}
+        {{ partial "tramage.html" (dict "src" . "anchor" "Center") }}
     {{ else }}
       {{ partial "detours.html" (dict) }}
     {{ end }}
