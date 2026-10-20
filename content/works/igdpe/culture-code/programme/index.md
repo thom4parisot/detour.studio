@@ -99,7 +99,7 @@ Un formulaire sera envoyé au préalable avec ces questions :
 : Débusquer les biais informatiques à partir d'une image.
 : Qu'est-ce qui se cache derrière le QR Code de TousAntiCovid Verif ? Quels autres choix aurait-on pu faire ? Quels impacts ça a en terme de traçage des données, de respect de la vie privée ?
 : Soit j'utilise une approche sous forme de quizz, soit sous forme d'Entrainement Mental dans l'espace.
-: ![](http://www.fractale-formation.net/dmdocuments/sch%C3%A9ma-de-lentra%C3%AEnement-mental.jpeg)
+: ![Schéma de l'entraînement mental : faits, problèmes, analyse, action](entrainement-mental.webp "Source : https://www.peuple-et-culture.org/agenda/formation-em-montpellier")
 : Référence : https://cq94.medium.com/la-fin-du-pseudonymat-dans-tousanticovid-932d50de11ee
 : Aussi https://www.lebigdata.fr/coded-bias-film-racisme-ia
 
@@ -108,7 +108,7 @@ Un formulaire sera envoyé au préalable avec ces questions :
 : Des solutions existent : le ré-écriture de code ou encore la maitrise de la dette technique. En effet, ces deux actions permettent de lever "la complexité accidentelle". Mais que faisons nous de la "complexité essentielle" ? La complexité qui n'est pas liée au code.
 : La seule solution : Supprimer des fonctionnalités ! Ce talk vous expliquera comment perdre la surcharge featurale de vos applications en comprenant la différence entre la complexité essentielle et la complexité accidentelle, mais aussi en vous donnant des clés pour mener à bien ce changement dans vos équipes projet.
 : Pré-enregistrée par Estelle Landry.
-: https://vimeo.com/340078595
+: {{< vimeo 340078595>}}
 : --> faire une sélection de 4 ou 5 séquences, ou une séquence longue sur laquelle il y a conversation.
 
 
@@ -139,8 +139,8 @@ Un formulaire sera envoyé au préalable avec ces questions :
 `14h00` - Atelier "Achète une fonctionnalité" (par groupe de 6)
 : Séquence 1 : Les groupes déclinent leur prototype du mois de Mai en 5 ou 6 fonctionnalités clés. Ils mettent un prix entre 1 et 20€ pour chaque fonctionnalité.
 : Chaque personne reçoit ensuite 20€, sous forme de gommettes de 2€, et les distribuent pour acheter collectivement les fonctionnalités.
-: Référence : https://www.innovationgames.com/buy-a-feature/
-: ![](https://www.innovationgames.com/wp-content/uploads/2009/11/explanationBAFO.png)
+: Référence : https://www.metacartes.cc/faire-ensemble/recettes/vote-a-points/
+: ![Illustration de vote par point](dot-voting.webp "Source : https://bloculus.com/atelier/dot-voting/")
 
 `14h45` - Atelier "Avions en papier" (par groupe de 6)
 : L'objectif est de produire le plus d'avions en papier. Chaque séquence dure 9 minutes.
