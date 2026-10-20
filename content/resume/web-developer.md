@@ -8,6 +8,7 @@ menu:
     name: CV développeur web
     parent: about
     weight: 30
+images: [/images/portrait.jpg]
 contact:
 - label: 06 08 40 35 49
   href: tel:+33608403549

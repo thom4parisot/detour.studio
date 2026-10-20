@@ -3,6 +3,7 @@ title: Thomas Parisot
 subtitle: <i lang="en">Product owner</i>
 html-title: Thomas Parisot, product owner basé à Crest (Drôme, 26)
 icon: grow
+images: [/images/portrait.jpg]
 menu:
   main:
     name: CV chargé de produit
