@@ -230,7 +230,7 @@ dd {
   margin: 0 0 1em 0;
 }
 
-@media (min-width: 48rem) {
+@media screen and (min-width: 48rem) {
   dd {
     margin-left: 1.25em;
   }
@@ -287,7 +287,7 @@ body>header a:visited {
 }
 
 a[rel~="external"] {
-  padding-right: 10px;
+  padding-right: calc(var(--space-tight) / 2);
 }
 
 a[rel~="external"]:after {
@@ -441,22 +441,12 @@ small {
   padding: 0;
 }
 
-.key-value,
-.inline-list {
+.key-value {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   gap: .5rem;
   align-items: baseline;
-}
-
-.inline-list>li {
-  margin: 0;
-  white-space: nowrap;
-
-  &:not(:last-of-type)::after {
-    content: "•" / "";
-  }
 }
 
 .key-value>dd {
@@ -470,6 +460,24 @@ small {
   &:not(:first-of-type)::before {
     content: "•" / "";
     margin-inline-end: .5em;
+  }
+}
+
+.inline-list {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-tight);
+  list-style: none;
+
+  >li {
+    margin: 0;
+  }
+
+  >li+li::before {
+    content: "•" / "";
+    float: left;
+    margin-inline-end: var(--space-tight);
   }
 }
 
@@ -606,6 +614,7 @@ body>header {
 }
 
 .site-title {
+  hyphens: manual;
   margin: 0;
 }
 
@@ -731,7 +740,7 @@ details {
     z-index: 10;
     padding: var(--space-card);
 
-    @media (width >=48rem) {
+    @media screen and (width >=48rem) {
       padding: var(--radius-tile);
     }
 
@@ -744,10 +753,7 @@ details {
     }
   }
 
-  .metadata>li {
-    white-space: normal;
-  }
-
+  /* mobile : l'illustration est un bandeau sous le texte, en fondu vers le bas */
   .illustration {
     height: 8em;
     opacity: 1;
@@ -755,7 +761,45 @@ details {
     width: 100%;
   }
 
-  @media (width >=48rem) {
+  .detours {
+    mask-image: linear-gradient(to bottom, transparent, #000 45%);
+  }
+
+  .tramage {
+    display: none;
+  }
+
+  /**
+    * detours.html
+    */
+
+  /* ligne de fond : les rangs */
+  .detours__fond {
+    stroke: var(--sillons-fond);
+  }
+
+  /* ligne de fond alternative : un rang sur trois */
+  .detours__fond-alt {
+    stroke: var(--sillons-fond-alt, var(--tramage-encre));
+  }
+
+  /* ligne principale : le chemin */
+  .detours__chemin {
+    stroke: var(--sillons-chemin, var(--text-color));
+  }
+
+  .detours__point {
+    fill: var(--sillons-fond-alt);
+    stroke: var(--sillons-chemin);
+  }
+
+  /* à partir de 48rem : texte sur 70 %, illustration en fond sur toute la largeur,
+     visible seulement dans le tiers droit */
+  @media screen and (width >=48rem) {
+    & {
+      grid-template-columns: 70% 30%;
+    }
+
     .illustration {
       border-radius: 0 var(--radius-tile) var(--radius-tile) 0;
       overflow: hidden;
@@ -764,59 +808,19 @@ details {
       max-width: 100%;
       top: 0;
       right: 0;
-      width: auto;
+      width: 100%;
       z-index: 0;
-    }
-  }
-
-  /**
-    * detours.html
-    */
-
-  .detours__fond {
-    stroke: var(--sillons-fond);
-  }
-
-  /* ligne de fond : les rangs */
-  .detours__fond-alt {
-    stroke: var(--sillons-fond-alt, var(--tramage-encre));
-  }
-
-  /* ligne de fond alternative : un rang sur trois */
-  .detours__chemin {
-    stroke: var(--sillons-chemin, var(--text-color));
-  }
-
-  /* ligne principale : le chemin */
-  .detours__point {
-    fill: var(--sillons-fond-alt);
-    stroke: var(--sillons-chemin);
-  }
-
-  .detours {
-    /* fondu vers le bas */
-    mask-image: linear-gradient(to bottom, transparent, #000 45%)
-  }
-
-  .tramage {
-    display: none;
-  }
-
-  @media (width >=62rem) {
-    & {
-      grid-template-columns: 70% 30%;
-      grid-template-rows: 1fr fit-content(12em);
-    }
-
-    .illustration {
-      opacity: 1;
     }
 
     .detours {
-      pointer-events: none;
-      /* fondu vers la gauche : rien sous le texte */
-      -webkit-mask-image: linear-gradient(to right, transparent 15%, #000 45%);
-      mask-image: linear-gradient(to right, transparent 15%, #000 45%);
+      -webkit-mask-image: linear-gradient(to right, transparent 60%, #000 75%);
+      mask-image: linear-gradient(to right, transparent 60%, #000 75%);
+    }
+  }
+
+  @media screen and (width >=62rem) {
+    & {
+      grid-template-rows: 1fr fit-content(12em);
     }
 
     .tramage {
@@ -868,8 +872,12 @@ a.link--with-counter {
   flex-direction: column;
   gap: var(--space-card);
 
-  @media (width >=48rem) {
+  @media screen and (width >=48rem) {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media screen and (width >=62rem) {
     grid-template-columns: repeat(6, 1fr);
   }
 }
@@ -926,10 +934,6 @@ a.link--with-counter {
     color: var(--text-muted-color);
     font-size: var(--text-small);
     padding: 0;
-
-    >li {
-      white-space: normal;
-    }
   }
 
 }
@@ -943,7 +947,7 @@ a.link--with-counter {
 /**
  * Carte mise en avant : couverture à gauche, texte à droite
  */
-@media (width >=48rem) {
+@media screen and (width >=48rem) {
 
   :is(.bento-grid--home > .card.type--works:first-of-type,
     .bento-grid--weeknotes > li:first-child .card):has(.card__cover) {
@@ -999,7 +1003,7 @@ a.title {
   display: grid;
   gap: var(--space-card);
 
-  @media (width >=62rem) {
+  @media screen and (width >=62rem) {
     grid-auto-columns: minmax(0, 1fr);
     grid-auto-flow: column;
   }
@@ -1011,7 +1015,7 @@ a.title {
   gap: var(--space-section);
   margin: 0;
 
-  @media (width >=62rem) {
+  @media screen and (width >=62rem) {
     grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
   }
 
@@ -1026,7 +1030,7 @@ a.title {
   margin: 0;
   padding: 0;
 
-  @media (width >=62rem) {
+  @media screen and (width >=62rem) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -1041,7 +1045,7 @@ a.title {
   gap: var(--space-section);
 }
 
-@media (width >=62rem) {
+@media screen and (width >=62rem) {
   .layout-narrow-column:has(> .toc) {
     align-self: stretch;
   }
@@ -1070,36 +1074,48 @@ a.title {
  * /home
  */
 .bento-grid--home {
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(3, minmax(0, auto));
-  grid-auto-flow: dense;
-  grid-template-areas:
-    "expertise expertise highlighted-work1 highlighted-work1 highlighted-work1 highlighted-work1"
-    "expertise expertise work1 work1 work2 work2"
-    "highlighted-work2 highlighted-work2 highlighted-work2 notes notes notes";
 
-  #expertises {
-    grid-area: expertise;
+  /* 2 colonnes : tout en pleine largeur, sauf les deux projets non phares, côte à côte */
+  >* {
+    grid-column: span 2;
   }
 
-  #weeknotes {
-    grid-area: notes;
+  .type--works:is(:nth-of-type(2), :nth-of-type(3)) {
+    grid-column: auto;
   }
 
-  .type--works:nth-of-type(2) {
-    grid-area: work1;
-  }
+  @media screen and (width >=62rem) {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, minmax(0, auto));
+    grid-auto-flow: dense;
+    grid-template-areas:
+      "expertise expertise highlighted-work1 highlighted-work1 highlighted-work1 highlighted-work1"
+      "expertise expertise work1 work1 work2 work2"
+      "highlighted-work2 highlighted-work2 highlighted-work2 notes notes notes";
 
-  .type--works:nth-of-type(3) {
-    grid-area: work2;
-  }
+    #expertises {
+      grid-area: expertise;
+    }
 
-  .card.type--works:first-of-type {
-    grid-area: highlighted-work1;
-  }
+    #weeknotes {
+      grid-area: notes;
+    }
 
-  .card.type--works:last-of-type {
-    grid-area: highlighted-work2;
+    .type--works:nth-of-type(2) {
+      grid-area: work1;
+    }
+
+    .type--works:nth-of-type(3) {
+      grid-area: work2;
+    }
+
+    .card.type--works:first-of-type {
+      grid-area: highlighted-work1;
+    }
+
+    .card.type--works:last-of-type {
+      grid-area: highlighted-work2;
+    }
   }
 }
 
@@ -1110,20 +1126,26 @@ a.title {
  * /categories/*
  */
 .bento-grid--term {
-  grid-template-areas:
-    "works works works works works works"
-    "categories categories categories contact contact contact";
-
   #works {
-    grid-area: works;
+    grid-column: 1 / -1;
   }
 
-  #categories {
-    grid-area: categories;
-  }
+  @media screen and (width >=62rem) {
+    grid-template-areas:
+      "works works works works works works"
+      "categories categories categories contact contact contact";
 
-  #contact {
-    grid-area: contact;
+    #works {
+      grid-area: works;
+    }
+
+    #categories {
+      grid-area: categories;
+    }
+
+    #contact {
+      grid-area: contact;
+    }
   }
 }
 
@@ -1140,7 +1162,7 @@ a.title {
     padding: 0;
   }
 
-  @media (width >=48rem) {
+  @media screen and (width >=48rem) {
     align-items: start;
     flex-direction: row;
     gap: var(--space);
@@ -1162,7 +1184,7 @@ a.title {
     border-top: var(--rule-table) solid var(--brand-alternative-color);
   }
 
-  @media (width >=48rem) {
+  @media screen and (width >=48rem) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 5fr);
 
     h3 {
@@ -1176,38 +1198,45 @@ a.title {
  */
 
 .bento-grid--works {
-  grid-auto-flow: dense;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-rows: min-content 1fr;
-
   >li {
     display: grid;
     /* pour que les cartes s'étirent en hauteur */
   }
 
+  /* 2 colonnes : une carte avec capture prend toute la largeur */
   >li:has(.card__cover) {
     grid-column: span 2;
-    grid-row: span 2;
   }
 
-  /* projet phare avec capture : en haut à gauche */
-  > :nth-child(1 of .highlighted:has(.card__cover)) {
-    grid-column: 1 / span 2;
-    grid-row: 1 / span 2;
-  }
+  @media screen and (width >=62rem) {
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: min-content 1fr;
 
-  /* capture suivante : à droite, à la première hauteur libre */
-  > :nth-child(1 of :not(.highlighted):has(.card__cover)) {
-    grid-column: 2 / span 2;
-    order: -1;
-  }
+    >li:has(.card__cover) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
 
-  > :nth-child(5 of :not(.tools, :has(.card__cover))) {
-    grid-column: span 2;
-  }
+    /* projet phare avec capture : en haut à gauche */
+    > :nth-child(1 of .highlighted:has(.card__cover)) {
+      grid-column: 1 / span 2;
+      grid-row: 1 / span 2;
+    }
 
-  >.tools {
-    grid-column: 3;
+    /* capture suivante : à droite, à la première hauteur libre */
+    > :nth-child(1 of :not(.highlighted):has(.card__cover)) {
+      grid-column: 2 / span 2;
+      order: -1;
+    }
+
+    > :nth-child(5 of :not(.tools, :has(.card__cover))) {
+      grid-column: span 2;
+    }
+
+    >.tools {
+      grid-column: 3;
+    }
   }
 }
 
@@ -1216,8 +1245,6 @@ a.title {
  * /weeknotes
  */
 .bento-grid--weeknotes {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-
   >li {
     display: grid;
 
@@ -1232,6 +1259,10 @@ a.title {
 
   >li:not(:first-child) .card__cover {
     display: none;
+  }
+
+  @media screen and (width >=62rem) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1253,7 +1284,7 @@ a.title {
       grid-column: 1 / -1;
     }
 
-    @media (width >=48rem) {
+    @media screen and (width >=48rem) {
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 4fr);
 
       .weeks {

@@ -24,7 +24,7 @@ source = "content/weeknotes/images"
 target = "assets/weeknotes/images"
 
 [params]
-description = "Développement web en mode agile, publications multiformats, accessibilité numérique et accompagnement d'équipes multi-disciplinaires."
+description = "Je construis des projets numériques d'intérêt général avec des technologies web : services accessibles, open data et innovation d'usage, pas à pas."
 pronouns = "il / lui"
 
 [params.author]

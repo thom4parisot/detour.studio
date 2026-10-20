@@ -1,6 +1,8 @@
 {{ define "main" }}
   <div class="page-intro" id="site-description">
-    <p class="preamble">{{ .Site.Params.Description }}</p>
+    <div class="preamble">
+      <p class="lead">{{ .Site.Params.Description }}</p>
+    </div>
     {{ partial "detours.html" (dict) }}
   </div>
 
