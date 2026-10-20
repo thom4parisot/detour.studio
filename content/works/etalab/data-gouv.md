@@ -15,7 +15,8 @@ stack:
 - Vue.js
 - Docker
 - Circle CI
-external:
-  link: https://github.com/etalab/user-research
+resources:
+  - src: https://github.com/etalab/user-research
+    title: Documentation de la recherche utilisateur
 ---
 

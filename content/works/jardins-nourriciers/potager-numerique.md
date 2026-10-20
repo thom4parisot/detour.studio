@@ -11,7 +11,8 @@ archived: true
 date: 2020-03-19
 stack:
 - Excel
-external:
-  link: https://www.lesjardinsnourriciers.com/
+resources:
+  - src: https://www.lesjardinsnourriciers.com/
+    title: Site de l'association
 ---
 

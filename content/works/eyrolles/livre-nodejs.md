@@ -13,8 +13,9 @@ stack:
   - Asciidoc
 with:
   - Alexandre Habian
-external:
-  link: https://www.editions-eyrolles.com/Livre/9782212139938/node-js
+resources:
+  - src: https://www.editions-eyrolles.com/Livre/9782212139938/node-js
+    title: Le livre chez Eyrolles
 ---
 
 Le contenu couvre l'histoire de Node

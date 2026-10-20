@@ -18,7 +18,8 @@ keywords:
 stack:
 - Paged.js
 - Lodel
-external:
-  link: https://eur-artec.fr/edition/revue-hybrid/
+resources:
+  - src: https://eur-artec.fr/edition/revue-hybrid/
+    title: La revue Hybrid
 ---
 

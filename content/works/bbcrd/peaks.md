@@ -15,7 +15,14 @@ stack:
 - JavaScript
 - Canvas
 - Jenkins CI
-external:
-  link: https://waveform.prototyping.bbc.co.uk/
-  lang: en
+resources:
+  - src: https://waveform.prototyping.bbc.co.uk/
+    title: Démonstration
+    lang: en
+  - src: https://www.bbc.co.uk/rd/articles/2013-10-audio-waveforms
+    title: Article sur bbc.co.uk/rd
+    lang: en
+  - src: https://github.com/bbc/peaks.js
+    title: Code source de Peaks.js
+    lang: en
 ---

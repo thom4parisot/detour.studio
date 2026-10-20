@@ -13,6 +13,9 @@ keywords:
 with:
 - Julie Blanc
 - Benjamin Grémillon
-external:
-  link: https://github.com/medialab/website/tree/master/docs
+resources:
+  - src: https://medialab.sciencespo.fr/
+    title: Site web
+  - src: https://github.com/medialab/website/tree/master/docs
+    title: Documentation du projet
 ---

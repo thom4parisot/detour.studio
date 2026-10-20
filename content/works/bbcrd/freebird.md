@@ -19,7 +19,8 @@ stack:
 - JavaScript
 - Jenkins CI
 - Amazon Web Services
-external:
-  link: https://www.bbc.co.uk/rd/projects/editorial-algorithms
-  lang: en
+resources:
+  - src: https://www.bbc.co.uk/rd/projects/editorial-algorithms
+    title: Page projet sur bbc.co.uk/rd
+    lang: en
 ---
