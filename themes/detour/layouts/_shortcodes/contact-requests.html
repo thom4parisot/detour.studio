@@ -1,0 +1,9 @@
+{{ with .Page.Params.requests }}
+<ul class="invisible-list compact-list layout-row">
+  {{ range . }}
+  {{- $query := printf "subject=%s" (.subject | urlquery) }}
+  {{- with .body }}{{ $query = printf "%s&body=%s" $query (. | urlquery) }}{{ end }}
+  <li><a class="bouton" href="mailto:{{ site.Params.author.email }}?{{ replace $query "+" "%20" | safeURL }}">{{ .label }}</a></li>
+  {{ end }}
+</ul>
+{{ end }}

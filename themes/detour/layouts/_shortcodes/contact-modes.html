@@ -1,0 +1,3 @@
+<ul>
+  {{ range site.Params.contact.modes }}<li>{{ . | markdownify }}</li>{{ end }}
+</ul>

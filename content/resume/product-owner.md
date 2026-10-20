@@ -12,8 +12,8 @@ contact:
 - label: 06 08 40 35 49
   href: tel:+33608403549
   note: téléphone, SMS et Signal
-- label: coucou@thom4.net
-  href: mailto:coucou@thom4.net
+- label: contact@detour.studio
+  href: mailto:contact@detour.studio
 - label: détour.studio
   href: https://détour.studio
 - label: thom4.net

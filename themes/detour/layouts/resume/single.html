@@ -93,8 +93,7 @@
           <h2 id="en-bref">En bref</h2>
 
           <dl class="facts">
-            {{ with .Params.contact }}<div><dt>Contact</dt>{{ range . }}<dd><a href="{{ .href }}">{{ .label }}</a>{{ with .note }} ({{ . }}){{ end }}</dd>{{ end }}</div>{{ end }}
-            {{ with .Params.training_body }}<div><dt>Organisme de formation</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with .Params.contact }}<div><dt>Contact</dt>{{ range . }}<dd><a href="{{ .href | safeURL }}">{{ .label }}</a>{{ with .note }} ({{ . }}){{ end }}</dd>{{ end }}</div>{{ end }}            {{ with .Params.training_body }}<div><dt>Organisme de formation</dt><dd>{{ . }}</dd></div>{{ end }}
             {{ with .Params.location }}<div><dt>Lieu de résidence</dt><dd>{{ . }}</dd></div>{{ end }}
             {{ with .Params.mobility }}<div><dt>Mobilité</dt>{{ range . }}<dd>{{ . }}</dd>{{ end }}</div>{{ end }}
           </dl>

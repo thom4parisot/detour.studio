@@ -1,0 +1,10 @@
+<section class="container container--light" aria-labelledby="coordonnees">
+  <div class="container__content">
+    <h2 id="coordonnees">Coordonnées</h2>
+    <dl class="facts">
+      <div><dt>Email</dt><dd><a href="mailto:{{ site.Params.author.email }}">{{ site.Params.author.email }}</a></dd></div>
+      {{ range site.Params.contact.channels }}
+      <div><dt>{{ .label }}</dt><dd><a href="{{ .href | safeURL }}">{{ .hrefLabel }}</a></dd></div>      {{ end }}
+    </dl>
+  </div>
+</section>
