@@ -1,3 +1,72 @@
-body > *:not(main), #TableOfContentsSummary {
+/**
+ * Impression : le contenu seul, sur fond blanc
+ */
+@page {
+  margin: 1.5cm;
+}
+
+:root {
+  --background-color: white;
+  --intro-fond: transparent;
+}
+
+body {
+  font-size: 12pt;
+}
+
+/* Ce qui sert à naviguer ou à décorer ne s'imprime pas */
+body>*:not(main),
+.illustration,
+.breadcrumb,
+.side-navigation,
+.layout-narrow-column>nav,
+.toc {
   display: none;
+}
+
+.card,
+.container {
+  background: none;
+}
+
+.layout-8-4,
+.layout-row {
+  display: block;
+}
+
+.layout-8-4>*+*,
+.layout-row>*+* {
+  margin-top: var(--space-section);
+}
+
+/* Un bloc ne se coupe pas entre deux pages */
+.timeline__project,
+.card,
+figure,
+.markdown-image,
+.layout-row>section {
+  break-inside: avoid;
+}
+
+/* Un titre reste avec ce qui le suit */
+h2,
+h3,
+h4,
+.title {
+  break-after: avoid;
+}
+
+/* Pas de ligne isolée en haut ou en bas de page */
+p,
+li {
+  orphans: 3;
+  widows: 3;
+}
+
+/* Sur papier, l'adresse des liens externes est lisible */
+main a[href^="http"]::after {
+  color: var(--text-muted-color);
+  content: " (" attr(href) ")";
+  font-size: var(--text-small);
+  overflow-wrap: anywhere;
 }

@@ -2,8 +2,8 @@
 <html lang="{{ .Site.Language.Lang }}">
     {{- partial "head.html" . -}}
     <body>
-        <div id="content" role="presentation">
+        <main id="content">
         {{- block "main" . }}{{- end }}
-        </div>
+        </main>
     </body>
 </html>
