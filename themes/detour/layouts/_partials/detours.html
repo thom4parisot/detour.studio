@@ -2,16 +2,16 @@
   detours.html — motif « Sillons » : des rangs de lavande ou de vigne,
   et un chemin qui trouve les passages entre eux, avec un point posé dessus.
 
-  Le dessin dépend d'une graine : le titre de la page.
-  Même titre, même dessin ; autre titre, autre dessin.
+  Le dessin dépend d'une graine : par défaut, le chemin de la page (page.RelPermalink).
+  Même page, même dessin ; deux pages au même titre (les CV) ont quand même un dessin différent.
   Chaque décision vient d'un hachage FNV-1a 32 bits de « <graine>#sillons:<clé> »,
   pris modulo le nombre de choix possibles. Tout est en calcul entier : pas d'aléatoire au build.
 
   Usage :
-    {{ partial "detours.html" (dict "seed" .Title) }}
-    {{ partial "detours.html" (dict "seed" .Title "width" 640 "height" 372) }}
+    {{ partial "detours.html" (dict) }}
+    {{ partial "detours.html" (dict "width" 640 "height" 372) }}
 
-  Paramètres : seed (texte, défaut : titre du site), width (défaut 640), height (défaut 372, au moins 88).
+  Paramètres : seed (texte, défaut : page.RelPermalink), width (défaut 640), height (défaut 372, au moins 88).
 
   Couleurs : variables CSS, à définir sur .detours ou sur un parent (voir intro.css).
     --sillons-chemin     ligne principale : le chemin et le point
