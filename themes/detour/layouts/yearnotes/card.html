@@ -1,5 +1,5 @@
 {{- $img := false -}}
-{{- with .Params.images }}{{ with index . 0 }}{{ $img = $.CurrentSection.Resources.GetMatch (strings.TrimPrefix "/weeknotes/" .) }}{{ end }}{{ end -}}
+{{- with .Params.images }}{{ with index . 0 }}{{ $img = (site.GetPage "/weeknotes").Resources.GetMatch (strings.TrimPrefix "/weeknotes/" .) }}{{ end }}{{ end -}}
 <article class="card">
   {{ with $img }}
   <div class="card__cover">

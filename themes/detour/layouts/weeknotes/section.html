@@ -13,15 +13,17 @@
     {{ with .Description | default (.Summary | plainify) }}<p class="lead">{{ . }}</p>{{ end }}
 
     <ul class="metadata inline-list">
-      <li><strong>{{ len $notes }}</strong> notes</li>
-      {{ with index $placeCounts 0 }}<li>écrites depuis <strong>{{ .name }}</strong>, le plus souvent</li>{{ end }}
+      <li>
+        <strong>{{ len $notes }}</strong> notes
+        écrites principalement à {{ with index $placeCounts 0 }}<strong>{{ .name }}</strong>{{ end }}
+      </li>
       {{ with .OutputFormats.Get "rss" }}
-      <li><a href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml">{{ partial "icon.html" "rss" }}S'abonner</a></li>
+      <li><a href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml">{{ partial "icon.html" "rss" }}S'abonner via <abbr title="Really Simple Syndication" lang="en">RSS</abbr></a></li>
       {{ end }}
     </ul>
   </div>
 
-  {{ partial "detours.html" (dict "seed" .Title) }}
+  {{ partial "detours.html" (dict) }}
 </header>
 
 <section aria-labelledby="latest-title">
@@ -31,7 +33,7 @@
   </ol>
 </section>
 
-<div class="layout-8-4">
+<div class="layout-8-4 section">
   <section aria-labelledby="archives-title">
     <h2 id="archives-title" class="subheader">Archives par année</h2>
 
@@ -51,7 +53,7 @@
     {{ end }}
   </section>
 
-  <aside class="layout-aside">
+  <aside class="layout-narrow-column">
     {{ with $placeCounts }}
     <section class="container container--light" aria-labelledby="places-title">
       <div class="container__content">

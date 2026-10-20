@@ -1,0 +1,166 @@
+{{ define "main" }}
+{{- $about := index (where site.Menus.main "Identifier" "about") 0 -}}
+{{- $others := where (where site.RegularPages "Type" "resume") "RelPermalink" "ne" .RelPermalink -}}
+
+<article class="resume" aria-labelledby="readout" itemscope itemtype="https://schema.org/Person">
+  <header class="page-intro">
+    <div class="preamble">
+      <h1 id="readout">
+        <span>{{ .Title }}</span>
+        {{- with .Params.subtitle }}<span class="visually-hidden">, </span><span class="subtitle">{{ $.RenderString . }}</span>{{ end }}
+      </h1>
+
+      <div class="lead">{{ .Summary }}</div>
+    </div>
+
+    {{ with resources.Get "images/portrait.jpg" }}
+      {{ partial "tramage.html" (dict "src" . "anchor" "Top") }}
+    {{ else }}
+      {{ partial "detours.html" (dict) }}
+    {{ end }}
+  </header>
+
+  <div class="layout-8-4 section">
+    {{ with .Params.experiences }}
+    <section aria-labelledby="experiences">
+      <h2 id="experiences" class="subheader">Expériences professionnelles</h2>
+
+      <ol class="invisible-list timeline">
+        {{ range . }}
+        <li class="timeline__item{{ if not .until }} timeline__item--current{{ end }}">
+          <h3 class="title">
+            <span>{{ $.RenderString .role }}</span>
+            <span class="visually-hidden">chez</span>
+            <span class="suptitle"><span class="timeline__period"><time datetime="{{ .from }}">{{ .from }}</time> – {{ with .until }}<time datetime="{{ . }}">{{ . }}</time>{{ else }}aujourd'hui{{ end }}</span> {{ .employer }}</span>
+          </h3>
+
+          {{ with .text }}{{ $.RenderString (dict "display" "block") . }}{{ end }}
+
+          {{ with .items }}
+          <ul>
+            {{ range . }}<li>{{ $.RenderString . }}</li>{{ end }}
+          </ul>
+          {{ end }}
+
+          {{ range .projects }}
+          {{- $work := false }}{{ with .page }}{{ $work = site.GetPage . }}{{ end -}}
+          {{- $title := .title }}{{ $client := .client }}{{ $text := .text }}{{ $items := .items -}}
+          {{- with $work }}
+            {{- $title = $title | default .Title }}
+            {{- $client = $client | default .Params.for }}
+            {{- if not (or $text $items) }}{{ $text = .Description }}{{ end }}
+          {{- end }}
+          {{- $meta := slice }}{{ with $client }}{{ $meta = $meta | append . }}{{ end }}{{ with .period }}{{ $meta = $meta | append . }}{{ end }}
+          <div class="timeline__project">
+            <h4>
+              {{ if $work }}
+              <a href="{{ $work.RelPermalink }}" class="title">
+                <span>{{ $title }}</span>
+                {{ with $meta }}<span class="visually-hidden">,</span><span class="suptitle">{{ delimit . " · " | safeHTML }}</span>{{ end }}
+              </a>
+              {{ else }}
+              <span class="title">
+                <span>{{ $title }}</span>
+                {{ with $meta }}<span class="visually-hidden">,</span><span class="suptitle">{{ delimit . " · " | safeHTML }}</span>{{ end }}
+              </span>
+              {{ end }}
+            </h4>
+
+            {{ with $text }}{{ $.RenderString (dict "display" "block") . }}{{ end }}
+
+            {{ with $items }}
+            <ul>
+              {{ range . }}<li>{{ $.RenderString . }}</li>{{ end }}
+            </ul>
+            {{ end }}
+
+            {{ with .links }}
+            <ul class="inline-list metadata">
+              {{ range . }}<li><a href="{{ .url }}">{{ .label }}</a></li>{{ end }}
+            </ul>
+            {{ end }}
+          </div>
+          {{ end }}
+        </li>
+        {{ end }}
+      </ol>
+    </section>
+    {{ end }}
+
+    <aside class="layout-narrow-column">
+      <section class="container container--light" aria-labelledby="en-bref">
+        <div class="container__content">
+          <h2 id="en-bref">En bref</h2>
+
+          <dl class="facts">
+            {{ with .Params.contact }}<div><dt>Contact</dt>{{ range . }}<dd><a href="{{ .href }}">{{ .label }}</a>{{ with .note }} ({{ . }}){{ end }}</dd>{{ end }}</div>{{ end }}
+            {{ with .Params.training_body }}<div><dt>Organisme de formation</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with .Params.location }}<div><dt>Lieu de résidence</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with .Params.mobility }}<div><dt>Mobilité</dt>{{ range . }}<dd>{{ . }}</dd>{{ end }}</div>{{ end }}
+          </dl>
+
+          {{ with .Params.tools }}
+          <ul class="tags-list" aria-label="Outils et langages">
+            {{ range . }}<li>{{ . }}</li>{{ end }}
+          </ul>
+          {{ end }}
+
+          {{ with .Params.domains }}
+          <ul class="tags-list" aria-label="Domaines de formation">
+            {{ range . }}<li>{{ . }}</li>{{ end }}
+          </ul>
+          {{ end }}
+        </div>
+      </section>
+
+      <nav aria-label="Autres versions du CV" class="side-navigation">
+        {{ range $others }}
+        <p class="nav-item">
+          <a href="{{ .RelPermalink }}">
+            <span class="prefix-item">Autre version du CV<span class="visually-hidden"> :</span></span>
+            {{ with .Params.subtitle }}{{ $.RenderString . }}{{ else }}{{ .Title }}{{ end }}
+          </a>
+        </p>
+        {{ end }}
+        <p class="nav-item">
+          <a href="{{ $about.URL }}">
+            <span class="prefix-item">En savoir plus<span class="visually-hidden"> :</span></span>
+            {{ $about.Name }}
+          </a>
+        </p>
+      </nav>
+    </aside>
+  </div>
+
+  {{ if or .Params.publications .Params.trainings .Params.certifications }}
+  <div class="layout-row">
+    {{ with .Params.publications }}
+    <section aria-labelledby="publications">
+      <h2 id="publications" class="subheader">Publications</h2>
+      <ul class="invisible-list layout-narrow-column">
+        {{ range . }}{{ partial "resume/entry.html" (dict "entry" . "page" $) }}{{ end }}
+      </ul>
+    </section>
+    {{ end }}
+
+    {{ with .Params.trainings }}
+    <section aria-labelledby="formations">
+      <h2 id="formations" class="subheader">Formation pour adultes</h2>
+      <ul class="invisible-list layout-narrow-column">
+        {{ range . }}{{ partial "resume/entry.html" (dict "entry" . "page" $) }}{{ end }}
+      </ul>
+    </section>
+    {{ end }}
+
+    {{ with .Params.certifications }}
+    <section aria-labelledby="certifications">
+      <h2 id="certifications" class="subheader">Certifications et (auto)formations</h2>
+      <ul class="invisible-list layout-narrow-column">
+        {{ range . }}{{ partial "resume/entry.html" (dict "entry" . "page" $) }}{{ end }}
+      </ul>
+    </section>
+    {{ end }}
+  </div>
+  {{ end }}
+</article>
+{{ end }}

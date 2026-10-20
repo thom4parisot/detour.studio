@@ -6,7 +6,6 @@ description: |
 categories:
 - formation
 status: done
-archived: true
 with: [Alexandre R]
 date: 2019-07-25
 ---

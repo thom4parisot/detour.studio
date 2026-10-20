@@ -1,0 +1,18 @@
+{{ define "main" }}
+<article class="measure-wide" aria-labelledby="readout">
+  <h1 id="readout">{{ .Title }}</h1>
+
+  <p class="metadata">
+    {{- with .Params.for }}{{ . | safeHTML }} · {{ end -}}
+    {{- with .Params.lieu }}{{ . }}, {{ end -}}
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+    {{- with .Params.version }} (version {{ . }}){{ end -}}
+  </p>
+
+  {{ with union (.Params.with | default slice) (.Params.via | default slice) | uniq }}
+  <p>En équipe avec {{ delimit . ", " " et " }}.</p>
+  {{ end }}
+
+  {{ .Content }}
+</article>
+{{ end }}

@@ -2,6 +2,7 @@
 title: Notes hebdomadaires
 menu:
   main:
+    identifier: notes
     weight: 20
     name: Carnet
     params:

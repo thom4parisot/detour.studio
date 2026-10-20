@@ -1,84 +1,54 @@
 {{ define "main" }}
+{{- $about := index (where site.Menus.main "Identifier" "about") 0 -}}
 
-<article data-type="{{ .Type }}" class="{{ .Type | singularize }}" aria-labelledby="readout" itemscope itemtype="https://schema.org/Article">
+<article class="{{ .Type | singularize }}" aria-labelledby="readout" itemscope itemtype="https://schema.org/Article">
   {{ template "_internal/schema.html" . }}
 
-  <h2 id="readout">
-    {{- partial "icon.html" (index .Params "menus" "main" "params" "icon" | default .Params.icon |  default "journal") -}}
-    {{ .Title | safeHTML }}
-  </h2>
+  <header class="page-intro">
+    <div class="preamble">
+      <h1 id="readout">{{ .Title }}</h1>
 
-  {{- if or .Params.written_in .Params.date }}
-  <p class="subtitle">
-    {{ .Type | strings.FirstUpper }}
-    {{- with default "" .Params.written_in }}
-      {{ if (findRE `^dans` .) }}
-        écrites {{ . }}
-      {{- else -}}
-       écrites à {{ . }}
-      {{- end -}}
-    {{- end -}}
-    , publiées le {{ .Date | time.Format ":date_short" -}}.
-    {{ with .CurrentSection.AlternativeOutputFormats.Get "rss" -}}
-      <a href="{{ .Permalink }}" rel="alternate" type="text/xml">
-        {{- partial "icon.html" "rss" -}}S'abonner via RSS</a>.
-    {{- end -}}
-  </p>
-  {{ end }}
+      <div class="lead">{{ .Summary }}</div>
+    </div>
 
-  {{ if (trim .TableOfContents "\n\r<nav id=\"TableOfContents\"></nav>") }}
-  <details id="TableOfContentsSummary">
-    <summary>Table des matières</summary>
-    {{ .TableOfContents }}
-  </details>
-  {{ end }}
+    {{ partial "detours.html" (dict) }}
+  </header>
 
-  <div class="content measure-wide">
-    {{ .Content }}
+  <div class="layout-8-4">
+    <div class="content measure-wide {{ .Params.extraClass }}">
+      {{ .ContentWithoutSummary }}
+    </div>
+
+    <aside class="layout-narrow-column">
+      {{ with .Params.credits }}
+      <section class="container container--light" aria-labelledby="remerciements">
+        <div class="container__content">
+          <h2 id="remerciements">Remerciements</h2>
+          {{ . | markdownify }}
+        </div>
+      </section>
+      {{ end }}
+
+      <nav class="container container--light" aria-labelledby="rubrique">
+        <div class="container__content">
+          <h2 id="rubrique" class="visually-hidden">{{ $about.Name }}</h2>
+          <ul class="invisible-list compact-list list--with-separators">
+            <li class="list__item">
+              <a href="{{ $about.URL }}" class="title"{{ if .IsMenuCurrent "main" $about }} aria-current="page"{{ end }}><span>{{ $about.Name }}</span></a>
+              {{ with $about.Params.description }}<p class="summary">{{ . }}</p>{{ end }}
+            </li>
+            {{ range $about.Children }}
+            <li class="list__item">
+              <a href="{{ .URL }}" class="title"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}><span>{{ .Name }}</span></a>
+              {{ with .Params.description }}<p class="summary">{{ . }}</p>{{ end }}
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+      </nav>
+
+      {{ partial "toc.html" . }}
+    </aside>
   </div>
 </article>
-
-{{ with .Params.network }}
-<aside aria-labelledby="friends-notes">
-  <h2 id="friends-notes">
-    {{- partial "icon.html" "network" -}}
-    {{- "Ailleurs, au même moment…" -}}
-  </h2>
-
-  <ul class="tags-list">
-  {{ range $url, $name := . }}
-  <li><a href="{{ $url }}" target="_blank">Chez {{ $name }}</a></li>
-  {{ end }}
-  </ul>
-</aside>
-{{ end }}
-
-{{ with (where $.Site.Pages "Type" "works").Related . }}
-<aside aria-labelledby="related-projects">
-  <h2 id="related-projects">
-    {{- partial "icon.html" "mountain" -}}
-    {{- "Projets mentionnés" -}}
-  </h2>
-
-  <ul class="grid mini-cards">
-    {{ range . }}
-    <li class="mini-cards__item">
-      <a href="{{ .Permalink }}#readout" class="mini-cards__title" rel="permalink">{{ .Title }}</a>
-      {{ with .Params.for }}<p class="customer-name">{{ . | safeHTML }}</p>{{ end }}
-    </li>
-    {{ end }}
-    </ul>
-</aside>
-{{ end }}
-
-{{ with $.Page.PrevInSection }}
-<nav id="colophon" aria-label="Naviguer vers les notes précédentes">
-  <p>
-    {{- partial "icon.html" "success" -}}
-    Tu es arrivé·e à la fin de <mark>{{ $.Page.Title }}</mark>, merci de les avoir lu jusque là !<br>
-    Si ça te dit, voici de quoi lire les précédentes notes :
-    <a href="{{ .Permalink }}" class="strong" rel="permalink" title="{{ .Title }}">{{ .Title }}</a>.
-  </p>
-  {{ end }}
-</nav>
 {{ end }}

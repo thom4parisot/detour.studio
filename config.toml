@@ -56,7 +56,8 @@ mediaType = "application/xml"
 
 [markup]
 [markup.tableOfContents]
-startLevel = 3
+startLevel = 2
+endLevel = 3
 
 [markup.goldmark]
 [markup.goldmark.parser.attribute]

@@ -15,5 +15,8 @@ with:
 resources:
   - src: https://osez-agroecologie.org/
     title: Site web
+  - src: /works/solagro/osae/reponse
+    title: Réponse à l'appel d'offres
+    type: page
 ---
 

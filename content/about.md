@@ -2,15 +2,18 @@
 title: À propos de détour.studio
 menus:
   main:
+    identifier: about
     name: À propos
-    weight: 999
+    weight: 900
+    params:
+      icon: detour
 ---
 
 👋 Salut, moi c'est Thomas !
 
 Mon **pronom** : il / lui.
 
----
+<!--more-->
 
 J'habite à [Crest], dans la **vallée de la Drôme** — une biorégion rurale qui me plaît beaucoup.
 

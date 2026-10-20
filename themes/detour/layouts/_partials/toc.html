@@ -1,6 +1,8 @@
 {{ if (trim .TableOfContents "\n\r<nav id=\"TableOfContents\"></nav>") }}
-<details id="TableOfContentsSummary" open>
-  <summary>Table des matières</summary>
-  {{ .TableOfContents }}
-</details>
+<nav class="container container--light toc" aria-labelledby="sommaire">
+  <div class="container__content">
+    <h2 id="sommaire">Sommaire</h2>
+    {{ .TableOfContents }}
+  </div>
+</nav>
 {{ end }}

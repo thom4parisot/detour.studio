@@ -20,7 +20,7 @@
 
   Nécessite Hugo ≥ 0.129 (hash.FNV32a).
 */ -}}
-{{- $seed := .seed | default site.Title -}}
+{{- $seed := .seed | default page.RelPermalink -}}
 {{- $W := .width | default 640 | int -}}
 {{- $H := .height | default 372 | int -}}
 {{- $key := printf "%s#sillons:" $seed -}}
