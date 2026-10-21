@@ -1,11 +1,12 @@
 {{- $page := .page -}}
 <div class="layout-narrow-column">
   {{ with .screenshot }}
-  <figure class="card">
+  {{- $caption := cond (ne .Title .Name) .Title "" }}
+  <figure class="card"{{ with $caption }} role="figure" aria-label="{{ . }}"{{ end }}>
     <div class="card__cover">
-            {{ with (.Resize "1440x webp").Crop "1440x900 Top webp" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">{{ end }}
+            {{ with (.Resize "1440x webp").Crop "1440x900 Top webp" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $caption }}">{{ end }}
     </div>
-    {{ if ne .Title .Name }}<figcaption class="card__content">{{ .Title }}</figcaption>{{ end }}
+    {{ with $caption }}<figcaption class="card__content">{{ . }}</figcaption>{{ end }}
   </figure>
   {{ end }}
 

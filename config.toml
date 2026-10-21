@@ -9,7 +9,7 @@ printI18nWarnings = true
 theme = "detour"
 sectionPagesMenu = "works"
 buildFuture = true
-enableEmoji = true
+enableEmoji = false
 rssLimit = 10
 cleanDestinationDir = true
 disableKinds = ["taxonomy"]
@@ -24,7 +24,7 @@ source = "content/weeknotes/images"
 target = "assets/weeknotes/images"
 
 [params]
-description = "Je construis des projets numériques d'intérêt général avec des technologies web : services accessibles, open data et innovation d'usage, pas à pas."
+description = "Je construis des projets numériques d'intérêt général avec des technologies web : services accessibles, données ouvertes et innovation d'usage, pas à pas."
 pronouns = "il / lui"
 
 [params.author]
@@ -92,6 +92,8 @@ startLevel = 2
 endLevel = 3
 
 [markup.goldmark]
+[markup.goldmark.parser]
+wrapStandAloneImageWithinParagraph = false
 [markup.goldmark.parser.attribute]
 block = true
 [markup.goldmark.renderer]

@@ -1,11 +1,13 @@
 {{- $img := or (.Page.Resources.Get .Destination) (resources.Get .Destination) -}}
-<span role="figure" class="markdown-image"{{ with .Title }} aria-labelledby="image-{{ $.Destination | anchorize }}-caption"{{ end }}>
-  {{ with $img }}
-  <img src="{{ ((. | images.Filter images.AutoOrient).Fit "1440x1440 webp").RelPermalink }}" alt="{{ $.PlainText }}" loading="lazy">
-  {{ else }}
-  <img src="{{ .Destination | safeURL }}" alt="{{ .PlainText }}" loading="lazy">
-  {{ end }}
-  {{ with .Title }}
-  <span class="figcaption" id="image-{{ $.Destination | anchorize }}-caption">{{ . | markdownify }}.</span>
-  {{ end }}
-</span>
+{{- $src := .Destination | safeURL -}}
+{{- with $img }}{{ $src = ((. | images.Filter images.AutoOrient).Fit "1440x1440 webp").RelPermalink }}{{ end -}}
+{{- $caption := "" }}{{ with .Title }}{{ $caption = printf "%s." (. | markdownify | plainify | htmlUnescape) }}{{ end -}}
+{{- $alt := or .PlainText $caption -}}
+{{- if and .IsBlock .Title -}}
+<figure role="figure" class="markdown-image" aria-label="{{ $caption }}">
+  <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy">
+  <figcaption>{{ .Title | markdownify }}.</figcaption>
+</figure>
+{{- else -}}
+<img class="markdown-image" src="{{ $src }}" alt="{{ $alt }}" loading="lazy">
+{{- end -}}

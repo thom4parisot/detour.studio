@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{- $img := partial "page-image.html" . -}}
 
 <article class="{{ .Type | singularize }}" aria-labelledby="readout" itemscope itemtype="https://schema.org/Article">
   {{ template "_internal/schema.html" . }}
@@ -7,19 +8,24 @@
     <div class="preamble">
       <h1 id="readout">{{ .Title }}</h1>
 
-      <div class="lead">{{ .Summary }}</div>
+      <div class="lead">{{ partial "emoji.html" .Summary }}</div>
     </div>
 
-    {{ partial "detours.html" (dict) }}
+    {{ with $img }}
+        {{ partial "tramage.html" (dict "src" . "anchor" "Center") }}
+    {{ else }}
+      {{ partial "detours.html" (dict) }}
+    {{ end }}
   </header>
 
   <div class="layout-8-4">
     <div class="content measure-wide {{ .Params.extraClass }}">
-      {{ .ContentWithoutSummary }}
+      {{ partial "emoji.html" .ContentWithoutSummary }}
     </div>
 
-    {{- $blocks := .Params.aside | default (slice "credits" "about" "toc") }}
-    {{ with $blocks }}
+{{- $blocks := .Params.aside }}
+{{- if not (isset .Params "aside") }}{{ $blocks = slice "credits" "about" "toc" }}{{ end }}
+{{ with $blocks }}
     <aside class="layout-narrow-column">
       {{ range . }}{{ partial (printf "aside/%s.html" .) $ }}{{ end }}
     </aside>

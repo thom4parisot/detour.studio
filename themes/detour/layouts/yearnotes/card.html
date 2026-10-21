@@ -14,7 +14,7 @@
       </a>
     </h3>
 
-    <p class="summary">{{ .Summary | plainify | truncate 200 }}</p>
+    <p class="summary">{{ .Summary | plainify | emojify | truncate 200 }}</p>
 
     {{ with (where site.RegularPages "Section" "works").Related . }}
     <ul class="tags-list section-works" aria-label="Projets évoqués">

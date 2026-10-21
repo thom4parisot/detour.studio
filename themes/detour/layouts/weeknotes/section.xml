@@ -26,7 +26,7 @@
 <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{ with .Site.Params.author.email }}<author>{{.}}{{ with $.Site.Params.author.name }} ({{.}}){{end}}</author>{{end}}
       <guid isPermaLink="true">{{ .Permalink }}</guid>
-      {{ `<description><![CDATA[` | safeHTML }} {{ .Content | safeHTML }} ]]></description>
+      {{ `<description><![CDATA[` | safeHTML }} {{ .Content | emojify | safeHTML }} ]]></description>
       {{ with .Params.images }}
       <enclosure url="{{ index . 0 | absURL }}" type="image/jpeg" />
       {{ end }}

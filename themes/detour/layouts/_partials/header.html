@@ -1,14 +1,10 @@
 <header tabindex="-1">
   <div class="site-brand">
-    <h1 class="site-title" {{ if .IsHome }} aria-describedby="site-description"{{ end }}>
-      {{- if .IsHome -}}
-      détour<span class="url-part" aria-hidden="true">.</span><wbr>studio
-      {{- else -}}
-      <a href="{{ .Site.BaseURL }}" rel="home" aria-label="Retour accueil détour studio">
-        détour<span class="url-part" aria-hidden="true">.</span><wbr>studio
-      </a>
-      {{- end -}}
-    </h1>
+    {{- if .IsHome }}
+    <h1 class="site-title" aria-describedby="site-description">détour<span class="url-part">.</span><wbr>studio</h1>
+    {{- else }}
+    <p class="site-title h1"><a href="{{ .Site.BaseURL }}" rel="home">détour<span class="url-part">.</span><wbr>studio</a></p>
+    {{- end }}
 
     <p class="subheading">
       <img src="https://thom4.net/assets/avatar.avif" class="avatar" alt="">

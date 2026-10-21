@@ -1,0 +1,12 @@
+{{- /*
+  emoji.html — convertit les codes :nom: du contenu rendu en émoticônes,
+  chacune dans <span class="emoji emo-nom" aria-hidden="true">.
+  À utiliser avec enableEmoji = false (config.toml).
+  Une émoticône qui porte une information s'écrit dans le Markdown
+  <span role="img" aria-label="…">:heart:</span> : le nom vient du parent.
+  Source : https://discourse.gohugo.io/t/automatically-add-a-span-with-a-class-around-all-emojis/52903/7
+
+  Usage : {{ partial "emoji.html" .Content }}
+*/ -}}
+{{- $html := replaceRE `(:([a-z][a-z0-9_]*):)` `<span class="emoji emo-$2" aria-hidden="true">$1</span>` . -}}
+{{- return ($html | transform.Emojify | safeHTML) -}}

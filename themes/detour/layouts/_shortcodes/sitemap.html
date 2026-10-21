@@ -1,0 +1,16 @@
+<ul>
+  {{- range site.Menus.main.ByWeight }}
+  <li>
+    <a href="{{ .URL }}">{{ .Name }}</a>
+    {{- $children := slice }}
+    {{- range .Children }}
+      {{- if and .Page (not .Page.IsSection) }}{{ $children = $children | append . }}{{ end }}
+    {{- end }}
+    {{- with $children }}
+    <ul>
+      {{- range . }}<li><a href="{{ .URL }}">{{ .Name }}</a></li>{{ end }}
+    </ul>
+    {{- end }}
+  </li>
+  {{- end }}
+</ul>
