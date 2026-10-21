@@ -1,5 +1,5 @@
 ---
-title: Comprendre les freins et les besoins de la communauté Open Data
+title: Comprendre les freins et les besoins de la communauté des données ouvertes
 description: |
   S'asseoir à côté d'usagèr·es pour comprendre leurs frustrations et leurs
   enjeux d'utilisation de [`data.gouv.fr`](https://www.data.gouv.fr).

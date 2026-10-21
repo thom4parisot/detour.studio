@@ -1,5 +1,6 @@
 ---
 title: À propos de détour.studio
+images: [/images/portrait.jpg]
 menus:
   main:
     identifier: about
@@ -9,7 +10,7 @@ menus:
       icon: detour
 ---
 
-👋 Salut, moi c'est Thomas !
+:wave: Salut, moi c'est Thomas !
 
 Mon **pronom** : il / lui.
 

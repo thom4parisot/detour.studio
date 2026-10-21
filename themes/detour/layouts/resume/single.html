@@ -11,7 +11,7 @@
         {{- with .Params.subtitle }}<span class="visually-hidden">, </span><span class="subtitle">{{ $.RenderString . }}</span>{{ end }}
       </h1>
 
-      <div class="lead">{{ .Summary }}</div>
+      <div class="lead">{{ partial "emoji.html" .Summary }}</div>
     </div>
 
     {{ with $img }}

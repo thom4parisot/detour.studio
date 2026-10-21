@@ -11,7 +11,7 @@
 
       <h1 id="readout">{{ .Title }}</h1>
 
-      <p class="lead">{{ .Summary | plainify }}</p>
+      <p class="lead">{{ .Summary | plainify | emojify }}</p>
 
       <ul class="metadata inline-list">
         {{- with .Params.written_in }}
@@ -41,7 +41,7 @@
 
   <div class="layout-8-4">
     <div class="content measure-wide">
-      {{ .ContentWithoutSummary }}
+      {{ partial "emoji.html" .ContentWithoutSummary }}
     </div>
 
     <aside class="layout-narrow-column">

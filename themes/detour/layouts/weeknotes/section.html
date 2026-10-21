@@ -10,7 +10,7 @@
 <header class="page-intro">
   <div class="preamble">
     <h1 id="readout">{{ .Title }}</h1>
-    {{ with .Description | default (.Summary | plainify) }}<p class="lead">{{ . }}</p>{{ end }}
+    {{ with .Description | default (.Summary | plainify | emojify) }}<p class="lead">{{ . }}</p>{{ end }}
 
     <ul class="metadata inline-list">
       <li>

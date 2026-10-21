@@ -13,6 +13,6 @@
   <p>En équipe avec {{ delimit . ", " " et " }}.</p>
   {{ end }}
 
-  {{ .Content }}
+  {{ partial "emoji.html" .Content }}
 </article>
 {{ end }}

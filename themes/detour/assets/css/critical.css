@@ -170,7 +170,8 @@ img {
   max-width: 100%;
 }
 
-h1 {
+h1,
+.h1 {
   font-size: 2.4em;
   font-weight: 700;
   text-wrap: balance;
@@ -192,6 +193,10 @@ h2,
   font-weight: 700;
   margin: .9em 0 .4em;
   text-wrap: balance;
+
+  section &:first-child {
+    margin-top: 0;
+  }
 }
 
 h3,
@@ -208,10 +213,6 @@ h4,
   font-weight: 600;
   margin: .8em 0 .5em;
   text-wrap: balance;
-}
-
-section>h2:first-child {
-  margin-top: 0;
 }
 
 p {
@@ -360,7 +361,7 @@ small {
   border: var(--rule-frame) solid var(--brand-alternative-color);
 }
 
-.markdown-image>.figcaption {
+.markdown-image>figcaption {
   color: var(--section-fonce);
   display: block;
   font-size: var(--text-small);
@@ -569,6 +570,10 @@ body>header {
   li {
     flex-grow: 1;
     padding: 0;
+
+    a {
+      display: flex;
+    }
   }
 
   li:first-of-type {
@@ -612,17 +617,21 @@ body>header {
 .site-title {
   hyphens: manual;
   margin: 0;
-}
 
-.site-title+.subheading {
-  font-size: var(--text-small);
-  font-weight: 700;
-  padding: .25em 0;
-  margin-top: 0;
-}
+  a {
+    text-decoration: none;
+  }
 
-.site-title+.subheading small {
-  white-space: nowrap;
+  &+.subheading {
+    font-size: var(--text-small);
+    font-weight: 700;
+    padding: .25em 0;
+    margin-top: 0;
+  }
+
+  &+.subheading small {
+    white-space: nowrap;
+  }
 }
 
 .site-description,
@@ -804,13 +813,13 @@ details {
       max-width: 100%;
       top: 0;
       right: 0;
-      width: 100%;
+      width: 35%;
       z-index: 0;
     }
 
     .detours {
-      -webkit-mask-image: linear-gradient(to right, transparent 60%, #000 75%);
-      mask-image: linear-gradient(to right, transparent 60%, #000 75%);
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 40%);
+      mask-image: linear-gradient(to right, transparent, #000 40%);
     }
   }
 
@@ -821,9 +830,9 @@ details {
 
     .tramage {
       display: inherit;
-      background: linear-gradient(to right, transparent 15%, var(--tramage-encre) 45%);
-      -webkit-mask: var(--tramage-src) right top / auto 100% no-repeat;
-      mask: var(--tramage-src) right top / auto 100% no-repeat;
+      background: linear-gradient(to right, transparent, var(--tramage-encre) 40%);
+      -webkit-mask: var(--tramage-src) center top / auto 100% no-repeat;
+      mask: var(--tramage-src) center top / auto 100% no-repeat;
       pointer-events: none;
     }
   }
@@ -1332,12 +1341,15 @@ article.post {
   }
 }
 
-.content hr {
-  border: 0;
-  border-top: var(--rule-thick) solid var(--brand-alternative-color);
-  margin: var(--space-section) 0;
-}
+.content {
+  overflow-wrap: anywhere;
 
+  hr {
+    border: 0;
+    border-top: var(--rule-thick) solid var(--brand-alternative-color);
+    margin: var(--space-section) 0;
+  }
+}
 
 /**
  * Weeknote single
