@@ -68,6 +68,31 @@ cancelled = "Annulé"
 paused = "En pause"
 upcoming = "À venir"
 
+# Palette des images de partage (og-image.html) : Hugo ne lit pas les variables CSS,
+# ces valeurs recopient les tokens de critical.css (section-pale, section-base, section-fonce).
+[params.palette]
+ink = "#4f5200"
+[params.palette.default]
+pale = "#f4dc9a"
+base = "#d6ab55"
+fonce = "#6b6147"
+[params.palette.works]
+pale = "#f7dcc9"
+base = "#e6a57c"
+fonce = "#9a4826"
+[params.palette.categories]
+pale = "#f7dcc9"
+base = "#e6a57c"
+fonce = "#9a4826"
+[params.palette.weeknotes]
+pale = "#e6dcf5"
+base = "#a597d3"
+fonce = "#65539c"
+[params.palette.yearnotes]
+pale = "#e6dcf5"
+base = "#a597d3"
+fonce = "#65539c"
+
 [related]
 includeNewer = true
 toLower = true

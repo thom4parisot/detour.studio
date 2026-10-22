@@ -4,7 +4,7 @@
 {{- $category := site.GetPage (printf "/categories/%s" (index .Params.categories 0 | anchorize)) -}}
 
 <article class="work" aria-labelledby="readout" itemscope itemtype="https://schema.org/Project">
-  {{ template "_internal/schema.html" . }}
+  {{ partial "schema.html" . }}
 
   <header class="page-intro">
     <div class="preamble">
@@ -79,7 +79,7 @@
   {{ end }}
 
   {{ with $notes }}
-  <section class="section-weeknotes" aria-labelledby="dans-les-notes">
+  <section class="section-weeknotes section" aria-labelledby="dans-les-notes">
     <h2 id="dans-les-notes" class="subheader">
       {{ partial "icon.html" "journal" }}Dans les notes
     </h2>

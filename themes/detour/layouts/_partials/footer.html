@@ -8,9 +8,11 @@
     <li>
       {{- partial "icon.html" "email" -}}<a href="mailto:&#099;&#111;&#110;&#116;&#097;&#099;&#116;&#064;&#100;&#101;&#116;&#111;&#117;&#114;&#046;&#115;&#116;&#117;&#100;&#105;&#111;?subject=Une%20question%20en%20passant">Une question en passant ?</a>
     </li>
+    {{- with .File }}
     <li>
-      {{- partial "icon.html" "code" -}}<a href="https://github.com/thom4parisot/detour.studio/tree/main/content/{{ .File.Path }}" target="_blank" rel="me noopener external">Code source de cette page</a>
+      {{- partial "icon.html" "code" -}}<a href="https://github.com/thom4parisot/detour.studio/tree/main/content/{{ .Path }}" target="_blank" rel="me noopener external">Code source de cette page</a>
     </li>
+    {{- end }}
     <li>
       {{- partial "icon.html" "attention" -}}<a href="https://github.com/thom4parisot/detour.studio/issues/new" target="_blank" rel="me noopener external">Signaler un problème technique</a>
     </li>
@@ -19,6 +21,9 @@
     </li>
     <li>
       <a href="{{ "accessibilite/" | relURL }}">Accessibilité : totalement conforme</a>
+    </li>
+    <li>
+      <a href="https://bff.ecoindex.fr/redirect/?url=https%3A%2F%2Fd%C3%A9tour.studio%2F" target="_blank" rel="noopener external">Écoindex de la page d'accueil : A</a>
     </li>
   </ul>
 

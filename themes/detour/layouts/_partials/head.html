@@ -2,7 +2,7 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="initial-scale=1.0">
 {{ hugo.Generator }}
-<title>{{ if .IsHome }}{{ .Title }} • {{ .Site.Params.Description }}{{ else }}{{ index .Params "html-title" | default .Page.Title }} • {{ .Site.Title }}{{ end }}</title>
+<title>{{ if .IsHome }}{{ .Title }} • {{ .Site.Params.Description }}{{ else }}{{ cond (eq .Kind "404") "Page introuvable" (index .Params "html-title" | default .Page.Title) }} • {{ .Site.Title }}{{ end }}</title>
 <link rel="preload" as="image" href="{{ "/icons.svg" | relURL }}">
 {{ with (resources.Get "css/critical.css" | css.Build | minify | fingerprint) -}}
 <link rel="stylesheet preload" as="style" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
@@ -22,7 +22,7 @@
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s • %s">` .Rel .MediaType.Type .Permalink $.Site.Title $Weeknotes.Title | safeHTML }}
 {{ end -}}
 <meta name="fediverse:creator" content="{{ site.Params.social.fediverse }}">
-{{ template "_internal/opengraph.html" . }}
-{{ template "_internal/twitter_cards.html" . }}
+{{ partial "opengraph.html" . }}
+{{ partial "twitter_cards.html" . }}
 {{- partial "github.html" -}}
 {{- partial "mastodon.html" -}}

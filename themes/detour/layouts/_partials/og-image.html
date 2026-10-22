@@ -1,0 +1,69 @@
+{{- /*
+  og-image.html — image de partage (1200×630) d'une page, générée au build avec les filtres Hugo.
+  Couleurs de la section (params.palette). À gauche : la rubrique (comme le fil d'Ariane), le titre,
+  le chapô, le nom du site et l'URL de la page. À droite, seulement si le front matter `images`
+  a un élément : cette image, tramée dans les deux teintes de la section ; sinon, cet espace
+  reste vide (le texte garde la même largeur).
+  Usage : {{ $img := partial "og-image.html" . }}
+*/ -}}
+{{- $W := 1200 }}{{ $H := 630 }}{{ $margin := 70 }}
+{{- $colors := or (index site.Params.palette .Section) site.Params.palette.default }}
+{{- $ink := site.Params.palette.ink }}
+{{- $bold := resources.Get "fonts/AtkinsonHyperlegibleMono-Bold.ttf" }}
+{{- $regular := resources.Get "fonts/AtkinsonHyperlegibleMono-Regular.ttf" }}
+{{- $pixel := resources.Get "images/pixel.png" }}
+{{- $photo := partial "page-image.html" . }}
+{{- $panel := 420 }}
+{{- $textW := sub $W $panel }}
+
+{{- $title := .Title }}
+{{- $lead := or .Description (.Summary | plainify) (cond .IsHome site.Params.description "") | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace }}
+{{- $url := printf "https://détour.studio%s" (urls.Parse .Permalink).Path }}
+
+{{- /* rubrique : les mêmes étapes que le fil d'Ariane */ -}}
+{{- $crumbs := slice }}
+{{- range site.Menus.main }}{{ if $.HasMenuCurrent "main" . }}{{ $crumbs = $crumbs | append .Name }}{{ end }}{{ end }}
+{{- if .IsPage }}{{ with index (.GetTerms "categories") 0 }}{{ $crumbs = $crumbs | append .Title }}{{ end }}{{ end }}
+
+{{- /* police à chasse fixe : 0,632 em par caractère ; le texte va à la ligne à ($textW - $margin) */ -}}
+{{- $size := 64 }}{{ $max := int (math.Floor (div (sub $textW $margin) (mul $size 0.632))) }}
+{{- $lines := 1 }}{{ $cur := 0 }}
+{{- range split $title " " }}
+  {{- $n := strings.RuneCount . }}{{ $next := cond (gt $cur 0) (add $cur $n 1) $n }}
+  {{- if gt $next $max }}{{ $lines = add $lines 1 }}{{ $cur = $n }}{{ else }}{{ $cur = $next }}{{ end }}
+{{- end }}
+{{- $titleY := cond (gt (len $crumbs) 0) (add $margin 50) $margin }}
+
+{{- $text := $pixel.Filter (images.Padding 0 (sub $textW 1) (sub $H 1) 0 $colors.pale) }}
+{{- with $crumbs }}
+  {{- $text = $text.Filter (images.Text (delimit . " › ") (dict "font" $regular "color" $colors.fonce "size" 28 "x" $margin "y" $margin)) }}
+{{- end }}
+{{- $text = $text.Filter (images.Text $title (dict "font" $bold "color" $ink "size" $size "x" $margin "y" $titleY "linespacing" 8)) }}
+
+{{- /* chapô : autant de lignes que la place le permet avant le pied (6 caractères de marge par ligne pour les coupures aux espaces) */ -}}
+{{- $footY := cond .IsHome (sub $H $margin 32) (sub $H $margin 80) }}
+{{- $leadY := add $titleY (mul $lines (add $size 8)) 30 }}
+{{- $leadLines := int (math.Floor (div (sub $footY 40 $leadY) 42)) }}
+{{- $leadMax := mul $leadLines (sub (int (math.Floor (div (sub $textW $margin) (mul 30 0.632)))) 6) }}
+{{- if and (le $lines 2) (gt $leadLines 0) }}
+  {{- $text = $text.Filter (images.Text ($lead | truncate (sub $leadMax 4) "…" | htmlUnescape) (dict "font" $regular "color" $ink "size" 30 "x" $margin "y" $leadY "linespacing" 12)) }}
+{{- end }}
+
+{{- /* pied : le nom du site (sauf sur l'accueil, où c'est le titre) ; l'URL est posée à la fin, voir plus bas */ -}}
+{{- if not .IsHome }}
+  {{- $text = $text.Filter (images.Text "détour.studio" (dict "font" $bold "color" $ink "size" 34 "x" $margin "y" $footY)) }}
+{{- end }}
+
+{{- $img := $pixel.Filter (images.Padding 0 (sub $W 1) (sub $H 1) 0 $colors.pale) (images.Overlay $text 0 0) }}
+{{- with $photo }}
+  {{- $photoLayer := (. | images.Filter images.AutoOrient).Fill (printf "%dx%d Center" $panel $H) }}
+  {{- $photoLayer = $photoLayer | images.Filter images.Grayscale (images.Contrast 15) (images.Gamma 3.2) (images.Dither (dict "colors" (slice $colors.base $colors.pale))) }}
+  {{- $img = $img.Filter (images.Overlay $photoLayer $textW 0) }}
+{{- end }}
+{{- /* l'URL absolue, en entier : elle peut déborder sur la photo, sur un fond de la couleur de la carte */ -}}
+{{- $pad := 8 }}{{ $urlSize := 26 }}
+{{- $urlW := add (int (math.Ceil (mul (strings.RuneCount $url) (mul $urlSize 0.632)))) (mul $pad 2) 16 }}
+{{- $urlLayer := $pixel.Filter (images.Padding 0 (sub $urlW 1) (sub (add $urlSize (mul $pad 2) 8) 1) 0 $colors.pale) }}
+{{- $urlLayer = $urlLayer.Filter (images.Text $url (dict "font" $regular "color" $colors.fonce "size" $urlSize "x" $pad "y" $pad)) }}
+{{- $img = $img.Filter (images.Overlay $urlLayer (sub $margin $pad) (sub $H $margin 32 $pad)) }}
+{{- return $img.Process "png" }}

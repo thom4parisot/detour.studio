@@ -1,0 +1,32 @@
+{{- /* Copie de l'embedded template twitter_cards.html de Hugo 0.166.0, avec l'image générée par og-image.html. */ -}}
+{{- /* détour.studio : l'image de partage générée (og-image.html) et son alternative, le même texte que twitter:description */ -}}
+{{- with partialCached "og-image.html" . .RelPermalink }}
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="{{ .Permalink }}">
+	{{- with or $.Description $.Summary site.Params.description $.Title | plainify | htmlUnescape }}
+	<meta name="twitter:image:alt" content="{{ trim (replaceRE `\s+` " " .) "\n\r\t " }}">
+	{{- end }}
+{{- else }}
+	<meta name="twitter:card" content="summary">
+{{- end }}
+
+{{- with or .Title site.Title site.Params.title | plainify }}
+	<meta name="twitter:title" content="{{ . }}">
+{{- end }}
+
+{{- with or .Description .Summary site.Params.description | plainify | htmlUnescape }}
+	<meta name="twitter:description" content="{{ trim . "\n\r\t " }}">
+{{- end }}
+
+{{- $twitterSite := "" }}
+{{- with site.Params.social }}
+	{{- if reflect.IsMap . }}
+		{{- with .twitter }}
+			{{- $content := . }}
+			{{- if not (strings.HasPrefix . "@") }}
+				{{- $content = printf "@%v" . }}
+			{{- end }}
+			<meta name="twitter:site" content="{{ $content }}">
+		{{- end }}
+	{{- end }}
+{{- end }}

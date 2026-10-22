@@ -1,0 +1,22 @@
+{{ define "main" }}
+<article aria-labelledby="readout">
+  <header class="page-intro">
+    <div class="preamble">
+      <h1 id="readout">Page introuvable</h1>
+
+      <div class="lead"><p>Cette adresse ne mène nulle part : la page a été déplacée, renommée, ou n'a jamais existé.</p></div>
+    </div>
+
+    {{ partial "detours.html" (dict) }}
+  </header>
+
+  <div class="content measure-wide">
+    <p>Pour retrouver votre chemin :</p>
+    <ul>
+      <li><a href="{{ site.Home.RelPermalink }}">revenir à l'accueil</a> ;</li>
+      <li>parcourir le <a href="{{ relref site.Home "/sitemap.md" }}">plan du site</a> ;</li>
+      <li>ou <a href="{{ relref site.Home "/contact.md" }}">m'écrire</a> si un lien vous a mené ici.</li>
+    </ul>
+  </div>
+</article>
+{{ end }}
