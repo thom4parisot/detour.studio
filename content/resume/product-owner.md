@@ -1,7 +1,10 @@
 ---
 title: Thomas Parisot
 subtitle: <i lang="en">Product owner</i>
-html-title: Thomas Parisot, product owner basé à Crest (Drôme, 26)
+lastmod: 2026-10-27
+description: |
+  CV de Thomas Parisot, chargé de produit : création de services numériques centrés sur les besoins, méthodes agiles (Scrum, Lean, Kanban).
+html-title: Thomas Parisot, product owner méthodes agiles (Scrum, Lean, Kanban) basé à Crest (Drôme, 26)
 icon: grow
 images: [/images/portrait.jpg]
 menu:

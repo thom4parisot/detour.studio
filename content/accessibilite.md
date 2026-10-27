@@ -1,5 +1,8 @@
 ---
 title: Déclaration d'accessibilité
+lastmod: 2026-10-20
+description: |
+  Déclaration d’accessibilité volontaire de détour.studio : site totalement conforme au RGAA 4.1.2, méthode d’audit et contact en cas de difficulté.
 url: /accessibilite
 ---
 

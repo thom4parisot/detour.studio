@@ -1,5 +1,6 @@
 ---
-title: Une cartographie de l'agriculture biologique
+title: CartoBio
+subtitle: Cartographier les parcelles cultivées en bio
 description: |
   Réduire la charge de travail administratif pour les certifié·es, les auditeur·ices bio et les instructeur·ices PAC. En publier une cartographie d'intérêt environnemental.
 categories:

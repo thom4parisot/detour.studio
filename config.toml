@@ -24,7 +24,7 @@ source = "content/weeknotes/images"
 target = "assets/weeknotes/images"
 
 [params]
-description = "Je construis des projets numériques d'intérêt général avec des technologies web : services accessibles, données ouvertes et innovation d'usage, pas à pas."
+description = "Construire des services numériques d'intérêt général, accessibles, sobres et ouverts. Pas à pas, ensemble."
 pronouns = "il / lui"
 
 [params.author]

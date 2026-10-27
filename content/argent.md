@@ -1,6 +1,9 @@
 ---
 title: Parlons argent
+lastmod: 2026-10-27
 toc: true
+description: |
+  Combien je me paie, combien je facture (tarif institutionnel, militant, prix libre) et pourquoi j’en parle.
 aliases:
 - money
 credits: |
@@ -105,7 +108,7 @@ Tu me donnes une heure de ton temps pour me rendre autonome sur un sujet qui m'i
 Peu importe le sujet.
 
 [dijiwan]: https://www.youtube.com/watch?v=NVpH1w_aSUk
-[bbc]: https://www.bbc.co.uk/rd/people/thomas-parisot
+[bbc]: https://www.bbc.co.uk/rd/author/?id=author-people-thomas-parisot
 [coopérative]: https://solstice.coop
 [opencollective]: https://opencollective.com/nodebook
 [24joursdeweb]: https://www.24joursdeweb.fr/2022/tjm-tarif-journalier-militant/

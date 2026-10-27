@@ -16,8 +16,8 @@ stack:
 resources:
   - src: https://theodi.org/article/mind-the-gaps-quality-of-life-and-wellbeing-data-in-the-uk-and-france/
     title: Compte-rendu sur le site de l'ODI
-  - src: https://mind-the-gaps.org/
+  - src: https://dtc-innovation.github.io/mind-the-gaps/
     title: Site web de présentation du projet
-  - src: https://mind-the-gaps.org/research/
+  - src: https://dtc-innovation.github.io/mind-the-gaps/research/
     title: Carnet de recherche-action
 ---

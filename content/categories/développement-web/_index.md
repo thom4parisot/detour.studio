@@ -2,7 +2,7 @@
 title: Développement web
 icon: code
 description: |
-  Construire en mode pas à pas des services en ligne accessibles et écoconçus.
+  Construire des services en ligne accessibles, maintenables et écoconçus.
 weight: 10
 permalink: developpement-web
 menu:

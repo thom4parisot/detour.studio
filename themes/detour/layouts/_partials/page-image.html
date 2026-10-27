@@ -1,6 +1,8 @@
 {{- /*
-  page-image.html — la première image du front matter `images`, comme ressource :
-  celle du bundle de la page, sinon celle d'assets/ (dont weeknotes/images, monté).
+  page-image.html — l'image qui représente la page, comme ressource :
+  1. la première image du front matter `images` : celle du bundle de la page,
+     sinon celle d'assets/ (dont weeknotes/images, monté) ;
+  2. sinon, la première entrée de `resources` de type `cover` (fiches projet).
   Renvoie false s'il n'y en a pas.
 
   Usage :
@@ -8,4 +10,7 @@
 */ -}}
 {{- $img := false -}}
 {{- with .Params.images }}{{ with index . 0 }}{{ $img = or ($.Resources.Get .) (resources.Get .) }}{{ end }}{{ end -}}
+{{- if not $img }}
+  {{- with index (where (.Params.resources | default slice) "type" "cover") 0 }}{{ $img = $.Resources.Get .src }}{{ end -}}
+{{- end -}}
 {{- return $img -}}

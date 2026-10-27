@@ -7,8 +7,8 @@
   <header class="page-intro">
     <div class="preamble">
       <h1 id="readout">{{ .Title }}</h1>
-
       <div class="lead">{{ partial "emoji.html" .Summary }}</div>
+      {{ partial "lastmod.html" . }}
     </div>
 
     {{ with $img }}

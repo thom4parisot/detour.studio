@@ -1,0 +1,18 @@
+{{- /*
+  render-link.html — un lien sortant (http·s vers un autre domaine que le site)
+  reçoit rel="external noopener noreferrer". Les liens internes, les ancres
+  et les mailto: restent tels quels.
+  Un lien dont le texte est déjà l'adresse (un DOI, une URL collée) reçoit
+  data-url-text : l'impression n'en répète pas l'adresse (print.css).
+*/ -}}
+{{- $u := urls.Parse .Destination -}}
+{{- $siteHosts := slice (urls.Parse site.BaseURL).Host "détour.studio" "www.détour.studio" "localhost" -}}
+{{- $external := and (in (slice "http" "https") $u.Scheme) (not (in $siteHosts $u.Hostname)) -}}
+{{- $text := .Text | plainify | htmlUnescape | strings.TrimSpace -}}
+{{- $isUrlText := or (eq $text .Destination) (eq (printf "%s://%s" $u.Scheme $text) .Destination) -}}
+<a href="{{ .Destination | absURL | safeURL }}"
+  {{- with .Title }} title="{{ . }}"{{ end }}
+  {{- if $external }} rel="external noopener noreferrer" target="_blank"{{ end }}
+  {{- if $isUrlText }} data-url-text=""{{ end }}>{{ .Text }}
+  {{- if $external }}<span class="visually-hidden"> (nouvel onglet)</span>{{ end }}</a>
+{{- /* pas de retour à la ligne final : il ajouterait une espace après le lien */ -}}

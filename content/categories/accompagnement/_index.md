@@ -2,7 +2,7 @@
 title: Accompagnement
 icon: mountain
 description: |
-  Organiser le travail avec agilité et transformer les pratiques numériques des organisations.
+  Accompagner les équipes là où l'organisation du travail et la technique se rencontrent : outils, rôles et manières de décider.
 weight: 20
 menu:
   main:

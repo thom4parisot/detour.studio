@@ -1,12 +1,22 @@
 {{- $page := .page -}}
 <div class="layout-narrow-column">
-  {{ with .screenshot }}
-  {{- $caption := cond (ne .Title .Name) .Title "" }}
-  <figure class="card"{{ with $caption }} role="figure" aria-label="{{ . }}"{{ end }}>
-    <div class="card__cover">
-            {{ with (.Resize "1440x webp").Crop "1440x900 Top webp" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $caption }}">{{ end }}
-    </div>
-    {{ with $caption }}<figcaption class="card__content">{{ . }}</figcaption>{{ end }}
+  {{- /* les images de `resources` (la cover d'abord) s'affichent en figures ; les autres entrées vont dans « Ressources » */ -}}
+  {{- $images := slice }}{{ $links := slice }}
+  {{- range $page.Params.resources }}
+    {{- $res := $page.Resources.Get .src }}
+    {{- if and $res (eq $res.MediaType.MainType "image") }}
+      {{- $figure := dict "image" $res "caption" (.title | default "") }}
+      {{- if eq .type "cover" }}{{ $images = append $images (slice $figure) }}{{ else }}{{ $images = $images | append $figure }}{{ end }}
+    {{- else if in (slice "link" "page") (.type | default "link") }}
+      {{- $links = $links | append . }}
+    {{- end }}
+  {{- end }}
+
+  {{ range $images }}
+  {{- $caption := .caption }}
+  <figure class="markdown-image"{{ with $caption }} role="figure" aria-label="{{ . }}."{{ end }}>
+    {{ with (.image.Resize "1440x webp").Crop "1440x900 Top webp" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $caption }}">{{ end }}
+    {{ with $caption }}<figcaption>{{ . }}.</figcaption>{{ end }}
   </figure>
   {{ end }}
 
@@ -16,11 +26,6 @@
     {{ . | markdownify }}
   </section>
   {{ end }}
-
-  {{- $links := slice }}
-  {{- range $page.Params.resources }}
-    {{- if in (slice "link" "page") (.type | default "link") }}{{ $links = $links | append . }}{{ end }}
-  {{- end }}
 
   {{ with $links }}
   <section aria-labelledby="ressources">

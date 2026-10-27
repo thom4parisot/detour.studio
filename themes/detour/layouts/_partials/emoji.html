@@ -6,7 +6,9 @@
   <span role="img" aria-label="…">:heart:</span> : le nom vient du parent.
   Source : https://discourse.gohugo.io/t/automatically-add-a-span-with-a-class-around-all-emojis/52903/7
 
+  Une teinte de peau suit le code (:wave::skin-tone-2:) : elle reste dans le même <span>.
+
   Usage : {{ partial "emoji.html" .Content }}
 */ -}}
-{{- $html := replaceRE `(:([a-z][a-z0-9_]*):)` `<span class="emoji emo-$2" aria-hidden="true">$1</span>` . -}}
+{{- $html := replaceRE `(:([a-z][a-z0-9_]*):(?::skin-tone-[2-6]:)?)` `<span class="emoji emo-$2" aria-hidden="true">$1</span>` . -}}
 {{- return ($html | transform.Emojify | safeHTML) -}}

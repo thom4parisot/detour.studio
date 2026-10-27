@@ -58,10 +58,12 @@
               Toutes les notes
               ({{- $Weeknotes | len }}<span class="visually-hidden"> notes</span>)</a></li>
           <li>
-            <a href="{{ $WeeknotesPage.Permalink }}" class="browse" aria-label="Flux RSS">
+            {{- with $WeeknotesPage.OutputFormats.Get "rss" }}
+            <a href="{{ .Permalink }}" class="browse"  rel="alternate" type="application/rss+xml" aria-label="Flux RSS">
               {{- partial "icon.html" "rss" -}}
               <abbr title="Really Simple Syndication" lang="en">RSS</abbr>
             </a>
+            {{ end -}}
           </li>
         </ul>
       </div>

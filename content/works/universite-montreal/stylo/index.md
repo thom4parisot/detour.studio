@@ -1,7 +1,7 @@
 ---
 title: Stylo
-subtitle: Un éditeur de texte pour les sciences humaines
-for: Chaire de recherche du Canada sur les écritures numériques
+subtitle: Collaborer sur des articles, mémoires et thèses académiques
+for: Laboratoire de recherche du Canada sur les écritures numériques
 description: |
   Intégrer des fonctionnalités d'écriture collaborative en Markdown, ainsi qu'une gestion documentaire scientifique.
 categories:
@@ -18,7 +18,7 @@ resources:
   - src: screenshot.webp
     title: Capture d'écran de l'écran d'écriture collaborative
     type: cover
-  - src: https://ecrituresnumeriques.ca/fr/Activites/Projets/2016/1/14/Stylo
+  - src: https://www.ecrituresnumeriques.ca/fr/projets/stylo
     title: Présentation du projet
   - src: https://github.com/ecrituresNumeriques/stylo
     title: Code source

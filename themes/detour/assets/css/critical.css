@@ -756,6 +756,14 @@ details {
     .lead {
       font-size: 1.15em;
     }
+
+    .page-lastmod {
+      border-top: var(--rule-thin) solid var(--card-light-rule-color);
+      color: var(--section-fonce);
+      font-size: var(--text-small);
+      margin-top: var(--space);
+      padding-top: var(--space);
+    }
   }
 
   /* mobile : l'illustration est un bandeau sous le texte, en fondu vers le bas */
@@ -990,6 +998,14 @@ a.title {
   display: flex;
   flex-direction: column;
   text-wrap: balance;
+
+  .subtitle {
+    font-weight: 400;
+
+    &::before {
+      content: "— ";
+    }
+  }
 
   .suptitle {
     color: var(--brand-mid-tone);

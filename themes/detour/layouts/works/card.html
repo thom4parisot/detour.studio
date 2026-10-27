@@ -1,6 +1,6 @@
 {{- $category := site.GetPage (printf "/categories/%s" (index .Params.categories 0 | anchorize)) -}}
 <article class="card type--works section-works">
-  {{ with .Resources.GetMatch "screenshot.{jpg,png,webp,avif}" }}
+  {{ with partial "page-image.html" . }}
   <div class="card__cover">
     {{ with .Fill "960x420 Center webp" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">{{ end }}
   </div>
@@ -9,7 +9,7 @@
   <div class="card__content">
     <h3>
       <a href="{{ .RelPermalink }}" class="title">
-        <span>{{ .Title }}</span>
+        <span>{{ .Title }}{{ with .Params.subtitle }} <span class="subtitle">{{ . }}</span>{{end}}</span>
         {{ with .Params.for }}<span class="visually-hidden">pour</span><span class="suptitle">{{ . | safeHTML }}</span>{{ end }}
       </a>
     </h3>

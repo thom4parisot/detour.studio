@@ -63,8 +63,15 @@ li {
   widows: 3;
 }
 
-/* Sur papier, l'adresse des liens externes est lisible */
-main a[href^="http"]::after {
+/* Sur papier, l'adresse des liens externes est lisible, sauf si le texte du lien est déjà l'adresse */
+main a[href^="http"]:not([data-url-text])::after {
+  /* annule l'icône des liens externes (critical.css) : une boîte de 10 px où l'adresse s'écrasait */
+  background: none;
+  display: inline;
+  height: auto;
+  margin: 0;
+  opacity: 1;
+  width: auto;
   color: var(--text-muted-color);
   content: " (" attr(href) ")";
   font-size: var(--text-small);

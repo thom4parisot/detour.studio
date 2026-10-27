@@ -1,7 +1,10 @@
 ---
 title: Thomas Parisot
 subtitle: Formateur
-html-title: CV orienté formation de Thomas Parisot
+lastmod: 2026-10-27
+description: |
+  CV de Thomas Parisot, formateur : formations-actions et AFEST en accessibilité numérique, cartographie, données ouvertes et IA.
+html-title: CV orienté formation (AFEST, formations-actions) de Thomas Parisot (Drôme, 26)
 icon: grow
 images: [/images/portrait.jpg]
 aliases:

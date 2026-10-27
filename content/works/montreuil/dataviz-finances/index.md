@@ -18,6 +18,9 @@ stack:
 - CSS
 - Figma
 resources:
+  - src: screenshot.webp
+    title: Page « Explorer les comptes de la ville » sur le site de Montreuil
+    type: cover
   - src: https://www.montreuil.fr/vie-citoyenne/finances-et-marches-publics/explorer-les-comptes-de-la-ville
     title: Visualisation sur le site de la ville de Montreuil
   - src: https://github.com/dtc-innovation/dataviz-finances-montreuil

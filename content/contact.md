@@ -1,5 +1,8 @@
 ---
 title: Contacter Thomas Parisot
+images: [/images/portrait.jpg]
+description: |
+  Écrire à Thomas Parisot pour parler d’un projet numérique, d’une formation à construire ensemble ou d’une simple question.
 menus:
   main:
     name: Contact

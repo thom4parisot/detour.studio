@@ -56,8 +56,11 @@
 
 {{- $img := $pixel.Filter (images.Padding 0 (sub $W 1) (sub $H 1) 0 $colors.pale) (images.Overlay $text 0 0) }}
 {{- with $photo }}
-  {{- $photoLayer := (. | images.Filter images.AutoOrient).Fill (printf "%dx%d Center" $panel $H) }}
-  {{- $photoLayer = $photoLayer | images.Filter images.Grayscale (images.Contrast 15) (images.Gamma 3.2) (images.Dither (dict "colors" (slice $colors.base $colors.pale))) }}
+  {{- /* une capture d'écran (fiche projet, sans `images`) est déjà claire : moins éclaircie, recadrée à gauche */ -}}
+  {{- $isCapture := not $.Params.images }}
+  {{- $anchor := cond $isCapture "TopLeft" "Center" }}{{ $gamma := cond $isCapture 1.2 3.2 }}
+  {{- $photoLayer := (. | images.Filter images.AutoOrient).Fill (printf "%dx%d %s" $panel $H $anchor) }}
+  {{- $photoLayer = $photoLayer | images.Filter images.Grayscale (images.Contrast 15) (images.Gamma $gamma) (images.Dither (dict "colors" (slice $colors.base $colors.pale))) }}
   {{- $img = $img.Filter (images.Overlay $photoLayer $textW 0) }}
 {{- end }}
 {{- /* l'URL absolue, en entier : elle peut déborder sur la photo, sur un fond de la couleur de la carte */ -}}

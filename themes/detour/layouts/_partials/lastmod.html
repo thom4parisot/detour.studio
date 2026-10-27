@@ -1,0 +1,10 @@
+{{- /*
+  lastmod.html — « Mis à jour le … », seulement si `lastmod` est écrit dans le front matter
+  (une relecture assumée, pas la date d'un commit).
+  Usage : {{ partial "lastmod.html" . }}
+*/ -}}
+{{- with .Params.lastmod }}
+<p class="page-lastmod">
+  Page mise à jour le <time datetime="{{ $.Lastmod.Format "2006-01-02" }}">{{ $.Lastmod | time.Format ":date_long" }}</time>
+</p>
+{{- end }}

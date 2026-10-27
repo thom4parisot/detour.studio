@@ -1,6 +1,6 @@
 {{- $img := or (.Page.Resources.Get .Destination) (resources.Get .Destination) -}}
-{{- $src := .Destination | safeURL -}}
-{{- with $img }}{{ $src = ((. | images.Filter images.AutoOrient).Fit "1440x1440 webp").RelPermalink }}{{ end -}}
+{{- $src := .Destination | absURL | safeURL -}}
+{{- with $img }}{{ $src = (partial "image-cover.html" .).Permalink }}{{ end -}}
 {{- $caption := "" }}{{ with .Title }}{{ $caption = printf "%s." (. | markdownify | plainify | htmlUnescape) }}{{ end -}}
 {{- $alt := or .PlainText $caption -}}
 {{- if and .IsBlock .Title -}}

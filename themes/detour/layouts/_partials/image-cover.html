@@ -1,0 +1,10 @@
+{{- /*
+  image-cover.html — la version d'une image servie aux lecteurs : orientée selon
+  l'EXIF, 1440 px au plus, en webp. Utilisée dans le contenu (render-image.html)
+  et dans le flux RSS (enclosure), pour ne générer qu'un seul fichier.
+
+  Usage : {{ $img := partial "image-cover.html" $resource }}
+*/ -}}
+{{- $img := false -}}
+{{- with . }}{{ $img = (. | images.Filter images.AutoOrient).Fit "1440x1440 webp" }}{{ end -}}
+{{- return $img -}}

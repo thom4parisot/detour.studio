@@ -1,7 +1,10 @@
 ---
 title: Thomas Parisot
 subtitle: Développeur web full-stack
-html-title: Thomas Parisot, développeur web full-stack et product owner basé à Crest (Drôme, 26)
+lastmod: 2026-10-27
+description: |
+  CV de Thomas Parisot, développeur web full-stack : services publics accessibles et sobres, logiciels libres, JavaScript, Node.js et IA.
+html-title: Thomas Parisot, développeur web full-stack JavaScript, Node.js et IA basé à Crest (Drôme, 26)
 icon: grow
 menu:
   main:

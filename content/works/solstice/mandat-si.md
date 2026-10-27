@@ -7,7 +7,6 @@ categories:
 for: Solstice CAE
 status: ongoing
 date: 2026-07-06
-highlight-order: 2
 date_until:
 keywords:
 - Solstice SI

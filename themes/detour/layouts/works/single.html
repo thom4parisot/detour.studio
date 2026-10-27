@@ -1,5 +1,4 @@
 {{ define "main" }}
-{{- $screenshot := .Resources.GetMatch "screenshot.{jpg,png,webp,avif}" -}}
 {{- $notes := sort ((where site.RegularPages "Section" "weeknotes").Related .) "Date" "desc" -}}
 {{- $category := site.GetPage (printf "/categories/%s" (index .Params.categories 0 | anchorize)) -}}
 
@@ -41,7 +40,7 @@
       </ol>
     </section>
     {{ else }}
-      {{ partial "works/overview.html" (dict "page" . "screenshot" $screenshot) }}
+      {{ partial "works/overview.html" (dict "page" .) }}
     {{ end }}
 
     <aside class="container container--light" aria-labelledby="en-bref">
@@ -75,7 +74,7 @@
   </div>
 
   {{ if .Params.contributions }}
-    {{ partial "works/overview.html" (dict "page" . "screenshot" $screenshot) }}
+    {{ partial "works/overview.html" (dict "page" .) }}
   {{ end }}
 
   {{ with $notes }}

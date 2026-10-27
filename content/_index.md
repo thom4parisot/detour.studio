@@ -1,5 +1,6 @@
 ---
 title: détour.studio
+outputs: [html]
 menu:
   main:
     weight: 10

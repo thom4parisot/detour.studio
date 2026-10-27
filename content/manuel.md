@@ -1,6 +1,9 @@
 ---
 title: Manuel d'interactions
+lastmod: 2026-10-27
 extraClass: content--lead-in-lists
+description: |
+  Comment entrer en contact, savoir où j'excelle, où je suis en difficulté et comment le détecter.
 aliases:
 - user-manual
 credits: |
@@ -10,6 +13,8 @@ menus:
     parent: about
     name: Manuel d'interactions
     weight: 10
+    params:
+      description: Comment entrer en contact, savoir où j'excelle, où je suis en difficulté et comment le détecter.
 ---
 
 Je décris ici _comment_ je fonctionne, pour qu'on se donne de
