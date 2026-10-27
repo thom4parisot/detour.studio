@@ -6,8 +6,7 @@ written_in: Crest
 images: [/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.webp]
 network:
 keywords:
-- Équibio
-- Stocks fédérés
+- Solstice SI
 - Stylo
 ---
 
@@ -19,15 +18,15 @@ keywords:
 détour.studio
 : x
 
+Solstice
+: x
+
 Stylo
 : x
-: [Lire le journal de développement](https://github.com/EcrituresNumeriques/stylo/blob/master/JOURNAL.md#mercredi-28-avril-2021).
 
 Stocks fédérés de vélo
 : x
 
-Équipements bio
-: x
 
 ![](/weeknotes/images/{{ now.Format "2006" }}/{{ now.Format "1" }}/x.webp " ({{ now | time.Format ":date_long" }})")
 
